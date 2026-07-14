@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+config.json
+amazon_page_confirmations.json
+data/amazon_history.jsonl
+output/
+.playwright-cli/
+node_modules/
+.DS_Store

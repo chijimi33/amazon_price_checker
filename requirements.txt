@@ -1,0 +1,2 @@
+# Amazon's official Creators API SDK. PA-API was retired on 2026-05-15.
+amazon-creatorsapi-python-sdk==1.2.0

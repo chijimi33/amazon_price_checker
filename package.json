@@ -1,0 +1,13 @@
+{
+  "name": "amazon-price-checker-browser-helper",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Read-only Playwright helper for confirming Amazon.co.jp product pages",
+  "scripts": {
+    "browser:install": "playwright-cli install-browser chromium",
+    "browser:help": "playwright-cli --help"
+  },
+  "devDependencies": {
+    "@playwright/cli": "0.1.17"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "marketplace": "www.amazon.co.jp",
+  "asins": [],
+  "searches": [
+    {
+      "id": "ryzen",
+      "keywords": "Ryzen CPU",
+      "search_index": "Computers",
+      "item_count": 10,
+      "min_saving_percent": 10
+    },
+    {
+      "id": "ssd",
+      "keywords": "NVMe SSD 2TB",
+      "search_index": "Computers",
+      "item_count": 10,
+      "min_saving_percent": 10
+    },
+    {
+      "id": "monitor",
+      "keywords": "ゲーミングモニター",
+      "search_index": "Computers",
+      "item_count": 10,
+      "min_saving_percent": 10
+    },
+    {
+      "id": "power-supply",
+      "keywords": "PC電源 80PLUS Gold",
+      "search_index": "Computers",
+      "item_count": 10,
+      "min_saving_percent": 10
+    }
+  ]
+}

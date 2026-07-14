@@ -1,0 +1,592 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-07-15",
+  "settings": {
+    "quality_tier_order": [
+      "unrated",
+      "C",
+      "B",
+      "A",
+      "S"
+    ],
+    "default_quality_gate": {
+      "allowed_statuses": [
+        "approved",
+        "preferred"
+      ],
+      "minimum_tier": "B",
+      "minimum_evidence_count": 1,
+      "max_review_age_days": 730,
+      "forbidden_risk_flags": [
+        "known_safety_issue",
+        "unresolved_firmware_issue"
+      ]
+    }
+  },
+  "profiles": [
+    {
+      "id": "cpu-am5-gaming-8core",
+      "name": "AM5・8コア以上のゲーム向けCPU",
+      "category": "cpu",
+      "description": "完全一致SKUの価格を比較する前に、用途に合うCPUを探すための条件です。",
+      "requirements": [
+        {
+          "path": "specs.socket",
+          "op": "eq",
+          "value": "AM5",
+          "label": "AM5"
+        },
+        {
+          "path": "specs.cores",
+          "op": "gte",
+          "value": 8,
+          "label": "8コア以上"
+        },
+        {
+          "path": "specs.retail_package",
+          "op": "eq",
+          "value": true,
+          "label": "国内リテールパッケージ"
+        }
+      ],
+      "preferences": [
+        {
+          "path": "specs.cache_specialized_for_gaming",
+          "op": "eq",
+          "value": true,
+          "weight": 40,
+          "label": "ゲーム向け大容量キャッシュ"
+        },
+        {
+          "path": "specs.integrated_graphics",
+          "op": "eq",
+          "value": true,
+          "weight": 10,
+          "label": "診断用内蔵GPU"
+        },
+        {
+          "path": "specs.cooling_requirement_class",
+          "op": "in",
+          "value": [
+            "medium",
+            "low"
+          ],
+          "weight": 20,
+          "label": "扱いやすい冷却条件"
+        },
+        {
+          "path": "specs.platform_support_years_remaining",
+          "op": "gte",
+          "value": 2,
+          "weight": 30,
+          "label": "プラットフォーム更新余地"
+        }
+      ]
+    },
+    {
+      "id": "gpu-1440p-16gb",
+      "name": "1440p向け・VRAM 16GB以上",
+      "category": "gpu",
+      "description": "GPUチップの性能帯とVRAM容量を揃え、個別カードの冷却・保証リスクも除外します。",
+      "requirements": [
+        {
+          "path": "specs.vram_gb",
+          "op": "gte",
+          "value": 16,
+          "label": "VRAM 16GB以上"
+        },
+        {
+          "path": "specs.performance_1440p_index",
+          "op": "gte",
+          "value": 70,
+          "label": "1440p性能指数70以上"
+        },
+        {
+          "path": "specs.domestic_warranty_years",
+          "op": "gte",
+          "value": 1,
+          "label": "国内保証1年以上"
+        }
+      ],
+      "preferences": [
+        {
+          "path": "specs.cooler_noise_class",
+          "op": "in",
+          "value": [
+            "quiet",
+            "average"
+          ],
+          "weight": 35,
+          "label": "騒音が平均以内"
+        },
+        {
+          "path": "specs.slot_width",
+          "op": "lte",
+          "value": 3.0,
+          "weight": 20,
+          "label": "3スロット以内"
+        },
+        {
+          "path": "specs.power_connector_standard",
+          "op": "in",
+          "value": [
+            "8pin",
+            "12V-2x6"
+          ],
+          "weight": 15,
+          "label": "標準的な補助電源"
+        },
+        {
+          "path": "specs.cooler_quality_tier",
+          "op": "in",
+          "value": [
+            "A",
+            "B"
+          ],
+          "weight": 30,
+          "label": "冷却品質B以上"
+        }
+      ],
+      "quality_gate": {
+        "forbidden_risk_flags": [
+          "known_safety_issue",
+          "unresolved_firmware_issue",
+          "cooler_defect",
+          "warranty_route_unclear"
+        ]
+      }
+    },
+    {
+      "id": "memory-ddr5-32gb-am5",
+      "name": "AM5向けDDR5-6000・32GB",
+      "category": "memory",
+      "description": "容量だけでなく枚数、速度、レイテンシ、EXPO対応を揃えて比較します。",
+      "requirements": [
+        {
+          "path": "specs.memory_type",
+          "op": "eq",
+          "value": "DDR5",
+          "label": "DDR5"
+        },
+        {
+          "path": "specs.total_capacity_gb",
+          "op": "eq",
+          "value": 32,
+          "label": "合計32GB"
+        },
+        {
+          "path": "specs.module_count",
+          "op": "eq",
+          "value": 2,
+          "label": "2枚組"
+        },
+        {
+          "path": "specs.data_rate_mt_s",
+          "op": "gte",
+          "value": 6000,
+          "label": "DDR5-6000以上"
+        },
+        {
+          "path": "specs.expo",
+          "op": "eq",
+          "value": true,
+          "label": "AMD EXPO対応"
+        }
+      ],
+      "preferences": [
+        {
+          "path": "specs.cas_latency",
+          "op": "lte",
+          "value": 32,
+          "weight": 55,
+          "label": "CL32以下"
+        },
+        {
+          "path": "specs.module_height_mm",
+          "op": "lte",
+          "value": 45,
+          "weight": 20,
+          "label": "大型空冷と干渉しにくい"
+        },
+        {
+          "path": "specs.warranty_class",
+          "op": "eq",
+          "value": "limited_lifetime",
+          "weight": 25,
+          "label": "制限付き永久保証"
+        }
+      ]
+    },
+    {
+      "id": "ssd-pcie4-balanced-2tb",
+      "name": "PCIe 4.0・2TBの高品質SSD",
+      "category": "ssd",
+      "description": "カタログ速度だけでなくNAND、キャッシュ、持続性能、保証、部品変更リスクを評価します。",
+      "requirements": [
+        {
+          "path": "specs.capacity_gb",
+          "op": "gte",
+          "value": 1900,
+          "label": "実質2TBクラス"
+        },
+        {
+          "path": "specs.form_factor",
+          "op": "eq",
+          "value": "M.2 2280",
+          "label": "M.2 2280"
+        },
+        {
+          "path": "specs.interface_generation",
+          "op": "gte",
+          "value": 4,
+          "label": "PCIe 4.0以上"
+        },
+        {
+          "path": "specs.warranty_years",
+          "op": "gte",
+          "value": 5,
+          "label": "5年保証"
+        }
+      ],
+      "preferences": [
+        {
+          "path": "specs.nand_type",
+          "op": "eq",
+          "value": "TLC",
+          "weight": 25,
+          "label": "TLC NAND"
+        },
+        {
+          "path": "specs.dram_cache",
+          "op": "eq",
+          "value": true,
+          "weight": 20,
+          "label": "DRAMキャッシュ搭載"
+        },
+        {
+          "path": "specs.sustained_write_class",
+          "op": "in",
+          "value": [
+            "high",
+            "very_high"
+          ],
+          "weight": 20,
+          "label": "高い持続書き込み性能"
+        },
+        {
+          "path": "specs.tbw_tb",
+          "op": "gte",
+          "value": 1000,
+          "weight": 15,
+          "label": "1000TBW以上"
+        },
+        {
+          "path": "specs.component_consistency",
+          "op": "eq",
+          "value": "high",
+          "weight": 20,
+          "label": "主要部品の一貫性"
+        }
+      ],
+      "quality_gate": {
+        "minimum_evidence_count": 2,
+        "required_evidence_kinds": [
+          "independent_review"
+        ],
+        "forbidden_risk_flags": [
+          "known_safety_issue",
+          "unresolved_firmware_issue",
+          "component_swap_unverified"
+        ]
+      }
+    },
+    {
+      "id": "psu-atx31-850w-balanced",
+      "name": "ATX 3.1・850Wの高品質電源",
+      "category": "psu",
+      "description": "容量単価ではなく安全性、過渡応答、騒音、保証、コネクターを品質条件にします。",
+      "requirements": [
+        {
+          "path": "specs.wattage",
+          "op": "gte",
+          "value": 850,
+          "label": "850W以上"
+        },
+        {
+          "path": "specs.atx_version",
+          "op": "in",
+          "value": [
+            "3.0",
+            "3.1"
+          ],
+          "label": "ATX 3.x"
+        },
+        {
+          "path": "specs.native_12v2x6",
+          "op": "eq",
+          "value": true,
+          "label": "ネイティブ12V-2x6"
+        },
+        {
+          "path": "specs.warranty_years",
+          "op": "gte",
+          "value": 7,
+          "label": "7年以上の保証"
+        },
+        {
+          "path": "specs.protection_set_complete",
+          "op": "eq",
+          "value": true,
+          "label": "主要保護回路を搭載"
+        }
+      ],
+      "preferences": [
+        {
+          "path": "specs.efficiency_230v_tier",
+          "op": "in",
+          "value": [
+            "Gold",
+            "Platinum",
+            "Titanium"
+          ],
+          "weight": 20,
+          "label": "230V効率Gold以上"
+        },
+        {
+          "path": "specs.noise_tier",
+          "op": "in",
+          "value": [
+            "A++",
+            "A+",
+            "A"
+          ],
+          "weight": 35,
+          "label": "高い静音評価"
+        },
+        {
+          "path": "specs.electrical_performance_tier",
+          "op": "in",
+          "value": [
+            "A",
+            "S"
+          ],
+          "weight": 45,
+          "label": "電気性能A以上"
+        }
+      ],
+      "quality_gate": {
+        "minimum_evidence_count": 2,
+        "required_evidence_kinds": [
+          "independent_review"
+        ],
+        "forbidden_risk_flags": [
+          "known_safety_issue",
+          "protection_behavior_unverified",
+          "connector_overheat_report"
+        ]
+      }
+    },
+    {
+      "id": "motherboard-am5-balanced",
+      "name": "AM5のバランス型マザーボード",
+      "category": "motherboard",
+      "description": "CPU対応表だけでなくVRM、レーン共有、BIOS復旧、I/O、基板リビジョンを評価します。",
+      "requirements": [
+        {
+          "path": "specs.socket",
+          "op": "eq",
+          "value": "AM5",
+          "label": "AM5"
+        },
+        {
+          "path": "specs.memory_type",
+          "op": "eq",
+          "value": "DDR5",
+          "label": "DDR5"
+        },
+        {
+          "path": "specs.form_factor",
+          "op": "in",
+          "value": [
+            "ATX",
+            "Micro-ATX"
+          ],
+          "label": "ATXまたはMicro-ATX"
+        },
+        {
+          "path": "specs.bios_flashback",
+          "op": "eq",
+          "value": true,
+          "label": "CPUなしBIOS更新"
+        },
+        {
+          "path": "specs.m2_slots",
+          "op": "gte",
+          "value": 3,
+          "label": "M.2スロット3基以上"
+        },
+        {
+          "path": "specs.vrm_sustained_cpu_class",
+          "op": "in",
+          "value": [
+            "mainstream",
+            "high_end"
+          ],
+          "label": "対象CPUを継続負荷で運用可能"
+        }
+      ],
+      "preferences": [
+        {
+          "path": "specs.lan_speed_gbps",
+          "op": "gte",
+          "value": 2.5,
+          "weight": 20,
+          "label": "2.5GbE以上"
+        },
+        {
+          "path": "specs.wifi_generation",
+          "op": "gte",
+          "value": 6,
+          "weight": 15,
+          "label": "Wi-Fi 6以上"
+        },
+        {
+          "path": "specs.pcie5_m2_slots",
+          "op": "gte",
+          "value": 1,
+          "weight": 20,
+          "label": "PCIe 5.0 M.2"
+        },
+        {
+          "path": "specs.lane_sharing_severity",
+          "op": "in",
+          "value": [
+            "none",
+            "low"
+          ],
+          "weight": 30,
+          "label": "レーン共有の制約が少ない"
+        },
+        {
+          "path": "specs.debug_features",
+          "op": "intersects",
+          "value": [
+            "post_code",
+            "debug_led"
+          ],
+          "weight": 15,
+          "label": "デバッグ機能"
+        }
+      ],
+      "quality_gate": {
+        "minimum_evidence_count": 2,
+        "required_evidence_kinds": [
+          "independent_review"
+        ],
+        "forbidden_risk_flags": [
+          "known_safety_issue",
+          "unresolved_firmware_issue",
+          "board_revision_unverified",
+          "vrm_test_missing"
+        ]
+      }
+    },
+    {
+      "id": "monitor-qhd27-high-refresh",
+      "name": "27型QHD・高リフレッシュレートモニター",
+      "category": "monitor",
+      "description": "公称1msではなく実測応答、オーバーシュート、VRR、輝度、保証を評価します。",
+      "requirements": [
+        {
+          "path": "specs.size_inch",
+          "op": "gte",
+          "value": 26.5,
+          "label": "26.5型以上"
+        },
+        {
+          "path": "specs.size_inch",
+          "op": "lte",
+          "value": 27.5,
+          "label": "27.5型以下"
+        },
+        {
+          "path": "specs.resolution",
+          "op": "eq",
+          "value": "2560x1440",
+          "label": "QHD"
+        },
+        {
+          "path": "specs.max_refresh_hz",
+          "op": "gte",
+          "value": 165,
+          "label": "165Hz以上"
+        },
+        {
+          "path": "specs.vrr",
+          "op": "eq",
+          "value": true,
+          "label": "VRR対応"
+        },
+        {
+          "path": "specs.measured_response_reviewed",
+          "op": "eq",
+          "value": true,
+          "label": "応答性能の実測レビューあり"
+        }
+      ],
+      "preferences": [
+        {
+          "path": "specs.average_response_ms",
+          "op": "lte",
+          "value": 6.0,
+          "weight": 25,
+          "label": "平均応答6ms以下"
+        },
+        {
+          "path": "specs.overshoot_class",
+          "op": "in",
+          "value": [
+            "low",
+            "very_low"
+          ],
+          "weight": 25,
+          "label": "低オーバーシュート"
+        },
+        {
+          "path": "specs.brightness_nits",
+          "op": "gte",
+          "value": 350,
+          "weight": 15,
+          "label": "350nit以上"
+        },
+        {
+          "path": "specs.height_adjustment",
+          "op": "eq",
+          "value": true,
+          "weight": 15,
+          "label": "高さ調整"
+        },
+        {
+          "path": "specs.warranty_years",
+          "op": "gte",
+          "value": 3,
+          "weight": 20,
+          "label": "3年以上の保証"
+        }
+      ],
+      "quality_gate": {
+        "minimum_evidence_count": 2,
+        "required_evidence_kinds": [
+          "independent_review"
+        ],
+        "forbidden_risk_flags": [
+          "known_safety_issue",
+          "panel_variant_unverified",
+          "severe_overshoot",
+          "warranty_route_unclear"
+        ]
+      }
+    }
+  ],
+  "products": []
+}

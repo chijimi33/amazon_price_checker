@@ -1,0 +1,71 @@
+{
+  "id": "example-ssd-model-2tb",
+  "category": "ssd",
+  "brand": "Example Brand",
+  "model": "EXAMPLE-SSD-2TB",
+  "aliases": [
+    "EX2TB"
+  ],
+  "identifiers": {
+    "asins": [
+      "B0EXAMPLE1"
+    ],
+    "jan": [
+      "0000000000000"
+    ],
+    "kakaku_ids": [
+      "K0000000000"
+    ],
+    "part_numbers": [
+      "EXAMPLE-SSD-2TB"
+    ]
+  },
+  "specs": {
+    "capacity_gb": 2000,
+    "form_factor": "M.2 2280",
+    "interface_generation": 4,
+    "nand_type": "TLC",
+    "dram_cache": true,
+    "sustained_write_class": "high",
+    "tbw_tb": 1200,
+    "warranty_years": 5,
+    "component_consistency": "high"
+  },
+  "quality": {
+    "status": "research_required",
+    "tier": "unrated",
+    "summary": "記入例です。実在製品として使用しないでください。",
+    "strengths": [],
+    "weaknesses": [],
+    "risk_flags": [
+      "component_swap_unverified"
+    ],
+    "reviewed_at": null,
+    "evidence": [
+      {
+        "kind": "manufacturer",
+        "title": "メーカー仕様ページ",
+        "url": "https://example.com/product",
+        "checked_at": "2026-07-15",
+        "supports": [
+          "capacity_gb",
+          "warranty_years"
+        ]
+      },
+      {
+        "kind": "independent_review",
+        "title": "独立レビュー・実測記事",
+        "url": "https://example.com/review",
+        "checked_at": "2026-07-15",
+        "supports": [
+          "nand_type",
+          "sustained_write_class",
+          "component_consistency"
+        ]
+      }
+    ]
+  },
+  "notes": [
+    "承認前はstatusをresearch_requiredのままにします。"
+  ]
+}

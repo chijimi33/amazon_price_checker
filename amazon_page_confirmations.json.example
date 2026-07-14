@@ -1,0 +1,32 @@
+{
+  "items": [
+    {
+      "asin": "B0EXAMPLE1",
+      "confirmed_at": "2026-07-14T10:00:00+09:00",
+      "product_url": "https://www.amazon.co.jp/dp/B0EXAMPLE1",
+      "price_yen": 19800,
+      "prime_exclusive": true,
+      "prime_eligible": true,
+      "prime_exclusive_price_yen": 17800,
+      "coupon_checked": true,
+      "coupon_discount_yen": 1000,
+      "coupon_applied": true,
+      "register_discount_checked": true,
+      "register_discount_yen": 0,
+      "register_discount_applied": false,
+      "shipping_checked": true,
+      "shipping_yen": 0,
+      "points_yen": 178,
+      "seller": "Amazon.co.jp",
+      "seller_trusted": true,
+      "shipper": "Amazon.co.jp",
+      "availability": "在庫あり",
+      "cartable": true,
+      "condition": "新品",
+      "condition_matches": true,
+      "model": "MODEL-123",
+      "model_matches": true,
+      "warranty": "メーカー保証3年"
+    }
+  ]
+}

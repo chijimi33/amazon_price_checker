@@ -1,0 +1,17 @@
+{
+  "outputDir": "output/playwright",
+  "browser": {
+    "launchOptions": {
+      "headless": true
+    },
+    "contextOptions": {
+      "locale": "ja-JP",
+      "timezoneId": "Asia/Tokyo",
+      "userAgent": "Mozilla/5.0 (Macintosh; ARM Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36 Agent/amazon_price_checker/1.0",
+      "viewport": {
+        "width": 1440,
+        "height": 1200
+      }
+    }
+  }
+}
