@@ -124,7 +124,7 @@ verification.status = amazon_verification_candidate
 
 ## 監視と製品探しで共有する品質カタログ
 
-`catalog/quality_catalog.json` は、価格監視専用のホワイトリストではありません。普段の製品探し、候補比較、Amazon取得結果の自動判定で共有する独立した製品データベースです。
+`catalog/quality_catalog.xlsx` を人間が編集する正本、`catalog/quality_catalog.json` をツールが読む生成物として扱います。価格監視専用のホワイトリストではなく、普段の製品探し、候補比較、Amazon取得結果の自動判定で共有する独立した製品データベースです。
 
 ```text
 品質カタログ ──→ 条件検索・候補比較
@@ -146,8 +146,23 @@ verification.status = amazon_verification_candidate
 ### カタログの検証
 
 ```bash
-python3 quality_catalog.py validate
+python3 catalog_excel.py validate
+python3 catalog_excel.py build
+python3 catalog_excel.py check
 ```
+
+`validate` はExcelの列定義、型、必須値、参照関係と生成予定JSONを検証します。`build` は検証成功後だけ `catalog/quality_catalog.json` を更新し、`check` はExcelと既存JSONの同期状態を確認します。JSONを直接編集せず、Excelから一方向に生成してください。生成後のJSON自体は従来どおり `python3 quality_catalog.py validate` でも検証できます。
+
+Excelはカテゴリ別に `CPU`、`GPU`、`Memory`、`SSD`、`PSU`、`Motherboard`、`Monitor` シートを持ちます。主要ASIN・JAN・価格.com ID・部品番号と、人間向けの品質要約は各カテゴリシートへまとめています。追加識別子、根拠資料、既知の問題はそれぞれ `Identifiers`、`Evidence`、`Risks` に1件1行で登録します。
+
+仕様項目は後から追加できます。
+
+1. カテゴリシートのExcelテーブル内へ新しい列を追加する
+2. `FieldDefinitions` に同じ `sheet_name` と `column_name` を追加する
+3. `json_path` を `specs.追加項目名`、`data_type` を適切な型にする
+4. `python3 catalog_excel.py validate` と `build` を実行する
+
+`FieldDefinitions` が列名からJSONパスと型を解決するため、`specs` 配下の項目追加ではPythonコードやJSON Schemaの変更は不要です。未定義列や定義だけ存在する列は検証エラーになり、入力の取りこぼしを防ぎます。カテゴリ自体を増やす場合は `SheetDefinitions` にも1行追加します。
 
 JSON Schemaは `catalog/quality_catalog.schema.json` にあります。製品レコードの記入例は `catalog/example_product.json` です。記入例は実在製品ではないため、そのままカタログへ登録しないでください。
 
