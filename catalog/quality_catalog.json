@@ -14188,6 +14188,1143 @@
         "passmark_checked_at": "2026-07-15"
       },
       "identifiers": {}
+    },
+    {
+      "category": "memory",
+      "id": "memory-corsair-cmk32gx5m2b6000z30",
+      "brand": "Corsair",
+      "model": "CMK32GX5M2B6000Z30",
+      "display_name": "Corsair VENGEANCE DDR5-6000 32GB (16GB×2) CL30 AMD EXPO",
+      "identifiers": {
+        "part_numbers": [
+          "CMK32GX5M2B6000Z30"
+        ]
+      },
+      "aliases": [
+        "VENGEANCE DDR5 32GB 6000 CL30 EXPO"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "公式仕様を確認したDDR5デュアルチャネルキット。国内流通SKU、独立レビュー、QVL確認前の調査中レコードです。",
+        "strengths": [
+          "DDR5-6000 CL30",
+          "AMD EXPO・Intel XMP対応",
+          "限定永久保証"
+        ],
+        "weaknesses": [
+          "定格動作にはプロファイル有効化と対応プラットフォームが必要",
+          "公式商品ページでモジュール高さを数値確認できず"
+        ],
+        "risk_summary": "XMP/EXPO定格はCPU IMC・マザーボード・BIOS依存。DRAM IC・ランク・基板リビジョンは購入時期で変わる可能性があります。",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "memory-corsair-cmk32gx5m2b6000z30-official",
+            "kind": "manufacturer",
+            "title": "Corsair VENGEANCE DDR5 CMK32GX5M2B6000Z30 公式仕様",
+            "url": "https://www.corsair.com/us/en/p/memory/cmk32gx5m2b6000z30/vengeance-32gb-2x16gb-ddr5-dram-6000mt-s-cl30-amd-expo-memory-black-cmk32gx5m2b6000z30",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.warranty_class",
+              "specs.memory_type",
+              "specs.total_capacity_gb",
+              "specs.module_count",
+              "specs.data_rate_mt_s",
+              "specs.expo",
+              "specs.cas_latency",
+              "specs.voltage_v",
+              "specs.default_data_rate_mt_s"
+            ],
+            "reviewer": "Codex",
+            "notes": "32GB (2×16GB)、6000MT/s、30-36-36-76、1.40V、EXPO/XMP、限定永久保証を確認。 標準SPD/JEDEC速度は4800MT/s。"
+          }
+        ]
+      },
+      "notes": [
+        "ASIN・JAN・国内保証窓口は未確定。購入前に完全型番、マザーボードQVL、CPUの対応速度、クーラーとの干渉、販売店の保証条件を確認してください。"
+      ],
+      "specs": {
+        "memory_type": "DDR5",
+        "total_capacity_gb": 32,
+        "module_count": 2,
+        "data_rate_mt_s": 6000,
+        "expo": true,
+        "cas_latency": 30,
+        "warranty_class": "limited_lifetime",
+        "voltage_v": 1.4,
+        "default_data_rate_mt_s": 4800
+      }
+    },
+    {
+      "category": "memory",
+      "id": "memory-corsair-cmk64gx5m2b6000z30",
+      "brand": "Corsair",
+      "model": "CMK64GX5M2B6000Z30",
+      "display_name": "Corsair VENGEANCE DDR5-6000 64GB (32GB×2) CL30 AMD EXPO",
+      "identifiers": {
+        "part_numbers": [
+          "CMK64GX5M2B6000Z30"
+        ]
+      },
+      "aliases": [
+        "VENGEANCE DDR5 64GB 6000 CL30 EXPO"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "公式仕様を確認したDDR5デュアルチャネルキット。国内流通SKU、独立レビュー、QVL確認前の調査中レコードです。",
+        "strengths": [
+          "64GBを2枚で構成",
+          "DDR5-6000 CL30",
+          "AMD EXPO・Intel XMP対応",
+          "限定永久保証"
+        ],
+        "weaknesses": [
+          "32GBモジュール2枚の定格動作はCPU IMCとBIOSの影響を受ける",
+          "公式商品ページでモジュール高さを数値確認できず"
+        ],
+        "risk_summary": "XMP/EXPO定格はCPU IMC・マザーボード・BIOS依存。DRAM IC・ランク・基板リビジョンは購入時期で変わる可能性があります。",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "memory-corsair-cmk64gx5m2b6000z30-official",
+            "kind": "manufacturer",
+            "title": "Corsair VENGEANCE DDR5 CMK64GX5M2B6000Z30 公式仕様",
+            "url": "https://www.corsair.com/ww/en/p/memory/CMK64GX5M2B6000Z30/vengeance-64gb-2x32gb-ddr5-dram-6000mt-s-cl30-amd-expo-%26-intel-xmp-memory-kit-cmk64gx5m2b6000z30",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.warranty_class",
+              "specs.memory_type",
+              "specs.total_capacity_gb",
+              "specs.module_count",
+              "specs.data_rate_mt_s",
+              "specs.expo",
+              "specs.cas_latency",
+              "specs.voltage_v",
+              "specs.default_data_rate_mt_s"
+            ],
+            "reviewer": "Codex",
+            "notes": "64GB (2×32GB)、6000MT/s、30-36-36-76、1.40V、EXPO/XMP、限定永久保証を確認。 標準SPD/JEDEC速度は4800MT/s。"
+          }
+        ]
+      },
+      "notes": [
+        "ASIN・JAN・国内保証窓口は未確定。購入前に完全型番、マザーボードQVL、CPUの対応速度、クーラーとの干渉、販売店の保証条件を確認してください。"
+      ],
+      "specs": {
+        "memory_type": "DDR5",
+        "total_capacity_gb": 64,
+        "module_count": 2,
+        "data_rate_mt_s": 6000,
+        "expo": true,
+        "cas_latency": 30,
+        "warranty_class": "limited_lifetime",
+        "voltage_v": 1.4,
+        "default_data_rate_mt_s": 4800
+      }
+    },
+    {
+      "category": "memory",
+      "id": "memory-corsair-cmk32gx4m2e3200c16",
+      "brand": "Corsair",
+      "model": "CMK32GX4M2E3200C16",
+      "display_name": "Corsair VENGEANCE LPX DDR4-3200 32GB (16GB×2) CL16",
+      "identifiers": {
+        "part_numbers": [
+          "CMK32GX4M2E3200C16"
+        ]
+      },
+      "aliases": [
+        "VENGEANCE LPX 32GB 3200 C16"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "公式仕様を確認したDDR4デュアルチャネルキット。国内流通SKU、独立レビュー、QVL確認前の調査中レコードです。",
+        "strengths": [
+          "DDR4-3200 CL16",
+          "Intel XMP 2.0対応",
+          "限定永久保証"
+        ],
+        "weaknesses": [
+          "AMD EXPO非対応",
+          "公式商品ページでモジュール高さを数値確認できず"
+        ],
+        "risk_summary": "XMP/EXPO定格はCPU IMC・マザーボード・BIOS依存。DRAM IC・ランク・基板リビジョンは購入時期で変わる可能性があります。",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "memory-corsair-cmk32gx4m2e3200c16-official",
+            "kind": "manufacturer",
+            "title": "Corsair VENGEANCE LPX CMK32GX4M2E3200C16 公式仕様",
+            "url": "https://www.corsair.com/us/en/p/memory/cmk32gx4m2e3200c16/vengeance-lpx-32gb-2-x-16gb-ddr4-dram-3200mhz-c16-memory-kit-black-cmk32gx4m2e3200c16",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.warranty_class",
+              "specs.memory_type",
+              "specs.total_capacity_gb",
+              "specs.module_count",
+              "specs.data_rate_mt_s",
+              "specs.expo",
+              "specs.cas_latency",
+              "specs.voltage_v",
+              "specs.default_data_rate_mt_s"
+            ],
+            "reviewer": "Codex",
+            "notes": "32GB (2×16GB)、DDR4-3200 CL16、1.35V、XMP 2.0、限定永久保証を確認。 標準SPD/JEDEC速度は2133MT/s。"
+          }
+        ]
+      },
+      "notes": [
+        "ASIN・JAN・国内保証窓口は未確定。購入前に完全型番、マザーボードQVL、CPUの対応速度、クーラーとの干渉、販売店の保証条件を確認してください。"
+      ],
+      "specs": {
+        "memory_type": "DDR4",
+        "total_capacity_gb": 32,
+        "module_count": 2,
+        "data_rate_mt_s": 3200,
+        "expo": false,
+        "cas_latency": 16,
+        "warranty_class": "limited_lifetime",
+        "voltage_v": 1.35,
+        "default_data_rate_mt_s": 2133
+      }
+    },
+    {
+      "category": "memory",
+      "id": "memory-corsair-cmk64gx4m2e3200c16",
+      "brand": "Corsair",
+      "model": "CMK64GX4M2E3200C16",
+      "display_name": "Corsair VENGEANCE LPX DDR4-3200 64GB (32GB×2) CL16",
+      "identifiers": {
+        "part_numbers": [
+          "CMK64GX4M2E3200C16"
+        ]
+      },
+      "aliases": [
+        "VENGEANCE LPX 64GB 3200 C16"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "公式仕様を確認したDDR4デュアルチャネルキット。国内流通SKU、独立レビュー、QVL確認前の調査中レコードです。",
+        "strengths": [
+          "64GBを2枚で構成",
+          "DDR4-3200 CL16",
+          "Intel XMP 2.0対応",
+          "限定永久保証"
+        ],
+        "weaknesses": [
+          "AMD EXPO非対応",
+          "32GBモジュール2枚の定格動作はCPU IMCとBIOSの影響を受ける"
+        ],
+        "risk_summary": "XMP/EXPO定格はCPU IMC・マザーボード・BIOS依存。DRAM IC・ランク・基板リビジョンは購入時期で変わる可能性があります。",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "memory-corsair-cmk64gx4m2e3200c16-official",
+            "kind": "manufacturer",
+            "title": "Corsair VENGEANCE LPX CMK64GX4M2E3200C16 公式仕様",
+            "url": "https://www.corsair.com/us/en/p/memory/cmk64gx4m2e3200c16/vengeancea-lpx-64gb-2-x-32gb-ddr4-dram-3200mhz-c16-memory-kit-black-cmk64gx4m2e3200c16",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.warranty_class",
+              "specs.memory_type",
+              "specs.total_capacity_gb",
+              "specs.module_count",
+              "specs.data_rate_mt_s",
+              "specs.expo",
+              "specs.cas_latency",
+              "specs.voltage_v",
+              "specs.default_data_rate_mt_s"
+            ],
+            "reviewer": "Codex",
+            "notes": "64GB (2×32GB)、DDR4-3200、16-20-20-38、1.35V、XMP 2.0、限定永久保証を確認。 標準SPD/JEDEC速度は2133MT/s。"
+          }
+        ]
+      },
+      "notes": [
+        "ASIN・JAN・国内保証窓口は未確定。購入前に完全型番、マザーボードQVL、CPUの対応速度、クーラーとの干渉、販売店の保証条件を確認してください。"
+      ],
+      "specs": {
+        "memory_type": "DDR4",
+        "total_capacity_gb": 64,
+        "module_count": 2,
+        "data_rate_mt_s": 3200,
+        "expo": false,
+        "cas_latency": 16,
+        "warranty_class": "limited_lifetime",
+        "voltage_v": 1.35,
+        "default_data_rate_mt_s": 2133
+      }
+    },
+    {
+      "category": "memory",
+      "id": "memory-gskill-f5-6000j3038f16gx2-fx5",
+      "brand": "G.SKILL",
+      "model": "F5-6000J3038F16GX2-FX5",
+      "display_name": "G.SKILL Flare X5 DDR5-6000 32GB (16GB×2) CL30",
+      "identifiers": {
+        "part_numbers": [
+          "F5-6000J3038F16GX2-FX5"
+        ]
+      },
+      "aliases": [
+        "Flare X5 32GB DDR5-6000 CL30"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "公式仕様を確認したDDR5デュアルチャネルキット。国内流通SKU、独立レビュー、QVL確認前の調査中レコードです。",
+        "strengths": [
+          "DDR5-6000 CL30-38-38-96",
+          "AMD EXPO対応",
+          "公式EXPO自己認証レポートあり",
+          "限定永久保証"
+        ],
+        "weaknesses": [
+          "定格動作はマザーボード・CPUの互換性に依存",
+          "メモリキットの混在不可"
+        ],
+        "risk_summary": "XMP/EXPO定格はCPU IMC・マザーボード・BIOS依存。DRAM IC・ランク・基板リビジョンは購入時期で変わる可能性があります。",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "memory-gskill-f5-6000j3038f16gx2-fx5-official",
+            "kind": "manufacturer",
+            "title": "G.SKILL F5-6000J3038F16GX2-FX5 EXPO自己認証レポート",
+            "url": "https://www.gskill.com/_upload/files/F5-6000J3038F16GX2-FX5.pdf",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.warranty_class",
+              "specs.memory_type",
+              "specs.total_capacity_gb",
+              "specs.module_count",
+              "specs.data_rate_mt_s",
+              "specs.expo",
+              "specs.cas_latency",
+              "specs.voltage_v",
+              "specs.chip_type",
+              "specs.default_data_rate_mt_s"
+            ],
+            "reviewer": "Codex",
+            "notes": "32GB (2×16GB)、DDR5-6000、30-38-38-96、1.35V、EXPO、Module Rev.1.0のSK hynix構成を確認。 標準SPD/JEDEC速度は4800MT/s。"
+          }
+        ]
+      },
+      "notes": [
+        "ASIN・JAN・国内保証窓口は未確定。購入前に完全型番、マザーボードQVL、CPUの対応速度、クーラーとの干渉、販売店の保証条件を確認してください。",
+        "SK hynix表記は公式EXPOレポートのModule Revision 1.0に対する情報で、将来の部品変更を保証しません。"
+      ],
+      "specs": {
+        "memory_type": "DDR5",
+        "total_capacity_gb": 32,
+        "module_count": 2,
+        "data_rate_mt_s": 6000,
+        "expo": true,
+        "cas_latency": 30,
+        "warranty_class": "limited_lifetime",
+        "voltage_v": 1.35,
+        "chip_type": "SK hynix (EXPO report rev.1.0)",
+        "default_data_rate_mt_s": 4800
+      }
+    },
+    {
+      "category": "memory",
+      "id": "memory-gskill-f5-6000j3040g32gx2-fx5",
+      "brand": "G.SKILL",
+      "model": "F5-6000J3040G32GX2-FX5",
+      "display_name": "G.SKILL Flare X5 DDR5-6000 64GB (32GB×2) CL30",
+      "identifiers": {
+        "part_numbers": [
+          "F5-6000J3040G32GX2-FX5"
+        ]
+      },
+      "aliases": [
+        "Flare X5 64GB DDR5-6000 CL30"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "公式仕様を確認したDDR5デュアルチャネルキット。国内流通SKU、独立レビュー、QVL確認前の調査中レコードです。",
+        "strengths": [
+          "64GBを2枚で構成",
+          "DDR5-6000 CL30-40-40-96",
+          "AMD EXPO・Intel XMP 3.0対応",
+          "限定永久保証"
+        ],
+        "weaknesses": [
+          "32GBモジュール2枚の定格動作はCPU IMCとBIOSの影響を受ける",
+          "メモリキットの混在不可"
+        ],
+        "risk_summary": "XMP/EXPO定格はCPU IMC・マザーボード・BIOS依存。DRAM IC・ランク・基板リビジョンは購入時期で変わる可能性があります。",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "memory-gskill-f5-6000j3040g32gx2-fx5-official",
+            "kind": "manufacturer",
+            "title": "G.SKILL F5-6000J3040G32GX2-FX5 公式仕様",
+            "url": "https://www.gskill.com/cn/specification/204/398/1691400033/F5-6000J3040G32GX2-FX5-Specification",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.warranty_class",
+              "specs.memory_type",
+              "specs.total_capacity_gb",
+              "specs.module_count",
+              "specs.data_rate_mt_s",
+              "specs.expo",
+              "specs.cas_latency",
+              "specs.voltage_v",
+              "specs.default_data_rate_mt_s"
+            ],
+            "reviewer": "Codex",
+            "notes": "64GB (2×32GB)、DDR5-6000、30-40-40-96、1.40V、EXPO/XMP、限定永久保証を確認。 標準SPD/JEDEC速度は4800MT/s。"
+          }
+        ]
+      },
+      "notes": [
+        "ASIN・JAN・国内保証窓口は未確定。購入前に完全型番、マザーボードQVL、CPUの対応速度、クーラーとの干渉、販売店の保証条件を確認してください。"
+      ],
+      "specs": {
+        "memory_type": "DDR5",
+        "total_capacity_gb": 64,
+        "module_count": 2,
+        "data_rate_mt_s": 6000,
+        "expo": true,
+        "cas_latency": 30,
+        "warranty_class": "limited_lifetime",
+        "voltage_v": 1.4,
+        "default_data_rate_mt_s": 4800
+      }
+    },
+    {
+      "category": "memory",
+      "id": "memory-gskill-f4-3600c16d-32gvkc",
+      "brand": "G.SKILL",
+      "model": "F4-3600C16D-32GVKC",
+      "display_name": "G.SKILL Ripjaws V DDR4-3600 32GB (16GB×2) CL16",
+      "identifiers": {
+        "part_numbers": [
+          "F4-3600C16D-32GVKC"
+        ]
+      },
+      "aliases": [
+        "Ripjaws V 32GB DDR4-3600 CL16"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "公式仕様を確認したDDR4デュアルチャネルキット。国内流通SKU、独立レビュー、QVL確認前の調査中レコードです。",
+        "strengths": [
+          "DDR4-3600 CL16-19-19-39",
+          "Intel XMP 2.0対応",
+          "公式QVLあり",
+          "限定永久保証"
+        ],
+        "weaknesses": [
+          "AMD EXPO非対応",
+          "定格動作はQVL・CPU IMC・BIOSに依存",
+          "メモリキットの混在不可"
+        ],
+        "risk_summary": "XMP/EXPO定格はCPU IMC・マザーボード・BIOS依存。DRAM IC・ランク・基板リビジョンは購入時期で変わる可能性があります。",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "memory-gskill-f4-3600c16d-32gvkc-official",
+            "kind": "manufacturer",
+            "title": "G.SKILL F4-3600C16D-32GVKC 公式仕様",
+            "url": "https://www.gskill.com/specification/165/184/1562831784/F4-3600C16D-32GVKC-Specification",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.warranty_class",
+              "specs.memory_type",
+              "specs.total_capacity_gb",
+              "specs.module_count",
+              "specs.data_rate_mt_s",
+              "specs.expo",
+              "specs.cas_latency",
+              "specs.voltage_v",
+              "specs.default_data_rate_mt_s"
+            ],
+            "reviewer": "Codex",
+            "notes": "32GB (2×16GB)、DDR4-3600、16-19-19-39、1.35V、XMP 2.0、限定永久保証を確認。 標準SPD/JEDEC速度は2133MT/s。"
+          }
+        ]
+      },
+      "notes": [
+        "ASIN・JAN・国内保証窓口は未確定。購入前に完全型番、マザーボードQVL、CPUの対応速度、クーラーとの干渉、販売店の保証条件を確認してください。"
+      ],
+      "specs": {
+        "memory_type": "DDR4",
+        "total_capacity_gb": 32,
+        "module_count": 2,
+        "data_rate_mt_s": 3600,
+        "expo": false,
+        "cas_latency": 16,
+        "warranty_class": "limited_lifetime",
+        "voltage_v": 1.35,
+        "default_data_rate_mt_s": 2133
+      }
+    },
+    {
+      "category": "memory",
+      "id": "memory-gskill-f4-3600c18d-64gvk",
+      "brand": "G.SKILL",
+      "model": "F4-3600C18D-64GVK",
+      "display_name": "G.SKILL Ripjaws V DDR4-3600 64GB (32GB×2) CL18",
+      "identifiers": {
+        "part_numbers": [
+          "F4-3600C18D-64GVK"
+        ]
+      },
+      "aliases": [
+        "Ripjaws V 64GB DDR4-3600 CL18"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "公式仕様を確認したDDR4デュアルチャネルキット。国内流通SKU、独立レビュー、QVL確認前の調査中レコードです。",
+        "strengths": [
+          "64GBを2枚で構成",
+          "DDR4-3600 CL18-22-22-42",
+          "Intel XMP 2.0対応",
+          "限定永久保証"
+        ],
+        "weaknesses": [
+          "AMD EXPO非対応",
+          "32GBモジュール2枚の定格動作はCPU IMCとBIOSの影響を受ける",
+          "メモリキットの混在不可"
+        ],
+        "risk_summary": "XMP/EXPO定格はCPU IMC・マザーボード・BIOS依存。DRAM IC・ランク・基板リビジョンは購入時期で変わる可能性があります。",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "memory-gskill-f4-3600c18d-64gvk-official",
+            "kind": "manufacturer",
+            "title": "G.SKILL F4-3600C18D-64GVK 公式仕様",
+            "url": "https://www.gskill.com/cn/specification/204/218/1571734306/F4-3600C18D-64GVK-Specification",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.warranty_class",
+              "specs.memory_type",
+              "specs.total_capacity_gb",
+              "specs.module_count",
+              "specs.data_rate_mt_s",
+              "specs.expo",
+              "specs.cas_latency",
+              "specs.voltage_v",
+              "specs.default_data_rate_mt_s"
+            ],
+            "reviewer": "Codex",
+            "notes": "64GB (2×32GB)、DDR4-3600、18-22-22-42、1.35V、XMP 2.0、限定永久保証を確認。 標準SPD/JEDEC速度は2666MT/s。"
+          }
+        ]
+      },
+      "notes": [
+        "ASIN・JAN・国内保証窓口は未確定。購入前に完全型番、マザーボードQVL、CPUの対応速度、クーラーとの干渉、販売店の保証条件を確認してください。"
+      ],
+      "specs": {
+        "memory_type": "DDR4",
+        "total_capacity_gb": 64,
+        "module_count": 2,
+        "data_rate_mt_s": 3600,
+        "expo": false,
+        "cas_latency": 18,
+        "warranty_class": "limited_lifetime",
+        "voltage_v": 1.35,
+        "default_data_rate_mt_s": 2666
+      }
+    },
+    {
+      "category": "memory",
+      "id": "memory-kingston-kf560c30bbek2-32",
+      "brand": "Kingston",
+      "model": "KF560C30BBEK2-32",
+      "display_name": "Kingston FURY Beast DDR5-6000 32GB (16GB×2) CL30 EXPO",
+      "identifiers": {
+        "part_numbers": [
+          "KF560C30BBEK2-32"
+        ]
+      },
+      "aliases": [
+        "FURY Beast 32GB DDR5-6000 CL30 EXPO"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "公式仕様を確認したDDR5デュアルチャネルキット。国内流通SKU、独立レビュー、QVL確認前の調査中レコードです。",
+        "strengths": [
+          "DDR5-6000 CL30-36-36",
+          "AMD EXPO 1.1・Intel XMP 3.0対応",
+          "高さ34.9mm",
+          "製品寿命保証"
+        ],
+        "weaknesses": [
+          "定格動作にはプロファイル有効化と対応プラットフォームが必要"
+        ],
+        "risk_summary": "XMP/EXPO定格はCPU IMC・マザーボード・BIOS依存。DRAM IC・ランク・基板リビジョンは購入時期で変わる可能性があります。",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "memory-kingston-kf560c30bbek2-32-official",
+            "kind": "manufacturer",
+            "title": "Kingston KF560C30BBEK2-32 公式データシート",
+            "url": "https://www.kingston.com/datasheets/KF560C30BBEK2-32.pdf",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.warranty_class",
+              "specs.memory_type",
+              "specs.total_capacity_gb",
+              "specs.module_count",
+              "specs.data_rate_mt_s",
+              "specs.expo",
+              "specs.cas_latency",
+              "specs.voltage_v",
+              "specs.module_height_mm",
+              "specs.default_data_rate_mt_s"
+            ],
+            "reviewer": "Codex",
+            "notes": "32GB (2×16GB)、DDR5-6000 CL30-36-36、1.40V、EXPO/XMP、高さ34.9mm、1Rx8を確認。 標準SPD/JEDEC速度は4800MT/s。"
+          }
+        ]
+      },
+      "notes": [
+        "ASIN・JAN・国内保証窓口は未確定。購入前に完全型番、マザーボードQVL、CPUの対応速度、クーラーとの干渉、販売店の保証条件を確認してください。",
+        "公式データシートの当該リビジョンでは1Rx8。"
+      ],
+      "specs": {
+        "memory_type": "DDR5",
+        "total_capacity_gb": 32,
+        "module_count": 2,
+        "data_rate_mt_s": 6000,
+        "expo": true,
+        "cas_latency": 30,
+        "module_height_mm": 34.9,
+        "warranty_class": "limited_lifetime",
+        "voltage_v": 1.4,
+        "default_data_rate_mt_s": 4800
+      }
+    },
+    {
+      "category": "memory",
+      "id": "memory-kingston-kf560c30bbek2-64",
+      "brand": "Kingston",
+      "model": "KF560C30BBEK2-64",
+      "display_name": "Kingston FURY Beast DDR5-6000 64GB (32GB×2) CL30 EXPO",
+      "identifiers": {
+        "part_numbers": [
+          "KF560C30BBEK2-64"
+        ]
+      },
+      "aliases": [
+        "FURY Beast 64GB DDR5-6000 CL30 EXPO"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "公式仕様を確認したDDR5デュアルチャネルキット。国内流通SKU、独立レビュー、QVL確認前の調査中レコードです。",
+        "strengths": [
+          "64GBを2枚で構成",
+          "DDR5-6000 CL30-36-36",
+          "AMD EXPO 1.1・Intel XMP 3.0対応",
+          "高さ34.9mm",
+          "製品寿命保証"
+        ],
+        "weaknesses": [
+          "32GBモジュール2枚の定格動作はCPU IMCとBIOSの影響を受ける"
+        ],
+        "risk_summary": "XMP/EXPO定格はCPU IMC・マザーボード・BIOS依存。DRAM IC・ランク・基板リビジョンは購入時期で変わる可能性があります。",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "memory-kingston-kf560c30bbek2-64-official",
+            "kind": "manufacturer",
+            "title": "Kingston KF560C30BBEK2-64 公式データシート",
+            "url": "https://www.kingston.com/datasheets/KF560C30BBEK2-64.pdf",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.warranty_class",
+              "specs.memory_type",
+              "specs.total_capacity_gb",
+              "specs.module_count",
+              "specs.data_rate_mt_s",
+              "specs.expo",
+              "specs.cas_latency",
+              "specs.voltage_v",
+              "specs.module_height_mm",
+              "specs.default_data_rate_mt_s"
+            ],
+            "reviewer": "Codex",
+            "notes": "64GB (2×32GB)、DDR5-6000 CL30-36-36、1.40V、EXPO/XMP、高さ34.9mm、2Rx8を確認。 標準SPD/JEDEC速度は4800MT/s。"
+          }
+        ]
+      },
+      "notes": [
+        "ASIN・JAN・国内保証窓口は未確定。購入前に完全型番、マザーボードQVL、CPUの対応速度、クーラーとの干渉、販売店の保証条件を確認してください。",
+        "公式データシートの当該リビジョンでは2Rx8。"
+      ],
+      "specs": {
+        "memory_type": "DDR5",
+        "total_capacity_gb": 64,
+        "module_count": 2,
+        "data_rate_mt_s": 6000,
+        "expo": true,
+        "cas_latency": 30,
+        "module_height_mm": 34.9,
+        "warranty_class": "limited_lifetime",
+        "voltage_v": 1.4,
+        "default_data_rate_mt_s": 4800
+      }
+    },
+    {
+      "category": "memory",
+      "id": "memory-kingston-kf432c16bbk2-32",
+      "brand": "Kingston",
+      "model": "KF432C16BBK2/32",
+      "display_name": "Kingston FURY Beast DDR4-3200 32GB (16GB×2) CL16",
+      "identifiers": {
+        "part_numbers": [
+          "KF432C16BBK2/32"
+        ]
+      },
+      "aliases": [
+        "FURY Beast 32GB DDR4-3200 CL16"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "公式仕様を確認したDDR4デュアルチャネルキット。国内流通SKU、独立レビュー、QVL確認前の調査中レコードです。",
+        "strengths": [
+          "DDR4-3200 CL16-20-20",
+          "Intel XMP 2.0対応",
+          "高さ34mm",
+          "製品寿命保証"
+        ],
+        "weaknesses": [
+          "AMD EXPO非対応",
+          "定格動作はマザーボード・CPUの互換性に依存"
+        ],
+        "risk_summary": "XMP/EXPO定格はCPU IMC・マザーボード・BIOS依存。DRAM IC・ランク・基板リビジョンは購入時期で変わる可能性があります。",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "memory-kingston-kf432c16bbk2-32-official",
+            "kind": "manufacturer",
+            "title": "Kingston KF432C16BBK2/32 公式データシート",
+            "url": "https://www.kingston.com/dataSheets/KF432C16BBK2_32.pdf",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.warranty_class",
+              "specs.memory_type",
+              "specs.total_capacity_gb",
+              "specs.module_count",
+              "specs.data_rate_mt_s",
+              "specs.expo",
+              "specs.cas_latency",
+              "specs.voltage_v",
+              "specs.module_height_mm",
+              "specs.default_data_rate_mt_s"
+            ],
+            "reviewer": "Codex",
+            "notes": "32GB (2×16GB)、DDR4-3200 CL16-20-20、1.35V、XMP 2.0、高さ34mm、1Rx8を確認。 標準SPD/JEDEC速度は2400MT/s。"
+          }
+        ]
+      },
+      "notes": [
+        "ASIN・JAN・国内保証窓口は未確定。購入前に完全型番、マザーボードQVL、CPUの対応速度、クーラーとの干渉、販売店の保証条件を確認してください。",
+        "公式データシートの当該リビジョンでは1Rx8。"
+      ],
+      "specs": {
+        "memory_type": "DDR4",
+        "total_capacity_gb": 32,
+        "module_count": 2,
+        "data_rate_mt_s": 3200,
+        "expo": false,
+        "cas_latency": 16,
+        "module_height_mm": 34,
+        "warranty_class": "limited_lifetime",
+        "voltage_v": 1.35,
+        "default_data_rate_mt_s": 2400
+      }
+    },
+    {
+      "category": "memory",
+      "id": "memory-kingston-kf432c16bbk2-64",
+      "brand": "Kingston",
+      "model": "KF432C16BBK2/64",
+      "display_name": "Kingston FURY Beast DDR4-3200 64GB (32GB×2) CL16",
+      "identifiers": {
+        "part_numbers": [
+          "KF432C16BBK2/64"
+        ]
+      },
+      "aliases": [
+        "FURY Beast 64GB DDR4-3200 CL16"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "公式仕様を確認したDDR4デュアルチャネルキット。国内流通SKU、独立レビュー、QVL確認前の調査中レコードです。",
+        "strengths": [
+          "64GBを2枚で構成",
+          "DDR4-3200 CL16-20-20",
+          "Intel XMP 2.0対応",
+          "高さ34mm",
+          "製品寿命保証"
+        ],
+        "weaknesses": [
+          "AMD EXPO非対応",
+          "32GBモジュール2枚の定格動作はCPU IMCとBIOSの影響を受ける"
+        ],
+        "risk_summary": "XMP/EXPO定格はCPU IMC・マザーボード・BIOS依存。DRAM IC・ランク・基板リビジョンは購入時期で変わる可能性があります。",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "memory-kingston-kf432c16bbk2-64-official",
+            "kind": "manufacturer",
+            "title": "Kingston KF432C16BBK2/64 公式データシート",
+            "url": "https://www.kingston.com/datasheets/KF432C16BBK2_64.pdf",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.warranty_class",
+              "specs.memory_type",
+              "specs.total_capacity_gb",
+              "specs.module_count",
+              "specs.data_rate_mt_s",
+              "specs.expo",
+              "specs.cas_latency",
+              "specs.voltage_v",
+              "specs.module_height_mm",
+              "specs.default_data_rate_mt_s"
+            ],
+            "reviewer": "Codex",
+            "notes": "64GB (2×32GB)、DDR4-3200 CL16-20-20、1.35V、XMP 2.0、高さ34mm、2Rx8を確認。 標準SPD/JEDEC速度は2400MT/s。"
+          }
+        ]
+      },
+      "notes": [
+        "ASIN・JAN・国内保証窓口は未確定。購入前に完全型番、マザーボードQVL、CPUの対応速度、クーラーとの干渉、販売店の保証条件を確認してください。",
+        "公式データシートの当該リビジョンでは2Rx8。"
+      ],
+      "specs": {
+        "memory_type": "DDR4",
+        "total_capacity_gb": 64,
+        "module_count": 2,
+        "data_rate_mt_s": 3200,
+        "expo": false,
+        "cas_latency": 16,
+        "module_height_mm": 34,
+        "warranty_class": "limited_lifetime",
+        "voltage_v": 1.35,
+        "default_data_rate_mt_s": 2400
+      }
+    },
+    {
+      "category": "memory",
+      "id": "memory-crucial-cp2k16g60c36u5b",
+      "brand": "Crucial",
+      "model": "CP2K16G60C36U5B",
+      "display_name": "Crucial Pro OC DDR5-6000 32GB (16GB×2) CL36",
+      "identifiers": {
+        "part_numbers": [
+          "CP2K16G60C36U5B"
+        ]
+      },
+      "aliases": [
+        "Crucial Pro Overclocking 32GB DDR5-6000 CL36"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "公式仕様を確認したDDR5デュアルチャネルキット。国内流通SKU、独立レビュー、QVL確認前の調査中レコードです。",
+        "strengths": [
+          "DDR5-6000 CL36-38-38-80",
+          "Intel XMP 3.0・AMD EXPO対応",
+          "限定永久保証"
+        ],
+        "weaknesses": [
+          "CL36のため既存AM5 CL32以下優先条件では加点対象外",
+          "公式商品ページでモジュール高さを数値確認できず"
+        ],
+        "risk_summary": "XMP/EXPO定格はCPU IMC・マザーボード・BIOS依存。DRAM IC・ランク・基板リビジョンは購入時期で変わる可能性があります。",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "memory-crucial-cp2k16g60c36u5b-official",
+            "kind": "manufacturer",
+            "title": "Crucial Pro CP2K16G60C36U5B 公式仕様",
+            "url": "https://eu.crucial.com/memory/ddr5/cp2k16g60c36u5b/ct24919604",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.warranty_class",
+              "specs.memory_type",
+              "specs.total_capacity_gb",
+              "specs.module_count",
+              "specs.data_rate_mt_s",
+              "specs.expo",
+              "specs.cas_latency",
+              "specs.voltage_v",
+              "specs.default_data_rate_mt_s"
+            ],
+            "reviewer": "Codex",
+            "notes": "32GB (2×16GB)、DDR5-6000 CL36-38-38-80、1.35V、XMP/EXPO、限定永久保証を確認。 標準SPD/JEDEC速度は5600MT/s。"
+          }
+        ]
+      },
+      "notes": [
+        "ASIN・JAN・国内保証窓口は未確定。購入前に完全型番、マザーボードQVL、CPUの対応速度、クーラーとの干渉、販売店の保証条件を確認してください。"
+      ],
+      "specs": {
+        "memory_type": "DDR5",
+        "total_capacity_gb": 32,
+        "module_count": 2,
+        "data_rate_mt_s": 6000,
+        "expo": true,
+        "cas_latency": 36,
+        "warranty_class": "limited_lifetime",
+        "voltage_v": 1.35,
+        "default_data_rate_mt_s": 5600
+      }
+    },
+    {
+      "category": "memory",
+      "id": "memory-crucial-cp2k32g60c40u5b",
+      "brand": "Crucial",
+      "model": "CP2K32G60C40U5B",
+      "display_name": "Crucial Pro OC DDR5-6000 64GB (32GB×2) CL40",
+      "identifiers": {
+        "part_numbers": [
+          "CP2K32G60C40U5B"
+        ]
+      },
+      "aliases": [
+        "Crucial Pro Overclocking 64GB DDR5-6000 CL40"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "公式仕様を確認したDDR5デュアルチャネルキット。国内流通SKU、独立レビュー、QVL確認前の調査中レコードです。",
+        "strengths": [
+          "64GBを2枚で構成",
+          "DDR5-6000 CL40",
+          "Intel XMP 3.0・AMD EXPO対応",
+          "限定永久保証"
+        ],
+        "weaknesses": [
+          "CL40のため既存AM5 CL32以下優先条件では加点対象外",
+          "32GBモジュール2枚の定格動作はCPU IMCとBIOSの影響を受ける"
+        ],
+        "risk_summary": "XMP/EXPO定格はCPU IMC・マザーボード・BIOS依存。DRAM IC・ランク・基板リビジョンは購入時期で変わる可能性があります。",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "memory-crucial-cp2k32g60c40u5b-official",
+            "kind": "manufacturer",
+            "title": "Crucial Pro CP2K32G60C40U5B 公式仕様",
+            "url": "https://uk.crucial.com/memory/ddr5/cp2k32g60c40u5b",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.warranty_class",
+              "specs.memory_type",
+              "specs.total_capacity_gb",
+              "specs.module_count",
+              "specs.data_rate_mt_s",
+              "specs.expo",
+              "specs.cas_latency",
+              "specs.voltage_v",
+              "specs.default_data_rate_mt_s"
+            ],
+            "reviewer": "Codex",
+            "notes": "64GB (2×32GB)、DDR5-6000 CL40、1.35V、XMP/EXPO、限定永久保証を確認。 標準SPD/JEDEC速度は5600MT/s。"
+          }
+        ]
+      },
+      "notes": [
+        "ASIN・JAN・国内保証窓口は未確定。購入前に完全型番、マザーボードQVL、CPUの対応速度、クーラーとの干渉、販売店の保証条件を確認してください。"
+      ],
+      "specs": {
+        "memory_type": "DDR5",
+        "total_capacity_gb": 64,
+        "module_count": 2,
+        "data_rate_mt_s": 6000,
+        "expo": true,
+        "cas_latency": 40,
+        "warranty_class": "limited_lifetime",
+        "voltage_v": 1.35,
+        "default_data_rate_mt_s": 5600
+      }
+    },
+    {
+      "category": "memory",
+      "id": "memory-crucial-cp2k16g4dfra32a",
+      "brand": "Crucial",
+      "model": "CP2K16G4DFRA32A",
+      "display_name": "Crucial Pro DDR4-3200 32GB (16GB×2) CL22",
+      "identifiers": {
+        "part_numbers": [
+          "CP2K16G4DFRA32A"
+        ]
+      },
+      "aliases": [
+        "Crucial Pro 32GB DDR4-3200"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "公式仕様を確認したDDR4デュアルチャネルキット。国内流通SKU、独立レビュー、QVL確認前の調査中レコードです。",
+        "strengths": [
+          "DDR4-3200 CL22",
+          "JEDEC定格1.2V",
+          "Intel XMP 2.0対応",
+          "限定永久保証"
+        ],
+        "weaknesses": [
+          "AMD EXPO非対応",
+          "CL16製品よりレイテンシが大きい",
+          "公式商品ページでモジュール高さを数値確認できず"
+        ],
+        "risk_summary": "XMP/EXPO定格はCPU IMC・マザーボード・BIOS依存。DRAM IC・ランク・基板リビジョンは購入時期で変わる可能性があります。",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "memory-crucial-cp2k16g4dfra32a-official",
+            "kind": "manufacturer",
+            "title": "Crucial Pro CP2K16G4DFRA32A 公式仕様",
+            "url": "https://www.crucial.com/memory/ddr4/cp2k16g4dfra32a/ct24204185",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.warranty_class",
+              "specs.memory_type",
+              "specs.total_capacity_gb",
+              "specs.module_count",
+              "specs.data_rate_mt_s",
+              "specs.expo",
+              "specs.cas_latency",
+              "specs.voltage_v",
+              "specs.default_data_rate_mt_s"
+            ],
+            "reviewer": "Codex",
+            "notes": "32GB (2×16GB)、DDR4-3200 CL22、1.20V、XMP 2.0、限定永久保証を確認。 標準SPD/JEDEC速度は3200MT/s。"
+          }
+        ]
+      },
+      "notes": [
+        "ASIN・JAN・国内保証窓口は未確定。購入前に完全型番、マザーボードQVL、CPUの対応速度、クーラーとの干渉、販売店の保証条件を確認してください。"
+      ],
+      "specs": {
+        "memory_type": "DDR4",
+        "total_capacity_gb": 32,
+        "module_count": 2,
+        "data_rate_mt_s": 3200,
+        "expo": false,
+        "cas_latency": 22,
+        "warranty_class": "limited_lifetime",
+        "voltage_v": 1.2,
+        "default_data_rate_mt_s": 3200
+      }
+    },
+    {
+      "category": "memory",
+      "id": "memory-crucial-cp2k32g4dfra32a",
+      "brand": "Crucial",
+      "model": "CP2K32G4DFRA32A",
+      "display_name": "Crucial Pro DDR4-3200 64GB (32GB×2) CL22",
+      "identifiers": {
+        "part_numbers": [
+          "CP2K32G4DFRA32A"
+        ]
+      },
+      "aliases": [
+        "Crucial Pro 64GB DDR4-3200"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "公式仕様を確認したDDR4デュアルチャネルキット。国内流通SKU、独立レビュー、QVL確認前の調査中レコードです。",
+        "strengths": [
+          "64GBを2枚で構成",
+          "DDR4-3200 CL22",
+          "JEDEC定格1.2V",
+          "Intel XMP 2.0対応",
+          "限定永久保証"
+        ],
+        "weaknesses": [
+          "AMD EXPO非対応",
+          "CL16製品よりレイテンシが大きい",
+          "32GBモジュール2枚の定格動作はCPU IMCとBIOSの影響を受ける"
+        ],
+        "risk_summary": "XMP/EXPO定格はCPU IMC・マザーボード・BIOS依存。DRAM IC・ランク・基板リビジョンは購入時期で変わる可能性があります。",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "memory-crucial-cp2k32g4dfra32a-official",
+            "kind": "manufacturer",
+            "title": "Crucial Pro CP2K32G4DFRA32A 公式仕様",
+            "url": "https://uk.crucial.com/memory/ddr4/cp2k32g4dfra32a",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.warranty_class",
+              "specs.memory_type",
+              "specs.total_capacity_gb",
+              "specs.module_count",
+              "specs.data_rate_mt_s",
+              "specs.expo",
+              "specs.cas_latency",
+              "specs.voltage_v",
+              "specs.default_data_rate_mt_s"
+            ],
+            "reviewer": "Codex",
+            "notes": "64GB (2×32GB)、DDR4-3200 CL22、1.20V、XMP 2.0、限定永久保証を確認。 標準SPD/JEDEC速度は3200MT/s。"
+          }
+        ]
+      },
+      "notes": [
+        "ASIN・JAN・国内保証窓口は未確定。購入前に完全型番、マザーボードQVL、CPUの対応速度、クーラーとの干渉、販売店の保証条件を確認してください。"
+      ],
+      "specs": {
+        "memory_type": "DDR4",
+        "total_capacity_gb": 64,
+        "module_count": 2,
+        "data_rate_mt_s": 3200,
+        "expo": false,
+        "cas_latency": 22,
+        "warranty_class": "limited_lifetime",
+        "voltage_v": 1.2,
+        "default_data_rate_mt_s": 3200
+      }
     }
   ]
 }

@@ -195,6 +195,95 @@ class CatalogExcelTest(unittest.TestCase):
         finally:
             temporary.cleanup()
 
+    def test_memory_catalog_contains_initial_exact_sku_kits(self):
+        result = build_catalog_from_workbook(WORKBOOK)
+        self.assertEqual(result.errors, [])
+        products = {
+            product["id"]: product
+            for product in result.catalog["products"]
+            if product["category"] == "memory"
+        }
+        self.assertGreaterEqual(len(products), 16)
+        self.assertEqual(
+            {product["brand"] for product in products.values()},
+            {"Corsair", "G.SKILL", "Kingston", "Crucial"},
+        )
+
+        corsair = products["memory-corsair-cmk32gx5m2b6000z30"]
+        self.assertEqual(
+            corsair["identifiers"]["part_numbers"],
+            ["CMK32GX5M2B6000Z30"],
+        )
+        self.assertEqual(corsair["specs"]["memory_type"], "DDR5")
+        self.assertEqual(corsair["specs"]["total_capacity_gb"], 32)
+        self.assertEqual(corsair["specs"]["module_count"], 2)
+        self.assertEqual(corsair["specs"]["data_rate_mt_s"], 6000)
+        self.assertEqual(corsair["specs"]["default_data_rate_mt_s"], 4800)
+        self.assertTrue(corsair["specs"]["expo"])
+        self.assertEqual(corsair["specs"]["cas_latency"], 30)
+
+        kingston = products["memory-kingston-kf560c30bbek2-64"]
+        self.assertEqual(kingston["specs"]["module_height_mm"], 34.9)
+        self.assertEqual(kingston["specs"]["warranty_class"], "limited_lifetime")
+
+        crucial = products["memory-crucial-cp2k16g4dfra32a"]
+        self.assertEqual(crucial["specs"]["memory_type"], "DDR4")
+        self.assertFalse(crucial["specs"]["expo"])
+        self.assertEqual(crucial["specs"]["voltage_v"], 1.2)
+
+        initial_ids = {
+            "memory-corsair-cmk32gx5m2b6000z30",
+            "memory-corsair-cmk64gx5m2b6000z30",
+            "memory-corsair-cmk32gx4m2e3200c16",
+            "memory-corsair-cmk64gx4m2e3200c16",
+            "memory-gskill-f5-6000j3038f16gx2-fx5",
+            "memory-gskill-f5-6000j3040g32gx2-fx5",
+            "memory-gskill-f4-3600c16d-32gvkc",
+            "memory-gskill-f4-3600c18d-64gvk",
+            "memory-kingston-kf560c30bbek2-32",
+            "memory-kingston-kf560c30bbek2-64",
+            "memory-kingston-kf432c16bbk2-32",
+            "memory-kingston-kf432c16bbk2-64",
+            "memory-crucial-cp2k16g60c36u5b",
+            "memory-crucial-cp2k32g60c40u5b",
+            "memory-crucial-cp2k16g4dfra32a",
+            "memory-crucial-cp2k32g4dfra32a",
+        }
+        expected_default_data_rates = {
+            "memory-corsair-cmk32gx5m2b6000z30": 4800,
+            "memory-corsair-cmk64gx5m2b6000z30": 4800,
+            "memory-corsair-cmk32gx4m2e3200c16": 2133,
+            "memory-corsair-cmk64gx4m2e3200c16": 2133,
+            "memory-gskill-f5-6000j3038f16gx2-fx5": 4800,
+            "memory-gskill-f5-6000j3040g32gx2-fx5": 4800,
+            "memory-gskill-f4-3600c16d-32gvkc": 2133,
+            "memory-gskill-f4-3600c18d-64gvk": 2666,
+            "memory-kingston-kf560c30bbek2-32": 4800,
+            "memory-kingston-kf560c30bbek2-64": 4800,
+            "memory-kingston-kf432c16bbk2-32": 2400,
+            "memory-kingston-kf432c16bbk2-64": 2400,
+            "memory-crucial-cp2k16g60c36u5b": 5600,
+            "memory-crucial-cp2k32g60c40u5b": 5600,
+            "memory-crucial-cp2k16g4dfra32a": 3200,
+            "memory-crucial-cp2k32g4dfra32a": 3200,
+        }
+        self.assertTrue(initial_ids.issubset(products))
+        for product_id in initial_ids:
+            product = products[product_id]
+            self.assertEqual(
+                product["specs"]["default_data_rate_mt_s"],
+                expected_default_data_rates[product_id],
+            )
+            self.assertEqual(product["quality"]["status"], "research_required")
+            self.assertEqual(product["quality"]["tier"], "unrated")
+            self.assertGreaterEqual(len(product["quality"]["evidence"]), 1)
+            self.assertTrue(
+                any(
+                    item["kind"] == "manufacturer"
+                    for item in product["quality"]["evidence"]
+                )
+            )
+
     def test_new_spec_column_is_mapped_without_converter_change(self):
         temporary, path = self.copy_workbook()
         try:
