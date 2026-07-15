@@ -119,6 +119,43 @@ class ChimologSourceTest(unittest.TestCase):
             "error",
         )
 
+    def test_required_source_normalization_failure_is_non_silent(self):
+        with tempfile.TemporaryDirectory() as directory:
+            page, direct, github = self.write_sources(directory)
+            direct.write_text(json.dumps({"unexpected": []}), encoding="utf-8")
+            result = fetch_chimolog(
+                page_file=page,
+                direct_file=direct,
+                github_file=github,
+                strict_sources=True,
+            )
+
+        self.assertEqual(result["source_status"], "partial")
+        self.assertTrue(result["required_source_failure"])
+        self.assertEqual(result["monitor_status_hint"], "監視エラー")
+        self.assertEqual(len(result["items"]), 1)
+        self.assertTrue(
+            any(error["stage"] == "chimolog_direct_normalize" for error in result["errors"])
+        )
+
+    def test_required_price_page_content_failure_is_non_silent(self):
+        with tempfile.TemporaryDirectory() as directory:
+            page, direct, github = self.write_sources(directory)
+            page.write_text("<title>Unexpected page</title>", encoding="utf-8")
+            result = fetch_chimolog(
+                page_file=page,
+                direct_file=direct,
+                github_file=github,
+                strict_sources=True,
+            )
+
+        self.assertEqual(result["source_status"], "partial")
+        self.assertTrue(result["required_source_failure"])
+        self.assertEqual(result["monitor_status_hint"], "監視エラー")
+        self.assertTrue(
+            any(error["stage"] == "chimolog_price_page_validate" for error in result["errors"])
+        )
+
     def test_query_requires_all_tokens(self):
         with tempfile.TemporaryDirectory() as directory:
             page, direct, github = self.write_sources(directory)

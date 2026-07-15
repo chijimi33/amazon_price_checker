@@ -72,6 +72,7 @@ PAGE_CHECK_FIELDS = [
     "register_discount_checked",
     "shipping_yen",
     "seller",
+    "seller_trusted",
     "shipper",
     "availability",
     "cartable",
@@ -373,10 +374,16 @@ def normalize_offer(listing: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def offer_rank(offer: dict[str, Any]) -> tuple[bool, int, bool]:
+def offer_rank(offer: dict[str, Any]) -> tuple[bool, int, bool, int]:
     availability = str((offer.get("availability") or {}).get("type") or "").upper()
     availability_score = 2 if availability in AVAILABLE_TYPES else (0 if availability in UNAVAILABLE_TYPES else 1)
-    return bool(offer.get("is_buy_box_winner")), availability_score, offer.get("price_yen") is not None
+    price = int_value(offer.get("price_yen"))
+    return (
+        bool(offer.get("is_buy_box_winner")),
+        availability_score,
+        price is not None,
+        -price if price is not None else 0,
+    )
 
 
 def select_primary_offer(offers: list[dict[str, Any]]) -> dict[str, Any] | None:
@@ -546,13 +553,14 @@ def build_product(
     if confirmation.get("condition_matches") is False:
         exclusion_reasons.append("商品状態不一致")
 
-    missing = page_missing_fields(confirmation or None)
-    verification_status = "excluded" if exclusion_reasons else (
-        "product_page_confirmed" if not missing else "amazon_verification_candidate"
-    )
     seller_trusted = confirmation.get("seller_trusted")
     if seller_trusted is None and seller_is_amazon(seller):
         seller_trusted = True
+    confirmation_for_check = {**confirmation, "seller_trusted": seller_trusted}
+    missing = page_missing_fields(confirmation_for_check or None)
+    verification_status = "excluded" if exclusion_reasons else (
+        "product_page_confirmed" if not missing else "amazon_verification_candidate"
+    )
     product_url = confirmation.get("product_url") or display_value(
         dict_get(item, "detailPageURL", "DetailPageURL")
     ) or f"https://www.amazon.co.jp/dp/{asin}"
@@ -652,6 +660,8 @@ def append_history(path: Path, products: list[dict[str, Any]]) -> int:
             product.get("record_status") != "ok"
             or effective is None
             or payment.get("reference_only") is True
+            or (product.get("verification") or {}).get("status")
+            != "product_page_confirmed"
         ):
             continue
         observations.append(
@@ -736,10 +746,13 @@ def build_result(
 
     acquired = sum(product.get("record_status") == "ok" for product in products)
     source_status = "error" if acquired == 0 and errors else ("partial" if errors else "ok")
+    required_source_failure = bool(errors)
     return {
         "schema_version": SCHEMA_VERSION,
         "source": "Amazon Creators API / Amazon.co.jp product-page confirmations",
         "source_status": source_status,
+        "required_source_failure": required_source_failure,
+        "monitor_status_hint": "監視エラー" if required_source_failure else None,
         "marketplace": marketplace,
         "fetched_at": fetched_at,
         "requested_asin_count": len(requested_asins),
@@ -757,7 +770,8 @@ def build_result(
             "is_final_notification_decision": False,
             "instruction": (
                 "このJSONはAmazon確認の補助入力です。他店比較後に通知判定してください。"
-                " source_status=errorなら空応答にせず監視エラーとして失敗範囲を記載してください。"
+                " source_status=errorまたはrequired_source_failure=trueなら、"
+                "空応答にせず監視エラーとして失敗範囲を記載してください。"
             ),
         },
         "products": products,

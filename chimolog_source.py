@@ -336,6 +336,16 @@ def fetch_chimolog(
         source_calls=source_calls,
     )
 
+    price_page_content_found = bool(page and "amazon" in page.casefold())
+    if page is not None and not price_page_content_found:
+        errors.append(
+            error_record(
+                "chimolog_price_page_validate",
+                str(page_file or PRICE_PAGE_URL),
+                SourceError("価格ページとして期待した内容を確認できませんでした"),
+            )
+        )
+
     direct_items: list[dict[str, Any]] = []
     github_items: list[dict[str, Any]] = []
     direct_meta: dict[str, Any] = {}
@@ -375,8 +385,8 @@ def fetch_chimolog(
     if discounted_only:
         items = [item for item in items if item.get("is_discounted") is True]
 
-    required_source_failure = strict_sources and any(
-        call["status"] != "ok" for call in source_calls
+    required_source_failure = strict_sources and (
+        any(call["status"] != "ok" for call in source_calls) or bool(errors)
     )
     if not direct_items and not github_items:
         source_status = "error"
@@ -384,17 +394,20 @@ def fetch_chimolog(
         source_status = "partial"
     else:
         source_status = "ok"
+    monitor_status_hint = (
+        "監視エラー" if required_source_failure or source_status == "error" else None
+    )
     return {
         "schema_version": 1,
         "source": "Chimolog public price page / direct JSON / GitHub normalized JSON",
         "source_status": source_status,
         "required_source_failure": required_source_failure,
-        "monitor_status_hint": "監視エラー" if required_source_failure else None,
+        "monitor_status_hint": monitor_status_hint,
         "fetched_at": now_iso(),
         "source_calls": source_calls,
         "errors": errors,
         "metadata": {
-            "price_page_title_found": bool(page and "Amazon" in page),
+            "price_page_title_found": price_page_content_found,
             "direct": direct_meta,
             "github_normalized": github_meta,
             "public_item_count_before_filter": total_before_filter,

@@ -47,7 +47,7 @@ python3 amazon_browser.py \
 - 匿名の一時セッションを使い、Amazonへログインしない
 - カート、購入、クーポン選択、注文確定ボタンをクリックしない
 - CAPTCHAを検出したら回避・自動解答せず `source_status=error` と失敗範囲を出力する
-- Amazon以外の販売元は `seller_trusted=null` とし、人の確認なしに不適格・適格を確定しない
+- Amazon以外の販売元は `seller_trusted=null` とし、人の確認なしに `product_page_confirmed` 扱いにしない
 - 送料を確認できない場合は0円と仮定せず、支払額と実質価格を未確定にする
 - スナップショットなどの一時成果物は `output/playwright/` に保存する
 
@@ -62,7 +62,7 @@ python3 amazon_price_checker.py B0XXXXXXXXX \
   --output output/amazon_products.json
 ```
 
-Playwrightで確認できるのは「その匿名セッションの商品ページに表示された事実」です。Prime会員価格、ログイン後の個別ポイント、レジで確定する割引、配送先依存の送料・納期は未確定のまま残る場合があります。
+Playwrightで確認できるのは「その匿名セッションの商品ページに表示された事実」です。「プライム限定価格」と判定した表示額は `prime_exclusive_price_yen` に分離し、`prime_eligible=true` を確認できない匿名セッションでは通常価格・支払額・履歴へ採用しません。ログイン後の個別ポイント、レジで確定する割引、配送先依存の送料・納期も未確定のまま残る場合があります。
 
 ## ちもろぐから初期候補を取り込む（任意）
 
@@ -94,7 +94,7 @@ python3 chimolog_source.py \
 python3 chimolog_source.py --strict-sources --output data/chimolog_candidates.json
 ```
 
-厳格モードで取得に失敗した場合は、空出力にせず次を設定します。
+厳格モードで取得、価格ページの内容確認、またはJSONの形式確認に失敗した場合は、空出力にせず次を設定します。
 
 - `source_status=partial` または `error`
 - `required_source_failure=true`
@@ -159,7 +159,7 @@ Excelはカテゴリ別に `CPU`、`GPUChips`、`GPU`、`Memory`、`SSD`、`PSU`
 
 CPUの初期行はすべて `research_required` / `unrated` です。性能値が登録済みでも、ASIN・JAN、国内リテール/OEM区分、保証、独立レビューを確認するまでは自動監視の承認対象になりません。
 
-`GPUChips` にはデスクトップ向けのGeForce RTX 20/30/40/50シリーズ38構成と、Radeon RX 6000/7000/9000シリーズ25構成を初期登録しています。VRAM違いは別IDとし、世代、アーキテクチャ、発売日または発売時期、VRAM、メモリバス、PassMark G3D/G2Dと確認日を保持します。モバイル、ワークステーション、OEM専用、地域限定型番は初期対象外です。チップ行は性能比較用の参照レコードであり、販売商品の品質承認を意味しません。
+`GPUChips` にはデスクトップ向けのGeForce RTX 20/30/40/50シリーズ38構成と、Radeon RX 6000/7000/9000シリーズ26構成を初期登録しています。VRAM違いは別IDとし、世代、アーキテクチャ、発売日または発売時期、VRAM、メモリバス、PassMark G3D/G2Dと確認日を保持します。モバイル、ワークステーション、OEM専用、地域限定型番は初期対象外です。チップ行は性能比較用の参照レコードであり、販売商品の品質承認を意味しません。PassMarkがVRAM容量別に集計していないモデルは、同じ参考スコアを使用することと、その制約をnotes・Evidenceへ明記します。
 
 グラフィックボードは `GPU` シートへ完全な部品番号単位で登録し、`gpu_chip_id` で `GPUChips.product_id` を参照します。ExcelからJSONを生成すると、参照先のVRAM・世代・PassMark値が `specs.gpu_chip` へ展開されます。ボード側ではメーカー（`brand`）、シリーズ、リビジョン、クーラー設計、ファン数、騒音、カード長、占有スロット、補助電源、国内代理店、保証を個別評価します。同じシリーズ名でも世代やリビジョンをまたいで品質を自動継承しません。
 
@@ -354,6 +354,7 @@ python3 amazon_price_checker.py \
 - 送料未確認の公式ページ価格からは支払額・実質価格を計算しません。
 - API値と商品ページ値、双方の確認時刻、採用元、差額は `source_comparison` に残ります。
 - 在庫切れ、カート投入不可、値上がり、販売元不適格、型番・状態不一致は `verification.exclusion_reasons` に残ります。
+- 年内価格履歴へ保存するのは、必要項目がそろった `product_page_confirmed` の商品だけです。要確認候補と除外商品は履歴へ混ぜません。
 
 ## 取得失敗時
 
@@ -363,7 +364,7 @@ python3 amazon_price_checker.py \
 - `partial`: 一部呼び出しまたは一部ASINが失敗
 - `error`: 商品を1件も取得できず、エラーがある
 
-`source_status=error` の場合、ChatGPTタスクは空応答にせず、先頭を「監視エラー」とし、`errors` と `source_calls` から失敗ソースと確認できた範囲を記載してください。このJSON自体はAmazon補助入力であり、楽天市場、Yahoo!ショッピング、ドスパラ、ツクモ、パソコン工房との比較後に最終通知を判定します。
+`source_status=error` または `required_source_failure=true` の場合、ChatGPTタスクは空応答にせず、先頭を「監視エラー」とし、`errors` と `source_calls` から失敗ソースと確認できた範囲を記載してください。複数商品のうち一部だけAmazon商品ページまたはAPI取得に失敗した場合も `required_source_failure=true` です。このJSON自体はAmazon補助入力であり、楽天市場、Yahoo!ショッピング、ドスパラ、ツクモ、パソコン工房との比較後に最終通知を判定します。
 
 認証情報がない環境でも、保存済みのCreators APIレスポンスを使って正規化ロジックを確認できます。
 

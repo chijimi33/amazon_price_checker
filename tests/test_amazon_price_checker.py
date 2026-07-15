@@ -13,6 +13,7 @@ from amazon_price_checker import (
     extract_asin,
     load_config,
     normalize_confirmations,
+    select_primary_offer,
 )
 from test_quality_catalog import sample_catalog
 
@@ -92,6 +93,15 @@ class AmazonPriceCheckerTest(unittest.TestCase):
             "B0TEST0001",
         )
 
+    def test_offer_selection_prefers_buy_box_then_lower_available_price(self):
+        offers = [
+            {"price_yen": 22000, "availability": {"type": "IN_STOCK"}},
+            {"price_yen": 21000, "availability": {"type": "IN_STOCK"}},
+        ]
+        self.assertEqual(select_primary_offer(offers)["price_yen"], 21000)
+        offers[0]["is_buy_box_winner"] = True
+        self.assertEqual(select_primary_offer(offers)["price_yen"], 22000)
+
     def test_page_confirmation_wins_and_effective_price_is_separate(self):
         raw = {"itemsResult": {"items": [sample_item()]}, "errors": []}
         confirmations = normalize_confirmations({"items": [complete_confirmation()]})
@@ -156,6 +166,11 @@ class AmazonPriceCheckerTest(unittest.TestCase):
         self.assertTrue(product["verification"]["purchase_before_check"])
         self.assertIsNone(product["shipper"])
 
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "history.jsonl"
+            self.assertEqual(append_history(path, result["products"]), 0)
+            self.assertFalse(path.exists())
+
     def test_page_price_increase_and_uncartable_are_excluded(self):
         confirmation = complete_confirmation(price_yen=21000, cartable=False)
         result = build_result(
@@ -172,6 +187,36 @@ class AmazonPriceCheckerTest(unittest.TestCase):
         self.assertIn("公式商品ページでAPI取得価格より値上がり", reasons)
         self.assertEqual(result["products"][0]["verification"]["status"], "excluded")
 
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "history.jsonl"
+            self.assertEqual(append_history(path, result["products"]), 0)
+            self.assertFalse(path.exists())
+
+    def test_unreviewed_third_party_seller_remains_verification_candidate(self):
+        confirmation = complete_confirmation(
+            seller="Example PC Parts",
+            seller_trusted=None,
+        )
+        result = build_result(
+            {"itemsResult": {"items": [sample_item()]}, "errors": []},
+            requested_asins=["B0TEST0001"],
+            search_count=0,
+            marketplace="www.amazon.co.jp",
+            confirmations=normalize_confirmations({"items": [confirmation]}),
+            history=[],
+            fetched_at="2026-07-14T10:00:00+09:00",
+        )
+        product = result["products"][0]
+        self.assertIsNone(product["seller_trusted"])
+        self.assertEqual(
+            product["verification"]["status"],
+            "amazon_verification_candidate",
+        )
+        self.assertIn(
+            "seller_trusted",
+            product["verification"]["missing_product_page_fields"],
+        )
+
     def test_missing_requested_asin_is_a_non_silent_error(self):
         result = build_result(
             {"itemsResult": {"items": []}, "errors": []},
@@ -185,6 +230,22 @@ class AmazonPriceCheckerTest(unittest.TestCase):
         self.assertEqual(result["source_status"], "error")
         self.assertEqual(result["error_count"], 1)
         self.assertEqual(result["products"][0]["record_status"], "error")
+
+    def test_partial_api_failure_requests_monitor_error(self):
+        result = build_result(
+            {"itemsResult": {"items": [sample_item()]}, "errors": []},
+            requested_asins=["B0TEST0001", "B0MISSING01"],
+            search_count=0,
+            marketplace="www.amazon.co.jp",
+            confirmations={},
+            history=[],
+            fetched_at="2026-07-14T10:00:00+09:00",
+        )
+        self.assertEqual(result["source_status"], "partial")
+        self.assertTrue(result["required_source_failure"])
+        self.assertEqual(result["monitor_status_hint"], "監視エラー")
+        self.assertEqual(result["acquired_count"], 1)
+        self.assertEqual(result["error_count"], 1)
 
     def test_history_is_scoped_to_year_asin_and_condition(self):
         result = build_result(

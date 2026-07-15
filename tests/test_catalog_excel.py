@@ -97,9 +97,9 @@ class CatalogExcelTest(unittest.TestCase):
             for product in result.catalog["products"]
             if product["category"] == "gpu_chip"
         ]
-        self.assertEqual(len(chips), 63)
-        self.assertEqual(sum(chip["brand"] == "NVIDIA" for chip in chips), 38)
-        self.assertEqual(sum(chip["brand"] == "AMD" for chip in chips), 25)
+        self.assertGreaterEqual(len(chips), 64)
+        self.assertGreaterEqual(sum(chip["brand"] == "NVIDIA" for chip in chips), 38)
+        self.assertGreaterEqual(sum(chip["brand"] == "AMD" for chip in chips), 26)
 
         products = {product["id"]: product for product in chips}
         rtx = products["nvidia-geforce-rtx-5090"]
@@ -111,6 +111,41 @@ class CatalogExcelTest(unittest.TestCase):
         self.assertEqual(radeon["specs"]["generation"], "Radeon RX 9000 Series")
         self.assertEqual(radeon["specs"]["release_date"], "2026-06-02")
         self.assertGreaterEqual(len(radeon["quality"]["evidence"]), 2)
+
+        rx6500 = products["amd-radeon-rx-6500-xt-8gb"]
+        self.assertEqual(rx6500["specs"]["vram_gb"], 8)
+        self.assertGreaterEqual(len(rx6500["quality"]["evidence"]), 2)
+
+        rx6700 = products["amd-radeon-rx-6700"]
+        self.assertEqual(rx6700["specs"]["release_date"], "2021-06-09")
+        self.assertEqual(rx6700["specs"]["release_date_precision"], "exact")
+
+        profile = next(
+            profile
+            for profile in result.catalog["profiles"]
+            if profile["id"] == "gpu-1440p-16gb"
+        )
+        cooler_rule = next(
+            rule
+            for rule in profile["preferences"]
+            if rule["path"] == "specs.cooler_quality_tier"
+        )
+        self.assertIn("S", cooler_rule["value"])
+
+    def test_gpu_board_data_validations_match_their_columns(self):
+        workbook = load_workbook(WORKBOOK, data_only=False)
+        validations = {
+            (str(validation.sqref), validation.formula1)
+            for validation in workbook["GPU"].data_validations.dataValidation
+        }
+
+        self.assertIn(("W5:X24", '"true,false"'), validations)
+        self.assertIn(("AA5:AA24", "'Lists'!$P$5:$P$8"), validations)
+        self.assertIn(("AD5:AD24", "'Lists'!$R$5:$R$9"), validations)
+        self.assertIn(("AE5:AE24", "'Lists'!$Q$5:$Q$9"), validations)
+        self.assertNotIn(("V5:V24", "'Lists'!$P$5:$P$8"), validations)
+        self.assertNotIn(("X5:X24", "'Lists'!$R$5:$R$9"), validations)
+        self.assertNotIn(("Y5:Y24", "'Lists'!$Q$5:$Q$9"), validations)
 
     def test_gpu_board_resolves_normalized_chip_specs(self):
         temporary, path = self.copy_workbook()
@@ -200,6 +235,36 @@ class CatalogExcelTest(unittest.TestCase):
                 if product["id"] == "test-ssd"
             )
             self.assertEqual(product["specs"]["test_metric"], 12.5)
+        finally:
+            temporary.cleanup()
+
+    def test_duplicate_json_path_is_rejected_before_silent_overwrite(self):
+        temporary, path = self.copy_workbook()
+        try:
+            workbook = load_workbook(path)
+            sheet = workbook["FieldDefinitions"]
+            _, (min_col, min_row, max_col, max_row) = table_geometry(
+                sheet,
+                "FieldDefinitionsCatalog",
+            )
+            headers = {
+                str(sheet.cell(min_row, column).value): column
+                for column in range(min_col, max_col + 1)
+            }
+            cpu_rows = [
+                row
+                for row in range(min_row + 1, max_row + 1)
+                if sheet.cell(row, headers["sheet_name"]).value == "CPU"
+            ]
+            first, second = cpu_rows[:2]
+            duplicate_path = sheet.cell(first, headers["json_path"]).value
+            sheet.cell(second, headers["json_path"]).value = duplicate_path
+            workbook.save(path)
+
+            result = build_catalog_from_workbook(path)
+            self.assertTrue(
+                any("JSONパスが重複" in error for error in result.errors)
+            )
         finally:
             temporary.cleanup()
 

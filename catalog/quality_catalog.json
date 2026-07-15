@@ -139,6 +139,7 @@
           "path": "specs.cooler_quality_tier",
           "op": "in",
           "value": [
+            "S",
             "A",
             "B"
           ],
@@ -9598,8 +9599,7 @@
       "model": "Radeon RX 6500 XT 4GB",
       "display_name": "AMD Radeon RX 6500 XT 4GB",
       "aliases": [
-        "Radeon RX 6500 XT 4GB",
-        "Radeon RX 6500 XT"
+        "Radeon RX 6500 XT 4GB"
       ],
       "quality": {
         "status": "research_required",
@@ -9656,6 +9656,79 @@
         "launch_period": "2022-01-19",
         "release_date_precision": "exact",
         "vram_gb": 4,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 64,
+        "passmark_g3d_mark": 9622,
+        "passmark_g2d_mark": 817,
+        "benchmark_reported_tdp_w": 107,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "amd-radeon-rx-6500-xt-8gb",
+      "brand": "AMD",
+      "model": "Radeon RX 6500 XT 8GB",
+      "display_name": "AMD Radeon RX 6500 XT 8GB",
+      "aliases": [
+        "Radeon RX 6500 XT 8GB"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "amd-radeon-rx-6500-xt-8gb-official",
+            "kind": "manufacturer",
+            "title": "AMD Radeon RX 6500 XT 8GB 公式仕様情報",
+            "url": "https://www.amd.com/en/products/graphics/desktops/radeon/6000-series/amd-radeon-rx-6500-xt.html",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "AMD公式ページで8GB、RDNA 2、64-bit GDDR6、発売日を確認。"
+          },
+          {
+            "id": "amd-radeon-rx-6500-xt-8gb-passmark",
+            "kind": "technical_database",
+            "title": "Radeon RX 6500 XT PassMark benchmark（4GB/8GB共通集計）",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=Radeon+RX+6500+XT&id=4488",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "PassMarkはVRAM容量別に分離していないため共通スコアを参考値として記録。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMarkは4GB/8GBを別集計していないため共通スコアを参考値として使用。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "RDNA 2",
+        "generation": "Radeon RX 6000 Series",
+        "release_date": "2022-01-19",
+        "launch_period": "2022-01-19",
+        "release_date_precision": "exact",
+        "vram_gb": 8,
         "memory_type": "GDDR6",
         "memory_bus_bits": 64,
         "passmark_g3d_mark": 9622,
@@ -9907,7 +9980,7 @@
             "id": "amd-radeon-rx-6700-official",
             "kind": "manufacturer",
             "title": "AMD Radeon RX 6700 公式世代・仕様情報",
-            "url": "https://www.amd.com/en/products/graphics/desktops/radeon.html",
+            "url": "https://www.amd.com/en/products/graphics/desktops/radeon/6000-series/amd-radeon-rx-6700.html",
             "checked_at": "2026-07-15",
             "supports": [
               "specs.architecture",
@@ -9944,8 +10017,9 @@
       "specs": {
         "architecture": "RDNA 2",
         "generation": "Radeon RX 6000 Series",
-        "launch_period": "Q2'22",
-        "release_date_precision": "quarter",
+        "release_date": "2021-06-09",
+        "launch_period": "2021-06-09",
+        "release_date_precision": "exact",
         "vram_gb": 10,
         "memory_type": "GDDR6",
         "memory_bus_bits": 160,

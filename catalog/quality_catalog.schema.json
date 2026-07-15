@@ -90,6 +90,27 @@
           "minimum": 0
         }
       },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "op": {
+                "const": "exists"
+              }
+            },
+            "required": [
+              "op"
+            ]
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      ],
       "additionalProperties": false
     },
     "qualityGate": {
@@ -98,7 +119,13 @@
         "allowed_statuses": {
           "type": "array",
           "items": {
-            "type": "string"
+            "enum": [
+              "research_required",
+              "approved",
+              "preferred",
+              "rejected",
+              "discontinued"
+            ]
           }
         },
         "minimum_tier": {
@@ -187,7 +214,8 @@
         },
         "url": {
           "type": "string",
-          "format": "uri"
+          "format": "uri",
+          "pattern": "^https?://"
         },
         "checked_at": {
           "type": "string",

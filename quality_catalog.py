@@ -16,6 +16,7 @@ import re
 import sys
 from pathlib import Path
 from typing import Any, Iterable
+from urllib.parse import urlparse
 
 
 SCHEMA_VERSION = 1
@@ -80,12 +81,54 @@ def validate_condition(condition: Any, location: str) -> list[str]:
     operation = str(condition.get("op") or "eq")
     if operation not in SUPPORTED_OPERATORS:
         errors.append(f"{location}.op={operation!r} は未対応です")
-    if operation != "exists" and "value" not in condition:
+    if "value" not in condition:
         errors.append(f"{location}.value は必須です")
+    elif operation == "exists" and not isinstance(condition.get("value"), bool):
+        errors.append(f"{location}.value は真偽値である必要があります")
     if operation in {"in", "not_in", "intersects"} and not isinstance(
         condition.get("value"), list
     ):
         errors.append(f"{location}.value は配列である必要があります")
+    return errors
+
+
+def validate_string_list(value: Any, location: str) -> list[str]:
+    if not isinstance(value, list) or not all(
+        isinstance(item, str) and item.strip() for item in value
+    ):
+        return [f"{location} は空でない文字列の配列にしてください"]
+    return []
+
+
+def validate_quality_gate(
+    gate: Any,
+    location: str,
+    tier_order: list[str],
+) -> list[str]:
+    if not isinstance(gate, dict):
+        return [f"{location} はオブジェクトである必要があります"]
+    errors: list[str] = []
+    for key in ("allowed_statuses", "required_evidence_kinds", "forbidden_risk_flags"):
+        if key in gate:
+            errors.extend(validate_string_list(gate[key], f"{location}.{key}"))
+    statuses = gate.get("allowed_statuses")
+    if isinstance(statuses, list):
+        unknown = sorted(
+            value for value in statuses if isinstance(value, str) and value not in QUALITY_STATUSES
+        )
+        if unknown:
+            errors.append(f"{location}.allowed_statuses に未対応値があります: {', '.join(unknown)}")
+    minimum_tier = gate.get("minimum_tier")
+    if minimum_tier is not None and (
+        not isinstance(minimum_tier, str) or minimum_tier not in tier_order
+    ):
+        errors.append(f"{location}.minimum_tier はquality_tier_order内の値にしてください")
+    for key in ("minimum_evidence_count", "max_review_age_days"):
+        value = gate.get(key)
+        if value is not None and (
+            not isinstance(value, int) or isinstance(value, bool) or value < 0
+        ):
+            errors.append(f"{location}.{key} は0以上の整数にしてください")
     return errors
 
 
@@ -97,6 +140,9 @@ def validate_catalog(catalog: dict[str, Any]) -> tuple[list[str], list[str]]:
         errors.append(
             f"schema_version は {SCHEMA_VERSION} である必要があります"
         )
+    updated_at = catalog.get("updated_at")
+    if parse_date(updated_at) is None:
+        errors.append("updated_at はYYYY-MM-DD形式である必要があります")
     settings = catalog.get("settings")
     if not isinstance(settings, dict):
         errors.append("settings はオブジェクトである必要があります")
@@ -107,6 +153,15 @@ def validate_catalog(catalog: dict[str, Any]) -> tuple[list[str], list[str]]:
     ):
         errors.append("settings.quality_tier_order は文字列の配列である必要があります")
         tier_order = []
+    elif len(set(tier_order)) != len(tier_order):
+        errors.append("settings.quality_tier_order に重複があります")
+    errors.extend(
+        validate_quality_gate(
+            settings.get("default_quality_gate"),
+            "settings.default_quality_gate",
+            tier_order,
+        )
+    )
 
     profiles = catalog.get("profiles")
     if not isinstance(profiles, list):
@@ -124,10 +179,11 @@ def validate_catalog(catalog: dict[str, Any]) -> tuple[list[str], list[str]]:
         elif profile_id in profile_ids:
             errors.append(f"重複したプロファイルID: {profile_id}")
         profile_ids.add(profile_id)
-        if not str(profile.get("category") or "").strip():
-            errors.append(f"{location}.category は必須です")
+        for key in ("name", "category"):
+            if not str(profile.get(key) or "").strip():
+                errors.append(f"{location}.{key} は必須です")
         for key in ("requirements", "preferences"):
-            conditions = profile.get(key) or []
+            conditions = profile.get(key)
             if not isinstance(conditions, list):
                 errors.append(f"{location}.{key} は配列である必要があります")
                 continue
@@ -143,6 +199,14 @@ def validate_catalog(catalog: dict[str, Any]) -> tuple[list[str], list[str]]:
                         errors.append(
                             f"{location}.{key}[{condition_index}].weight は0以上の数値にしてください"
                         )
+        if "quality_gate" in profile:
+            errors.extend(
+                validate_quality_gate(
+                    profile["quality_gate"],
+                    f"{location}.quality_gate",
+                    tier_order,
+                )
+            )
 
     products = catalog.get("products")
     if not isinstance(products, list):
@@ -164,7 +228,10 @@ def validate_catalog(catalog: dict[str, Any]) -> tuple[list[str], list[str]]:
         for key in ("category", "brand", "model"):
             if not str(product.get(key) or "").strip():
                 errors.append(f"{location}.{key} は必須です")
-        identifiers = product.get("identifiers") or {}
+        for key in ("aliases", "notes"):
+            if key in product:
+                errors.extend(validate_string_list(product[key], f"{location}.{key}"))
+        identifiers = product.get("identifiers")
         if not isinstance(identifiers, dict):
             errors.append(f"{location}.identifiers はオブジェクトである必要があります")
         else:
@@ -176,6 +243,11 @@ def validate_catalog(catalog: dict[str, Any]) -> tuple[list[str], list[str]]:
                     continue
                 for identifier in values:
                     normalized = normalize_identity(identifier)
+                    if not normalized:
+                        errors.append(
+                            f"{location}.identifiers.{key} に正規化できない値があります: {identifier!r}"
+                        )
+                        continue
                     owner = identifier_owners.get((key, normalized))
                     if owner and owner != product_id:
                         errors.append(
@@ -199,12 +271,20 @@ def validate_catalog(catalog: dict[str, Any]) -> tuple[list[str], list[str]]:
             errors.append(
                 f"{location}.quality.tier={quality.get('tier')!r} は quality_tier_order にありません"
             )
-        for key in ("strengths", "weaknesses", "risk_flags", "evidence"):
-            if not isinstance(quality.get(key, []), list):
-                errors.append(f"{location}.quality.{key} は配列である必要があります")
-        reviewed_at = quality.get("reviewed_at")
-        if reviewed_at and parse_date(reviewed_at) is None:
-            errors.append(f"{location}.quality.reviewed_at はYYYY-MM-DD形式にしてください")
+        if not isinstance(quality.get("summary"), str):
+            errors.append(f"{location}.quality.summary は文字列である必要があります")
+        for key in ("strengths", "weaknesses", "risk_flags"):
+            errors.extend(
+                validate_string_list(quality.get(key), f"{location}.quality.{key}")
+            )
+        if not isinstance(quality.get("evidence"), list):
+            errors.append(f"{location}.quality.evidence は配列である必要があります")
+        if "reviewed_at" not in quality:
+            errors.append(f"{location}.quality.reviewed_at は必須です")
+        else:
+            reviewed_at = quality.get("reviewed_at")
+            if reviewed_at is not None and parse_date(reviewed_at) is None:
+                errors.append(f"{location}.quality.reviewed_at はYYYY-MM-DD形式にしてください")
         if quality.get("status") in {"approved", "preferred"} and not quality.get("evidence"):
             warnings.append(f"{product_id}: 承認済みですが根拠資料がありません")
         for evidence_index, evidence in enumerate(quality.get("evidence") or []):
@@ -217,6 +297,15 @@ def validate_catalog(catalog: dict[str, Any]) -> tuple[list[str], list[str]]:
                     errors.append(f"{evidence_location}.{key} は必須です")
             if evidence.get("checked_at") and parse_date(evidence.get("checked_at")) is None:
                 errors.append(f"{evidence_location}.checked_at はYYYY-MM-DD形式にしてください")
+            parsed_url = urlparse(str(evidence.get("url") or ""))
+            if parsed_url.scheme not in {"http", "https"} or not parsed_url.netloc:
+                errors.append(f"{evidence_location}.url はhttp/httpsの完全なURLにしてください")
+            if "supports" in evidence:
+                errors.extend(
+                    validate_string_list(evidence["supports"], f"{evidence_location}.supports")
+                )
+            if "notes" in evidence and not isinstance(evidence["notes"], str):
+                errors.append(f"{evidence_location}.notes は文字列にしてください")
 
     return errors, warnings
 

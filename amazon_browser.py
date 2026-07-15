@@ -300,7 +300,7 @@ def confirmation_from_page(asin: str, raw: dict[str, Any], confirmed_at: str) ->
         }
 
     title = str(raw.get("title") or "").strip() or None
-    price_yen = parse_price_yen(raw.get("priceText"))
+    displayed_price_yen = parse_price_yen(raw.get("priceText"))
     availability = str(raw.get("availability") or "").strip() or None
     cartable = bool(raw.get("cartable"))
     if not title:
@@ -324,12 +324,14 @@ def confirmation_from_page(asin: str, raw: dict[str, Any], confirmed_at: str) ->
         str(value or "") for value in (raw.get("primeText"), raw.get("buyboxText"))
     )
     prime_exclusive = bool(re.search(r"プライム限定価格|Prime限定", prime_text, re.IGNORECASE))
+    prime_exclusive_price_yen = displayed_price_yen if prime_exclusive else None
+    price_yen = None if prime_exclusive else displayed_price_yen
     points_yen = parse_points_yen(raw.get("pointsText"))
     if points_yen is None:
         points_yen = 0
 
     unavailable = not cartable and (
-        price_yen is None
+        displayed_price_yen is None
         or any(
             marker in str(availability or "")
             for marker in ("在庫切れ", "在庫なし", "お取り扱いしておりません", "入荷時期は未定")
@@ -337,7 +339,7 @@ def confirmation_from_page(asin: str, raw: dict[str, Any], confirmed_at: str) ->
     )
     status = "confirmed_unavailable" if unavailable else "ok"
     error = None
-    if price_yen is None and not unavailable:
+    if displayed_price_yen is None and not unavailable:
         status = "acquisition_failed"
         error = "Amazon商品ページの現在価格を取得できませんでした"
 
@@ -356,6 +358,10 @@ def confirmation_from_page(asin: str, raw: dict[str, Any], confirmed_at: str) ->
         warnings.append("クーポンは表示のみ確認し、選択・適用していません")
     if raw.get("registerDiscountText"):
         warnings.append("レジ割引は表示のみ確認し、注文確定画面で検証していません")
+    if prime_exclusive_price_yen is not None:
+        warnings.append(
+            "匿名セッションではPrime適用資格を確認できないため、表示価格を通常価格として採用していません"
+        )
 
     return {
         **base,
@@ -363,6 +369,7 @@ def confirmation_from_page(asin: str, raw: dict[str, Any], confirmed_at: str) ->
         "error": error,
         "title": title,
         "price_yen": price_yen,
+        "prime_exclusive_price_yen": prime_exclusive_price_yen,
         "points_yen": points_yen,
         "coupon_checked": True,
         "coupon_text": raw.get("couponText"),
@@ -585,12 +592,13 @@ def acquire_pages(
         item.get("acquisition_status") in {"ok", "confirmed_unavailable"} for item in items
     )
     source_status = "ok" if not errors else ("partial" if acquired else "error")
+    required_source_failure = acquired < len(asins)
     return {
         "schema_version": 1,
         "source": "Amazon.co.jp official product pages via Playwright CLI",
         "source_status": source_status,
-        "required_source_failure": source_status == "error",
-        "monitor_status_hint": "監視エラー" if source_status == "error" else None,
+        "required_source_failure": required_source_failure,
+        "monitor_status_hint": "監視エラー" if required_source_failure else None,
         "started_at": started_at,
         "finished_at": now_iso(),
         "requested_count": len(asins),
@@ -681,7 +689,10 @@ def main(argv: list[str] | None = None) -> int:
         result = error_result(str(exc), requested_count=len(args.targets))
     write_json(args.output, result)
     print(json.dumps(result, ensure_ascii=False, indent=2))
-    return 1 if result.get("source_status") == "error" else 0
+    return 1 if (
+        result.get("source_status") == "error"
+        or result.get("required_source_failure") is True
+    ) else 0
 
 
 if __name__ == "__main__":

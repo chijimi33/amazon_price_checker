@@ -1,3 +1,4 @@
+import copy
 import datetime as dt
 import unittest
 from pathlib import Path
@@ -214,6 +215,31 @@ class QualityCatalogTest(unittest.TestCase):
         )
         self.assertEqual(result["match_status"], "not_cataloged")
         self.assertFalse(result["automation_eligible"])
+
+    def test_runtime_validation_rejects_schema_shape_errors(self):
+        catalog = copy.deepcopy(sample_catalog())
+        catalog["updated_at"] = "not-a-date"
+        catalog["settings"]["quality_tier_order"].append("A")
+        catalog["settings"]["default_quality_gate"]["minimum_evidence_count"] = "2"
+        catalog["profiles"][0]["requirements"][0] = {
+            "path": "specs.capacity_gb",
+            "op": "exists",
+            "value": "true",
+        }
+        catalog["profiles"][0]["preferences"] = "not-a-list"
+        catalog["products"][0]["aliases"] = "FAST2T"
+        catalog["products"][0]["quality"]["evidence"][0]["url"] = "not-a-url"
+        catalog["products"][1]["identifiers"] = []
+
+        errors, _ = validate_catalog(catalog)
+        self.assertTrue(any("updated_at" in error for error in errors))
+        self.assertTrue(any("quality_tier_order に重複" in error for error in errors))
+        self.assertTrue(any("minimum_evidence_count" in error for error in errors))
+        self.assertTrue(any("真偽値" in error for error in errors))
+        self.assertTrue(any("preferences は配列" in error for error in errors))
+        self.assertTrue(any("aliases" in error for error in errors))
+        self.assertTrue(any("完全なURL" in error for error in errors))
+        self.assertTrue(any("identifiers はオブジェクト" in error for error in errors))
 
 
 if __name__ == "__main__":

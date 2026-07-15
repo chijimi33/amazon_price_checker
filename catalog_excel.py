@@ -258,6 +258,7 @@ def build_catalog_from_workbook(path: Path) -> BuildResult:
     )
     field_definitions: dict[str, list[dict[str, Any]]] = {}
     field_keys: set[tuple[str, str]] = set()
+    field_paths: set[tuple[str, str]] = set()
     for row in field_rows:
         location = row_label("FieldDefinitions", row)
         try:
@@ -293,6 +294,13 @@ def build_catalog_from_workbook(path: Path) -> BuildResult:
             if key in field_keys:
                 errors.append(f"FieldDefinitionsの定義が重複しています: {sheet_name}.{column_name}")
             field_keys.add(key)
+        path_key = (sheet_name, json_path)
+        if all(path_key):
+            if path_key in field_paths:
+                errors.append(
+                    f"FieldDefinitionsのJSONパスが重複しています: {sheet_name}.{json_path}"
+                )
+            field_paths.add(path_key)
         if sheet_name and column_name and json_path and data_type in SUPPORTED_DATA_TYPES:
             field_definitions.setdefault(sheet_name, []).append(
                 {

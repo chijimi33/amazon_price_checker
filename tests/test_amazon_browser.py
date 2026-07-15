@@ -34,7 +34,7 @@ def page_result(**overrides):
         "cartable": True,
         "conditionText": "新品",
         "shippingText": "無料配送",
-        "primeText": "プライム限定価格",
+        "primeText": "",
         "buyboxText": "",
         "detailPairs": [
             {"label": "商品モデル番号", "value": "SSD-2000"},
@@ -125,6 +125,19 @@ class AmazonBrowserTest(unittest.TestCase):
         self.assertIn("回避", result["error"])
         self.assertNotIn("price_yen", result)
 
+    def test_anonymous_prime_price_is_not_adopted_as_regular_price(self):
+        result = confirmation_from_page(
+            "B0TEST0001",
+            page_result(primeText="プライム限定価格"),
+            "2026-07-15T10:00:00+09:00",
+        )
+        self.assertEqual(result["acquisition_status"], "ok")
+        self.assertIsNone(result["price_yen"])
+        self.assertEqual(result["prime_exclusive_price_yen"], 19800)
+        self.assertIsNone(result["prime_eligible"])
+        self.assertTrue(result["prime_exclusive"])
+        self.assertTrue(any("通常価格として採用" in warning for warning in result["warnings"]))
+
     def test_acquire_pages_takes_snapshot_and_returns_nonempty_error(self):
         runner = FakeRunner([page_result(), page_result(captcha=True)])
         result = acquire_pages(
@@ -132,6 +145,8 @@ class AmazonBrowserTest(unittest.TestCase):
             runner=runner,
         )
         self.assertEqual(result["source_status"], "partial")
+        self.assertTrue(result["required_source_failure"])
+        self.assertEqual(result["monitor_status_hint"], "監視エラー")
         self.assertEqual(result["acquired_count"], 1)
         self.assertEqual(result["error_count"], 1)
         self.assertEqual(len(result["items"]), 2)
