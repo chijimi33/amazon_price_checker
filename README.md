@@ -155,6 +155,10 @@ python3 catalog_excel.py check
 
 Excelはカテゴリ別に `CPU`、`GPU`、`Memory`、`SSD`、`PSU`、`Motherboard`、`Monitor` シートを持ちます。主要ASIN・JAN・価格.com ID・部品番号と、人間向けの品質要約は各カテゴリシートへまとめています。追加識別子、根拠資料、既知の問題はそれぞれ `Identifiers`、`Evidence`、`Risks` に1件1行で登録します。
 
+`CPU` シートには、デスクトップ向けRyzen 5000シリーズ以降とIntel Core第12世代以降（Core Ultra 200Sを含む）の主要製品を初期登録しています。公式の発売日または発売時期、コア構成、アーキテクチャに加え、PassMarkの `CPU Mark` と `Single Thread Rating` を確認日付きで保持します。PassMark値は継続的に変動する参考指標なので、根拠行のURLと `passmark_checked_at` をセットで更新してください。日単位の発売日を公式資料で確定できない製品は `release_date` を空欄にし、`launch_period` と `release_date_precision` に四半期または月の精度を記録します。
+
+CPUの初期行はすべて `research_required` / `unrated` です。性能値が登録済みでも、ASIN・JAN、国内リテール/OEM区分、保証、独立レビューを確認するまでは自動監視の承認対象になりません。
+
 仕様項目は後から追加できます。
 
 1. カテゴリシートのExcelテーブル内へ新しい列を追加する

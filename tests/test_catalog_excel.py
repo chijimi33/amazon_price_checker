@@ -67,6 +67,28 @@ class CatalogExcelTest(unittest.TestCase):
         self.assertEqual(result.warnings, [])
         self.assertEqual(result.catalog, expected)
 
+    def test_cpu_catalog_contains_supported_generations_and_performance_data(self):
+        result = build_catalog_from_workbook(WORKBOOK)
+        self.assertEqual(result.errors, [])
+        products = {
+            product["id"]: product
+            for product in result.catalog["products"]
+            if product["category"] == "cpu"
+        }
+        self.assertGreaterEqual(len(products), 112)
+
+        ryzen = products["amd-ryzen-5-5600x"]
+        self.assertEqual(ryzen["specs"]["generation"], "Ryzen 5000")
+        self.assertEqual(ryzen["specs"]["release_date"], "2020-11-05")
+        self.assertGreater(ryzen["specs"]["passmark_cpu_mark"], 0)
+        self.assertGreater(ryzen["specs"]["passmark_single_thread_mark"], 0)
+
+        intel = products["intel-core-i5-12400f"]
+        self.assertEqual(intel["specs"]["generation"], "12th Gen Core")
+        self.assertEqual(intel["specs"]["release_date"], "2022-01-04")
+        self.assertFalse(intel["specs"]["integrated_graphics"])
+        self.assertGreaterEqual(len(intel["quality"]["evidence"]), 2)
+
     def test_new_spec_column_is_mapped_without_converter_change(self):
         temporary, path = self.copy_workbook()
         try:
@@ -101,7 +123,12 @@ class CatalogExcelTest(unittest.TestCase):
 
             result = build_catalog_from_workbook(path)
             self.assertEqual(result.errors, [])
-            self.assertEqual(result.catalog["products"][0]["specs"]["test_metric"], 12.5)
+            product = next(
+                product
+                for product in result.catalog["products"]
+                if product["id"] == "test-ssd"
+            )
+            self.assertEqual(product["specs"]["test_metric"], 12.5)
         finally:
             temporary.cleanup()
 
@@ -152,7 +179,11 @@ class CatalogExcelTest(unittest.TestCase):
 
             result = build_catalog_from_workbook(path)
             self.assertEqual(result.errors, [])
-            product = result.catalog["products"][0]
+            product = next(
+                product
+                for product in result.catalog["products"]
+                if product["id"] == "test-ssd"
+            )
             self.assertEqual(product["identifiers"]["asins"], ["B0TEST0001"])
             self.assertEqual(product["quality"]["evidence"][0]["id"], "ev-test-1")
             self.assertEqual(
