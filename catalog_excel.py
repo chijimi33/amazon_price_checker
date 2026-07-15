@@ -9,6 +9,7 @@ Python code change.
 from __future__ import annotations
 
 import argparse
+import copy
 import datetime as dt
 import json
 import math
@@ -359,6 +360,36 @@ def build_catalog_from_workbook(path: Path) -> BuildResult:
                 continue
             products.append(product)
             products_by_id[product_id] = product
+
+    # GPU board rows keep only a stable reference to the normalized chip row in
+    # Excel.  The generated JSON receives a read-only snapshot so profiles can
+    # compare chip performance without duplicating it in every board SKU row.
+    for product in products:
+        if product.get("category") != "gpu":
+            continue
+        specs = product.get("specs") or {}
+        chip_id = clean_string(specs.get("gpu_chip_id"))
+        if not chip_id:
+            continue
+        chip = products_by_id.get(chip_id)
+        if chip is None:
+            errors.append(f"{product['id']}.specs.gpu_chip_id: 未登録のGPUチップIDです: {chip_id}")
+            continue
+        if chip.get("category") != "gpu_chip":
+            errors.append(
+                f"{product['id']}.specs.gpu_chip_id: gpu_chipカテゴリではありません: {chip_id}"
+            )
+            continue
+        chip_snapshot = copy.deepcopy(chip.get("specs") or {})
+        chip_snapshot.update(
+            {
+                "id": chip["id"],
+                "brand": chip.get("brand"),
+                "model": chip.get("model"),
+                "display_name": chip.get("display_name"),
+            }
+        )
+        specs["gpu_chip"] = chip_snapshot
 
     identifier_headers, identifier_rows = table_records(
         workbook, "Identifiers", "IdentifiersCatalog"

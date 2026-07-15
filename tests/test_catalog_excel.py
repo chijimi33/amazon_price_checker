@@ -89,6 +89,77 @@ class CatalogExcelTest(unittest.TestCase):
         self.assertFalse(intel["specs"]["integrated_graphics"])
         self.assertGreaterEqual(len(intel["quality"]["evidence"]), 2)
 
+    def test_gpu_chip_catalog_contains_supported_series_and_benchmarks(self):
+        result = build_catalog_from_workbook(WORKBOOK)
+        self.assertEqual(result.errors, [])
+        chips = [
+            product
+            for product in result.catalog["products"]
+            if product["category"] == "gpu_chip"
+        ]
+        self.assertEqual(len(chips), 63)
+        self.assertEqual(sum(chip["brand"] == "NVIDIA" for chip in chips), 38)
+        self.assertEqual(sum(chip["brand"] == "AMD" for chip in chips), 25)
+
+        products = {product["id"]: product for product in chips}
+        rtx = products["nvidia-geforce-rtx-5090"]
+        self.assertEqual(rtx["specs"]["generation"], "GeForce RTX 50 Series")
+        self.assertEqual(rtx["specs"]["vram_gb"], 32)
+        self.assertGreater(rtx["specs"]["passmark_g3d_mark"], 0)
+
+        radeon = products["amd-radeon-rx-9070-gre"]
+        self.assertEqual(radeon["specs"]["generation"], "Radeon RX 9000 Series")
+        self.assertEqual(radeon["specs"]["release_date"], "2026-06-02")
+        self.assertGreaterEqual(len(radeon["quality"]["evidence"]), 2)
+
+    def test_gpu_board_resolves_normalized_chip_specs(self):
+        temporary, path = self.copy_workbook()
+        try:
+            workbook = load_workbook(path)
+            write_first_empty_row(
+                workbook["GPUChips"],
+                "GPUChipsCatalog",
+                {
+                    "product_id": "test-gpu-chip",
+                    "brand": "NVIDIA",
+                    "model": "Test GPU 16GB",
+                    "display_name": "NVIDIA Test GPU 16GB",
+                    "status": "research_required",
+                    "tier": "unrated",
+                    "vram_gb": 16,
+                    "passmark_g3d_mark": 30000,
+                },
+            )
+            write_first_empty_row(
+                workbook["GPU"],
+                "GPUCatalog",
+                {
+                    "product_id": "test-gpu-board",
+                    "brand": "ExampleBoard",
+                    "model": "EX-GPU-16",
+                    "display_name": "ExampleBoard EX-GPU-16",
+                    "status": "research_required",
+                    "tier": "unrated",
+                    "gpu_chip_id": "test-gpu-chip",
+                    "board_series": "Example Series",
+                    "domestic_warranty_years": 2,
+                },
+            )
+            workbook.save(path)
+
+            result = build_catalog_from_workbook(path)
+            self.assertEqual(result.errors, [])
+            board = next(
+                product
+                for product in result.catalog["products"]
+                if product["id"] == "test-gpu-board"
+            )
+            self.assertEqual(board["specs"]["gpu_chip"]["id"], "test-gpu-chip")
+            self.assertEqual(board["specs"]["gpu_chip"]["vram_gb"], 16)
+            self.assertEqual(board["specs"]["gpu_chip"]["passmark_g3d_mark"], 30000)
+        finally:
+            temporary.cleanup()
+
     def test_new_spec_column_is_mapped_without_converter_change(self):
         temporary, path = self.copy_workbook()
         try:

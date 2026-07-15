@@ -89,16 +89,16 @@
       "category": "gpu",
       "requirements": [
         {
-          "path": "specs.vram_gb",
+          "path": "specs.gpu_chip.vram_gb",
           "op": "gte",
           "value": 16,
           "label": "VRAM 16GB以上"
         },
         {
-          "path": "specs.performance_1440p_index",
+          "path": "specs.gpu_chip.passmark_g3d_mark",
           "op": "gte",
-          "value": 70,
-          "label": "1440p性能指数70以上"
+          "value": 25000,
+          "label": "PassMark G3D 25,000以上"
         },
         {
           "path": "specs.domestic_warranty_years",
@@ -146,7 +146,7 @@
           "weight": 30
         }
       ],
-      "description": "GPUチップの性能帯とVRAM容量を揃え、個別カードの冷却・保証リスクも除外します。",
+      "description": "GPUChipsのVRAM・PassMark性能を参照し、個別ボードの冷却・保証・寸法を評価します。",
       "quality_gate": {
         "forbidden_risk_flags": [
           "known_safety_issue",
@@ -9514,6 +9514,4603 @@
         "efficiency_cores": 16,
         "passmark_cpu_mark": 68821,
         "passmark_single_thread_mark": 5078,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "amd-radeon-rx-6400",
+      "brand": "AMD",
+      "model": "Radeon RX 6400",
+      "display_name": "AMD Radeon RX 6400",
+      "aliases": [
+        "Radeon RX 6400"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "amd-radeon-rx-6400-official",
+            "kind": "manufacturer",
+            "title": "AMD Radeon RX 6400 公式世代・仕様情報",
+            "url": "https://www.amd.com/en/products/graphics/desktops/radeon.html",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "amd-radeon-rx-6400-passmark",
+            "kind": "technical_database",
+            "title": "Radeon RX 6400 PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=Radeon+RX+6400&id=4536",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "RDNA 2",
+        "generation": "Radeon RX 6000 Series",
+        "release_date": "2022-04-20",
+        "launch_period": "2022-04-20",
+        "release_date_precision": "exact",
+        "vram_gb": 4,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 64,
+        "passmark_g3d_mark": 7746,
+        "passmark_g2d_mark": 737,
+        "benchmark_reported_tdp_w": 53,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "amd-radeon-rx-6500-xt-4gb",
+      "brand": "AMD",
+      "model": "Radeon RX 6500 XT 4GB",
+      "display_name": "AMD Radeon RX 6500 XT 4GB",
+      "aliases": [
+        "Radeon RX 6500 XT 4GB",
+        "Radeon RX 6500 XT"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "amd-radeon-rx-6500-xt-4gb-official",
+            "kind": "manufacturer",
+            "title": "AMD Radeon RX 6500 XT 4GB 公式世代・仕様情報",
+            "url": "https://www.amd.com/en/products/graphics/desktops/radeon.html",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "amd-radeon-rx-6500-xt-4gb-passmark",
+            "kind": "technical_database",
+            "title": "Radeon RX 6500 XT PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=Radeon+RX+6500+XT&id=4488",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "RDNA 2",
+        "generation": "Radeon RX 6000 Series",
+        "release_date": "2022-01-19",
+        "launch_period": "2022-01-19",
+        "release_date_precision": "exact",
+        "vram_gb": 4,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 64,
+        "passmark_g3d_mark": 9622,
+        "passmark_g2d_mark": 817,
+        "benchmark_reported_tdp_w": 107,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "amd-radeon-rx-6600",
+      "brand": "AMD",
+      "model": "Radeon RX 6600",
+      "display_name": "AMD Radeon RX 6600",
+      "aliases": [
+        "Radeon RX 6600"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "amd-radeon-rx-6600-official",
+            "kind": "manufacturer",
+            "title": "AMD Radeon RX 6600 公式世代・仕様情報",
+            "url": "https://www.amd.com/en/products/graphics/desktops/radeon.html",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "amd-radeon-rx-6600-passmark",
+            "kind": "technical_database",
+            "title": "Radeon RX 6600 PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=Radeon+RX+6600&id=4465",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "RDNA 2",
+        "generation": "Radeon RX 6000 Series",
+        "release_date": "2021-10-13",
+        "launch_period": "2021-10-13",
+        "release_date_precision": "exact",
+        "vram_gb": 8,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 128,
+        "passmark_g3d_mark": 15054,
+        "passmark_g2d_mark": 896,
+        "benchmark_reported_tdp_w": 132,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "amd-radeon-rx-6600-xt",
+      "brand": "AMD",
+      "model": "Radeon RX 6600 XT",
+      "display_name": "AMD Radeon RX 6600 XT",
+      "aliases": [
+        "Radeon RX 6600 XT"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "amd-radeon-rx-6600-xt-official",
+            "kind": "manufacturer",
+            "title": "AMD Radeon RX 6600 XT 公式世代・仕様情報",
+            "url": "https://www.amd.com/en/products/graphics/desktops/radeon.html",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "amd-radeon-rx-6600-xt-passmark",
+            "kind": "technical_database",
+            "title": "Radeon RX 6600 XT PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=Radeon+RX+6600+XT&id=4444",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "RDNA 2",
+        "generation": "Radeon RX 6000 Series",
+        "release_date": "2021-08-11",
+        "launch_period": "2021-08-11",
+        "release_date_precision": "exact",
+        "vram_gb": 8,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 128,
+        "passmark_g3d_mark": 16440,
+        "passmark_g2d_mark": 914,
+        "benchmark_reported_tdp_w": 160,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "amd-radeon-rx-6650-xt",
+      "brand": "AMD",
+      "model": "Radeon RX 6650 XT",
+      "display_name": "AMD Radeon RX 6650 XT",
+      "aliases": [
+        "Radeon RX 6650 XT"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "amd-radeon-rx-6650-xt-official",
+            "kind": "manufacturer",
+            "title": "AMD Radeon RX 6650 XT 公式世代・仕様情報",
+            "url": "https://www.amd.com/en/products/graphics/desktops/radeon.html",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "amd-radeon-rx-6650-xt-passmark",
+            "kind": "technical_database",
+            "title": "Radeon RX 6650 XT PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=Radeon+RX+6650+XT&id=4541",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "RDNA 2",
+        "generation": "Radeon RX 6000 Series",
+        "release_date": "2022-05-10",
+        "launch_period": "2022-05-10",
+        "release_date_precision": "exact",
+        "vram_gb": 8,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 128,
+        "passmark_g3d_mark": 17113,
+        "passmark_g2d_mark": 926,
+        "benchmark_reported_tdp_w": 176,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "amd-radeon-rx-6700",
+      "brand": "AMD",
+      "model": "Radeon RX 6700",
+      "display_name": "AMD Radeon RX 6700",
+      "aliases": [
+        "Radeon RX 6700"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "amd-radeon-rx-6700-official",
+            "kind": "manufacturer",
+            "title": "AMD Radeon RX 6700 公式世代・仕様情報",
+            "url": "https://www.amd.com/en/products/graphics/desktops/radeon.html",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "amd-radeon-rx-6700-passmark",
+            "kind": "technical_database",
+            "title": "Radeon RX 6700 PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=Radeon+RX+6700&id=4564",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "RDNA 2",
+        "generation": "Radeon RX 6000 Series",
+        "launch_period": "Q2'22",
+        "release_date_precision": "quarter",
+        "vram_gb": 10,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 160,
+        "passmark_g3d_mark": 18929,
+        "passmark_g2d_mark": 941,
+        "benchmark_reported_tdp_w": 175,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "amd-radeon-rx-6700-xt",
+      "brand": "AMD",
+      "model": "Radeon RX 6700 XT",
+      "display_name": "AMD Radeon RX 6700 XT",
+      "aliases": [
+        "Radeon RX 6700 XT"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "amd-radeon-rx-6700-xt-official",
+            "kind": "manufacturer",
+            "title": "AMD Radeon RX 6700 XT 公式世代・仕様情報",
+            "url": "https://www.amd.com/en/products/graphics/desktops/radeon.html",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "amd-radeon-rx-6700-xt-passmark",
+            "kind": "technical_database",
+            "title": "Radeon RX 6700 XT PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=Radeon+RX+6700+XT&id=4369",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "RDNA 2",
+        "generation": "Radeon RX 6000 Series",
+        "release_date": "2021-03-18",
+        "launch_period": "2021-03-18",
+        "release_date_precision": "exact",
+        "vram_gb": 12,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 192,
+        "passmark_g3d_mark": 19730,
+        "passmark_g2d_mark": 954,
+        "benchmark_reported_tdp_w": 230,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "amd-radeon-rx-6750-xt",
+      "brand": "AMD",
+      "model": "Radeon RX 6750 XT",
+      "display_name": "AMD Radeon RX 6750 XT",
+      "aliases": [
+        "Radeon RX 6750 XT"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "amd-radeon-rx-6750-xt-official",
+            "kind": "manufacturer",
+            "title": "AMD Radeon RX 6750 XT 公式世代・仕様情報",
+            "url": "https://www.amd.com/en/products/graphics/desktops/radeon.html",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "amd-radeon-rx-6750-xt-passmark",
+            "kind": "technical_database",
+            "title": "Radeon RX 6750 XT PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=Radeon+RX+6750+XT&id=4543",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "RDNA 2",
+        "generation": "Radeon RX 6000 Series",
+        "release_date": "2022-05-10",
+        "launch_period": "2022-05-10",
+        "release_date_precision": "exact",
+        "vram_gb": 12,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 192,
+        "passmark_g3d_mark": 20711,
+        "passmark_g2d_mark": 980,
+        "benchmark_reported_tdp_w": 250,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "amd-radeon-rx-6800",
+      "brand": "AMD",
+      "model": "Radeon RX 6800",
+      "display_name": "AMD Radeon RX 6800",
+      "aliases": [
+        "Radeon RX 6800"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "amd-radeon-rx-6800-official",
+            "kind": "manufacturer",
+            "title": "AMD Radeon RX 6800 公式世代・仕様情報",
+            "url": "https://www.amd.com/en/products/graphics/desktops/radeon.html",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "amd-radeon-rx-6800-passmark",
+            "kind": "technical_database",
+            "title": "Radeon RX 6800 PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=Radeon+RX+6800&id=4314",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "RDNA 2",
+        "generation": "Radeon RX 6000 Series",
+        "release_date": "2020-11-18",
+        "launch_period": "2020-11-18",
+        "release_date_precision": "exact",
+        "vram_gb": 16,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 256,
+        "passmark_g3d_mark": 22071,
+        "passmark_g2d_mark": 1000,
+        "benchmark_reported_tdp_w": 250,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "amd-radeon-rx-6800-xt",
+      "brand": "AMD",
+      "model": "Radeon RX 6800 XT",
+      "display_name": "AMD Radeon RX 6800 XT",
+      "aliases": [
+        "Radeon RX 6800 XT"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "amd-radeon-rx-6800-xt-official",
+            "kind": "manufacturer",
+            "title": "AMD Radeon RX 6800 XT 公式世代・仕様情報",
+            "url": "https://www.amd.com/en/products/graphics/desktops/radeon.html",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "amd-radeon-rx-6800-xt-passmark",
+            "kind": "technical_database",
+            "title": "Radeon RX 6800 XT PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=Radeon+RX+6800+XT&id=4312",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "RDNA 2",
+        "generation": "Radeon RX 6000 Series",
+        "release_date": "2020-11-18",
+        "launch_period": "2020-11-18",
+        "release_date_precision": "exact",
+        "vram_gb": 16,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 256,
+        "passmark_g3d_mark": 25067,
+        "passmark_g2d_mark": 1045,
+        "benchmark_reported_tdp_w": 300,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "amd-radeon-rx-6900-xt",
+      "brand": "AMD",
+      "model": "Radeon RX 6900 XT",
+      "display_name": "AMD Radeon RX 6900 XT",
+      "aliases": [
+        "Radeon RX 6900 XT"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "amd-radeon-rx-6900-xt-official",
+            "kind": "manufacturer",
+            "title": "AMD Radeon RX 6900 XT 公式世代・仕様情報",
+            "url": "https://www.amd.com/en/products/graphics/desktops/radeon.html",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "amd-radeon-rx-6900-xt-passmark",
+            "kind": "technical_database",
+            "title": "Radeon RX 6900 XT PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=Radeon+RX+6900+XT&id=4322",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "RDNA 2",
+        "generation": "Radeon RX 6000 Series",
+        "release_date": "2020-12-08",
+        "launch_period": "2020-12-08",
+        "release_date_precision": "exact",
+        "vram_gb": 16,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 256,
+        "passmark_g3d_mark": 26646,
+        "passmark_g2d_mark": 1063,
+        "benchmark_reported_tdp_w": 300,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "amd-radeon-rx-6950-xt",
+      "brand": "AMD",
+      "model": "Radeon RX 6950 XT",
+      "display_name": "AMD Radeon RX 6950 XT",
+      "aliases": [
+        "Radeon RX 6950 XT"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "amd-radeon-rx-6950-xt-official",
+            "kind": "manufacturer",
+            "title": "AMD Radeon RX 6950 XT 公式世代・仕様情報",
+            "url": "https://www.amd.com/en/products/graphics/desktops/radeon.html",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "amd-radeon-rx-6950-xt-passmark",
+            "kind": "technical_database",
+            "title": "Radeon RX 6950 XT PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=Radeon+RX+6950+XT&id=4540",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "RDNA 2",
+        "generation": "Radeon RX 6000 Series",
+        "release_date": "2022-05-10",
+        "launch_period": "2022-05-10",
+        "release_date_precision": "exact",
+        "vram_gb": 16,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 256,
+        "passmark_g3d_mark": 28076,
+        "passmark_g2d_mark": 1081,
+        "benchmark_reported_tdp_w": 335,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "amd-radeon-rx-7600",
+      "brand": "AMD",
+      "model": "Radeon RX 7600",
+      "display_name": "AMD Radeon RX 7600",
+      "aliases": [
+        "Radeon RX 7600"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "amd-radeon-rx-7600-official",
+            "kind": "manufacturer",
+            "title": "AMD Radeon RX 7600 公式世代・仕様情報",
+            "url": "https://www.amd.com/en/products/graphics/desktops/radeon.html",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "amd-radeon-rx-7600-passmark",
+            "kind": "technical_database",
+            "title": "Radeon RX 7600 PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=Radeon+RX+7600&id=4832",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "RDNA 3",
+        "generation": "Radeon RX 7000 Series",
+        "release_date": "2023-05-25",
+        "launch_period": "2023-05-25",
+        "release_date_precision": "exact",
+        "vram_gb": 8,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 128,
+        "passmark_g3d_mark": 16463,
+        "passmark_g2d_mark": 981,
+        "benchmark_reported_tdp_w": 165,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "amd-radeon-rx-7600-xt",
+      "brand": "AMD",
+      "model": "Radeon RX 7600 XT",
+      "display_name": "AMD Radeon RX 7600 XT",
+      "aliases": [
+        "Radeon RX 7600 XT"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "amd-radeon-rx-7600-xt-official",
+            "kind": "manufacturer",
+            "title": "AMD Radeon RX 7600 XT 公式世代・仕様情報",
+            "url": "https://www.amd.com/en/products/graphics/desktops/radeon.html",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "amd-radeon-rx-7600-xt-passmark",
+            "kind": "technical_database",
+            "title": "Radeon RX 7600 XT PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=Radeon+RX+7600+XT&id=4982",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "RDNA 3",
+        "generation": "Radeon RX 7000 Series",
+        "release_date": "2024-01-24",
+        "launch_period": "2024-01-24",
+        "release_date_precision": "exact",
+        "vram_gb": 16,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 128,
+        "passmark_g3d_mark": 17329,
+        "passmark_g2d_mark": 1027,
+        "benchmark_reported_tdp_w": 190,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "amd-radeon-rx-7700-xt",
+      "brand": "AMD",
+      "model": "Radeon RX 7700 XT",
+      "display_name": "AMD Radeon RX 7700 XT",
+      "aliases": [
+        "Radeon RX 7700 XT"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "amd-radeon-rx-7700-xt-official",
+            "kind": "manufacturer",
+            "title": "AMD Radeon RX 7700 XT 公式世代・仕様情報",
+            "url": "https://www.amd.com/en/products/graphics/desktops/radeon.html",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "amd-radeon-rx-7700-xt-passmark",
+            "kind": "technical_database",
+            "title": "Radeon RX 7700 XT PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=Radeon+RX+7700+XT&id=4919",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "RDNA 3",
+        "generation": "Radeon RX 7000 Series",
+        "release_date": "2023-09-06",
+        "launch_period": "2023-09-06",
+        "release_date_precision": "exact",
+        "vram_gb": 12,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 192,
+        "passmark_g3d_mark": 22692,
+        "passmark_g2d_mark": 1158,
+        "benchmark_reported_tdp_w": 245,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "amd-radeon-rx-7800-xt",
+      "brand": "AMD",
+      "model": "Radeon RX 7800 XT",
+      "display_name": "AMD Radeon RX 7800 XT",
+      "aliases": [
+        "Radeon RX 7800 XT"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "amd-radeon-rx-7800-xt-official",
+            "kind": "manufacturer",
+            "title": "AMD Radeon RX 7800 XT 公式世代・仕様情報",
+            "url": "https://www.amd.com/en/products/graphics/desktops/radeon.html",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "amd-radeon-rx-7800-xt-passmark",
+            "kind": "technical_database",
+            "title": "Radeon RX 7800 XT PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=Radeon+RX+7800+XT&id=4917",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "RDNA 3",
+        "generation": "Radeon RX 7000 Series",
+        "release_date": "2023-09-06",
+        "launch_period": "2023-09-06",
+        "release_date_precision": "exact",
+        "vram_gb": 16,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 256,
+        "passmark_g3d_mark": 24405,
+        "passmark_g2d_mark": 1192,
+        "benchmark_reported_tdp_w": 263,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "amd-radeon-rx-7900-gre",
+      "brand": "AMD",
+      "model": "Radeon RX 7900 GRE",
+      "display_name": "AMD Radeon RX 7900 GRE",
+      "aliases": [
+        "Radeon RX 7900 GRE"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "amd-radeon-rx-7900-gre-official",
+            "kind": "manufacturer",
+            "title": "AMD Radeon RX 7900 GRE 公式世代・仕様情報",
+            "url": "https://www.amd.com/en/products/graphics/desktops/radeon.html",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "amd-radeon-rx-7900-gre-passmark",
+            "kind": "technical_database",
+            "title": "Radeon RX 7900 GRE PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=Radeon+RX+7900+GRE&id=4906",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "RDNA 3",
+        "generation": "Radeon RX 7000 Series",
+        "release_date": "2024-02-27",
+        "launch_period": "2024-02-27",
+        "release_date_precision": "exact",
+        "vram_gb": 16,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 256,
+        "passmark_g3d_mark": 27457,
+        "passmark_g2d_mark": 1209,
+        "benchmark_reported_tdp_w": 260,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "amd-radeon-rx-7900-xt",
+      "brand": "AMD",
+      "model": "Radeon RX 7900 XT",
+      "display_name": "AMD Radeon RX 7900 XT",
+      "aliases": [
+        "Radeon RX 7900 XT"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "amd-radeon-rx-7900-xt-official",
+            "kind": "manufacturer",
+            "title": "AMD Radeon RX 7900 XT 公式世代・仕様情報",
+            "url": "https://www.amd.com/en/products/graphics/desktops/radeon.html",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "amd-radeon-rx-7900-xt-passmark",
+            "kind": "technical_database",
+            "title": "Radeon RX 7900 XT PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=Radeon+RX+7900+XT&id=4646",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "RDNA 3",
+        "generation": "Radeon RX 7000 Series",
+        "release_date": "2022-12-13",
+        "launch_period": "2022-12-13",
+        "release_date_precision": "exact",
+        "vram_gb": 20,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 320,
+        "passmark_g3d_mark": 29068,
+        "passmark_g2d_mark": 1245,
+        "benchmark_reported_tdp_w": 315,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "amd-radeon-rx-7900-xtx",
+      "brand": "AMD",
+      "model": "Radeon RX 7900 XTX",
+      "display_name": "AMD Radeon RX 7900 XTX",
+      "aliases": [
+        "Radeon RX 7900 XTX"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "amd-radeon-rx-7900-xtx-official",
+            "kind": "manufacturer",
+            "title": "AMD Radeon RX 7900 XTX 公式世代・仕様情報",
+            "url": "https://www.amd.com/en/products/graphics/desktops/radeon.html",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "amd-radeon-rx-7900-xtx-passmark",
+            "kind": "technical_database",
+            "title": "Radeon RX 7900 XTX PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=Radeon+RX+7900+XTX&id=4644",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "RDNA 3",
+        "generation": "Radeon RX 7000 Series",
+        "release_date": "2022-12-13",
+        "launch_period": "2022-12-13",
+        "release_date_precision": "exact",
+        "vram_gb": 24,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 384,
+        "passmark_g3d_mark": 31430,
+        "passmark_g2d_mark": 1288,
+        "benchmark_reported_tdp_w": 355,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "amd-radeon-rx-9060",
+      "brand": "AMD",
+      "model": "Radeon RX 9060",
+      "display_name": "AMD Radeon RX 9060",
+      "aliases": [
+        "Radeon RX 9060"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "amd-radeon-rx-9060-official",
+            "kind": "manufacturer",
+            "title": "AMD Radeon RX 9060 公式世代・仕様情報",
+            "url": "https://www.amd.com/en/products/graphics/desktops/radeon.html",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "amd-radeon-rx-9060-passmark",
+            "kind": "technical_database",
+            "title": "Radeon RX 9060 PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=Radeon+RX+9060&id=7294",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "RDNA 4",
+        "generation": "Radeon RX 9000 Series",
+        "launch_period": "Q3'25",
+        "release_date_precision": "quarter",
+        "vram_gb": 8,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 128,
+        "passmark_g3d_mark": 17649,
+        "passmark_g2d_mark": 999,
+        "benchmark_reported_tdp_w": 132,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "amd-radeon-rx-9060-xt-8gb",
+      "brand": "AMD",
+      "model": "Radeon RX 9060 XT 8GB",
+      "display_name": "AMD Radeon RX 9060 XT 8GB",
+      "aliases": [
+        "Radeon RX 9060 XT 8GB"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "amd-radeon-rx-9060-xt-8gb-official",
+            "kind": "manufacturer",
+            "title": "AMD Radeon RX 9060 XT 8GB 公式世代・仕様情報",
+            "url": "https://www.amd.com/en/products/graphics/desktops/radeon.html",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "amd-radeon-rx-9060-xt-8gb-passmark",
+            "kind": "technical_database",
+            "title": "Radeon RX 9060 XT 8GB PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=Radeon+RX+9060+XT+8GB&id=6575",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "RDNA 4",
+        "generation": "Radeon RX 9000 Series",
+        "release_date": "2025-06-05",
+        "launch_period": "2025-06-05",
+        "release_date_precision": "exact",
+        "vram_gb": 8,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 128,
+        "passmark_g3d_mark": 19761,
+        "passmark_g2d_mark": 1125,
+        "benchmark_reported_tdp_w": 150,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "amd-radeon-rx-9060-xt-16gb",
+      "brand": "AMD",
+      "model": "Radeon RX 9060 XT 16GB",
+      "display_name": "AMD Radeon RX 9060 XT 16GB",
+      "aliases": [
+        "Radeon RX 9060 XT 16GB"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "amd-radeon-rx-9060-xt-16gb-official",
+            "kind": "manufacturer",
+            "title": "AMD Radeon RX 9060 XT 16GB 公式世代・仕様情報",
+            "url": "https://www.amd.com/en/products/graphics/desktops/radeon.html",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "amd-radeon-rx-9060-xt-16gb-passmark",
+            "kind": "technical_database",
+            "title": "Radeon RX 9060 XT 16GB PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=Radeon+RX+9060+XT+16GB&id=5957",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "RDNA 4",
+        "generation": "Radeon RX 9000 Series",
+        "release_date": "2025-06-05",
+        "launch_period": "2025-06-05",
+        "release_date_precision": "exact",
+        "vram_gb": 16,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 128,
+        "passmark_g3d_mark": 20081,
+        "passmark_g2d_mark": 1171,
+        "benchmark_reported_tdp_w": 160,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "amd-radeon-rx-9070",
+      "brand": "AMD",
+      "model": "Radeon RX 9070",
+      "display_name": "AMD Radeon RX 9070",
+      "aliases": [
+        "Radeon RX 9070"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "amd-radeon-rx-9070-official",
+            "kind": "manufacturer",
+            "title": "AMD Radeon RX 9070 公式世代・仕様情報",
+            "url": "https://www.amd.com/en/products/graphics/desktops/radeon.html",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "amd-radeon-rx-9070-passmark",
+            "kind": "technical_database",
+            "title": "Radeon RX 9070 PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=Radeon+RX+9070&id=5958",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "RDNA 4",
+        "generation": "Radeon RX 9000 Series",
+        "release_date": "2025-03-06",
+        "launch_period": "2025-03-06",
+        "release_date_precision": "exact",
+        "vram_gb": 16,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 256,
+        "passmark_g3d_mark": 25375,
+        "passmark_g2d_mark": 1265,
+        "benchmark_reported_tdp_w": 220,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "amd-radeon-rx-9070-gre",
+      "brand": "AMD",
+      "model": "Radeon RX 9070 GRE",
+      "display_name": "AMD Radeon RX 9070 GRE",
+      "aliases": [
+        "Radeon RX 9070 GRE"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "amd-radeon-rx-9070-gre-official",
+            "kind": "manufacturer",
+            "title": "AMD Radeon RX 9070 GRE 公式世代・仕様情報",
+            "url": "https://www.amd.com/en/products/graphics/desktops/radeon.html",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "amd-radeon-rx-9070-gre-passmark",
+            "kind": "technical_database",
+            "title": "Radeon RX 9070 GRE PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=Radeon+RX+9070+GRE&id=6421",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "RDNA 4",
+        "generation": "Radeon RX 9000 Series",
+        "release_date": "2026-06-02",
+        "launch_period": "2026-06-02",
+        "release_date_precision": "exact",
+        "vram_gb": 12,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 192,
+        "passmark_g3d_mark": 24257,
+        "passmark_g2d_mark": 1198,
+        "benchmark_reported_tdp_w": 220,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "amd-radeon-rx-9070-xt",
+      "brand": "AMD",
+      "model": "Radeon RX 9070 XT",
+      "display_name": "AMD Radeon RX 9070 XT",
+      "aliases": [
+        "Radeon RX 9070 XT"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "amd-radeon-rx-9070-xt-official",
+            "kind": "manufacturer",
+            "title": "AMD Radeon RX 9070 XT 公式世代・仕様情報",
+            "url": "https://www.amd.com/en/products/graphics/desktops/radeon.html",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "amd-radeon-rx-9070-xt-passmark",
+            "kind": "technical_database",
+            "title": "Radeon RX 9070 XT PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=Radeon+RX+9070+XT&id=5956",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "RDNA 4",
+        "generation": "Radeon RX 9000 Series",
+        "release_date": "2025-03-06",
+        "launch_period": "2025-03-06",
+        "release_date_precision": "exact",
+        "vram_gb": 16,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 256,
+        "passmark_g3d_mark": 26912,
+        "passmark_g2d_mark": 1315,
+        "benchmark_reported_tdp_w": 304,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-2060-6gb",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 2060 6GB",
+      "display_name": "NVIDIA GeForce RTX 2060 6GB",
+      "aliases": [
+        "GeForce RTX 2060 6GB",
+        "GeForce RTX 2060"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-2060-6gb-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 2060 6GB 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/20-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-2060-6gb-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 2060 PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+2060&id=4037",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Turing",
+        "generation": "GeForce RTX 20 Series",
+        "release_date": "2019-01-15",
+        "launch_period": "2019-01-15",
+        "release_date_precision": "exact",
+        "vram_gb": 6,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 192,
+        "passmark_g3d_mark": 14090,
+        "passmark_g2d_mark": 744,
+        "benchmark_reported_tdp_w": 160,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-2060-12gb",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 2060 12GB",
+      "display_name": "NVIDIA GeForce RTX 2060 12GB",
+      "aliases": [
+        "GeForce RTX 2060 12GB"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-2060-12gb-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 2060 12GB 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/20-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-2060-12gb-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 2060 12GB PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+2060+12GB&id=4602",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Turing",
+        "generation": "GeForce RTX 20 Series",
+        "release_date": "2021-12-07",
+        "launch_period": "2021-12-07",
+        "release_date_precision": "exact",
+        "vram_gb": 12,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 192,
+        "passmark_g3d_mark": 15924,
+        "passmark_g2d_mark": 851,
+        "benchmark_reported_tdp_w": 185,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-2060-super",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 2060 SUPER",
+      "display_name": "NVIDIA GeForce RTX 2060 SUPER",
+      "aliases": [
+        "GeForce RTX 2060 SUPER"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-2060-super-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 2060 SUPER 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/20-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-2060-super-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 2060 SUPER PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+2060+SUPER&id=4117",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Turing",
+        "generation": "GeForce RTX 20 Series",
+        "release_date": "2019-07-09",
+        "launch_period": "2019-07-09",
+        "release_date_precision": "exact",
+        "vram_gb": 8,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 256,
+        "passmark_g3d_mark": 16469,
+        "passmark_g2d_mark": 857,
+        "benchmark_reported_tdp_w": 175,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-2070",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 2070",
+      "display_name": "NVIDIA GeForce RTX 2070",
+      "aliases": [
+        "GeForce RTX 2070"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-2070-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 2070 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/20-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-2070-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 2070 PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+2070&id=4001",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Turing",
+        "generation": "GeForce RTX 20 Series",
+        "release_date": "2018-10-17",
+        "launch_period": "2018-10-17",
+        "release_date_precision": "exact",
+        "vram_gb": 8,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 256,
+        "passmark_g3d_mark": 16062,
+        "passmark_g2d_mark": 816,
+        "benchmark_reported_tdp_w": 175,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-2070-super",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 2070 SUPER",
+      "display_name": "NVIDIA GeForce RTX 2070 SUPER",
+      "aliases": [
+        "GeForce RTX 2070 SUPER"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-2070-super-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 2070 SUPER 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/20-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-2070-super-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 2070 SUPER PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+2070+SUPER&id=4116",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Turing",
+        "generation": "GeForce RTX 20 Series",
+        "release_date": "2019-07-09",
+        "launch_period": "2019-07-09",
+        "release_date_precision": "exact",
+        "vram_gb": 8,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 256,
+        "passmark_g3d_mark": 18127,
+        "passmark_g2d_mark": 878,
+        "benchmark_reported_tdp_w": 215,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-2080",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 2080",
+      "display_name": "NVIDIA GeForce RTX 2080",
+      "aliases": [
+        "GeForce RTX 2080"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-2080-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 2080 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/20-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-2080-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 2080 PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+2080&id=3989",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Turing",
+        "generation": "GeForce RTX 20 Series",
+        "release_date": "2018-09-20",
+        "launch_period": "2018-09-20",
+        "release_date_precision": "exact",
+        "vram_gb": 8,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 256,
+        "passmark_g3d_mark": 18567,
+        "passmark_g2d_mark": 897,
+        "benchmark_reported_tdp_w": 250,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-2080-super",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 2080 SUPER",
+      "display_name": "NVIDIA GeForce RTX 2080 SUPER",
+      "aliases": [
+        "GeForce RTX 2080 SUPER"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-2080-super-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 2080 SUPER 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/20-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-2080-super-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 2080 SUPER PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+2080+SUPER&id=4123",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Turing",
+        "generation": "GeForce RTX 20 Series",
+        "release_date": "2019-07-23",
+        "launch_period": "2019-07-23",
+        "release_date_precision": "exact",
+        "vram_gb": 8,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 256,
+        "passmark_g3d_mark": 19422,
+        "passmark_g2d_mark": 918,
+        "benchmark_reported_tdp_w": 250,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-2080-ti",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 2080 Ti",
+      "display_name": "NVIDIA GeForce RTX 2080 Ti",
+      "aliases": [
+        "GeForce RTX 2080 Ti"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-2080-ti-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 2080 Ti 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/20-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-2080-ti-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 2080 Ti PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+2080+Ti&id=3991",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Turing",
+        "generation": "GeForce RTX 20 Series",
+        "release_date": "2018-09-27",
+        "launch_period": "2018-09-27",
+        "release_date_precision": "exact",
+        "vram_gb": 11,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 352,
+        "passmark_g3d_mark": 21434,
+        "passmark_g2d_mark": 925,
+        "benchmark_reported_tdp_w": 250,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-3050-6gb",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 3050 6GB",
+      "display_name": "NVIDIA GeForce RTX 3050 6GB",
+      "aliases": [
+        "GeForce RTX 3050 6GB"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-3050-6gb-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 3050 6GB 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-3050-6gb-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 3050 6GB PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+3050+6GB&id=5069",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Ampere",
+        "generation": "GeForce RTX 30 Series",
+        "launch_period": "2024-02",
+        "release_date_precision": "month",
+        "vram_gb": 6,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 96,
+        "passmark_g3d_mark": 10743,
+        "passmark_g2d_mark": 882,
+        "benchmark_reported_tdp_w": 70,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-3050-8gb",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 3050 8GB",
+      "display_name": "NVIDIA GeForce RTX 3050 8GB",
+      "aliases": [
+        "GeForce RTX 3050 8GB"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-3050-8gb-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 3050 8GB 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-3050-8gb-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 3050 8GB PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+3050+8GB&id=4495",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Ampere",
+        "generation": "GeForce RTX 30 Series",
+        "release_date": "2022-01-27",
+        "launch_period": "2022-01-27",
+        "release_date_precision": "exact",
+        "vram_gb": 8,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 128,
+        "passmark_g3d_mark": 12485,
+        "passmark_g2d_mark": 918,
+        "benchmark_reported_tdp_w": 130,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-3060-8gb",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 3060 8GB",
+      "display_name": "NVIDIA GeForce RTX 3060 8GB",
+      "aliases": [
+        "GeForce RTX 3060 8GB"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-3060-8gb-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 3060 8GB 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-3060-8gb-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 3060 8GB PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+3060+8GB&id=4966",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Ampere",
+        "generation": "GeForce RTX 30 Series",
+        "launch_period": "Q4'22",
+        "release_date_precision": "quarter",
+        "vram_gb": 8,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 128,
+        "passmark_g3d_mark": 15203,
+        "passmark_g2d_mark": 974,
+        "benchmark_reported_tdp_w": 170,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-3060-12gb",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 3060 12GB",
+      "display_name": "NVIDIA GeForce RTX 3060 12GB",
+      "aliases": [
+        "GeForce RTX 3060 12GB"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-3060-12gb-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 3060 12GB 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-3060-12gb-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 3060 12GB PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+3060+12GB&id=4345",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Ampere",
+        "generation": "GeForce RTX 30 Series",
+        "release_date": "2021-02-25",
+        "launch_period": "2021-02-25",
+        "release_date_precision": "exact",
+        "vram_gb": 12,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 192,
+        "passmark_g3d_mark": 16716,
+        "passmark_g2d_mark": 965,
+        "benchmark_reported_tdp_w": 170,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-3060-ti",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 3060 Ti",
+      "display_name": "NVIDIA GeForce RTX 3060 Ti",
+      "aliases": [
+        "GeForce RTX 3060 Ti"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-3060-ti-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 3060 Ti 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-3060-ti-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 3060 Ti PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+3060+Ti&id=4318",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Ampere",
+        "generation": "GeForce RTX 30 Series",
+        "release_date": "2020-12-02",
+        "launch_period": "2020-12-02",
+        "release_date_precision": "exact",
+        "vram_gb": 8,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 256,
+        "passmark_g3d_mark": 20240,
+        "passmark_g2d_mark": 989,
+        "benchmark_reported_tdp_w": 200,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-3070",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 3070",
+      "display_name": "NVIDIA GeForce RTX 3070",
+      "aliases": [
+        "GeForce RTX 3070"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-3070-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 3070 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-3070-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 3070 PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+3070&id=4283",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Ampere",
+        "generation": "GeForce RTX 30 Series",
+        "release_date": "2020-10-29",
+        "launch_period": "2020-10-29",
+        "release_date_precision": "exact",
+        "vram_gb": 8,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 256,
+        "passmark_g3d_mark": 22095,
+        "passmark_g2d_mark": 1005,
+        "benchmark_reported_tdp_w": 220,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-3070-ti",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 3070 Ti",
+      "display_name": "NVIDIA GeForce RTX 3070 Ti",
+      "aliases": [
+        "GeForce RTX 3070 Ti"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-3070-ti-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 3070 Ti 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-3070-ti-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 3070 Ti PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+3070+Ti&id=4413",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Ampere",
+        "generation": "GeForce RTX 30 Series",
+        "release_date": "2021-06-10",
+        "launch_period": "2021-06-10",
+        "release_date_precision": "exact",
+        "vram_gb": 8,
+        "memory_type": "GDDR6X",
+        "memory_bus_bits": 256,
+        "passmark_g3d_mark": 23196,
+        "passmark_g2d_mark": 1058,
+        "benchmark_reported_tdp_w": 290,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-3080",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 3080",
+      "display_name": "NVIDIA GeForce RTX 3080",
+      "aliases": [
+        "GeForce RTX 3080"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-3080-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 3080 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-3080-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 3080 PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+3080&id=4282",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Ampere",
+        "generation": "GeForce RTX 30 Series",
+        "release_date": "2020-09-17",
+        "launch_period": "2020-09-17",
+        "release_date_precision": "exact",
+        "vram_gb": 10,
+        "memory_type": "GDDR6X",
+        "memory_bus_bits": 320,
+        "passmark_g3d_mark": 25001,
+        "passmark_g2d_mark": 1062,
+        "benchmark_reported_tdp_w": 320,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-3080-12gb",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 3080 12GB",
+      "display_name": "NVIDIA GeForce RTX 3080 12GB",
+      "aliases": [
+        "GeForce RTX 3080 12GB"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-3080-12gb-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 3080 12GB 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-3080-12gb-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 3080 12GB PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+3080+12GB&id=4601",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Ampere",
+        "generation": "GeForce RTX 30 Series",
+        "release_date": "2022-01-11",
+        "launch_period": "2022-01-11",
+        "release_date_precision": "exact",
+        "vram_gb": 12,
+        "memory_type": "GDDR6X",
+        "memory_bus_bits": 384,
+        "passmark_g3d_mark": 26559,
+        "passmark_g2d_mark": 1095,
+        "benchmark_reported_tdp_w": 350,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-3080-ti",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 3080 Ti",
+      "display_name": "NVIDIA GeForce RTX 3080 Ti",
+      "aliases": [
+        "GeForce RTX 3080 Ti"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-3080-ti-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 3080 Ti 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-3080-ti-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 3080 Ti PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+3080+Ti&id=4409",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Ampere",
+        "generation": "GeForce RTX 30 Series",
+        "release_date": "2021-06-03",
+        "launch_period": "2021-06-03",
+        "release_date_precision": "exact",
+        "vram_gb": 12,
+        "memory_type": "GDDR6X",
+        "memory_bus_bits": 384,
+        "passmark_g3d_mark": 26750,
+        "passmark_g2d_mark": 1095,
+        "benchmark_reported_tdp_w": 350,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-3090",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 3090",
+      "display_name": "NVIDIA GeForce RTX 3090",
+      "aliases": [
+        "GeForce RTX 3090"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-3090-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 3090 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-3090-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 3090 PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+3090&id=4284",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Ampere",
+        "generation": "GeForce RTX 30 Series",
+        "release_date": "2020-09-24",
+        "launch_period": "2020-09-24",
+        "release_date_precision": "exact",
+        "vram_gb": 24,
+        "memory_type": "GDDR6X",
+        "memory_bus_bits": 384,
+        "passmark_g3d_mark": 26518,
+        "passmark_g2d_mark": 1069,
+        "benchmark_reported_tdp_w": 350,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-3090-ti",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 3090 Ti",
+      "display_name": "NVIDIA GeForce RTX 3090 Ti",
+      "aliases": [
+        "GeForce RTX 3090 Ti"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-3090-ti-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 3090 Ti 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/30-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-3090-ti-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 3090 Ti PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+3090+Ti&id=4524",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Ampere",
+        "generation": "GeForce RTX 30 Series",
+        "release_date": "2022-03-29",
+        "launch_period": "2022-03-29",
+        "release_date_precision": "exact",
+        "vram_gb": 24,
+        "memory_type": "GDDR6X",
+        "memory_bus_bits": 384,
+        "passmark_g3d_mark": 29272,
+        "passmark_g2d_mark": 1226,
+        "benchmark_reported_tdp_w": 450,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-4060",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 4060",
+      "display_name": "NVIDIA GeForce RTX 4060",
+      "aliases": [
+        "GeForce RTX 4060"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-4060-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 4060 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-4060-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 4060 PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+4060&id=4850",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Ada Lovelace",
+        "generation": "GeForce RTX 40 Series",
+        "release_date": "2023-06-29",
+        "launch_period": "2023-06-29",
+        "release_date_precision": "exact",
+        "vram_gb": 8,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 128,
+        "passmark_g3d_mark": 19494,
+        "passmark_g2d_mark": 1037,
+        "benchmark_reported_tdp_w": 115,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-4060-ti-8gb",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 4060 Ti 8GB",
+      "display_name": "NVIDIA GeForce RTX 4060 Ti 8GB",
+      "aliases": [
+        "GeForce RTX 4060 Ti 8GB",
+        "GeForce RTX 4060 Ti"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-4060-ti-8gb-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 4060 Ti 8GB 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-4060-ti-8gb-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 4060 Ti PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+4060+Ti&id=4827",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Ada Lovelace",
+        "generation": "GeForce RTX 40 Series",
+        "release_date": "2023-05-24",
+        "launch_period": "2023-05-24",
+        "release_date_precision": "exact",
+        "vram_gb": 8,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 128,
+        "passmark_g3d_mark": 22603,
+        "passmark_g2d_mark": 1095,
+        "benchmark_reported_tdp_w": 160,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-4060-ti-16gb",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 4060 Ti 16GB",
+      "display_name": "NVIDIA GeForce RTX 4060 Ti 16GB",
+      "aliases": [
+        "GeForce RTX 4060 Ti 16GB"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-4060-ti-16gb-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 4060 Ti 16GB 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-4060-ti-16gb-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 4060 Ti 16GB PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+4060+Ti+16GB&id=4898",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Ada Lovelace",
+        "generation": "GeForce RTX 40 Series",
+        "release_date": "2023-07-18",
+        "launch_period": "2023-07-18",
+        "release_date_precision": "exact",
+        "vram_gb": 16,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 128,
+        "passmark_g3d_mark": 22592,
+        "passmark_g2d_mark": 1079,
+        "benchmark_reported_tdp_w": 165,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-4070",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 4070",
+      "display_name": "NVIDIA GeForce RTX 4070",
+      "aliases": [
+        "GeForce RTX 4070"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-4070-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 4070 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-4070-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 4070 PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+4070&id=4795",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Ada Lovelace",
+        "generation": "GeForce RTX 40 Series",
+        "release_date": "2023-04-13",
+        "launch_period": "2023-04-13",
+        "release_date_precision": "exact",
+        "vram_gb": 12,
+        "memory_type": "GDDR6X",
+        "memory_bus_bits": 192,
+        "passmark_g3d_mark": 26880,
+        "passmark_g2d_mark": 1167,
+        "benchmark_reported_tdp_w": 200,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-4070-super",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 4070 SUPER",
+      "display_name": "NVIDIA GeForce RTX 4070 SUPER",
+      "aliases": [
+        "GeForce RTX 4070 SUPER"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-4070-super-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 4070 SUPER 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-4070-super-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 4070 SUPER PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+4070+SUPER&id=4973",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Ada Lovelace",
+        "generation": "GeForce RTX 40 Series",
+        "release_date": "2024-01-17",
+        "launch_period": "2024-01-17",
+        "release_date_precision": "exact",
+        "vram_gb": 12,
+        "memory_type": "GDDR6X",
+        "memory_bus_bits": 192,
+        "passmark_g3d_mark": 29944,
+        "passmark_g2d_mark": 1192,
+        "benchmark_reported_tdp_w": 220,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-4070-ti",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 4070 Ti",
+      "display_name": "NVIDIA GeForce RTX 4070 Ti",
+      "aliases": [
+        "GeForce RTX 4070 Ti"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-4070-ti-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 4070 Ti 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-4070-ti-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 4070 Ti PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+4070+Ti&id=4699",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Ada Lovelace",
+        "generation": "GeForce RTX 40 Series",
+        "release_date": "2023-01-05",
+        "launch_period": "2023-01-05",
+        "release_date_precision": "exact",
+        "vram_gb": 12,
+        "memory_type": "GDDR6X",
+        "memory_bus_bits": 192,
+        "passmark_g3d_mark": 31540,
+        "passmark_g2d_mark": 1209,
+        "benchmark_reported_tdp_w": 285,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-4070-ti-super",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 4070 Ti SUPER",
+      "display_name": "NVIDIA GeForce RTX 4070 Ti SUPER",
+      "aliases": [
+        "GeForce RTX 4070 Ti SUPER"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-4070-ti-super-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 4070 Ti SUPER 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-4070-ti-super-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 4070 Ti SUPER PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+4070+Ti+SUPER&id=4980",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Ada Lovelace",
+        "generation": "GeForce RTX 40 Series",
+        "release_date": "2024-01-24",
+        "launch_period": "2024-01-24",
+        "release_date_precision": "exact",
+        "vram_gb": 16,
+        "memory_type": "GDDR6X",
+        "memory_bus_bits": 256,
+        "passmark_g3d_mark": 31851,
+        "passmark_g2d_mark": 1246,
+        "benchmark_reported_tdp_w": 285,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-4080",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 4080",
+      "display_name": "NVIDIA GeForce RTX 4080",
+      "aliases": [
+        "GeForce RTX 4080"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-4080-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 4080 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-4080-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 4080 PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+4080&id=4622",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Ada Lovelace",
+        "generation": "GeForce RTX 40 Series",
+        "release_date": "2022-11-16",
+        "launch_period": "2022-11-16",
+        "release_date_precision": "exact",
+        "vram_gb": 16,
+        "memory_type": "GDDR6X",
+        "memory_bus_bits": 256,
+        "passmark_g3d_mark": 34447,
+        "passmark_g2d_mark": 1250,
+        "benchmark_reported_tdp_w": 320,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-4080-super",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 4080 SUPER",
+      "display_name": "NVIDIA GeForce RTX 4080 SUPER",
+      "aliases": [
+        "GeForce RTX 4080 SUPER"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-4080-super-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 4080 SUPER 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-4080-super-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 4080 SUPER PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+4080+SUPER&id=4984",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Ada Lovelace",
+        "generation": "GeForce RTX 40 Series",
+        "release_date": "2024-01-31",
+        "launch_period": "2024-01-31",
+        "release_date_precision": "exact",
+        "vram_gb": 16,
+        "memory_type": "GDDR6X",
+        "memory_bus_bits": 256,
+        "passmark_g3d_mark": 34237,
+        "passmark_g2d_mark": 1279,
+        "benchmark_reported_tdp_w": 320,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-4090",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 4090",
+      "display_name": "NVIDIA GeForce RTX 4090",
+      "aliases": [
+        "GeForce RTX 4090"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-4090-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 4090 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-4090-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 4090 PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+4090&id=4606",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Ada Lovelace",
+        "generation": "GeForce RTX 40 Series",
+        "release_date": "2022-10-12",
+        "launch_period": "2022-10-12",
+        "release_date_precision": "exact",
+        "vram_gb": 24,
+        "memory_type": "GDDR6X",
+        "memory_bus_bits": 384,
+        "passmark_g3d_mark": 38054,
+        "passmark_g2d_mark": 1303,
+        "benchmark_reported_tdp_w": 450,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-5050",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 5050",
+      "display_name": "NVIDIA GeForce RTX 5050",
+      "aliases": [
+        "GeForce RTX 5050"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-5050-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 5050 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-5050-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 5050 PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+5050&id=6668",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Blackwell",
+        "generation": "GeForce RTX 50 Series",
+        "launch_period": "2025-07",
+        "release_date_precision": "month",
+        "vram_gb": 8,
+        "memory_type": "GDDR6",
+        "memory_bus_bits": 128,
+        "passmark_g3d_mark": 16954,
+        "passmark_g2d_mark": 1070,
+        "benchmark_reported_tdp_w": 130,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-5060",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 5060",
+      "display_name": "NVIDIA GeForce RTX 5060",
+      "aliases": [
+        "GeForce RTX 5060"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-5060-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 5060 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-5060-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 5060 PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+5060&id=5602",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Blackwell",
+        "generation": "GeForce RTX 50 Series",
+        "release_date": "2025-05-19",
+        "launch_period": "2025-05-19",
+        "release_date_precision": "exact",
+        "vram_gb": 8,
+        "memory_type": "GDDR7",
+        "memory_bus_bits": 128,
+        "passmark_g3d_mark": 20692,
+        "passmark_g2d_mark": 1150,
+        "benchmark_reported_tdp_w": 170,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-5060-ti-8gb",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 5060 Ti 8GB",
+      "display_name": "NVIDIA GeForce RTX 5060 Ti 8GB",
+      "aliases": [
+        "GeForce RTX 5060 Ti 8GB"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-5060-ti-8gb-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 5060 Ti 8GB 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-5060-ti-8gb-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 5060 Ti 8GB PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+5060+Ti+8GB&id=6441",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Blackwell",
+        "generation": "GeForce RTX 50 Series",
+        "release_date": "2025-04-16",
+        "launch_period": "2025-04-16",
+        "release_date_precision": "exact",
+        "vram_gb": 8,
+        "memory_type": "GDDR7",
+        "memory_bus_bits": 128,
+        "passmark_g3d_mark": 22067,
+        "passmark_g2d_mark": 1175,
+        "benchmark_reported_tdp_w": 180,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-5060-ti-16gb",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 5060 Ti 16GB",
+      "display_name": "NVIDIA GeForce RTX 5060 Ti 16GB",
+      "aliases": [
+        "GeForce RTX 5060 Ti 16GB"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-5060-ti-16gb-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 5060 Ti 16GB 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-5060-ti-16gb-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 5060 Ti 16GB PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+5060+Ti+16GB&id=6160",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Blackwell",
+        "generation": "GeForce RTX 50 Series",
+        "release_date": "2025-04-16",
+        "launch_period": "2025-04-16",
+        "release_date_precision": "exact",
+        "vram_gb": 16,
+        "memory_type": "GDDR7",
+        "memory_bus_bits": 128,
+        "passmark_g3d_mark": 22626,
+        "passmark_g2d_mark": 1207,
+        "benchmark_reported_tdp_w": 180,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-5070",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 5070",
+      "display_name": "NVIDIA GeForce RTX 5070",
+      "aliases": [
+        "GeForce RTX 5070"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-5070-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 5070 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-5070-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 5070 PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+5070&id=5940",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Blackwell",
+        "generation": "GeForce RTX 50 Series",
+        "release_date": "2025-03-05",
+        "launch_period": "2025-03-05",
+        "release_date_precision": "exact",
+        "vram_gb": 12,
+        "memory_type": "GDDR7",
+        "memory_bus_bits": 192,
+        "passmark_g3d_mark": 28684,
+        "passmark_g2d_mark": 1294,
+        "benchmark_reported_tdp_w": 250,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-5070-ti",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 5070 Ti",
+      "display_name": "NVIDIA GeForce RTX 5070 Ti",
+      "aliases": [
+        "GeForce RTX 5070 Ti"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-5070-ti-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 5070 Ti 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-5070-ti-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 5070 Ti PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+5070+Ti&id=5878",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Blackwell",
+        "generation": "GeForce RTX 50 Series",
+        "release_date": "2025-02-20",
+        "launch_period": "2025-02-20",
+        "release_date_precision": "exact",
+        "vram_gb": 16,
+        "memory_type": "GDDR7",
+        "memory_bus_bits": 256,
+        "passmark_g3d_mark": 32367,
+        "passmark_g2d_mark": 1326,
+        "benchmark_reported_tdp_w": 300,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-5080",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 5080",
+      "display_name": "NVIDIA GeForce RTX 5080",
+      "aliases": [
+        "GeForce RTX 5080"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-5080-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 5080 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-5080-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 5080 PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+5080&id=5721",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Blackwell",
+        "generation": "GeForce RTX 50 Series",
+        "release_date": "2025-01-30",
+        "launch_period": "2025-01-30",
+        "release_date_precision": "exact",
+        "vram_gb": 16,
+        "memory_type": "GDDR7",
+        "memory_bus_bits": 256,
+        "passmark_g3d_mark": 35656,
+        "passmark_g2d_mark": 1402,
+        "benchmark_reported_tdp_w": 360,
+        "passmark_checked_at": "2026-07-15"
+      },
+      "identifiers": {}
+    },
+    {
+      "category": "gpu_chip",
+      "id": "nvidia-geforce-rtx-5090",
+      "brand": "NVIDIA",
+      "model": "GeForce RTX 5090",
+      "display_name": "NVIDIA GeForce RTX 5090",
+      "aliases": [
+        "GeForce RTX 5090"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-15",
+        "summary": "GPUチップ性能比較用の基準レコード。実製品の冷却・騒音・寸法・保証はGPUシートのボードSKUで別評価します。",
+        "risk_summary": "ボードメーカー別の品質・保証・電源・寸法は未評価",
+        "strengths": [],
+        "weaknesses": [],
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "nvidia-geforce-rtx-5090-official",
+            "kind": "manufacturer",
+            "title": "NVIDIA GeForce RTX 5090 公式世代・仕様情報",
+            "url": "https://www.nvidia.com/en-us/geforce/graphics-cards/50-series/",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.architecture",
+              "specs.generation",
+              "specs.release_date",
+              "specs.launch_period",
+              "specs.vram_gb",
+              "specs.memory_type",
+              "specs.memory_bus_bits"
+            ],
+            "reviewer": "Codex",
+            "notes": "公式世代ページ・製品情報を基準に記録。日付を確定できない派生SKUは月または四半期精度。"
+          },
+          {
+            "id": "nvidia-geforce-rtx-5090-passmark",
+            "kind": "technical_database",
+            "title": "GeForce RTX 5090 PassMark benchmark",
+            "url": "https://www.videocardbenchmark.net/video_lookup.php?gpu=GeForce+RTX+5090&id=5725",
+            "checked_at": "2026-07-15",
+            "supports": [
+              "specs.passmark_g3d_mark",
+              "specs.passmark_g2d_mark",
+              "specs.benchmark_reported_tdp_w",
+              "specs.passmark_checked_at"
+            ],
+            "reviewer": "Codex",
+            "notes": "GPU Mega Page（最終更新2026-07-14）から取得。投稿サンプル更新により変動します。"
+          }
+        ]
+      },
+      "notes": [
+        "PassMark値は2026-07-15確認時点。販売商品への自動承認には使用せず、個別ボードSKUを別途登録してください。"
+      ],
+      "specs": {
+        "architecture": "Blackwell",
+        "generation": "GeForce RTX 50 Series",
+        "release_date": "2025-01-30",
+        "launch_period": "2025-01-30",
+        "release_date_precision": "exact",
+        "vram_gb": 32,
+        "memory_type": "GDDR7",
+        "memory_bus_bits": 512,
+        "passmark_g3d_mark": 38970,
+        "passmark_g2d_mark": 1411,
+        "benchmark_reported_tdp_w": 575,
         "passmark_checked_at": "2026-07-15"
       },
       "identifiers": {}

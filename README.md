@@ -153,11 +153,15 @@ python3 catalog_excel.py check
 
 `validate` はExcelの列定義、型、必須値、参照関係と生成予定JSONを検証します。`build` は検証成功後だけ `catalog/quality_catalog.json` を更新し、`check` はExcelと既存JSONの同期状態を確認します。JSONを直接編集せず、Excelから一方向に生成してください。生成後のJSON自体は従来どおり `python3 quality_catalog.py validate` でも検証できます。
 
-Excelはカテゴリ別に `CPU`、`GPU`、`Memory`、`SSD`、`PSU`、`Motherboard`、`Monitor` シートを持ちます。主要ASIN・JAN・価格.com ID・部品番号と、人間向けの品質要約は各カテゴリシートへまとめています。追加識別子、根拠資料、既知の問題はそれぞれ `Identifiers`、`Evidence`、`Risks` に1件1行で登録します。
+Excelはカテゴリ別に `CPU`、`GPUChips`、`GPU`、`Memory`、`SSD`、`PSU`、`Motherboard`、`Monitor` シートを持ちます。`GPUChips` はGPUチップの性能・VRAM、`GPU` はボードメーカー別の完全SKUと品質を管理します。主要ASIN・JAN・価格.com ID・部品番号と、人間向けの品質要約は販売製品側のカテゴリシートへまとめています。追加識別子、根拠資料、既知の問題はそれぞれ `Identifiers`、`Evidence`、`Risks` に1件1行で登録します。
 
 `CPU` シートには、デスクトップ向けRyzen 5000シリーズ以降とIntel Core第12世代以降（Core Ultra 200Sを含む）の主要製品を初期登録しています。公式の発売日または発売時期、コア構成、アーキテクチャに加え、PassMarkの `CPU Mark` と `Single Thread Rating` を確認日付きで保持します。PassMark値は継続的に変動する参考指標なので、根拠行のURLと `passmark_checked_at` をセットで更新してください。日単位の発売日を公式資料で確定できない製品は `release_date` を空欄にし、`launch_period` と `release_date_precision` に四半期または月の精度を記録します。
 
 CPUの初期行はすべて `research_required` / `unrated` です。性能値が登録済みでも、ASIN・JAN、国内リテール/OEM区分、保証、独立レビューを確認するまでは自動監視の承認対象になりません。
+
+`GPUChips` にはデスクトップ向けのGeForce RTX 20/30/40/50シリーズ38構成と、Radeon RX 6000/7000/9000シリーズ25構成を初期登録しています。VRAM違いは別IDとし、世代、アーキテクチャ、発売日または発売時期、VRAM、メモリバス、PassMark G3D/G2Dと確認日を保持します。モバイル、ワークステーション、OEM専用、地域限定型番は初期対象外です。チップ行は性能比較用の参照レコードであり、販売商品の品質承認を意味しません。
+
+グラフィックボードは `GPU` シートへ完全な部品番号単位で登録し、`gpu_chip_id` で `GPUChips.product_id` を参照します。ExcelからJSONを生成すると、参照先のVRAM・世代・PassMark値が `specs.gpu_chip` へ展開されます。ボード側ではメーカー（`brand`）、シリーズ、リビジョン、クーラー設計、ファン数、騒音、カード長、占有スロット、補助電源、国内代理店、保証を個別評価します。同じシリーズ名でも世代やリビジョンをまたいで品質を自動継承しません。
 
 仕様項目は後から追加できます。
 
