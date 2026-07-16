@@ -157,6 +157,26 @@ class CatalogExcelTest(unittest.TestCase):
             workbook.sheetnames.index("GPU") + 1,
         )
 
+    def test_gpu_chip_sheet_has_formula_driven_performance_view(self):
+        workbook = load_workbook(WORKBOOK, data_only=False)
+        sheet = workbook["GPUChips"]
+        self.assertEqual(
+            [sheet.cell(4, column).value for column in range(26, 30)],
+            [
+                "performance_index_rtx4060_100",
+                "performance_rank",
+                "performance_class",
+                "passmark_g3d_per_watt",
+            ],
+        )
+        self.assertEqual(sheet["AA3"].value, "nvidia-geforce-rtx-4060")
+        self.assertIn("$AA$3", sheet["Z5"].value)
+        self.assertIn("COUNTIF", sheet["AA5"].value)
+        self.assertIn("'Lists'!$AL$9", sheet["AB5"].value)
+        self.assertIn("V5/X5", sheet["AC5"].value)
+        self.assertEqual(workbook["Lists"]["AK5"].value, "エントリー")
+        self.assertEqual(workbook["Lists"]["AL9"].value, 170)
+
     def test_gpu_board_catalog_contains_initial_exact_skus(self):
         result = build_catalog_from_workbook(WORKBOOK)
         self.assertEqual(result.errors, [])
