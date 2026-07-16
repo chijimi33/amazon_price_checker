@@ -153,7 +153,7 @@ python3 catalog_excel.py check
 
 `validate` はExcelの列定義、型、必須値、参照関係と生成予定JSONを検証します。`build` は検証成功後だけ `catalog/quality_catalog.json` を更新し、`check` はExcelと既存JSONの同期状態を確認します。JSONを直接編集せず、Excelから一方向に生成してください。生成後のJSON自体は従来どおり `python3 quality_catalog.py validate` でも検証できます。
 
-Excelはカテゴリ別に `CPU`、`GPUChips`、`GPU`、`Memory`、`SSD`、`PSU`、`Motherboard`、`Monitor` シートを持ちます。`GPUChips` はGPUチップの性能・VRAM、`GPU` はボードメーカー別の完全SKUと品質を管理します。主要ASIN・JAN・価格.com ID・部品番号と、人間向けの品質要約は販売製品側のカテゴリシートへまとめています。追加識別子、根拠資料、既知の問題はそれぞれ `Identifiers`、`Evidence`、`Risks` に1件1行で登録します。
+Excelはカテゴリ別に `CPU`、`GPU`、`GPUChips`、`Memory`、`SSD`、`PSU`、`Motherboard`、`Monitor` シートを持ちます。`GPUChips` は見失わないよう `GPU` の直後へ配置し、GPUチップの性能・VRAMを管理します。`GPU` はボードメーカー別の完全SKUと品質を管理します。主要ASIN・JAN・価格.com ID・部品番号と、人間向けの品質要約は販売製品側のカテゴリシートへまとめています。追加識別子、根拠資料、既知の問題はそれぞれ `Identifiers`、`Evidence`、`Risks` に1件1行で登録します。
 
 `CPU` シートには、デスクトップ向けRyzen 5000シリーズ以降とIntel Core第12世代以降（Core Ultra 200Sを含む）の主要製品を初期登録しています。公式の発売日または発売時期、コア構成、アーキテクチャに加え、PassMarkの `CPU Mark` と `Single Thread Rating` を確認日付きで保持します。PassMark値は継続的に変動する参考指標なので、根拠行のURLと `passmark_checked_at` をセットで更新してください。日単位の発売日を公式資料で確定できない製品は `release_date` を空欄にし、`launch_period` と `release_date_precision` に四半期または月の精度を記録します。
 
@@ -163,7 +163,7 @@ CPUの初期行はすべて `research_required` / `unrated` です。性能値�
 
 グラフィックボードは `GPU` シートへ完全な部品番号単位で登録し、`gpu_chip_id` で `GPUChips.product_id` を参照します。ExcelからJSONを生成すると、参照先のVRAM・世代・PassMark値が `specs.gpu_chip` へ展開されます。ボード側ではメーカー（`brand`）、シリーズ、リビジョン、クーラー設計、ファン数、騒音、カード長、占有スロット、補助電源、国内代理店、保証を個別評価します。同じシリーズ名でも世代やリビジョンをまたいで品質を自動継承しません。
 
-`GPU` シートには初期カタログとしてASUS、MSI、GIGABYTE、SAPPHIRE、PowerColor、ASRockの完全SKUを20件登録しています。GeForce RTX 20/30/40/50シリーズとRadeon RX 6000/7000/9000シリーズを横断し、メーカー公式ページで部品番号、搭載GPU、冷却構成、寸法、補助電源など確認できた項目だけを記録しています。全件とも独立レビュー、実測騒音、国内代理店・保証、ASIN・JANの確認前なので `research_required` / `unrated` です。メーカー公式仕様だけで同シリーズの未登録SKUを品質承認したり、監視対象へ自動昇格したりしないでください。
+`GPU` シートには初期カタログとしてASUS、MSI、GIGABYTE、SAPPHIRE、PowerColor、ASRockの完全SKUを44件登録しています。GeForce RTX 20/30/40/50シリーズとRadeon RX 6000/7000/9000シリーズを横断し、メーカー公式ページで部品番号、搭載GPU、冷却構成、寸法、補助電源など確認できた項目だけを記録しています。初期値は独立レビュー、実測騒音、国内代理店・保証、ASIN・JANの確認前なので `research_required` / `unrated` ですが、人が根拠を追加して `approved` / `preferred` へ更新できます。メーカー公式仕様だけで同シリーズの未登録SKUを品質承認したり、監視対象へ自動昇格したりしないでください。
 
 `Memory` シートには、Corsair、G.SKILL、Kingston、CrucialのDDR5-6000およびDDR4-3200〜3600の32GB/64GBデュアルチャネルキットを完全型番単位で初期登録しています。容量、枚数、XMP/EXPOなどのOCプロファイル適用時の公称速度、未適用時の標準SPD/JEDEC速度、CASレイテンシ、EXPO対応、確認できた高さ、定格電圧、保証区分を保持します。初期行はすべて `research_required` / `unrated` で、ASIN・JAN・国内流通保証、独立レビュー、使用予定マザーボードのQVLを確認するまでは自動監視の承認対象になりません。DRAM IC、ランク、基板リビジョンは同一型番でも変更される場合があるため、公式資料でリビジョンまで特定できた情報だけを記録し、推測値は入力しません。
 

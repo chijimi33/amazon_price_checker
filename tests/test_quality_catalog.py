@@ -241,6 +241,20 @@ class QualityCatalogTest(unittest.TestCase):
         self.assertTrue(any("完全なURL" in error for error in errors))
         self.assertTrue(any("identifiers はオブジェクト" in error for error in errors))
 
+    def test_runtime_validation_rejects_missing_evidence_support_path(self):
+        catalog = copy.deepcopy(sample_catalog())
+        catalog["products"][0]["quality"]["evidence"][0]["supports"] = [
+            "specs.release_date"
+        ]
+
+        errors, _ = validate_catalog(catalog)
+        self.assertTrue(
+            any(
+                "存在しない製品項目" in error and "specs.release_date" in error
+                for error in errors
+            )
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

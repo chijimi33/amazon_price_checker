@@ -301,9 +301,19 @@ def validate_catalog(catalog: dict[str, Any]) -> tuple[list[str], list[str]]:
             if parsed_url.scheme not in {"http", "https"} or not parsed_url.netloc:
                 errors.append(f"{evidence_location}.url はhttp/httpsの完全なURLにしてください")
             if "supports" in evidence:
-                errors.extend(
-                    validate_string_list(evidence["supports"], f"{evidence_location}.supports")
+                support_location = f"{evidence_location}.supports"
+                support_errors = validate_string_list(
+                    evidence["supports"], support_location
                 )
+                errors.extend(support_errors)
+                if not support_errors:
+                    for support_path in evidence["supports"]:
+                        supported_value = path_get(product, support_path, MISSING)
+                        if supported_value is MISSING or supported_value is None:
+                            errors.append(
+                                f"{support_location} が存在しない製品項目を参照しています: "
+                                f"{support_path}"
+                            )
             if "notes" in evidence and not isinstance(evidence["notes"], str):
                 errors.append(f"{evidence_location}.notes は文字列にしてください")
 

@@ -45,6 +45,8 @@ def fill_minimum_ssd(workbook):
             "display_name": "Example 2TB SSD",
             "status": "research_required",
             "tier": "unrated",
+            "capacity_gb": 2000,
+            "nand_type": "TLC",
         },
     )
 
@@ -141,11 +143,19 @@ class CatalogExcelTest(unittest.TestCase):
 
         self.assertIn(("W5:X104", '"true,false"'), validations)
         self.assertIn(("AA5:AA104", "'Lists'!$P$5:$P$8"), validations)
-        self.assertIn(("AD5:AD104", "'Lists'!$R$5:$R$9"), validations)
+        self.assertIn(("AD5:AD104", "'Lists'!$R$5:$R$13"), validations)
         self.assertIn(("AE5:AE104", "'Lists'!$Q$5:$Q$9"), validations)
         self.assertNotIn(("V5:V104", "'Lists'!$P$5:$P$8"), validations)
-        self.assertNotIn(("X5:X104", "'Lists'!$R$5:$R$9"), validations)
+        self.assertNotIn(("X5:X104", "'Lists'!$R$5:$R$13"), validations)
         self.assertNotIn(("Y5:Y104", "'Lists'!$Q$5:$Q$9"), validations)
+
+    def test_gpu_chip_sheet_is_visible_and_adjacent_to_gpu(self):
+        workbook = load_workbook(WORKBOOK, data_only=False)
+        self.assertEqual(workbook["GPUChips"].sheet_state, "visible")
+        self.assertEqual(
+            workbook.sheetnames.index("GPUChips"),
+            workbook.sheetnames.index("GPU") + 1,
+        )
 
     def test_gpu_board_catalog_contains_initial_exact_skus(self):
         result = build_catalog_from_workbook(WORKBOOK)
@@ -155,7 +165,7 @@ class CatalogExcelTest(unittest.TestCase):
             for product in result.catalog["products"]
             if product["category"] == "gpu"
         }
-        self.assertGreaterEqual(len(products), 20)
+        self.assertGreaterEqual(len(products), 44)
         self.assertTrue(
             {"ASUS", "MSI", "GIGABYTE", "SAPPHIRE", "PowerColor", "ASRock"}
             .issubset({product["brand"] for product in products.values()})
@@ -194,17 +204,54 @@ class CatalogExcelTest(unittest.TestCase):
         msi = products["gpu-msi-g5070-12gtc"]
         self.assertEqual(msi["identifiers"]["part_numbers"], ["G5070-12GTC"])
         self.assertEqual(msi["specs"]["gpu_chip"]["vram_gb"], 12)
-        self.assertEqual(msi["specs"]["power_connector_standard"], "12V-2x6")
+        self.assertEqual(msi["specs"]["power_connector_standard"], "16pin")
+
+        asrock = products["gpu-asrock-rx6400-cli-4g"]
+        self.assertEqual(asrock["specs"]["length_mm"], 162)
+        self.assertEqual(asrock["specs"]["power_connector_standard"], "none")
+        self.assertEqual(
+            asrock["quality"]["strengths"],
+            ["162mm長", "シングルファン", "補助電源不要"],
+        )
 
         for product in products.values():
-            self.assertEqual(product["quality"]["status"], "research_required")
-            self.assertEqual(product["quality"]["tier"], "unrated")
             self.assertTrue(
                 any(
                     evidence["kind"] == "manufacturer"
                     for evidence in product["quality"]["evidence"]
                 )
             )
+
+    def test_gpu_board_lifecycle_can_be_human_approved(self):
+        temporary, path = self.copy_workbook()
+        try:
+            workbook = load_workbook(path)
+            sheet = workbook["GPU"]
+            headers = {
+                str(sheet.cell(4, column).value): column
+                for column in range(1, sheet.max_column + 1)
+            }
+            row = next(
+                row
+                for row in range(5, sheet.max_row + 1)
+                if sheet.cell(row, headers["product_id"]).value
+                == "gpu-asus-dual-rtx3060-o12g-v2"
+            )
+            sheet.cell(row, headers["status"]).value = "approved"
+            sheet.cell(row, headers["tier"]).value = "B"
+            workbook.save(path)
+
+            result = build_catalog_from_workbook(path)
+            self.assertEqual(result.errors, [])
+            product = next(
+                product
+                for product in result.catalog["products"]
+                if product["id"] == "gpu-asus-dual-rtx3060-o12g-v2"
+            )
+            self.assertEqual(product["quality"]["status"], "approved")
+            self.assertEqual(product["quality"]["tier"], "B")
+        finally:
+            temporary.cleanup()
 
     def test_gpu_board_resolves_normalized_chip_specs(self):
         temporary, path = self.copy_workbook()

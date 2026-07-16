@@ -1568,7 +1568,6 @@
               "specs.cores",
               "specs.threads",
               "specs.architecture",
-              "specs.release_date",
               "specs.launch_period",
               "specs.generation"
             ],
@@ -1725,7 +1724,6 @@
               "specs.cores",
               "specs.threads",
               "specs.architecture",
-              "specs.release_date",
               "specs.launch_period",
               "specs.generation"
             ],
@@ -1882,7 +1880,6 @@
               "specs.cores",
               "specs.threads",
               "specs.architecture",
-              "specs.release_date",
               "specs.launch_period",
               "specs.generation"
             ],
@@ -2750,7 +2747,6 @@
               "specs.cores",
               "specs.threads",
               "specs.architecture",
-              "specs.release_date",
               "specs.launch_period",
               "specs.generation"
             ],
@@ -2986,7 +2982,6 @@
               "specs.cores",
               "specs.threads",
               "specs.architecture",
-              "specs.release_date",
               "specs.launch_period",
               "specs.generation"
             ],
@@ -3143,7 +3138,6 @@
               "specs.cores",
               "specs.threads",
               "specs.architecture",
-              "specs.release_date",
               "specs.launch_period",
               "specs.generation"
             ],
@@ -3221,7 +3215,6 @@
               "specs.cores",
               "specs.threads",
               "specs.architecture",
-              "specs.release_date",
               "specs.launch_period",
               "specs.generation"
             ],
@@ -3378,7 +3371,6 @@
               "specs.cores",
               "specs.threads",
               "specs.architecture",
-              "specs.release_date",
               "specs.launch_period",
               "specs.generation"
             ],
@@ -3614,7 +3606,6 @@
               "specs.cores",
               "specs.threads",
               "specs.architecture",
-              "specs.release_date",
               "specs.launch_period",
               "specs.generation"
             ],
@@ -8293,7 +8284,6 @@
               "specs.cores",
               "specs.threads",
               "specs.architecture",
-              "specs.release_date",
               "specs.launch_period",
               "specs.generation"
             ],
@@ -8371,7 +8361,6 @@
               "specs.cores",
               "specs.threads",
               "specs.architecture",
-              "specs.release_date",
               "specs.launch_period",
               "specs.generation"
             ],
@@ -8449,7 +8438,6 @@
               "specs.cores",
               "specs.threads",
               "specs.architecture",
-              "specs.release_date",
               "specs.launch_period",
               "specs.generation"
             ],
@@ -8527,7 +8515,6 @@
               "specs.cores",
               "specs.threads",
               "specs.architecture",
-              "specs.release_date",
               "specs.launch_period",
               "specs.generation"
             ],
@@ -8605,7 +8592,6 @@
               "specs.cores",
               "specs.threads",
               "specs.architecture",
-              "specs.release_date",
               "specs.launch_period",
               "specs.generation"
             ],
@@ -8841,7 +8827,6 @@
               "specs.cores",
               "specs.threads",
               "specs.architecture",
-              "specs.release_date",
               "specs.launch_period",
               "specs.generation"
             ],
@@ -8919,7 +8904,6 @@
               "specs.cores",
               "specs.threads",
               "specs.architecture",
-              "specs.release_date",
               "specs.launch_period",
               "specs.generation"
             ],
@@ -9155,7 +9139,6 @@
               "specs.cores",
               "specs.threads",
               "specs.architecture",
-              "specs.release_date",
               "specs.launch_period",
               "specs.generation"
             ],
@@ -9539,7 +9522,9 @@
         "reviewed_at": "2026-07-16",
         "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
         "strengths": [
-          "242mm長,デュアルファン,8ピン補助電源1本"
+          "242mm長",
+          "デュアルファン",
+          "8ピン補助電源1本"
         ],
         "weaknesses": [
           "独立レビュー未確認",
@@ -9629,7 +9614,9 @@
         "reviewed_at": "2026-07-16",
         "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
         "strengths": [
-          "200mm長,2スロット,8ピン補助電源1本"
+          "200mm長",
+          "2スロット",
+          "8ピン補助電源1本"
         ],
         "weaknesses": [
           "独立レビュー未確認",
@@ -9720,7 +9707,9 @@
         "reviewed_at": "2026-07-16",
         "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
         "strengths": [
-          "227.2mm長,デュアルファン,8ピン補助電源1本"
+          "227.2mm長",
+          "デュアルファン",
+          "8ピン補助電源1本"
         ],
         "weaknesses": [
           "独立レビュー未確認",
@@ -9810,7 +9799,9 @@
         "reviewed_at": "2026-07-16",
         "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
         "strengths": [
-          "228mm長,デュアルファン,8ピン補助電源1本"
+          "228mm長",
+          "デュアルファン",
+          "8ピン補助電源1本"
         ],
         "weaknesses": [
           "独立レビュー未確認",
@@ -9900,7 +9891,9 @@
         "reviewed_at": "2026-07-16",
         "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
         "strengths": [
-          "247mm長,デュアルファン,公式消費電力190W"
+          "247mm長",
+          "デュアルファン",
+          "公式消費電力190W"
         ],
         "weaknesses": [
           "独立レビュー未確認",
@@ -9990,7 +9983,9 @@
         "reviewed_at": "2026-07-16",
         "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
         "strengths": [
-          "235mm長,デュアルファン,公式消費電力170W"
+          "235mm長",
+          "デュアルファン",
+          "公式消費電力170W"
         ],
         "weaknesses": [
           "独立レビュー未確認",
@@ -10080,7 +10075,9 @@
         "reviewed_at": "2026-07-16",
         "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
         "strengths": [
-          "トリプルファン,公式消費電力245W,16ピン補助電源1本"
+          "トリプルファン",
+          "公式消費電力245W",
+          "16ピン補助電源1本"
         ],
         "weaknesses": [
           "独立レビュー未確認",
@@ -10126,7 +10123,7 @@
         "reference_design": false,
         "cooler_noise_class": "unknown",
         "fan_count": 3,
-        "power_connector_standard": "12VHPWR",
+        "power_connector_standard": "16pin",
         "cooler_quality_tier": "unrated",
         "length_mm": 307,
         "tdp_w": 245,
@@ -10170,7 +10167,9 @@
         "reviewed_at": "2026-07-16",
         "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
         "strengths": [
-          "トリプルファン,公式消費電力250W,製品型番G5070-12GTC"
+          "トリプルファン",
+          "公式消費電力250W",
+          "製品型番G5070-12GTC"
         ],
         "weaknesses": [
           "独立レビュー未確認",
@@ -10216,7 +10215,7 @@
         "reference_design": false,
         "cooler_noise_class": "unknown",
         "fan_count": 3,
-        "power_connector_standard": "12V-2x6",
+        "power_connector_standard": "16pin",
         "cooler_quality_tier": "unrated",
         "length_mm": 338,
         "tdp_w": 250,
@@ -10260,7 +10259,9 @@
         "reviewed_at": "2026-07-16",
         "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
         "strengths": [
-          "Rev. 1.0を明示,トリプルファン,8ピン補助電源1本"
+          "Rev. 1.0を明示",
+          "トリプルファン",
+          "8ピン補助電源1本"
         ],
         "weaknesses": [
           "独立レビュー未確認",
@@ -10349,7 +10350,9 @@
         "reviewed_at": "2026-07-16",
         "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
         "strengths": [
-          "トリプルファン,12V-2x6補助電源,製品型番を公式確認"
+          "トリプルファン",
+          "12V-2x6補助電源",
+          "製品型番を公式確認"
         ],
         "weaknesses": [
           "独立レビュー未確認",
@@ -10437,7 +10440,9 @@
         "reviewed_at": "2026-07-16",
         "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
         "strengths": [
-          "288mm長,トリプルファン,8ピン補助電源3本"
+          "288mm長",
+          "トリプルファン",
+          "8ピン補助電源3本"
         ],
         "weaknesses": [
           "独立レビュー未確認",
@@ -10525,7 +10530,9 @@
         "reviewed_at": "2026-07-16",
         "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
         "strengths": [
-          "193mm長,2スロット,公式ボード電力140W"
+          "193mm長",
+          "2スロット",
+          "公式ボード電力140W"
         ],
         "weaknesses": [
           "独立レビュー未確認",
@@ -10617,7 +10624,9 @@
         "reviewed_at": "2026-07-16",
         "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
         "strengths": [
-          "240mm長,2スロット,公式ボード電力185W"
+          "240mm長",
+          "2スロット",
+          "公式ボード電力185W"
         ],
         "weaknesses": [
           "独立レビュー未確認",
@@ -10709,7 +10718,9 @@
         "reviewed_at": "2026-07-16",
         "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
         "strengths": [
-          "Tri-Xトリプルファン,3スロット,公式ボード電力304W"
+          "Tri-Xトリプルファン",
+          "3スロット",
+          "公式ボード電力304W"
         ],
         "weaknesses": [
           "独立レビュー未確認",
@@ -10801,7 +10812,9 @@
         "reviewed_at": "2026-07-16",
         "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
         "strengths": [
-          "220mm長,2スロット,OC/Silentクロックを公式掲載"
+          "220mm長",
+          "2スロット",
+          "OC/Silentクロックを公式掲載"
         ],
         "weaknesses": [
           "独立レビュー未確認",
@@ -10891,7 +10904,9 @@
         "reviewed_at": "2026-07-16",
         "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
         "strengths": [
-          "トリプルファン,2.5スロット,OC/Silentクロックを公式掲載"
+          "トリプルファン",
+          "2.5スロット",
+          "OC/Silentクロックを公式掲載"
         ],
         "weaknesses": [
           "独立レビュー未確認",
@@ -10981,7 +10996,9 @@
         "reviewed_at": "2026-07-16",
         "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
         "strengths": [
-          "トリプルファン,2.5スロット,OC/Silentクロックを公式掲載"
+          "トリプルファン",
+          "2.5スロット",
+          "OC/Silentクロックを公式掲載"
         ],
         "weaknesses": [
           "独立レビュー未確認",
@@ -11071,7 +11088,9 @@
         "reviewed_at": "2026-07-16",
         "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
         "strengths": [
-          "デュアルファン,2.1スロット,0dBサイレントクーリング"
+          "デュアルファン",
+          "2.1スロット",
+          "0dBサイレントクーリング"
         ],
         "weaknesses": [
           "独立レビュー未確認",
@@ -11161,7 +11180,9 @@
         "reviewed_at": "2026-07-16",
         "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
         "strengths": [
-          "トリプルファン,2.8スロット,3本の8ピン補助電源"
+          "トリプルファン",
+          "2.8スロット",
+          "3本の8ピン補助電源"
         ],
         "weaknesses": [
           "独立レビュー未確認",
@@ -11251,7 +11272,9 @@
         "reviewed_at": "2026-07-16",
         "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
         "strengths": [
-          "298mm長,2.9スロット,Honeywell PTM7950を公式掲載"
+          "298mm長",
+          "2.9スロット",
+          "Honeywell PTM7950を公式掲載"
         ],
         "weaknesses": [
           "独立レビュー未確認",
@@ -11318,6 +11341,2214 @@
           "brand": "AMD",
           "model": "Radeon RX 9070 XT",
           "display_name": "AMD Radeon RX 9070 XT"
+        }
+      }
+    },
+    {
+      "category": "gpu",
+      "id": "gpu-asus-tuf-rtx3080-o10g-gaming",
+      "brand": "ASUS",
+      "model": "TUF-RTX3080-O10G-GAMING",
+      "display_name": "ASUS TUF Gaming GeForce RTX 3080 OC Edition 10GB",
+      "identifiers": {
+        "part_numbers": [
+          "TUF-RTX3080-O10G-GAMING"
+        ]
+      },
+      "aliases": [
+        "ASUS TUF Gaming GeForce RTX 3080 OC Edition 10GB"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-16",
+        "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
+        "strengths": [
+          "299.9mm長",
+          "トリプルファン",
+          "8ピン補助電源2本"
+        ],
+        "weaknesses": [
+          "独立レビュー未確認",
+          "実測騒音未確認",
+          "国内代理店・保証条件未確認"
+        ],
+        "risk_summary": "旧世代・終売流通を含むため、中古・開封品・改版・保証残存期間の確認が必要",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "gpu-asus-tuf-rtx3080-o10g-gaming-official",
+            "kind": "manufacturer",
+            "title": "ASUS TUF-RTX3080-O10G-GAMING 公式仕様",
+            "url": "https://www.asus.com/jp/motherboards-components/graphics-cards/tuf-gaming/tuf-rtx3080-o10g-gaming/techspec/",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.gpu_chip_id",
+              "specs.board_series",
+              "specs.board_model",
+              "specs.cooler_design_id",
+              "specs.factory_oc",
+              "specs.reference_design",
+              "specs.fan_count",
+              "specs.power_connector_standard",
+              "specs.length_mm",
+              "specs.slot_width"
+            ],
+            "reviewer": "Codex",
+            "notes": "RTX 3080 10GB、299.9mm、2.7スロット、8ピン×2を確認。"
+          }
+        ]
+      },
+      "notes": [
+        "メーカー公式仕様を初期登録。ASIN・JAN・価格.com IDは未確認。購入監視に使う前に販売ページの完全型番、状態、国内保証、リビジョンを照合してください。"
+      ],
+      "specs": {
+        "gpu_chip_id": "nvidia-geforce-rtx-3080",
+        "board_series": "TUF Gaming",
+        "board_model": "TUF-RTX3080-O10G-GAMING",
+        "cooler_design_id": "asus-tuf-rtx3080",
+        "factory_oc": true,
+        "reference_design": false,
+        "cooler_noise_class": "unknown",
+        "fan_count": 3,
+        "slot_width": 2.7,
+        "power_connector_standard": "2x8pin",
+        "cooler_quality_tier": "unrated",
+        "length_mm": 299.9,
+        "gpu_chip": {
+          "architecture": "Ampere",
+          "generation": "GeForce RTX 30 Series",
+          "release_date": "2020-09-17",
+          "launch_period": "2020-09-17",
+          "release_date_precision": "exact",
+          "vram_gb": 10,
+          "memory_type": "GDDR6X",
+          "memory_bus_bits": 320,
+          "passmark_g3d_mark": 25001,
+          "passmark_g2d_mark": 1062,
+          "benchmark_reported_tdp_w": 320,
+          "passmark_checked_at": "2026-07-15",
+          "id": "nvidia-geforce-rtx-3080",
+          "brand": "NVIDIA",
+          "model": "GeForce RTX 3080",
+          "display_name": "NVIDIA GeForce RTX 3080"
+        }
+      }
+    },
+    {
+      "category": "gpu",
+      "id": "gpu-asus-dual-rtx4060ti-o16g",
+      "brand": "ASUS",
+      "model": "DUAL-RTX4060TI-O16G",
+      "display_name": "ASUS Dual GeForce RTX 4060 Ti OC Edition 16GB",
+      "identifiers": {
+        "part_numbers": [
+          "DUAL-RTX4060TI-O16G"
+        ]
+      },
+      "aliases": [
+        "ASUS Dual GeForce RTX 4060 Ti OC Edition 16GB"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-16",
+        "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
+        "strengths": [
+          "227.2mm長",
+          "デュアルファン",
+          "8ピン補助電源1本"
+        ],
+        "weaknesses": [
+          "独立レビュー未確認",
+          "実測騒音未確認",
+          "国内代理店・保証条件未確認"
+        ],
+        "risk_summary": "同名別型番・地域差・国内流通保証・販売ページ上の完全型番の確認が必要",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "gpu-asus-dual-rtx4060ti-o16g-official",
+            "kind": "manufacturer",
+            "title": "ASUS DUAL-RTX4060TI-O16G 公式仕様",
+            "url": "https://www.asus.com/motherboards-components/graphics-cards/dual/dual-rtx4060ti-o16g/techspec/",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.gpu_chip_id",
+              "specs.board_series",
+              "specs.board_model",
+              "specs.cooler_design_id",
+              "specs.factory_oc",
+              "specs.reference_design",
+              "specs.fan_count",
+              "specs.power_connector_standard",
+              "specs.length_mm",
+              "specs.slot_width"
+            ],
+            "reviewer": "Codex",
+            "notes": "RTX 4060 Ti 16GB、227.2mm、2.5スロット、8ピン×1を確認。"
+          }
+        ]
+      },
+      "notes": [
+        "メーカー公式仕様を初期登録。ASIN・JAN・価格.com IDは未確認。購入監視に使う前に販売ページの完全型番、状態、国内保証、リビジョンを照合してください。"
+      ],
+      "specs": {
+        "gpu_chip_id": "nvidia-geforce-rtx-4060-ti-16gb",
+        "board_series": "Dual",
+        "board_model": "DUAL-RTX4060TI-O16G",
+        "cooler_design_id": "asus-dual-rtx4060ti-16gb",
+        "factory_oc": true,
+        "reference_design": false,
+        "cooler_noise_class": "unknown",
+        "fan_count": 2,
+        "slot_width": 2.5,
+        "power_connector_standard": "8pin",
+        "cooler_quality_tier": "unrated",
+        "length_mm": 227.2,
+        "gpu_chip": {
+          "architecture": "Ada Lovelace",
+          "generation": "GeForce RTX 40 Series",
+          "release_date": "2023-07-18",
+          "launch_period": "2023-07-18",
+          "release_date_precision": "exact",
+          "vram_gb": 16,
+          "memory_type": "GDDR6",
+          "memory_bus_bits": 128,
+          "passmark_g3d_mark": 22592,
+          "passmark_g2d_mark": 1079,
+          "benchmark_reported_tdp_w": 165,
+          "passmark_checked_at": "2026-07-15",
+          "id": "nvidia-geforce-rtx-4060-ti-16gb",
+          "brand": "NVIDIA",
+          "model": "GeForce RTX 4060 Ti 16GB",
+          "display_name": "NVIDIA GeForce RTX 4060 Ti 16GB"
+        }
+      }
+    },
+    {
+      "category": "gpu",
+      "id": "gpu-asus-tuf-rtx4090-o24g-gaming",
+      "brand": "ASUS",
+      "model": "TUF-RTX4090-O24G-GAMING",
+      "display_name": "ASUS TUF Gaming GeForce RTX 4090 OC Edition 24GB",
+      "identifiers": {
+        "part_numbers": [
+          "TUF-RTX4090-O24G-GAMING"
+        ]
+      },
+      "aliases": [
+        "ASUS TUF Gaming GeForce RTX 4090 OC Edition 24GB"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-16",
+        "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
+        "strengths": [
+          "348.2mm長",
+          "3.65スロット",
+          "16ピン補助電源1本"
+        ],
+        "weaknesses": [
+          "独立レビュー未確認",
+          "実測騒音未確認",
+          "国内代理店・保証条件未確認"
+        ],
+        "risk_summary": "同名別型番・地域差・国内流通保証・販売ページ上の完全型番の確認が必要",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "gpu-asus-tuf-rtx4090-o24g-gaming-official",
+            "kind": "manufacturer",
+            "title": "ASUS TUF-RTX4090-O24G-GAMING 公式仕様",
+            "url": "https://www.asus.com/motherboards-components/graphics-cards/tuf-gaming/tuf-rtx4090-o24g-gaming/techspec/",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.gpu_chip_id",
+              "specs.board_series",
+              "specs.board_model",
+              "specs.cooler_design_id",
+              "specs.factory_oc",
+              "specs.reference_design",
+              "specs.fan_count",
+              "specs.power_connector_standard",
+              "specs.length_mm",
+              "specs.slot_width"
+            ],
+            "reviewer": "Codex",
+            "notes": "RTX 4090 24GB、348.2mm、3.65スロット、16ピン×1を確認。"
+          }
+        ]
+      },
+      "notes": [
+        "メーカー公式仕様を初期登録。ASIN・JAN・価格.com IDは未確認。購入監視に使う前に販売ページの完全型番、状態、国内保証、リビジョンを照合してください。"
+      ],
+      "specs": {
+        "gpu_chip_id": "nvidia-geforce-rtx-4090",
+        "board_series": "TUF Gaming",
+        "board_model": "TUF-RTX4090-O24G-GAMING",
+        "cooler_design_id": "asus-tuf-rtx4090",
+        "factory_oc": true,
+        "reference_design": false,
+        "cooler_noise_class": "unknown",
+        "fan_count": 3,
+        "slot_width": 3.65,
+        "power_connector_standard": "16pin",
+        "cooler_quality_tier": "unrated",
+        "length_mm": 348.2,
+        "gpu_chip": {
+          "architecture": "Ada Lovelace",
+          "generation": "GeForce RTX 40 Series",
+          "release_date": "2022-10-12",
+          "launch_period": "2022-10-12",
+          "release_date_precision": "exact",
+          "vram_gb": 24,
+          "memory_type": "GDDR6X",
+          "memory_bus_bits": 384,
+          "passmark_g3d_mark": 38054,
+          "passmark_g2d_mark": 1303,
+          "benchmark_reported_tdp_w": 450,
+          "passmark_checked_at": "2026-07-15",
+          "id": "nvidia-geforce-rtx-4090",
+          "brand": "NVIDIA",
+          "model": "GeForce RTX 4090",
+          "display_name": "NVIDIA GeForce RTX 4090"
+        }
+      }
+    },
+    {
+      "category": "gpu",
+      "id": "gpu-asus-tuf-rtx5080-o16g-gaming",
+      "brand": "ASUS",
+      "model": "TUF-RTX5080-O16G-GAMING",
+      "display_name": "ASUS TUF Gaming GeForce RTX 5080 OC Edition 16GB",
+      "identifiers": {
+        "part_numbers": [
+          "TUF-RTX5080-O16G-GAMING"
+        ]
+      },
+      "aliases": [
+        "ASUS TUF Gaming GeForce RTX 5080 OC Edition 16GB"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-16",
+        "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
+        "strengths": [
+          "348mm長",
+          "3.6スロット",
+          "16ピン補助電源1本"
+        ],
+        "weaknesses": [
+          "独立レビュー未確認",
+          "実測騒音未確認",
+          "国内代理店・保証条件未確認"
+        ],
+        "risk_summary": "同名別型番・地域差・国内流通保証・販売ページ上の完全型番の確認が必要",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "gpu-asus-tuf-rtx5080-o16g-gaming-official",
+            "kind": "manufacturer",
+            "title": "ASUS TUF-RTX5080-O16G-GAMING 公式仕様",
+            "url": "https://www.asus.com/ca-en/motherboards-components/graphics-cards/tuf-gaming/tuf-rtx5080-o16g-gaming/techspec/",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.gpu_chip_id",
+              "specs.board_series",
+              "specs.board_model",
+              "specs.cooler_design_id",
+              "specs.factory_oc",
+              "specs.reference_design",
+              "specs.fan_count",
+              "specs.power_connector_standard",
+              "specs.length_mm",
+              "specs.slot_width"
+            ],
+            "reviewer": "Codex",
+            "notes": "RTX 5080 16GB、348mm、3.6スロット、16ピン×1を確認。"
+          }
+        ]
+      },
+      "notes": [
+        "メーカー公式仕様を初期登録。ASIN・JAN・価格.com IDは未確認。購入監視に使う前に販売ページの完全型番、状態、国内保証、リビジョンを照合してください。"
+      ],
+      "specs": {
+        "gpu_chip_id": "nvidia-geforce-rtx-5080",
+        "board_series": "TUF Gaming",
+        "board_model": "TUF-RTX5080-O16G-GAMING",
+        "cooler_design_id": "asus-tuf-rtx5080",
+        "factory_oc": true,
+        "reference_design": false,
+        "cooler_noise_class": "unknown",
+        "fan_count": 3,
+        "slot_width": 3.6,
+        "power_connector_standard": "16pin",
+        "cooler_quality_tier": "unrated",
+        "length_mm": 348,
+        "gpu_chip": {
+          "architecture": "Blackwell",
+          "generation": "GeForce RTX 50 Series",
+          "release_date": "2025-01-30",
+          "launch_period": "2025-01-30",
+          "release_date_precision": "exact",
+          "vram_gb": 16,
+          "memory_type": "GDDR7",
+          "memory_bus_bits": 256,
+          "passmark_g3d_mark": 35656,
+          "passmark_g2d_mark": 1402,
+          "benchmark_reported_tdp_w": 360,
+          "passmark_checked_at": "2026-07-15",
+          "id": "nvidia-geforce-rtx-5080",
+          "brand": "NVIDIA",
+          "model": "GeForce RTX 5080",
+          "display_name": "NVIDIA GeForce RTX 5080"
+        }
+      }
+    },
+    {
+      "category": "gpu",
+      "id": "gpu-msi-rtx3070-gaming-x-trio",
+      "brand": "MSI",
+      "model": "GeForce RTX 3070 GAMING X TRIO",
+      "display_name": "MSI GeForce RTX 3070 GAMING X TRIO",
+      "identifiers": {
+        "part_numbers": [
+          "GeForce RTX 3070 GAMING X TRIO"
+        ]
+      },
+      "aliases": [
+        "MSI GeForce RTX 3070 GAMING X TRIO"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-16",
+        "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
+        "strengths": [
+          "323mm長",
+          "トリプルファン",
+          "公式消費電力240W"
+        ],
+        "weaknesses": [
+          "独立レビュー未確認",
+          "実測騒音未確認",
+          "国内代理店・保証条件未確認"
+        ],
+        "risk_summary": "旧世代・終売流通を含むため、中古・開封品・改版・保証残存期間の確認が必要",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "gpu-msi-rtx3070-gaming-x-trio-official",
+            "kind": "manufacturer",
+            "title": "MSI GeForce RTX 3070 GAMING X TRIO 公式仕様",
+            "url": "https://www.msi.com/Graphics-Card/GeForce-RTX-3070-GAMING-X-TRIO/Specification",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.gpu_chip_id",
+              "specs.board_series",
+              "specs.board_model",
+              "specs.cooler_design_id",
+              "specs.factory_oc",
+              "specs.reference_design",
+              "specs.fan_count",
+              "specs.power_connector_standard",
+              "specs.length_mm",
+              "specs.tdp_w"
+            ],
+            "reviewer": "Codex",
+            "notes": "RTX 3070 8GB、323mm、8ピン×2、消費電力240Wを確認。"
+          }
+        ]
+      },
+      "notes": [
+        "メーカー公式仕様を初期登録。ASIN・JAN・価格.com IDは未確認。購入監視に使う前に販売ページの完全型番、状態、国内保証、リビジョンを照合してください。"
+      ],
+      "specs": {
+        "gpu_chip_id": "nvidia-geforce-rtx-3070",
+        "board_series": "GAMING X TRIO",
+        "board_model": "GeForce RTX 3070 GAMING X TRIO",
+        "cooler_design_id": "msi-tri-frozr-2-rtx3070",
+        "factory_oc": true,
+        "reference_design": false,
+        "cooler_noise_class": "unknown",
+        "fan_count": 3,
+        "power_connector_standard": "2x8pin",
+        "cooler_quality_tier": "unrated",
+        "length_mm": 323,
+        "tdp_w": 240,
+        "gpu_chip": {
+          "architecture": "Ampere",
+          "generation": "GeForce RTX 30 Series",
+          "release_date": "2020-10-29",
+          "launch_period": "2020-10-29",
+          "release_date_precision": "exact",
+          "vram_gb": 8,
+          "memory_type": "GDDR6",
+          "memory_bus_bits": 256,
+          "passmark_g3d_mark": 22095,
+          "passmark_g2d_mark": 1005,
+          "benchmark_reported_tdp_w": 220,
+          "passmark_checked_at": "2026-07-15",
+          "id": "nvidia-geforce-rtx-3070",
+          "brand": "NVIDIA",
+          "model": "GeForce RTX 3070",
+          "display_name": "NVIDIA GeForce RTX 3070"
+        }
+      }
+    },
+    {
+      "category": "gpu",
+      "id": "gpu-msi-rtx3080-suprim-x-10g",
+      "brand": "MSI",
+      "model": "GeForce RTX 3080 SUPRIM X 10G",
+      "display_name": "MSI GeForce RTX 3080 SUPRIM X 10G",
+      "identifiers": {
+        "part_numbers": [
+          "GeForce RTX 3080 SUPRIM X 10G"
+        ]
+      },
+      "aliases": [
+        "MSI GeForce RTX 3080 SUPRIM X 10G"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-16",
+        "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
+        "strengths": [
+          "336mm長",
+          "トリプルファン",
+          "公式消費電力370W"
+        ],
+        "weaknesses": [
+          "独立レビュー未確認",
+          "実測騒音未確認",
+          "国内代理店・保証条件未確認"
+        ],
+        "risk_summary": "旧世代・終売流通を含むため、中古・開封品・改版・保証残存期間の確認が必要",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "gpu-msi-rtx3080-suprim-x-10g-official",
+            "kind": "manufacturer",
+            "title": "MSI GeForce RTX 3080 SUPRIM X 10G 公式仕様",
+            "url": "https://us.msi.com/Graphics-Card/GeForce-RTX-3080-SUPRIM-X-10G/Specification",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.gpu_chip_id",
+              "specs.board_series",
+              "specs.board_model",
+              "specs.cooler_design_id",
+              "specs.factory_oc",
+              "specs.reference_design",
+              "specs.fan_count",
+              "specs.power_connector_standard",
+              "specs.length_mm",
+              "specs.tdp_w"
+            ],
+            "reviewer": "Codex",
+            "notes": "RTX 3080 10GB、336mm、8ピン×3、消費電力370Wを確認。"
+          }
+        ]
+      },
+      "notes": [
+        "メーカー公式仕様を初期登録。ASIN・JAN・価格.com IDは未確認。購入監視に使う前に販売ページの完全型番、状態、国内保証、リビジョンを照合してください。"
+      ],
+      "specs": {
+        "gpu_chip_id": "nvidia-geforce-rtx-3080",
+        "board_series": "SUPRIM X",
+        "board_model": "GeForce RTX 3080 SUPRIM X 10G",
+        "cooler_design_id": "msi-tri-frozr-2s-rtx3080",
+        "factory_oc": true,
+        "reference_design": false,
+        "cooler_noise_class": "unknown",
+        "fan_count": 3,
+        "power_connector_standard": "3x8pin",
+        "cooler_quality_tier": "unrated",
+        "length_mm": 336,
+        "tdp_w": 370,
+        "gpu_chip": {
+          "architecture": "Ampere",
+          "generation": "GeForce RTX 30 Series",
+          "release_date": "2020-09-17",
+          "launch_period": "2020-09-17",
+          "release_date_precision": "exact",
+          "vram_gb": 10,
+          "memory_type": "GDDR6X",
+          "memory_bus_bits": 320,
+          "passmark_g3d_mark": 25001,
+          "passmark_g2d_mark": 1062,
+          "benchmark_reported_tdp_w": 320,
+          "passmark_checked_at": "2026-07-15",
+          "id": "nvidia-geforce-rtx-3080",
+          "brand": "NVIDIA",
+          "model": "GeForce RTX 3080",
+          "display_name": "NVIDIA GeForce RTX 3080"
+        }
+      }
+    },
+    {
+      "category": "gpu",
+      "id": "gpu-msi-rtx4090-suprim-x-24g",
+      "brand": "MSI",
+      "model": "GeForce RTX 4090 SUPRIM X 24G",
+      "display_name": "MSI GeForce RTX 4090 SUPRIM X 24G",
+      "identifiers": {
+        "part_numbers": [
+          "GeForce RTX 4090 SUPRIM X 24G"
+        ]
+      },
+      "aliases": [
+        "MSI GeForce RTX 4090 SUPRIM X 24G"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-16",
+        "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
+        "strengths": [
+          "336mm長",
+          "トリプルファン",
+          "Gaming BIOS公式消費電力480W"
+        ],
+        "weaknesses": [
+          "独立レビュー未確認",
+          "実測騒音未確認",
+          "国内代理店・保証条件未確認"
+        ],
+        "risk_summary": "同名別型番・地域差・国内流通保証・販売ページ上の完全型番の確認が必要",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "gpu-msi-rtx4090-suprim-x-24g-official",
+            "kind": "manufacturer",
+            "title": "MSI GeForce RTX 4090 SUPRIM X 24G 公式仕様",
+            "url": "https://uk.msi.com/Graphics-Card/GeForce-RTX-4090-SUPRIM-X-24G/Specification",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.gpu_chip_id",
+              "specs.board_series",
+              "specs.board_model",
+              "specs.cooler_design_id",
+              "specs.factory_oc",
+              "specs.reference_design",
+              "specs.fan_count",
+              "specs.power_connector_standard",
+              "specs.length_mm",
+              "specs.tdp_w"
+            ],
+            "reviewer": "Codex",
+            "notes": "RTX 4090 24GB、336mm、16ピン×1、Gaming BIOS時480Wを確認。"
+          }
+        ]
+      },
+      "notes": [
+        "メーカー公式仕様を初期登録。ASIN・JAN・価格.com IDは未確認。購入監視に使う前に販売ページの完全型番、状態、国内保証、リビジョンを照合してください。"
+      ],
+      "specs": {
+        "gpu_chip_id": "nvidia-geforce-rtx-4090",
+        "board_series": "SUPRIM X",
+        "board_model": "GeForce RTX 4090 SUPRIM X 24G",
+        "cooler_design_id": "msi-tri-frozr-3s-rtx4090",
+        "factory_oc": true,
+        "reference_design": false,
+        "cooler_noise_class": "unknown",
+        "fan_count": 3,
+        "power_connector_standard": "16pin",
+        "cooler_quality_tier": "unrated",
+        "length_mm": 336,
+        "tdp_w": 480,
+        "gpu_chip": {
+          "architecture": "Ada Lovelace",
+          "generation": "GeForce RTX 40 Series",
+          "release_date": "2022-10-12",
+          "launch_period": "2022-10-12",
+          "release_date_precision": "exact",
+          "vram_gb": 24,
+          "memory_type": "GDDR6X",
+          "memory_bus_bits": 384,
+          "passmark_g3d_mark": 38054,
+          "passmark_g2d_mark": 1303,
+          "benchmark_reported_tdp_w": 450,
+          "passmark_checked_at": "2026-07-15",
+          "id": "nvidia-geforce-rtx-4090",
+          "brand": "NVIDIA",
+          "model": "GeForce RTX 4090",
+          "display_name": "NVIDIA GeForce RTX 4090"
+        }
+      }
+    },
+    {
+      "category": "gpu",
+      "id": "gpu-msi-g5080-16gtc",
+      "brand": "MSI",
+      "model": "G5080-16GTC",
+      "display_name": "MSI GeForce RTX 5080 16G GAMING TRIO OC",
+      "identifiers": {
+        "part_numbers": [
+          "G5080-16GTC"
+        ]
+      },
+      "aliases": [
+        "MSI GeForce RTX 5080 16G GAMING TRIO OC"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-16",
+        "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
+        "strengths": [
+          "338mm長",
+          "トリプルファン",
+          "公式消費電力360W"
+        ],
+        "weaknesses": [
+          "独立レビュー未確認",
+          "実測騒音未確認",
+          "国内代理店・保証条件未確認"
+        ],
+        "risk_summary": "同名別型番・地域差・国内流通保証・販売ページ上の完全型番の確認が必要",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "gpu-msi-g5080-16gtc-official",
+            "kind": "manufacturer",
+            "title": "MSI G5080-16GTC 公式仕様",
+            "url": "https://www.msi.com/Graphics-Card/GeForce-RTX-5080-16G-GAMING-TRIO-OC/Specification",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.gpu_chip_id",
+              "specs.board_series",
+              "specs.board_model",
+              "specs.cooler_design_id",
+              "specs.factory_oc",
+              "specs.reference_design",
+              "specs.fan_count",
+              "specs.power_connector_standard",
+              "specs.length_mm",
+              "specs.tdp_w"
+            ],
+            "reviewer": "Codex",
+            "notes": "RTX 5080 16GB、338mm、16ピン×1、消費電力360Wを確認。"
+          }
+        ]
+      },
+      "notes": [
+        "メーカー公式仕様を初期登録。ASIN・JAN・価格.com IDは未確認。購入監視に使う前に販売ページの完全型番、状態、国内保証、リビジョンを照合してください。"
+      ],
+      "specs": {
+        "gpu_chip_id": "nvidia-geforce-rtx-5080",
+        "board_series": "GAMING TRIO",
+        "board_model": "GeForce RTX 5080 16G GAMING TRIO OC",
+        "cooler_design_id": "msi-tri-frozr-4-rtx5080",
+        "factory_oc": true,
+        "reference_design": false,
+        "cooler_noise_class": "unknown",
+        "fan_count": 3,
+        "power_connector_standard": "16pin",
+        "cooler_quality_tier": "unrated",
+        "length_mm": 338,
+        "tdp_w": 360,
+        "gpu_chip": {
+          "architecture": "Blackwell",
+          "generation": "GeForce RTX 50 Series",
+          "release_date": "2025-01-30",
+          "launch_period": "2025-01-30",
+          "release_date_precision": "exact",
+          "vram_gb": 16,
+          "memory_type": "GDDR7",
+          "memory_bus_bits": 256,
+          "passmark_g3d_mark": 35656,
+          "passmark_g2d_mark": 1402,
+          "benchmark_reported_tdp_w": 360,
+          "passmark_checked_at": "2026-07-15",
+          "id": "nvidia-geforce-rtx-5080",
+          "brand": "NVIDIA",
+          "model": "GeForce RTX 5080",
+          "display_name": "NVIDIA GeForce RTX 5080"
+        }
+      }
+    },
+    {
+      "category": "gpu",
+      "id": "gpu-gigabyte-gv-n208taorus-11gc",
+      "brand": "GIGABYTE",
+      "model": "GV-N208TAORUS-11GC",
+      "display_name": "GIGABYTE AORUS GeForce RTX 2080 Ti 11G",
+      "identifiers": {
+        "part_numbers": [
+          "GV-N208TAORUS-11GC"
+        ]
+      },
+      "aliases": [
+        "GIGABYTE AORUS GeForce RTX 2080 Ti 11G"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-16",
+        "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
+        "strengths": [
+          "290mm長",
+          "WINDFORCE Stack 3X",
+          "8ピン補助電源2本"
+        ],
+        "weaknesses": [
+          "独立レビュー未確認",
+          "実測騒音未確認",
+          "国内代理店・保証条件未確認"
+        ],
+        "risk_summary": "旧世代・終売流通を含むため、中古・開封品・改版・保証残存期間の確認が必要",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "gpu-gigabyte-gv-n208taorus-11gc-official",
+            "kind": "manufacturer",
+            "title": "GIGABYTE GV-N208TAORUS-11GC 公式仕様",
+            "url": "https://www.gigabyte.com/us/Graphics-Card/GV-N208TAORUS-11GC/sp",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.gpu_chip_id",
+              "specs.board_series",
+              "specs.board_model",
+              "specs.cooler_design_id",
+              "specs.factory_oc",
+              "specs.reference_design",
+              "specs.fan_count",
+              "specs.power_connector_standard",
+              "specs.length_mm"
+            ],
+            "reviewer": "Codex",
+            "notes": "RTX 2080 Ti 11GB、290mm、8ピン×2、WINDFORCE Stack 3Xを確認。"
+          }
+        ]
+      },
+      "notes": [
+        "メーカー公式仕様を初期登録。ASIN・JAN・価格.com IDは未確認。購入監視に使う前に販売ページの完全型番、状態、国内保証、リビジョンを照合してください。"
+      ],
+      "specs": {
+        "gpu_chip_id": "nvidia-geforce-rtx-2080-ti",
+        "board_series": "AORUS",
+        "board_model": "GV-N208TAORUS-11GC",
+        "cooler_design_id": "gigabyte-windforce-stack-3x-rtx2080ti",
+        "factory_oc": true,
+        "reference_design": false,
+        "cooler_noise_class": "unknown",
+        "fan_count": 3,
+        "power_connector_standard": "2x8pin",
+        "cooler_quality_tier": "unrated",
+        "length_mm": 290,
+        "gpu_chip": {
+          "architecture": "Turing",
+          "generation": "GeForce RTX 20 Series",
+          "release_date": "2018-09-27",
+          "launch_period": "2018-09-27",
+          "release_date_precision": "exact",
+          "vram_gb": 11,
+          "memory_type": "GDDR6",
+          "memory_bus_bits": 352,
+          "passmark_g3d_mark": 21434,
+          "passmark_g2d_mark": 925,
+          "benchmark_reported_tdp_w": 250,
+          "passmark_checked_at": "2026-07-15",
+          "id": "nvidia-geforce-rtx-2080-ti",
+          "brand": "NVIDIA",
+          "model": "GeForce RTX 2080 Ti",
+          "display_name": "NVIDIA GeForce RTX 2080 Ti"
+        }
+      }
+    },
+    {
+      "category": "gpu",
+      "id": "gpu-gigabyte-gv-n3070gaming-oc-8gd-rev-10",
+      "brand": "GIGABYTE",
+      "model": "GV-N3070GAMING OC-8GD",
+      "display_name": "GIGABYTE GeForce RTX 3070 GAMING OC 8G Rev. 1.0",
+      "identifiers": {
+        "part_numbers": [
+          "GV-N3070GAMING OC-8GD"
+        ]
+      },
+      "aliases": [
+        "GIGABYTE GeForce RTX 3070 GAMING OC 8G Rev. 1.0"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-16",
+        "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
+        "strengths": [
+          "Rev. 1.0を明示",
+          "286mm長",
+          "8ピン+6ピン補助電源"
+        ],
+        "weaknesses": [
+          "独立レビュー未確認",
+          "実測騒音未確認",
+          "国内代理店・保証条件未確認"
+        ],
+        "risk_summary": "旧世代・終売流通を含むため、中古・開封品・改版・保証残存期間の確認が必要",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "gpu-gigabyte-gv-n3070gaming-oc-8gd-rev-10-official",
+            "kind": "manufacturer",
+            "title": "GIGABYTE GV-N3070GAMING OC-8GD Rev. 1.0 公式仕様",
+            "url": "https://www.gigabyte.com/in/Graphics-Card/GV-N3070GAMING-OC-8GD-rev-10/sp",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.gpu_chip_id",
+              "specs.board_series",
+              "specs.board_model",
+              "specs.cooler_design_id",
+              "specs.factory_oc",
+              "specs.reference_design",
+              "specs.fan_count",
+              "specs.power_connector_standard",
+              "specs.length_mm"
+            ],
+            "reviewer": "Codex",
+            "notes": "RTX 3070 8GB、Rev. 1.0、286mm、8ピン+6ピンを確認。"
+          }
+        ]
+      },
+      "notes": [
+        "メーカー公式仕様を初期登録。ASIN・JAN・価格.com IDは未確認。購入監視に使う前に販売ページの完全型番、状態、国内保証、リビジョンを照合してください。"
+      ],
+      "specs": {
+        "gpu_chip_id": "nvidia-geforce-rtx-3070",
+        "board_series": "GAMING OC",
+        "board_model": "GV-N3070GAMING OC-8GD",
+        "revision": "1.0",
+        "cooler_design_id": "gigabyte-windforce-3x-rtx3070-rev1",
+        "factory_oc": true,
+        "reference_design": false,
+        "cooler_noise_class": "unknown",
+        "fan_count": 3,
+        "power_connector_standard": "8pin+6pin",
+        "cooler_quality_tier": "unrated",
+        "length_mm": 286,
+        "gpu_chip": {
+          "architecture": "Ampere",
+          "generation": "GeForce RTX 30 Series",
+          "release_date": "2020-10-29",
+          "launch_period": "2020-10-29",
+          "release_date_precision": "exact",
+          "vram_gb": 8,
+          "memory_type": "GDDR6",
+          "memory_bus_bits": 256,
+          "passmark_g3d_mark": 22095,
+          "passmark_g2d_mark": 1005,
+          "benchmark_reported_tdp_w": 220,
+          "passmark_checked_at": "2026-07-15",
+          "id": "nvidia-geforce-rtx-3070",
+          "brand": "NVIDIA",
+          "model": "GeForce RTX 3070",
+          "display_name": "NVIDIA GeForce RTX 3070"
+        }
+      }
+    },
+    {
+      "category": "gpu",
+      "id": "gpu-gigabyte-gv-n4090gaming-oc-24gd-rev-10-11",
+      "brand": "GIGABYTE",
+      "model": "GV-N4090GAMING OC-24GD",
+      "display_name": "GIGABYTE GeForce RTX 4090 GAMING OC 24G Rev. 1.0 / 1.1",
+      "identifiers": {
+        "part_numbers": [
+          "GV-N4090GAMING OC-24GD"
+        ]
+      },
+      "aliases": [
+        "GIGABYTE GeForce RTX 4090 GAMING OC 24G Rev. 1.0 / 1.1"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-16",
+        "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
+        "strengths": [
+          "Rev. 1.0/1.1を明示",
+          "340mm長",
+          "16ピン補助電源1本"
+        ],
+        "weaknesses": [
+          "独立レビュー未確認",
+          "実測騒音未確認",
+          "国内代理店・保証条件未確認"
+        ],
+        "risk_summary": "同名別型番・地域差・国内流通保証・販売ページ上の完全型番の確認が必要",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "gpu-gigabyte-gv-n4090gaming-oc-24gd-rev-10-11-official",
+            "kind": "manufacturer",
+            "title": "GIGABYTE GV-N4090GAMING OC-24GD Rev. 1.0 / 1.1 公式仕様",
+            "url": "https://www.gigabyte.com/us/Graphics-Card/GV-N4090GAMING-OC-24GD-rev-10-11/sp",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.gpu_chip_id",
+              "specs.board_series",
+              "specs.board_model",
+              "specs.cooler_design_id",
+              "specs.factory_oc",
+              "specs.reference_design",
+              "specs.fan_count",
+              "specs.power_connector_standard",
+              "specs.length_mm"
+            ],
+            "reviewer": "Codex",
+            "notes": "RTX 4090 24GB、Rev. 1.0/1.1、340mm、16ピン×1を確認。"
+          }
+        ]
+      },
+      "notes": [
+        "メーカー公式仕様を初期登録。ASIN・JAN・価格.com IDは未確認。購入監視に使う前に販売ページの完全型番、状態、国内保証、リビジョンを照合してください。"
+      ],
+      "specs": {
+        "gpu_chip_id": "nvidia-geforce-rtx-4090",
+        "board_series": "GAMING OC",
+        "board_model": "GV-N4090GAMING OC-24GD",
+        "revision": "1.0 / 1.1",
+        "cooler_design_id": "gigabyte-windforce-3x-rtx4090-rev1",
+        "factory_oc": true,
+        "reference_design": false,
+        "cooler_noise_class": "unknown",
+        "fan_count": 3,
+        "power_connector_standard": "16pin",
+        "cooler_quality_tier": "unrated",
+        "length_mm": 340,
+        "gpu_chip": {
+          "architecture": "Ada Lovelace",
+          "generation": "GeForce RTX 40 Series",
+          "release_date": "2022-10-12",
+          "launch_period": "2022-10-12",
+          "release_date_precision": "exact",
+          "vram_gb": 24,
+          "memory_type": "GDDR6X",
+          "memory_bus_bits": 384,
+          "passmark_g3d_mark": 38054,
+          "passmark_g2d_mark": 1303,
+          "benchmark_reported_tdp_w": 450,
+          "passmark_checked_at": "2026-07-15",
+          "id": "nvidia-geforce-rtx-4090",
+          "brand": "NVIDIA",
+          "model": "GeForce RTX 4090",
+          "display_name": "NVIDIA GeForce RTX 4090"
+        }
+      }
+    },
+    {
+      "category": "gpu",
+      "id": "gpu-gigabyte-gv-n5090gaming-oc-32gd",
+      "brand": "GIGABYTE",
+      "model": "GV-N5090GAMING OC-32GD",
+      "display_name": "GIGABYTE GeForce RTX 5090 GAMING OC 32G",
+      "identifiers": {
+        "part_numbers": [
+          "GV-N5090GAMING OC-32GD"
+        ]
+      },
+      "aliases": [
+        "GIGABYTE GeForce RTX 5090 GAMING OC 32G"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-16",
+        "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
+        "strengths": [
+          "342mm長",
+          "トリプルファン",
+          "12V-2x6変換アダプター同梱"
+        ],
+        "weaknesses": [
+          "独立レビュー未確認",
+          "実測騒音未確認",
+          "国内代理店・保証条件未確認"
+        ],
+        "risk_summary": "同名別型番・地域差・国内流通保証・販売ページ上の完全型番の確認が必要",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "gpu-gigabyte-gv-n5090gaming-oc-32gd-official",
+            "kind": "manufacturer",
+            "title": "GIGABYTE GV-N5090GAMING OC-32GD 公式仕様",
+            "url": "https://www.gigabyte.com/us/Graphics-Card/GV-N5090GAMING-OC-32GD/sp",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.gpu_chip_id",
+              "specs.board_series",
+              "specs.board_model",
+              "specs.cooler_design_id",
+              "specs.factory_oc",
+              "specs.reference_design",
+              "specs.fan_count",
+              "specs.power_connector_standard",
+              "specs.length_mm"
+            ],
+            "reviewer": "Codex",
+            "notes": "RTX 5090 32GB、342mm、補助電源仕様と変換アダプター同梱を確認。"
+          }
+        ]
+      },
+      "notes": [
+        "メーカー公式仕様を初期登録。ASIN・JAN・価格.com IDは未確認。購入監視に使う前に販売ページの完全型番、状態、国内保証、リビジョンを照合してください。"
+      ],
+      "specs": {
+        "gpu_chip_id": "nvidia-geforce-rtx-5090",
+        "board_series": "GAMING OC",
+        "board_model": "GV-N5090GAMING OC-32GD",
+        "cooler_design_id": "gigabyte-windforce-3x-rtx5090",
+        "factory_oc": true,
+        "reference_design": false,
+        "cooler_noise_class": "unknown",
+        "fan_count": 3,
+        "power_connector_standard": "12V-2x6",
+        "cooler_quality_tier": "unrated",
+        "length_mm": 342,
+        "gpu_chip": {
+          "architecture": "Blackwell",
+          "generation": "GeForce RTX 50 Series",
+          "release_date": "2025-01-30",
+          "launch_period": "2025-01-30",
+          "release_date_precision": "exact",
+          "vram_gb": 32,
+          "memory_type": "GDDR7",
+          "memory_bus_bits": 512,
+          "passmark_g3d_mark": 38970,
+          "passmark_g2d_mark": 1411,
+          "benchmark_reported_tdp_w": 575,
+          "passmark_checked_at": "2026-07-15",
+          "id": "nvidia-geforce-rtx-5090",
+          "brand": "NVIDIA",
+          "model": "GeForce RTX 5090",
+          "display_name": "NVIDIA GeForce RTX 5090"
+        }
+      }
+    },
+    {
+      "category": "gpu",
+      "id": "gpu-sapphire-11304-03-20g",
+      "brand": "SAPPHIRE",
+      "model": "11304-03-20G",
+      "display_name": "SAPPHIRE PULSE AMD Radeon RX 6800 XT 16GB",
+      "identifiers": {
+        "part_numbers": [
+          "11304-03-20G"
+        ]
+      },
+      "aliases": [
+        "SAPPHIRE PULSE AMD Radeon RX 6800 XT 16GB"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-16",
+        "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
+        "strengths": [
+          "313mm長",
+          "Tri-Xトリプルファン",
+          "公式ボード電力350W"
+        ],
+        "weaknesses": [
+          "独立レビュー未確認",
+          "実測騒音未確認",
+          "国内代理店・保証条件未確認"
+        ],
+        "risk_summary": "旧世代・終売流通を含むため、中古・開封品・改版・保証残存期間の確認が必要",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "gpu-sapphire-11304-03-20g-official",
+            "kind": "manufacturer",
+            "title": "SAPPHIRE 11304-03-20G 公式仕様",
+            "url": "https://www.sapphiretech.com/en/consumer/pulse-radeon-rx-6800-xt-16g-gddr6",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.gpu_chip_id",
+              "specs.board_series",
+              "specs.board_model",
+              "specs.cooler_design_id",
+              "specs.factory_oc",
+              "specs.reference_design",
+              "specs.fan_count",
+              "specs.power_connector_standard",
+              "specs.length_mm",
+              "specs.slot_width",
+              "specs.tdp_w"
+            ],
+            "reviewer": "Codex",
+            "notes": "RX 6800 XT 16GB、313mm、2.7スロット、8ピン×2、ボード電力350Wを確認。"
+          }
+        ]
+      },
+      "notes": [
+        "メーカー公式仕様を初期登録。ASIN・JAN・価格.com IDは未確認。購入監視に使う前に販売ページの完全型番、状態、国内保証、リビジョンを照合してください。"
+      ],
+      "specs": {
+        "gpu_chip_id": "amd-radeon-rx-6800-xt",
+        "board_series": "PULSE",
+        "board_model": "PULSE Radeon RX 6800 XT 16GB",
+        "cooler_design_id": "sapphire-tri-x-pulse-rx6800xt",
+        "factory_oc": true,
+        "reference_design": false,
+        "cooler_noise_class": "unknown",
+        "fan_count": 3,
+        "slot_width": 2.7,
+        "power_connector_standard": "2x8pin",
+        "cooler_quality_tier": "unrated",
+        "length_mm": 313,
+        "tdp_w": 350,
+        "gpu_chip": {
+          "architecture": "RDNA 2",
+          "generation": "Radeon RX 6000 Series",
+          "release_date": "2020-11-18",
+          "launch_period": "2020-11-18",
+          "release_date_precision": "exact",
+          "vram_gb": 16,
+          "memory_type": "GDDR6",
+          "memory_bus_bits": 256,
+          "passmark_g3d_mark": 25067,
+          "passmark_g2d_mark": 1045,
+          "benchmark_reported_tdp_w": 300,
+          "passmark_checked_at": "2026-07-15",
+          "id": "amd-radeon-rx-6800-xt",
+          "brand": "AMD",
+          "model": "Radeon RX 6800 XT",
+          "display_name": "AMD Radeon RX 6800 XT"
+        }
+      }
+    },
+    {
+      "category": "gpu",
+      "id": "gpu-sapphire-11317-04-20g",
+      "brand": "SAPPHIRE",
+      "model": "11317-04-20G",
+      "display_name": "SAPPHIRE NITRO+ AMD Radeon RX 6950 XT PURE 16GB",
+      "identifiers": {
+        "part_numbers": [
+          "11317-04-20G"
+        ]
+      },
+      "aliases": [
+        "SAPPHIRE NITRO+ AMD Radeon RX 6950 XT PURE 16GB"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-16",
+        "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
+        "strengths": [
+          "320mm長",
+          "3.5スロット",
+          "公式ボード電力405W"
+        ],
+        "weaknesses": [
+          "独立レビュー未確認",
+          "実測騒音未確認",
+          "国内代理店・保証条件未確認"
+        ],
+        "risk_summary": "旧世代・終売流通を含むため、中古・開封品・改版・保証残存期間の確認が必要",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "gpu-sapphire-11317-04-20g-official",
+            "kind": "manufacturer",
+            "title": "SAPPHIRE 11317-04-20G 公式仕様",
+            "url": "https://nation.sapphiretech.com/en/consumer/nitro-radeon-rx-6950-xt-pure-16g-gddr6",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.gpu_chip_id",
+              "specs.board_series",
+              "specs.board_model",
+              "specs.cooler_design_id",
+              "specs.factory_oc",
+              "specs.reference_design",
+              "specs.fan_count",
+              "specs.power_connector_standard",
+              "specs.length_mm",
+              "specs.slot_width",
+              "specs.tdp_w"
+            ],
+            "reviewer": "Codex",
+            "notes": "RX 6950 XT 16GB、320mm、3.5スロット、8ピン×2+6ピン、ボード電力405Wを確認。"
+          }
+        ]
+      },
+      "notes": [
+        "メーカー公式仕様を初期登録。ASIN・JAN・価格.com IDは未確認。購入監視に使う前に販売ページの完全型番、状態、国内保証、リビジョンを照合してください。"
+      ],
+      "specs": {
+        "gpu_chip_id": "amd-radeon-rx-6950-xt",
+        "board_series": "NITRO+ PURE",
+        "board_model": "NITRO+ Radeon RX 6950 XT PURE 16GB",
+        "cooler_design_id": "sapphire-tri-x-nitro-pure-rx6950xt",
+        "factory_oc": true,
+        "reference_design": false,
+        "cooler_noise_class": "unknown",
+        "fan_count": 3,
+        "slot_width": 3.5,
+        "power_connector_standard": "2x8pin+6pin",
+        "cooler_quality_tier": "unrated",
+        "length_mm": 320,
+        "tdp_w": 405,
+        "gpu_chip": {
+          "architecture": "RDNA 2",
+          "generation": "Radeon RX 6000 Series",
+          "release_date": "2022-05-10",
+          "launch_period": "2022-05-10",
+          "release_date_precision": "exact",
+          "vram_gb": 16,
+          "memory_type": "GDDR6",
+          "memory_bus_bits": 256,
+          "passmark_g3d_mark": 28076,
+          "passmark_g2d_mark": 1081,
+          "benchmark_reported_tdp_w": 335,
+          "passmark_checked_at": "2026-07-15",
+          "id": "amd-radeon-rx-6950-xt",
+          "brand": "AMD",
+          "model": "Radeon RX 6950 XT",
+          "display_name": "AMD Radeon RX 6950 XT"
+        }
+      }
+    },
+    {
+      "category": "gpu",
+      "id": "gpu-sapphire-11330-03-20g",
+      "brand": "SAPPHIRE",
+      "model": "11330-03-20G",
+      "display_name": "SAPPHIRE PURE AMD Radeon RX 7800 XT 16GB",
+      "identifiers": {
+        "part_numbers": [
+          "11330-03-20G"
+        ]
+      },
+      "aliases": [
+        "SAPPHIRE PURE AMD Radeon RX 7800 XT 16GB"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-16",
+        "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
+        "strengths": [
+          "320mm長",
+          "2.5スロット",
+          "公式ボード電力270W"
+        ],
+        "weaknesses": [
+          "独立レビュー未確認",
+          "実測騒音未確認",
+          "国内代理店・保証条件未確認"
+        ],
+        "risk_summary": "同名別型番・地域差・国内流通保証・販売ページ上の完全型番の確認が必要",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "gpu-sapphire-11330-03-20g-official",
+            "kind": "manufacturer",
+            "title": "SAPPHIRE 11330-03-20G 公式仕様",
+            "url": "https://nation.sapphiretech.com/en/consumer/pure-radeon-rx-7800-xt-16g-gddr6",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.gpu_chip_id",
+              "specs.board_series",
+              "specs.board_model",
+              "specs.cooler_design_id",
+              "specs.factory_oc",
+              "specs.reference_design",
+              "specs.fan_count",
+              "specs.power_connector_standard",
+              "specs.length_mm",
+              "specs.slot_width",
+              "specs.tdp_w"
+            ],
+            "reviewer": "Codex",
+            "notes": "RX 7800 XT 16GB、320mm、2.5スロット、8ピン×2、ボード電力270Wを確認。"
+          }
+        ]
+      },
+      "notes": [
+        "メーカー公式仕様を初期登録。ASIN・JAN・価格.com IDは未確認。購入監視に使う前に販売ページの完全型番、状態、国内保証、リビジョンを照合してください。"
+      ],
+      "specs": {
+        "gpu_chip_id": "amd-radeon-rx-7800-xt",
+        "board_series": "PURE",
+        "board_model": "PURE Radeon RX 7800 XT 16GB",
+        "cooler_design_id": "sapphire-tri-x-pure-rx7800xt",
+        "factory_oc": true,
+        "reference_design": false,
+        "cooler_noise_class": "unknown",
+        "fan_count": 3,
+        "slot_width": 2.5,
+        "power_connector_standard": "2x8pin",
+        "cooler_quality_tier": "unrated",
+        "length_mm": 320,
+        "tdp_w": 270,
+        "gpu_chip": {
+          "architecture": "RDNA 3",
+          "generation": "Radeon RX 7000 Series",
+          "release_date": "2023-09-06",
+          "launch_period": "2023-09-06",
+          "release_date_precision": "exact",
+          "vram_gb": 16,
+          "memory_type": "GDDR6",
+          "memory_bus_bits": 256,
+          "passmark_g3d_mark": 24405,
+          "passmark_g2d_mark": 1192,
+          "benchmark_reported_tdp_w": 263,
+          "passmark_checked_at": "2026-07-15",
+          "id": "amd-radeon-rx-7800-xt",
+          "brand": "AMD",
+          "model": "Radeon RX 7800 XT",
+          "display_name": "AMD Radeon RX 7800 XT"
+        }
+      }
+    },
+    {
+      "category": "gpu",
+      "id": "gpu-sapphire-11350-03-20g",
+      "brand": "SAPPHIRE",
+      "model": "11350-03-20G",
+      "display_name": "SAPPHIRE PULSE AMD Radeon RX 9060 XT OC 16GB",
+      "identifiers": {
+        "part_numbers": [
+          "11350-03-20G"
+        ]
+      },
+      "aliases": [
+        "SAPPHIRE PULSE AMD Radeon RX 9060 XT OC 16GB"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-16",
+        "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
+        "strengths": [
+          "240mm長",
+          "Dual-Xデュアルファン",
+          "公式ボード電力170W"
+        ],
+        "weaknesses": [
+          "独立レビュー未確認",
+          "実測騒音未確認",
+          "国内代理店・保証条件未確認"
+        ],
+        "risk_summary": "同名別型番・地域差・国内流通保証・販売ページ上の完全型番の確認が必要",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "gpu-sapphire-11350-03-20g-official",
+            "kind": "manufacturer",
+            "title": "SAPPHIRE 11350-03-20G 公式仕様",
+            "url": "https://www.sapphiretech.com/en/consumer/pulse-radeon-rx-9060-xt-16g-gddr6",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.gpu_chip_id",
+              "specs.board_series",
+              "specs.board_model",
+              "specs.cooler_design_id",
+              "specs.factory_oc",
+              "specs.reference_design",
+              "specs.fan_count",
+              "specs.power_connector_standard",
+              "specs.length_mm",
+              "specs.slot_width",
+              "specs.tdp_w"
+            ],
+            "reviewer": "Codex",
+            "notes": "RX 9060 XT 16GB、240mm、2.3スロット、8ピン×1、ボード電力170Wを確認。"
+          }
+        ]
+      },
+      "notes": [
+        "メーカー公式仕様を初期登録。ASIN・JAN・価格.com IDは未確認。購入監視に使う前に販売ページの完全型番、状態、国内保証、リビジョンを照合してください。"
+      ],
+      "specs": {
+        "gpu_chip_id": "amd-radeon-rx-9060-xt-16gb",
+        "board_series": "PULSE",
+        "board_model": "PULSE Radeon RX 9060 XT OC 16GB",
+        "cooler_design_id": "sapphire-dual-x-pulse-rx9060xt",
+        "factory_oc": true,
+        "reference_design": false,
+        "cooler_noise_class": "unknown",
+        "fan_count": 2,
+        "slot_width": 2.3,
+        "power_connector_standard": "8pin",
+        "cooler_quality_tier": "unrated",
+        "length_mm": 240,
+        "tdp_w": 170,
+        "gpu_chip": {
+          "architecture": "RDNA 4",
+          "generation": "Radeon RX 9000 Series",
+          "release_date": "2025-06-05",
+          "launch_period": "2025-06-05",
+          "release_date_precision": "exact",
+          "vram_gb": 16,
+          "memory_type": "GDDR6",
+          "memory_bus_bits": 128,
+          "passmark_g3d_mark": 20081,
+          "passmark_g2d_mark": 1171,
+          "benchmark_reported_tdp_w": 160,
+          "passmark_checked_at": "2026-07-15",
+          "id": "amd-radeon-rx-9060-xt-16gb",
+          "brand": "AMD",
+          "model": "Radeon RX 9060 XT 16GB",
+          "display_name": "AMD Radeon RX 9060 XT 16GB"
+        }
+      }
+    },
+    {
+      "category": "gpu",
+      "id": "gpu-powercolor-axrx-6800xt-16gbd6-3dhr-oc",
+      "brand": "PowerColor",
+      "model": "AXRX 6800 XT 16GBD6-3DHR/OC",
+      "display_name": "PowerColor Red Dragon AMD Radeon RX 6800 XT 16GB",
+      "identifiers": {
+        "part_numbers": [
+          "AXRX 6800 XT 16GBD6-3DHR/OC"
+        ]
+      },
+      "aliases": [
+        "PowerColor Red Dragon AMD Radeon RX 6800 XT 16GB"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-16",
+        "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
+        "strengths": [
+          "310mm長",
+          "トリプルファン",
+          "8ピン補助電源2本"
+        ],
+        "weaknesses": [
+          "独立レビュー未確認",
+          "実測騒音未確認",
+          "国内代理店・保証条件未確認"
+        ],
+        "risk_summary": "旧世代・終売流通を含むため、中古・開封品・改版・保証残存期間の確認が必要",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "gpu-powercolor-axrx-6800xt-16gbd6-3dhr-oc-official",
+            "kind": "manufacturer",
+            "title": "PowerColor AXRX 6800 XT 16GBD6-3DHR/OC 公式仕様",
+            "url": "https://www.powercolor.com/product-detail192.htm",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.gpu_chip_id",
+              "specs.board_series",
+              "specs.board_model",
+              "specs.cooler_design_id",
+              "specs.factory_oc",
+              "specs.reference_design",
+              "specs.fan_count",
+              "specs.power_connector_standard",
+              "specs.length_mm"
+            ],
+            "reviewer": "Codex",
+            "notes": "RX 6800 XT 16GB、310mm、8ピン×2、トリプルファンを確認。"
+          }
+        ]
+      },
+      "notes": [
+        "メーカー公式仕様を初期登録。ASIN・JAN・価格.com IDは未確認。購入監視に使う前に販売ページの完全型番、状態、国内保証、リビジョンを照合してください。"
+      ],
+      "specs": {
+        "gpu_chip_id": "amd-radeon-rx-6800-xt",
+        "board_series": "Red Dragon",
+        "board_model": "AXRX 6800 XT 16GBD6-3DHR/OC",
+        "cooler_design_id": "powercolor-red-dragon-rx6800xt",
+        "factory_oc": true,
+        "reference_design": false,
+        "cooler_noise_class": "unknown",
+        "fan_count": 3,
+        "power_connector_standard": "2x8pin",
+        "cooler_quality_tier": "unrated",
+        "length_mm": 310,
+        "gpu_chip": {
+          "architecture": "RDNA 2",
+          "generation": "Radeon RX 6000 Series",
+          "release_date": "2020-11-18",
+          "launch_period": "2020-11-18",
+          "release_date_precision": "exact",
+          "vram_gb": 16,
+          "memory_type": "GDDR6",
+          "memory_bus_bits": 256,
+          "passmark_g3d_mark": 25067,
+          "passmark_g2d_mark": 1045,
+          "benchmark_reported_tdp_w": 300,
+          "passmark_checked_at": "2026-07-15",
+          "id": "amd-radeon-rx-6800-xt",
+          "brand": "AMD",
+          "model": "Radeon RX 6800 XT",
+          "display_name": "AMD Radeon RX 6800 XT"
+        }
+      }
+    },
+    {
+      "category": "gpu",
+      "id": "gpu-powercolor-rx7900xt-20g-l-oc",
+      "brand": "PowerColor",
+      "model": "RX7900XT 20G-L/OC",
+      "display_name": "PowerColor Hellhound AMD Radeon RX 7900 XT 20GB",
+      "identifiers": {
+        "part_numbers": [
+          "RX7900XT 20G-L/OC"
+        ]
+      },
+      "aliases": [
+        "PowerColor Hellhound AMD Radeon RX 7900 XT 20GB"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-16",
+        "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
+        "strengths": [
+          "320mm長",
+          "3スロット",
+          "OC/Silent BIOSを公式掲載"
+        ],
+        "weaknesses": [
+          "独立レビュー未確認",
+          "実測騒音未確認",
+          "国内代理店・保証条件未確認"
+        ],
+        "risk_summary": "同名別型番・地域差・国内流通保証・販売ページ上の完全型番の確認が必要",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "gpu-powercolor-rx7900xt-20g-l-oc-official",
+            "kind": "manufacturer",
+            "title": "PowerColor RX7900XT 20G-L/OC 公式仕様",
+            "url": "https://www.powercolor.com/product-detail120.htm",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.gpu_chip_id",
+              "specs.board_series",
+              "specs.board_model",
+              "specs.cooler_design_id",
+              "specs.factory_oc",
+              "specs.reference_design",
+              "specs.fan_count",
+              "specs.power_connector_standard",
+              "specs.length_mm",
+              "specs.slot_width"
+            ],
+            "reviewer": "Codex",
+            "notes": "RX 7900 XT 20GB、320mm、3スロット、8ピン×2、OC/Silent BIOSを確認。"
+          }
+        ]
+      },
+      "notes": [
+        "メーカー公式仕様を初期登録。ASIN・JAN・価格.com IDは未確認。購入監視に使う前に販売ページの完全型番、状態、国内保証、リビジョンを照合してください。"
+      ],
+      "specs": {
+        "gpu_chip_id": "amd-radeon-rx-7900-xt",
+        "board_series": "Hellhound",
+        "board_model": "RX7900XT 20G-L/OC",
+        "cooler_design_id": "powercolor-hellhound-rx7900xt",
+        "factory_oc": true,
+        "reference_design": false,
+        "cooler_noise_class": "unknown",
+        "fan_count": 3,
+        "slot_width": 3,
+        "power_connector_standard": "2x8pin",
+        "cooler_quality_tier": "unrated",
+        "length_mm": 320,
+        "gpu_chip": {
+          "architecture": "RDNA 3",
+          "generation": "Radeon RX 7000 Series",
+          "release_date": "2022-12-13",
+          "launch_period": "2022-12-13",
+          "release_date_precision": "exact",
+          "vram_gb": 20,
+          "memory_type": "GDDR6",
+          "memory_bus_bits": 320,
+          "passmark_g3d_mark": 29068,
+          "passmark_g2d_mark": 1245,
+          "benchmark_reported_tdp_w": 315,
+          "passmark_checked_at": "2026-07-15",
+          "id": "amd-radeon-rx-7900-xt",
+          "brand": "AMD",
+          "model": "Radeon RX 7900 XT",
+          "display_name": "AMD Radeon RX 7900 XT"
+        }
+      }
+    },
+    {
+      "category": "gpu",
+      "id": "gpu-powercolor-rx7900gre-16g-l-oc",
+      "brand": "PowerColor",
+      "model": "RX7900GRE 16G-L/OC",
+      "display_name": "PowerColor Hellhound AMD Radeon RX 7900 GRE 16GB",
+      "identifiers": {
+        "part_numbers": [
+          "RX7900GRE 16G-L/OC"
+        ]
+      },
+      "aliases": [
+        "PowerColor Hellhound AMD Radeon RX 7900 GRE 16GB"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-16",
+        "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
+        "strengths": [
+          "322mm長",
+          "2.5スロット",
+          "OC/Silent BIOSを公式掲載"
+        ],
+        "weaknesses": [
+          "独立レビュー未確認",
+          "実測騒音未確認",
+          "国内代理店・保証条件未確認"
+        ],
+        "risk_summary": "同名別型番・地域差・国内流通保証・販売ページ上の完全型番の確認が必要",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "gpu-powercolor-rx7900gre-16g-l-oc-official",
+            "kind": "manufacturer",
+            "title": "PowerColor RX7900GRE 16G-L/OC 公式仕様",
+            "url": "https://www.powercolor.com/product-detail185.htm",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.gpu_chip_id",
+              "specs.board_series",
+              "specs.board_model",
+              "specs.cooler_design_id",
+              "specs.factory_oc",
+              "specs.reference_design",
+              "specs.fan_count",
+              "specs.power_connector_standard",
+              "specs.length_mm",
+              "specs.slot_width"
+            ],
+            "reviewer": "Codex",
+            "notes": "RX 7900 GRE 16GB、322mm、2.5スロット、8ピン×2、OC/Silent BIOSを確認。"
+          }
+        ]
+      },
+      "notes": [
+        "メーカー公式仕様を初期登録。ASIN・JAN・価格.com IDは未確認。購入監視に使う前に販売ページの完全型番、状態、国内保証、リビジョンを照合してください。"
+      ],
+      "specs": {
+        "gpu_chip_id": "amd-radeon-rx-7900-gre",
+        "board_series": "Hellhound",
+        "board_model": "RX7900GRE 16G-L/OC",
+        "cooler_design_id": "powercolor-hellhound-rx7900gre",
+        "factory_oc": true,
+        "reference_design": false,
+        "cooler_noise_class": "unknown",
+        "fan_count": 3,
+        "slot_width": 2.5,
+        "power_connector_standard": "2x8pin",
+        "cooler_quality_tier": "unrated",
+        "length_mm": 322,
+        "gpu_chip": {
+          "architecture": "RDNA 3",
+          "generation": "Radeon RX 7000 Series",
+          "release_date": "2024-02-27",
+          "launch_period": "2024-02-27",
+          "release_date_precision": "exact",
+          "vram_gb": 16,
+          "memory_type": "GDDR6",
+          "memory_bus_bits": 256,
+          "passmark_g3d_mark": 27457,
+          "passmark_g2d_mark": 1209,
+          "benchmark_reported_tdp_w": 260,
+          "passmark_checked_at": "2026-07-15",
+          "id": "amd-radeon-rx-7900-gre",
+          "brand": "AMD",
+          "model": "Radeon RX 7900 GRE",
+          "display_name": "AMD Radeon RX 7900 GRE"
+        }
+      }
+    },
+    {
+      "category": "gpu",
+      "id": "gpu-powercolor-rx9070-16g-l-oc",
+      "brand": "PowerColor",
+      "model": "RX9070 16G-L/OC",
+      "display_name": "PowerColor Hellhound AMD Radeon RX 9070 16GB",
+      "identifiers": {
+        "part_numbers": [
+          "RX9070 16G-L/OC"
+        ]
+      },
+      "aliases": [
+        "PowerColor Hellhound AMD Radeon RX 9070 16GB"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-16",
+        "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
+        "strengths": [
+          "327mm長",
+          "2スロット",
+          "Honeywell PTM7950を公式掲載"
+        ],
+        "weaknesses": [
+          "独立レビュー未確認",
+          "実測騒音未確認",
+          "国内代理店・保証条件未確認"
+        ],
+        "risk_summary": "同名別型番・地域差・国内流通保証・販売ページ上の完全型番の確認が必要",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "gpu-powercolor-rx9070-16g-l-oc-official",
+            "kind": "manufacturer",
+            "title": "PowerColor RX9070 16G-L/OC 公式仕様",
+            "url": "https://www.powercolor.com/product-detail214.htm",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.gpu_chip_id",
+              "specs.board_series",
+              "specs.board_model",
+              "specs.cooler_design_id",
+              "specs.factory_oc",
+              "specs.reference_design",
+              "specs.fan_count",
+              "specs.power_connector_standard",
+              "specs.length_mm",
+              "specs.slot_width"
+            ],
+            "reviewer": "Codex",
+            "notes": "RX 9070 16GB、327mm、2スロット、8ピン×2、Honeywell PTM7950を確認。"
+          }
+        ]
+      },
+      "notes": [
+        "メーカー公式仕様を初期登録。ASIN・JAN・価格.com IDは未確認。購入監視に使う前に販売ページの完全型番、状態、国内保証、リビジョンを照合してください。"
+      ],
+      "specs": {
+        "gpu_chip_id": "amd-radeon-rx-9070",
+        "board_series": "Hellhound",
+        "board_model": "RX9070 16G-L/OC",
+        "cooler_design_id": "powercolor-hellhound-rx9070",
+        "factory_oc": true,
+        "reference_design": false,
+        "cooler_noise_class": "unknown",
+        "fan_count": 3,
+        "slot_width": 2,
+        "power_connector_standard": "2x8pin",
+        "cooler_quality_tier": "unrated",
+        "length_mm": 327,
+        "gpu_chip": {
+          "architecture": "RDNA 4",
+          "generation": "Radeon RX 9000 Series",
+          "release_date": "2025-03-06",
+          "launch_period": "2025-03-06",
+          "release_date_precision": "exact",
+          "vram_gb": 16,
+          "memory_type": "GDDR6",
+          "memory_bus_bits": 256,
+          "passmark_g3d_mark": 25375,
+          "passmark_g2d_mark": 1265,
+          "benchmark_reported_tdp_w": 220,
+          "passmark_checked_at": "2026-07-15",
+          "id": "amd-radeon-rx-9070",
+          "brand": "AMD",
+          "model": "Radeon RX 9070",
+          "display_name": "AMD Radeon RX 9070"
+        }
+      }
+    },
+    {
+      "category": "gpu",
+      "id": "gpu-asrock-rx6400-cli-4g",
+      "brand": "ASRock",
+      "model": "RX6400 CLI 4G",
+      "display_name": "ASRock AMD Radeon RX 6400 Challenger ITX 4GB",
+      "identifiers": {
+        "part_numbers": [
+          "RX6400 CLI 4G"
+        ]
+      },
+      "aliases": [
+        "ASRock AMD Radeon RX 6400 Challenger ITX 4GB"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-16",
+        "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
+        "strengths": [
+          "162mm長",
+          "シングルファン",
+          "補助電源不要"
+        ],
+        "weaknesses": [
+          "独立レビュー未確認",
+          "実測騒音未確認",
+          "国内代理店・保証条件未確認"
+        ],
+        "risk_summary": "旧世代・終売流通を含むため、中古・開封品・改版・保証残存期間の確認が必要",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "gpu-asrock-rx6400-cli-4g-official",
+            "kind": "manufacturer",
+            "title": "ASRock RX6400 CLI 4G 公式仕様",
+            "url": "https://www.asrock.com/Graphics-Card/AMD/Radeon%20RX%206400%20Challenger%20ITX%204GB/",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.gpu_chip_id",
+              "specs.board_series",
+              "specs.board_model",
+              "specs.cooler_design_id",
+              "specs.factory_oc",
+              "specs.reference_design",
+              "specs.fan_count",
+              "specs.power_connector_standard",
+              "specs.length_mm",
+              "specs.slot_width"
+            ],
+            "reviewer": "Codex",
+            "notes": "RX 6400 4GB、162mm、2スロット、補助電源不要を確認。"
+          }
+        ]
+      },
+      "notes": [
+        "メーカー公式仕様を初期登録。ASIN・JAN・価格.com IDは未確認。購入監視に使う前に販売ページの完全型番、状態、国内保証、リビジョンを照合してください。"
+      ],
+      "specs": {
+        "gpu_chip_id": "amd-radeon-rx-6400",
+        "board_series": "Challenger ITX",
+        "board_model": "RX6400 CLI 4G",
+        "cooler_design_id": "asrock-challenger-itx-rx6400",
+        "factory_oc": false,
+        "reference_design": false,
+        "cooler_noise_class": "unknown",
+        "fan_count": 1,
+        "slot_width": 2,
+        "power_connector_standard": "none",
+        "cooler_quality_tier": "unrated",
+        "length_mm": 162,
+        "gpu_chip": {
+          "architecture": "RDNA 2",
+          "generation": "Radeon RX 6000 Series",
+          "release_date": "2022-04-20",
+          "launch_period": "2022-04-20",
+          "release_date_precision": "exact",
+          "vram_gb": 4,
+          "memory_type": "GDDR6",
+          "memory_bus_bits": 64,
+          "passmark_g3d_mark": 7746,
+          "passmark_g2d_mark": 737,
+          "benchmark_reported_tdp_w": 53,
+          "passmark_checked_at": "2026-07-15",
+          "id": "amd-radeon-rx-6400",
+          "brand": "AMD",
+          "model": "Radeon RX 6400",
+          "display_name": "AMD Radeon RX 6400"
+        }
+      }
+    },
+    {
+      "category": "gpu",
+      "id": "gpu-asrock-rx6500xt-cli-4g",
+      "brand": "ASRock",
+      "model": "RX6500XT CLI 4G",
+      "display_name": "ASRock AMD Radeon RX 6500 XT Challenger ITX 4GB",
+      "identifiers": {
+        "part_numbers": [
+          "RX6500XT CLI 4G"
+        ]
+      },
+      "aliases": [
+        "ASRock AMD Radeon RX 6500 XT Challenger ITX 4GB"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-16",
+        "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
+        "strengths": [
+          "179mm長",
+          "シングルファン",
+          "8ピン補助電源1本"
+        ],
+        "weaknesses": [
+          "独立レビュー未確認",
+          "実測騒音未確認",
+          "国内代理店・保証条件未確認"
+        ],
+        "risk_summary": "旧世代・終売流通を含むため、中古・開封品・改版・保証残存期間の確認が必要",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "gpu-asrock-rx6500xt-cli-4g-official",
+            "kind": "manufacturer",
+            "title": "ASRock RX6500XT CLI 4G 公式仕様",
+            "url": "https://www.asrock.com/Graphics-Card/AMD/Radeon%20RX%206500%20XT%20Challenger%20ITX%204GB/index.asp",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.gpu_chip_id",
+              "specs.board_series",
+              "specs.board_model",
+              "specs.cooler_design_id",
+              "specs.factory_oc",
+              "specs.reference_design",
+              "specs.fan_count",
+              "specs.power_connector_standard",
+              "specs.length_mm",
+              "specs.slot_width"
+            ],
+            "reviewer": "Codex",
+            "notes": "RX 6500 XT 4GB、179mm、2スロット、8ピン×1を確認。"
+          }
+        ]
+      },
+      "notes": [
+        "メーカー公式仕様を初期登録。ASIN・JAN・価格.com IDは未確認。購入監視に使う前に販売ページの完全型番、状態、国内保証、リビジョンを照合してください。"
+      ],
+      "specs": {
+        "gpu_chip_id": "amd-radeon-rx-6500-xt-4gb",
+        "board_series": "Challenger ITX",
+        "board_model": "RX6500XT CLI 4G",
+        "cooler_design_id": "asrock-challenger-itx-rx6500xt",
+        "factory_oc": false,
+        "reference_design": false,
+        "cooler_noise_class": "unknown",
+        "fan_count": 1,
+        "slot_width": 2,
+        "power_connector_standard": "8pin",
+        "cooler_quality_tier": "unrated",
+        "length_mm": 179,
+        "gpu_chip": {
+          "architecture": "RDNA 2",
+          "generation": "Radeon RX 6000 Series",
+          "release_date": "2022-01-19",
+          "launch_period": "2022-01-19",
+          "release_date_precision": "exact",
+          "vram_gb": 4,
+          "memory_type": "GDDR6",
+          "memory_bus_bits": 64,
+          "passmark_g3d_mark": 9622,
+          "passmark_g2d_mark": 817,
+          "benchmark_reported_tdp_w": 107,
+          "passmark_checked_at": "2026-07-15",
+          "id": "amd-radeon-rx-6500-xt-4gb",
+          "brand": "AMD",
+          "model": "Radeon RX 6500 XT 4GB",
+          "display_name": "AMD Radeon RX 6500 XT 4GB"
+        }
+      }
+    },
+    {
+      "category": "gpu",
+      "id": "gpu-asrock-rx7600xt-sl-16go",
+      "brand": "ASRock",
+      "model": "RX7600XT SL 16GO",
+      "display_name": "ASRock AMD Radeon RX 7600 XT Steel Legend 16GB OC",
+      "identifiers": {
+        "part_numbers": [
+          "RX7600XT SL 16GO"
+        ]
+      },
+      "aliases": [
+        "ASRock AMD Radeon RX 7600 XT Steel Legend 16GB OC"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-16",
+        "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
+        "strengths": [
+          "304mm長",
+          "トリプルファン",
+          "8ピン補助電源2本"
+        ],
+        "weaknesses": [
+          "独立レビュー未確認",
+          "実測騒音未確認",
+          "国内代理店・保証条件未確認"
+        ],
+        "risk_summary": "同名別型番・地域差・国内流通保証・販売ページ上の完全型番の確認が必要",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "gpu-asrock-rx7600xt-sl-16go-official",
+            "kind": "manufacturer",
+            "title": "ASRock RX7600XT SL 16GO 公式仕様",
+            "url": "https://www.asrock.com/Graphics-Card/AMD/Radeon%20RX%207600%20XT%20Steel%20Legend%2016GB%20OC/index.asp",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.gpu_chip_id",
+              "specs.board_series",
+              "specs.board_model",
+              "specs.cooler_design_id",
+              "specs.factory_oc",
+              "specs.reference_design",
+              "specs.fan_count",
+              "specs.power_connector_standard",
+              "specs.length_mm",
+              "specs.slot_width"
+            ],
+            "reviewer": "Codex",
+            "notes": "RX 7600 XT 16GB、304mm、2.6スロット、8ピン×2を確認。"
+          }
+        ]
+      },
+      "notes": [
+        "メーカー公式仕様を初期登録。ASIN・JAN・価格.com IDは未確認。購入監視に使う前に販売ページの完全型番、状態、国内保証、リビジョンを照合してください。"
+      ],
+      "specs": {
+        "gpu_chip_id": "amd-radeon-rx-7600-xt",
+        "board_series": "Steel Legend",
+        "board_model": "RX7600XT SL 16GO",
+        "cooler_design_id": "asrock-steel-legend-3x-rx7600xt",
+        "factory_oc": true,
+        "reference_design": false,
+        "cooler_noise_class": "unknown",
+        "fan_count": 3,
+        "slot_width": 2.6,
+        "power_connector_standard": "2x8pin",
+        "cooler_quality_tier": "unrated",
+        "length_mm": 304,
+        "gpu_chip": {
+          "architecture": "RDNA 3",
+          "generation": "Radeon RX 7000 Series",
+          "release_date": "2024-01-24",
+          "launch_period": "2024-01-24",
+          "release_date_precision": "exact",
+          "vram_gb": 16,
+          "memory_type": "GDDR6",
+          "memory_bus_bits": 128,
+          "passmark_g3d_mark": 17329,
+          "passmark_g2d_mark": 1027,
+          "benchmark_reported_tdp_w": 190,
+          "passmark_checked_at": "2026-07-15",
+          "id": "amd-radeon-rx-7600-xt",
+          "brand": "AMD",
+          "model": "Radeon RX 7600 XT",
+          "display_name": "AMD Radeon RX 7600 XT"
+        }
+      }
+    },
+    {
+      "category": "gpu",
+      "id": "gpu-asrock-rx9060xt-sl-16go",
+      "brand": "ASRock",
+      "model": "RX9060XT SL 16GO",
+      "display_name": "ASRock AMD Radeon RX 9060 XT Steel Legend 16GB OC",
+      "identifiers": {
+        "part_numbers": [
+          "RX9060XT SL 16GO"
+        ]
+      },
+      "aliases": [
+        "ASRock AMD Radeon RX 9060 XT Steel Legend 16GB OC"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "reviewed_at": "2026-07-16",
+        "summary": "メーカー公式仕様で完全型番・搭載GPU・物理仕様を確認。独立レビューと国内保証は未確認のため品質未評価。",
+        "strengths": [
+          "298mm長",
+          "トリプルファン",
+          "8ピン補助電源1本"
+        ],
+        "weaknesses": [
+          "独立レビュー未確認",
+          "実測騒音未確認",
+          "国内代理店・保証条件未確認"
+        ],
+        "risk_summary": "同名別型番・地域差・国内流通保証・販売ページ上の完全型番の確認が必要",
+        "risk_flags": [],
+        "evidence": [
+          {
+            "id": "gpu-asrock-rx9060xt-sl-16go-official",
+            "kind": "manufacturer",
+            "title": "ASRock RX9060XT SL 16GO 公式仕様",
+            "url": "https://www.asrock.com/Graphics-Card/AMD/Radeon%20RX%209060%20XT%20Steel%20Legend%2016GB%20OC/",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "identifiers.part_numbers",
+              "specs.gpu_chip_id",
+              "specs.board_series",
+              "specs.board_model",
+              "specs.cooler_design_id",
+              "specs.factory_oc",
+              "specs.reference_design",
+              "specs.fan_count",
+              "specs.power_connector_standard",
+              "specs.length_mm",
+              "specs.slot_width"
+            ],
+            "reviewer": "Codex",
+            "notes": "RX 9060 XT 16GB、298mm、2.55スロット、8ピン×1を確認。"
+          }
+        ]
+      },
+      "notes": [
+        "メーカー公式仕様を初期登録。ASIN・JAN・価格.com IDは未確認。購入監視に使う前に販売ページの完全型番、状態、国内保証、リビジョンを照合してください。"
+      ],
+      "specs": {
+        "gpu_chip_id": "amd-radeon-rx-9060-xt-16gb",
+        "board_series": "Steel Legend",
+        "board_model": "RX9060XT SL 16GO",
+        "cooler_design_id": "asrock-steel-legend-3x-rx9060xt",
+        "factory_oc": true,
+        "reference_design": false,
+        "cooler_noise_class": "unknown",
+        "fan_count": 3,
+        "slot_width": 2.55,
+        "power_connector_standard": "8pin",
+        "cooler_quality_tier": "unrated",
+        "length_mm": 298,
+        "gpu_chip": {
+          "architecture": "RDNA 4",
+          "generation": "Radeon RX 9000 Series",
+          "release_date": "2025-06-05",
+          "launch_period": "2025-06-05",
+          "release_date_precision": "exact",
+          "vram_gb": 16,
+          "memory_type": "GDDR6",
+          "memory_bus_bits": 128,
+          "passmark_g3d_mark": 20081,
+          "passmark_g2d_mark": 1171,
+          "benchmark_reported_tdp_w": 160,
+          "passmark_checked_at": "2026-07-15",
+          "id": "amd-radeon-rx-9060-xt-16gb",
+          "brand": "AMD",
+          "model": "Radeon RX 9060 XT 16GB",
+          "display_name": "AMD Radeon RX 9060 XT 16GB"
         }
       }
     },
@@ -12809,7 +15040,6 @@
             "supports": [
               "specs.architecture",
               "specs.generation",
-              "specs.release_date",
               "specs.launch_period",
               "specs.vram_gb",
               "specs.memory_type",
@@ -13831,7 +16061,6 @@
             "supports": [
               "specs.architecture",
               "specs.generation",
-              "specs.release_date",
               "specs.launch_period",
               "specs.vram_gb",
               "specs.memory_type",
@@ -13976,7 +16205,6 @@
             "supports": [
               "specs.architecture",
               "specs.generation",
-              "specs.release_date",
               "specs.launch_period",
               "specs.vram_gb",
               "specs.memory_type",
@@ -15436,7 +17664,6 @@
             "supports": [
               "specs.architecture",
               "specs.generation",
-              "specs.release_date",
               "specs.launch_period",
               "specs.vram_gb",
               "specs.memory_type",
