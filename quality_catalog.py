@@ -41,6 +41,10 @@ QUALITY_STATUSES = {
     "rejected",
     "discontinued",
 }
+MOTHERBOARD_SLOT_TYPES = {"pcie_expansion", "m2_storage"}
+MOTHERBOARD_SLOT_CONNECTIONS = {"CPU", "Chipset", "CPU/Chipset"}
+MOTHERBOARD_USB_LOCATIONS = {"rear", "front_header"}
+MOTHERBOARD_USB_CONNECTORS = {"Type-A", "Type-C"}
 MISSING = object()
 
 
@@ -129,6 +133,140 @@ def validate_quality_gate(
             not isinstance(value, int) or isinstance(value, bool) or value < 0
         ):
             errors.append(f"{location}.{key} は0以上の整数にしてください")
+    return errors
+
+
+def validate_motherboard_specs(specs: dict[str, Any], location: str) -> list[str]:
+    """Validate normalized slot/USB children and rear-I/O aggregate fields."""
+    errors: list[str] = []
+    slots = specs.get("slots")
+    if slots is not None:
+        if not isinstance(slots, list):
+            errors.append(f"{location}.slots は配列である必要があります")
+        else:
+            slot_ids: set[str] = set()
+            for index, slot in enumerate(slots):
+                slot_location = f"{location}.slots[{index}]"
+                if not isinstance(slot, dict):
+                    errors.append(f"{slot_location} はオブジェクトである必要があります")
+                    continue
+                for key in ("id", "name", "type"):
+                    if not str(slot.get(key) or "").strip():
+                        errors.append(f"{slot_location}.{key} は必須です")
+                slot_type = str(slot.get("type") or "").strip()
+                if slot_type and slot_type not in MOTHERBOARD_SLOT_TYPES:
+                    errors.append(
+                        f"{slot_location}.type は未対応です: {slot_type}"
+                    )
+                connected_to = slot.get("connected_to")
+                if (
+                    connected_to is not None
+                    and connected_to not in MOTHERBOARD_SLOT_CONNECTIONS
+                ):
+                    errors.append(
+                        f"{slot_location}.connected_to は未対応です: {connected_to}"
+                    )
+                slot_id = str(slot.get("id") or "").strip()
+                if slot_id:
+                    if slot_id in slot_ids:
+                        errors.append(f"{location}.slots のIDが重複しています: {slot_id}")
+                    slot_ids.add(slot_id)
+                for key in ("interface_generation", "lane_width"):
+                    value = slot.get(key)
+                    if value is not None and (
+                        not isinstance(value, int) or isinstance(value, bool) or value <= 0
+                    ):
+                        errors.append(f"{slot_location}.{key} は1以上の整数にしてください")
+                for key in ("supported_sizes", "shared_with", "notes"):
+                    if key in slot:
+                        errors.extend(
+                            validate_string_list(slot[key], f"{slot_location}.{key}")
+                        )
+                if "heatsink" in slot and not isinstance(slot["heatsink"], bool):
+                    errors.append(f"{slot_location}.heatsink は真偽値にしてください")
+
+    usb_ports = specs.get("usb_ports")
+    if usb_ports is None:
+        return errors
+    if not isinstance(usb_ports, list):
+        errors.append(f"{location}.usb_ports は配列である必要があります")
+        return errors
+    usb_ids: set[str] = set()
+    rear: list[dict[str, Any]] = []
+    for index, port in enumerate(usb_ports):
+        port_location = f"{location}.usb_ports[{index}]"
+        if not isinstance(port, dict):
+            errors.append(f"{port_location} はオブジェクトである必要があります")
+            continue
+        for key in ("id", "location", "official_standard", "connector_type"):
+            if not str(port.get(key) or "").strip():
+                errors.append(f"{port_location}.{key} は必須です")
+        usb_location = str(port.get("location") or "").strip()
+        if usb_location and usb_location not in MOTHERBOARD_USB_LOCATIONS:
+            errors.append(
+                f"{port_location}.location は未対応です: {usb_location}"
+            )
+        connector_type = str(port.get("connector_type") or "").strip()
+        if connector_type and connector_type not in MOTHERBOARD_USB_CONNECTORS:
+            errors.append(
+                f"{port_location}.connector_type は未対応です: {connector_type}"
+            )
+        usb_id = str(port.get("id") or "").strip()
+        if usb_id:
+            if usb_id in usb_ids:
+                errors.append(f"{location}.usb_ports のIDが重複しています: {usb_id}")
+            usb_ids.add(usb_id)
+        count = port.get("port_count")
+        if not isinstance(count, int) or isinstance(count, bool) or count <= 0:
+            errors.append(f"{port_location}.port_count は1以上の整数にしてください")
+        speed = port.get("usb_max_speed_gbps")
+        if not isinstance(speed, (int, float)) or isinstance(speed, bool) or speed <= 0:
+            errors.append(f"{port_location}.usb_max_speed_gbps は0より大きい数値にしてください")
+        for key in ("alternate_protocols", "features", "notes"):
+            if key in port:
+                errors.extend(validate_string_list(port[key], f"{port_location}.{key}"))
+        if str(port.get("location") or "").strip().casefold() == "rear":
+            rear.append(port)
+
+    if not rear:
+        return errors
+    if any(
+        port.get("connector_type") not in MOTHERBOARD_USB_CONNECTORS
+        for port in rear
+    ):
+        errors.append(f"{location}.usb_ports の背面端子はType-A/Type-Cで入力してください")
+        return errors
+    if any(
+        not isinstance(port.get("port_count"), int)
+        or isinstance(port.get("port_count"), bool)
+        or port.get("port_count") <= 0
+        or not isinstance(port.get("usb_max_speed_gbps"), (int, float))
+        or isinstance(port.get("usb_max_speed_gbps"), bool)
+        or port.get("usb_max_speed_gbps") <= 0
+        for port in rear
+    ):
+        return errors
+    expected = {
+        "rear_usb_total_count": sum(port["port_count"] for port in rear),
+        "rear_usb_type_a_count": sum(
+            port["port_count"] for port in rear if port["connector_type"] == "Type-A"
+        ),
+        "rear_usb_type_c_count": sum(
+            port["port_count"] for port in rear if port["connector_type"] == "Type-C"
+        ),
+        "rear_usb_fastest_gbps": max(port["usb_max_speed_gbps"] for port in rear),
+        "rear_usb4_type_c_count": sum(
+            port["port_count"]
+            for port in rear
+            if port["connector_type"] == "Type-C"
+            and "usb4" in str(port.get("official_standard") or "").casefold()
+        ),
+    }
+    for key, expected_value in expected.items():
+        if specs.get(key) != expected_value:
+            errors.append(
+                f"{location}.{key} はusb_ports集計値 {expected_value} と一致させてください"
+            )
     return errors
 
 
@@ -256,6 +394,10 @@ def validate_catalog(catalog: dict[str, Any]) -> tuple[list[str], list[str]]:
                     identifier_owners[(key, normalized)] = product_id
         if not isinstance(product.get("specs"), dict):
             errors.append(f"{location}.specs はオブジェクトである必要があります")
+        elif product.get("category") == "motherboard":
+            errors.extend(
+                validate_motherboard_specs(product["specs"], f"{location}.specs")
+            )
         quality = product.get("quality")
         if not isinstance(quality, dict):
             errors.append(f"{location}.quality はオブジェクトである必要があります")

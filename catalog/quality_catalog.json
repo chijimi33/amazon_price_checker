@@ -19354,6 +19354,2939 @@
         "voltage_v": 1.2,
         "default_data_rate_mt_s": 3200
       }
+    },
+    {
+      "category": "motherboard",
+      "id": "motherboard-asus-tuf-gaming-b650-plus-wifi",
+      "brand": "ASUS",
+      "model": "TUF GAMING B650-PLUS WIFI",
+      "display_name": "ASUS TUF GAMING B650-PLUS WIFI",
+      "identifiers": {
+        "part_numbers": [
+          "TUF GAMING B650-PLUS WIFI"
+        ]
+      },
+      "aliases": [
+        "TUF GAMING B650-PLUS WIFI"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "summary": "メーカー公式仕様を構造化。独立検証前のため品質Tierは未評価。",
+        "weaknesses": [
+          "独立レビューによるVRM温度・メモリ互換性は未確認",
+          "国内代理店・国内保証条件は未確認",
+          "BIOSバージョン別のCPU対応状況は購入前確認が必要"
+        ],
+        "risk_summary": "M.2_3使用時にPCIEX16_2が無効化。CPU世代で一部PCIeレーン幅も変化する",
+        "strengths": [],
+        "risk_flags": [
+          "lane_sharing"
+        ],
+        "reviewed_at": null,
+        "evidence": [
+          {
+            "id": "motherboard-asus-tuf-gaming-b650-plus-wifi-official-specs",
+            "kind": "manufacturer",
+            "title": "ASUS TUF GAMING B650-PLUS WIFI 公式仕様",
+            "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650-plus-wifi/techspec/",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "brand",
+              "model",
+              "display_name",
+              "identifiers.part_numbers",
+              "specs.release_date_precision",
+              "specs.socket",
+              "specs.chipset",
+              "specs.memory_type",
+              "specs.form_factor",
+              "specs.cpu_support_scope",
+              "specs.memory_slots",
+              "specs.max_memory_gb",
+              "specs.jedec_max_mt_s",
+              "specs.memory_oc_max_mt_s",
+              "specs.memory_profile_support",
+              "specs.ecc_support",
+              "specs.vrm_design",
+              "specs.power_stage_rating_a",
+              "specs.eps_connectors",
+              "specs.primary_pcie_generation",
+              "specs.primary_pcie_lanes",
+              "specs.pcie_x16_physical_slots",
+              "specs.m2_slots",
+              "specs.pcie5_m2_slots",
+              "specs.sata_ports",
+              "specs.lane_sharing_severity",
+              "specs.lan_speed_gbps",
+              "specs.lan_controller",
+              "specs.wifi_generation",
+              "specs.bluetooth_version",
+              "specs.audio_codec",
+              "specs.rear_usb_total_count",
+              "specs.rear_usb_type_a_count",
+              "specs.rear_usb_type_c_count",
+              "specs.rear_usb_fastest_gbps",
+              "specs.rear_usb4_type_c_count",
+              "specs.rear_usb_official_summary",
+              "specs.front_usb_c_header_count",
+              "specs.front_usb_c_max_speed_gbps",
+              "specs.bios_flashback",
+              "specs.clear_cmos_button",
+              "specs.dual_bios",
+              "specs.debug_features",
+              "specs.fan_headers_total",
+              "specs.pump_capable_headers"
+            ],
+            "reviewer": "Codex",
+            "notes": "CPU・メモリ・拡張・ネットワーク・背面I/Oのメーカー公称仕様を確認。国内保証と独立実測は含まない。"
+          },
+          {
+            "id": "motherboard-asus-tuf-gaming-b650-plus-wifi-official-layout",
+            "kind": "manufacturer",
+            "title": "ASUS TUF GAMING B650-PLUS WIFI 公式製品ページ／マニュアル",
+            "url": "https://www.asus.com/us/motherboards-components/motherboards/tuf-gaming/tuf-gaming-b650-plus-wifi/",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "specs.slots",
+              "specs.usb_ports"
+            ],
+            "reviewer": "Codex",
+            "notes": "物理スロット、M.2接続、レーン共有、USB端子構成を構造化するために参照。"
+          }
+        ],
+        "risks": [
+          {
+            "id": "motherboard-asus-tuf-gaming-b650-plus-wifi-lane-sharing",
+            "flag": "lane_sharing",
+            "severity": "medium",
+            "status": "open",
+            "summary": "M2_3へSSDを装着するとPCIEX16_2が無効になる。",
+            "workaround": "拡張カードをPCIEX16_2で使う構成ではM2_3を空ける。",
+            "evidence_id": "motherboard-asus-tuf-gaming-b650-plus-wifi-official-layout",
+            "first_checked_at": "2026-07-16",
+            "last_checked_at": "2026-07-16"
+          }
+        ]
+      },
+      "notes": [
+        "メーカー公式仕様を初期登録。ASIN・JAN・価格.com ID、国内保証は未確認です。購入監視へ採用する前に販売ページの完全型番、基板リビジョン、付属品、状態、保証を照合してください。"
+      ],
+      "specs": {
+        "release_date_precision": "unknown",
+        "socket": "AM5",
+        "chipset": "B650",
+        "memory_type": "DDR5",
+        "form_factor": "ATX",
+        "cpu_support_scope": [
+          "AMD Ryzen 9000",
+          "AMD Ryzen 8000",
+          "AMD Ryzen 7000"
+        ],
+        "memory_slots": 4,
+        "max_memory_gb": 256,
+        "jedec_max_mt_s": 5200,
+        "memory_oc_max_mt_s": 7600,
+        "memory_profile_support": [
+          "AMD EXPO"
+        ],
+        "ecc_support": "ECC mode",
+        "vrm_design": "12+2+2 power stages",
+        "power_stage_rating_a": 60,
+        "eps_connectors": "1x8-pin + 1x4-pin",
+        "primary_pcie_generation": 4,
+        "primary_pcie_lanes": 16,
+        "pcie_x16_physical_slots": 2,
+        "m2_slots": 3,
+        "pcie5_m2_slots": 1,
+        "sata_ports": 4,
+        "lane_sharing_severity": "medium",
+        "lan_speed_gbps": 2.5,
+        "lan_controller": "Realtek 2.5Gb Ethernet",
+        "wifi_generation": "Wi-Fi 6",
+        "bluetooth_version": "5.2",
+        "audio_codec": "Realtek 7.1 Surround Sound High Definition Audio CODEC",
+        "rear_usb_total_count": 8,
+        "rear_usb_type_a_count": 6,
+        "rear_usb_type_c_count": 2,
+        "rear_usb_fastest_gbps": 20,
+        "rear_usb4_type_c_count": 0,
+        "rear_usb_official_summary": "USB 3.2 Gen 2x2 Type-C x1\nUSB 3.2 Gen 2 Type-A x2 / Type-C x1\nUSB 2.0 Type-A x4",
+        "front_usb_c_header_count": 1,
+        "front_usb_c_max_speed_gbps": 5,
+        "bios_flashback": true,
+        "clear_cmos_button": false,
+        "dual_bios": false,
+        "debug_features": [
+          "Q-LED"
+        ],
+        "fan_headers_total": 7,
+        "pump_capable_headers": 1,
+        "slots": [
+          {
+            "id": "motherboard-asus-tuf-gaming-b650-plus-wifi-pciex16-1",
+            "name": "PCIEX16_1",
+            "type": "pcie_expansion",
+            "interface_generation": 4,
+            "lane_width": 16,
+            "connected_to": "CPU",
+            "availability_condition": "Ryzen 7000/9000: x16、Ryzen 8000: x8またはx4"
+          },
+          {
+            "id": "motherboard-asus-tuf-gaming-b650-plus-wifi-pciex16-2",
+            "name": "PCIEX16_2",
+            "type": "pcie_expansion",
+            "interface_generation": 4,
+            "lane_width": 4,
+            "connected_to": "Chipset",
+            "shared_with": [
+              "M2_3"
+            ],
+            "sharing_effect": "M2_3使用時は無効"
+          },
+          {
+            "id": "motherboard-asus-tuf-gaming-b650-plus-wifi-pciex1-1",
+            "name": "PCIEX1_1",
+            "type": "pcie_expansion",
+            "interface_generation": 4,
+            "lane_width": 1,
+            "connected_to": "Chipset"
+          },
+          {
+            "id": "motherboard-asus-tuf-gaming-b650-plus-wifi-pciex1-2",
+            "name": "PCIEX1_2",
+            "type": "pcie_expansion",
+            "interface_generation": 4,
+            "lane_width": 1,
+            "connected_to": "Chipset"
+          },
+          {
+            "id": "motherboard-asus-tuf-gaming-b650-plus-wifi-m2-1",
+            "name": "M2_1",
+            "type": "m2_storage",
+            "interface_generation": 5,
+            "lane_width": 4,
+            "connected_to": "CPU",
+            "supported_sizes": [
+              "2242",
+              "2260",
+              "2280"
+            ],
+            "availability_condition": "CPU構成で接続世代・利用可否を確認"
+          },
+          {
+            "id": "motherboard-asus-tuf-gaming-b650-plus-wifi-m2-2",
+            "name": "M2_2",
+            "type": "m2_storage",
+            "interface_generation": 4,
+            "lane_width": 4,
+            "connected_to": "CPU",
+            "supported_sizes": [
+              "2242",
+              "2260",
+              "2280",
+              "22110"
+            ],
+            "availability_condition": "Ryzen 8000系ではx4またはx2。22110対応条件は公式仕様参照"
+          },
+          {
+            "id": "motherboard-asus-tuf-gaming-b650-plus-wifi-m2-3",
+            "name": "M2_3",
+            "type": "m2_storage",
+            "interface_generation": 4,
+            "lane_width": 4,
+            "connected_to": "Chipset",
+            "supported_sizes": [
+              "2242",
+              "2260",
+              "2280"
+            ],
+            "shared_with": [
+              "PCIEX16_2"
+            ],
+            "sharing_effect": "使用時にPCIEX16_2を無効化"
+          }
+        ],
+        "usb_ports": [
+          {
+            "id": "motherboard-asus-tuf-gaming-b650-plus-wifi-usb-01",
+            "location": "rear",
+            "official_standard": "USB 3.2 Gen 2x2",
+            "connector_type": "Type-C",
+            "usb_max_speed_gbps": 20,
+            "port_count": 1
+          },
+          {
+            "id": "motherboard-asus-tuf-gaming-b650-plus-wifi-usb-02",
+            "location": "rear",
+            "official_standard": "USB 3.2 Gen 2",
+            "connector_type": "Type-A",
+            "usb_max_speed_gbps": 10,
+            "port_count": 2
+          },
+          {
+            "id": "motherboard-asus-tuf-gaming-b650-plus-wifi-usb-03",
+            "location": "rear",
+            "official_standard": "USB 3.2 Gen 2",
+            "connector_type": "Type-C",
+            "usb_max_speed_gbps": 10,
+            "port_count": 1
+          },
+          {
+            "id": "motherboard-asus-tuf-gaming-b650-plus-wifi-usb-04",
+            "location": "rear",
+            "official_standard": "USB 2.0",
+            "connector_type": "Type-A",
+            "usb_max_speed_gbps": 0.48,
+            "port_count": 4
+          },
+          {
+            "id": "motherboard-asus-tuf-gaming-b650-plus-wifi-usb-05",
+            "location": "front_header",
+            "official_standard": "USB 3.2 Gen 1",
+            "connector_type": "Type-C",
+            "usb_max_speed_gbps": 5,
+            "port_count": 1
+          }
+        ]
+      }
+    },
+    {
+      "category": "motherboard",
+      "id": "motherboard-msi-mag-b650-tomahawk-wifi",
+      "brand": "MSI",
+      "model": "MAG B650 TOMAHAWK WIFI",
+      "display_name": "MSI MAG B650 TOMAHAWK WIFI",
+      "identifiers": {
+        "part_numbers": [
+          "MAG B650 TOMAHAWK WIFI"
+        ]
+      },
+      "aliases": [
+        "MAG B650 TOMAHAWK WIFI"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "summary": "メーカー公式仕様を構造化。独立検証前のため品質Tierは未評価。",
+        "weaknesses": [
+          "独立レビューによるVRM温度・メモリ互換性は未確認",
+          "国内代理店・国内保証条件は未確認",
+          "BIOSバージョン別のCPU対応状況は購入前確認が必要"
+        ],
+        "risk_summary": "M2_3とPCI_E2を同時使用すると双方x2。Ryzen 8500/8300系ではM2_2が使用不可",
+        "strengths": [],
+        "risk_flags": [
+          "lane_sharing",
+          "cpu_dependent_slots"
+        ],
+        "reviewed_at": null,
+        "evidence": [
+          {
+            "id": "motherboard-msi-mag-b650-tomahawk-wifi-official-specs",
+            "kind": "manufacturer",
+            "title": "MSI MAG B650 TOMAHAWK WIFI 公式仕様",
+            "url": "https://www.msi.com/Motherboard/MAG-B650-TOMAHAWK-WIFI/Specification",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "brand",
+              "model",
+              "display_name",
+              "identifiers.part_numbers",
+              "specs.release_date_precision",
+              "specs.socket",
+              "specs.chipset",
+              "specs.memory_type",
+              "specs.form_factor",
+              "specs.cpu_support_scope",
+              "specs.memory_slots",
+              "specs.max_memory_gb",
+              "specs.jedec_max_mt_s",
+              "specs.memory_oc_max_mt_s",
+              "specs.memory_profile_support",
+              "specs.ecc_support",
+              "specs.vrm_design",
+              "specs.power_stage_rating_a",
+              "specs.eps_connectors",
+              "specs.primary_pcie_generation",
+              "specs.primary_pcie_lanes",
+              "specs.pcie_x16_physical_slots",
+              "specs.m2_slots",
+              "specs.pcie5_m2_slots",
+              "specs.sata_ports",
+              "specs.lane_sharing_severity",
+              "specs.lan_speed_gbps",
+              "specs.lan_controller",
+              "specs.wifi_generation",
+              "specs.bluetooth_version",
+              "specs.audio_codec",
+              "specs.rear_usb_total_count",
+              "specs.rear_usb_type_a_count",
+              "specs.rear_usb_type_c_count",
+              "specs.rear_usb_fastest_gbps",
+              "specs.rear_usb4_type_c_count",
+              "specs.rear_usb_official_summary",
+              "specs.front_usb_c_header_count",
+              "specs.front_usb_c_max_speed_gbps",
+              "specs.bios_flashback",
+              "specs.clear_cmos_button",
+              "specs.dual_bios",
+              "specs.debug_features",
+              "specs.fan_headers_total",
+              "specs.pump_capable_headers",
+              "specs.pcb_layers"
+            ],
+            "reviewer": "Codex",
+            "notes": "CPU・メモリ・拡張・ネットワーク・背面I/Oのメーカー公称仕様を確認。国内保証と独立実測は含まない。"
+          },
+          {
+            "id": "motherboard-msi-mag-b650-tomahawk-wifi-official-layout",
+            "kind": "manufacturer",
+            "title": "MSI MAG B650 TOMAHAWK WIFI 公式製品ページ／マニュアル",
+            "url": "https://us.msi.com/Motherboard/MAG-B650-TOMAHAWK-WIFI",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "specs.slots",
+              "specs.usb_ports"
+            ],
+            "reviewer": "Codex",
+            "notes": "物理スロット、M.2接続、レーン共有、USB端子構成を構造化するために参照。"
+          }
+        ],
+        "risks": [
+          {
+            "id": "motherboard-msi-mag-b650-tomahawk-wifi-lane-sharing",
+            "flag": "lane_sharing",
+            "severity": "medium",
+            "status": "open",
+            "summary": "M2_3とPCI_E2を同時使用すると双方がx2動作になる。",
+            "workaround": "M2_3またはPCI_E2のどちらかを空け、必要帯域を確保する。",
+            "evidence_id": "motherboard-msi-mag-b650-tomahawk-wifi-official-layout",
+            "first_checked_at": "2026-07-16",
+            "last_checked_at": "2026-07-16"
+          },
+          {
+            "id": "motherboard-msi-mag-b650-tomahawk-wifi-cpu-slot-availability",
+            "flag": "cpu_dependent_slots",
+            "severity": "medium",
+            "status": "open",
+            "summary": "Ryzen 8500/8300系ではM2_2が使用できない。",
+            "workaround": "対象CPU利用時はM2_1/M2_3へSSDを配置する。",
+            "evidence_id": "motherboard-msi-mag-b650-tomahawk-wifi-official-layout",
+            "first_checked_at": "2026-07-16",
+            "last_checked_at": "2026-07-16"
+          }
+        ]
+      },
+      "notes": [
+        "メーカー公式仕様を初期登録。ASIN・JAN・価格.com ID、国内保証は未確認です。購入監視へ採用する前に販売ページの完全型番、基板リビジョン、付属品、状態、保証を照合してください。"
+      ],
+      "specs": {
+        "release_date_precision": "unknown",
+        "socket": "AM5",
+        "chipset": "B650",
+        "memory_type": "DDR5",
+        "form_factor": "ATX",
+        "cpu_support_scope": [
+          "AMD Ryzen 9000",
+          "AMD Ryzen 8000",
+          "AMD Ryzen 7000"
+        ],
+        "memory_slots": 4,
+        "max_memory_gb": 256,
+        "jedec_max_mt_s": 4800,
+        "memory_oc_max_mt_s": 7600,
+        "memory_profile_support": [
+          "AMD EXPO"
+        ],
+        "ecc_support": "non-ECC only",
+        "vrm_design": "14+2+1 Duet Rail Power System",
+        "power_stage_rating_a": 80,
+        "eps_connectors": "2x8-pin",
+        "primary_pcie_generation": 4,
+        "primary_pcie_lanes": 16,
+        "pcie_x16_physical_slots": 2,
+        "m2_slots": 3,
+        "pcie5_m2_slots": 0,
+        "sata_ports": 6,
+        "lane_sharing_severity": "medium",
+        "lan_speed_gbps": 2.5,
+        "lan_controller": "Realtek RTL8125BG",
+        "wifi_generation": "Wi-Fi 6E",
+        "bluetooth_version": "5.3",
+        "audio_codec": "Realtek ALC4080",
+        "rear_usb_total_count": 10,
+        "rear_usb_type_a_count": 9,
+        "rear_usb_type_c_count": 1,
+        "rear_usb_fastest_gbps": 20,
+        "rear_usb4_type_c_count": 0,
+        "rear_usb_official_summary": "USB 3.2 Gen 2x2 Type-C x1\nUSB 3.2 Gen 2 Type-A x3\nUSB 3.2 Gen 1 Type-A x4\nUSB 2.0 Type-A x2",
+        "front_usb_c_header_count": 1,
+        "front_usb_c_max_speed_gbps": 10,
+        "bios_flashback": true,
+        "clear_cmos_button": false,
+        "dual_bios": false,
+        "debug_features": [
+          "4x EZ Debug LED"
+        ],
+        "fan_headers_total": 8,
+        "pump_capable_headers": 1,
+        "pcb_layers": 6,
+        "slots": [
+          {
+            "id": "motherboard-msi-mag-b650-tomahawk-wifi-pci-e1",
+            "name": "PCI_E1",
+            "type": "pcie_expansion",
+            "interface_generation": 4,
+            "lane_width": 16,
+            "connected_to": "CPU",
+            "availability_condition": "CPUによりx16/x8/x4"
+          },
+          {
+            "id": "motherboard-msi-mag-b650-tomahawk-wifi-pci-e2",
+            "name": "PCI_E2",
+            "type": "pcie_expansion",
+            "interface_generation": 4,
+            "lane_width": 2,
+            "connected_to": "Chipset",
+            "shared_with": [
+              "M2_3"
+            ],
+            "sharing_effect": "M2_3同時使用時は双方x2"
+          },
+          {
+            "id": "motherboard-msi-mag-b650-tomahawk-wifi-pci-e3",
+            "name": "PCI_E3",
+            "type": "pcie_expansion",
+            "interface_generation": 3,
+            "lane_width": 1,
+            "connected_to": "Chipset"
+          },
+          {
+            "id": "motherboard-msi-mag-b650-tomahawk-wifi-m2-1",
+            "name": "M2_1",
+            "type": "m2_storage",
+            "interface_generation": 4,
+            "lane_width": 4,
+            "connected_to": "CPU",
+            "supported_sizes": [
+              "2280",
+              "22110"
+            ]
+          },
+          {
+            "id": "motherboard-msi-mag-b650-tomahawk-wifi-m2-2",
+            "name": "M2_2",
+            "type": "m2_storage",
+            "interface_generation": 4,
+            "lane_width": 4,
+            "connected_to": "CPU",
+            "supported_sizes": [
+              "2260",
+              "2280"
+            ],
+            "availability_condition": "Ryzen 8500/8300系では使用不可"
+          },
+          {
+            "id": "motherboard-msi-mag-b650-tomahawk-wifi-m2-3",
+            "name": "M2_3",
+            "type": "m2_storage",
+            "interface_generation": 4,
+            "lane_width": 4,
+            "connected_to": "Chipset",
+            "supported_sizes": [
+              "2260",
+              "2280"
+            ],
+            "shared_with": [
+              "PCI_E2"
+            ],
+            "sharing_effect": "PCI_E2同時使用時は双方x2"
+          }
+        ],
+        "usb_ports": [
+          {
+            "id": "motherboard-msi-mag-b650-tomahawk-wifi-usb-01",
+            "location": "rear",
+            "official_standard": "USB 3.2 Gen 2x2",
+            "connector_type": "Type-C",
+            "usb_max_speed_gbps": 20,
+            "port_count": 1
+          },
+          {
+            "id": "motherboard-msi-mag-b650-tomahawk-wifi-usb-02",
+            "location": "rear",
+            "official_standard": "USB 3.2 Gen 2",
+            "connector_type": "Type-A",
+            "usb_max_speed_gbps": 10,
+            "port_count": 3
+          },
+          {
+            "id": "motherboard-msi-mag-b650-tomahawk-wifi-usb-03",
+            "location": "rear",
+            "official_standard": "USB 3.2 Gen 1",
+            "connector_type": "Type-A",
+            "usb_max_speed_gbps": 5,
+            "port_count": 4
+          },
+          {
+            "id": "motherboard-msi-mag-b650-tomahawk-wifi-usb-04",
+            "location": "rear",
+            "official_standard": "USB 2.0",
+            "connector_type": "Type-A",
+            "usb_max_speed_gbps": 0.48,
+            "port_count": 2
+          },
+          {
+            "id": "motherboard-msi-mag-b650-tomahawk-wifi-usb-05",
+            "location": "front_header",
+            "official_standard": "USB 3.2 Gen 2",
+            "connector_type": "Type-C",
+            "usb_max_speed_gbps": 10,
+            "port_count": 1
+          }
+        ]
+      }
+    },
+    {
+      "category": "motherboard",
+      "id": "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-10",
+      "brand": "GIGABYTE",
+      "model": "B650 AORUS ELITE AX V2 (rev. 1.0)",
+      "display_name": "GIGABYTE B650 AORUS ELITE AX V2 rev. 1.0",
+      "identifiers": {
+        "part_numbers": [
+          "B650 AORUS ELITE AX V2 (rev. 1.0)"
+        ]
+      },
+      "aliases": [
+        "B650 AORUS ELITE AX V2 (rev. 1.0)"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "summary": "メーカー公式仕様を構造化。独立検証前のため品質Tierは未評価。",
+        "weaknesses": [
+          "独立レビューによるVRM温度・メモリ互換性は未確認",
+          "国内代理店・国内保証条件は未確認",
+          "BIOSバージョン別のCPU対応状況は購入前確認が必要"
+        ],
+        "risk_summary": "rev. 1.0とrev. 1.1で無線LANコントローラーが異なる。販売ページで基板rev.確認が必要",
+        "strengths": [],
+        "risk_flags": [
+          "revision_ambiguity"
+        ],
+        "reviewed_at": null,
+        "evidence": [
+          {
+            "id": "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-10-official-specs",
+            "kind": "manufacturer",
+            "title": "GIGABYTE B650 AORUS ELITE AX V2 公式仕様（rev. 1.0）",
+            "url": "https://www.gigabyte.com/pr/Motherboard/B650-AORUS-ELITE-AX-V2/sp",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "brand",
+              "model",
+              "display_name",
+              "identifiers.part_numbers",
+              "specs.release_date_precision",
+              "specs.board_revision",
+              "specs.socket",
+              "specs.chipset",
+              "specs.memory_type",
+              "specs.form_factor",
+              "specs.cpu_support_scope",
+              "specs.memory_slots",
+              "specs.max_memory_gb",
+              "specs.jedec_max_mt_s",
+              "specs.memory_oc_max_mt_s",
+              "specs.memory_profile_support",
+              "specs.ecc_support",
+              "specs.vrm_design",
+              "specs.power_stage_rating_a",
+              "specs.eps_connectors",
+              "specs.primary_pcie_generation",
+              "specs.primary_pcie_lanes",
+              "specs.pcie_x16_physical_slots",
+              "specs.m2_slots",
+              "specs.pcie5_m2_slots",
+              "specs.sata_ports",
+              "specs.lane_sharing_severity",
+              "specs.lan_speed_gbps",
+              "specs.lan_controller",
+              "specs.wifi_generation",
+              "specs.wifi_controller",
+              "specs.bluetooth_version",
+              "specs.audio_codec",
+              "specs.rear_usb_total_count",
+              "specs.rear_usb_type_a_count",
+              "specs.rear_usb_type_c_count",
+              "specs.rear_usb_fastest_gbps",
+              "specs.rear_usb4_type_c_count",
+              "specs.rear_usb_official_summary",
+              "specs.front_usb_c_header_count",
+              "specs.front_usb_c_max_speed_gbps",
+              "specs.bios_flashback",
+              "specs.clear_cmos_button",
+              "specs.dual_bios",
+              "specs.fan_headers_total",
+              "specs.pump_capable_headers",
+              "specs.pcb_layers"
+            ],
+            "reviewer": "Codex",
+            "notes": "CPU・メモリ・拡張・ネットワーク・背面I/Oのメーカー公称仕様を確認。国内保証と独立実測は含まない。"
+          },
+          {
+            "id": "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-10-official-layout",
+            "kind": "manufacturer",
+            "title": "GIGABYTE B650 AORUS ELITE AX V2 rev. 1.0 公式製品ページ／マニュアル",
+            "url": "https://www.gigabyte.com/us/Motherboard/B650-AORUS-ELITE-AX-V2",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "specs.slots",
+              "specs.usb_ports"
+            ],
+            "reviewer": "Codex",
+            "notes": "物理スロット、M.2接続、レーン共有、USB端子構成を構造化するために参照。"
+          }
+        ],
+        "risks": [
+          {
+            "id": "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-10-revision",
+            "flag": "revision_ambiguity",
+            "severity": "medium",
+            "status": "open",
+            "summary": "rev. 1.0とrev. 1.1で無線LANコントローラーが異なる。",
+            "workaround": "外箱または基板印字でrev. 1.0を確認する。",
+            "evidence_id": "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-10-official-layout",
+            "first_checked_at": "2026-07-16",
+            "last_checked_at": "2026-07-16"
+          }
+        ]
+      },
+      "notes": [
+        "メーカー公式仕様を初期登録。ASIN・JAN・価格.com ID、国内保証は未確認です。購入監視へ採用する前に販売ページの完全型番、基板リビジョン、付属品、状態、保証を照合してください。"
+      ],
+      "specs": {
+        "release_date_precision": "unknown",
+        "board_revision": "1.0",
+        "socket": "AM5",
+        "chipset": "B650",
+        "memory_type": "DDR5",
+        "form_factor": "ATX",
+        "cpu_support_scope": [
+          "AMD Ryzen 9000",
+          "AMD Ryzen 8000",
+          "AMD Ryzen 7000"
+        ],
+        "memory_slots": 4,
+        "max_memory_gb": 256,
+        "jedec_max_mt_s": 5200,
+        "memory_oc_max_mt_s": 8000,
+        "memory_profile_support": [
+          "AMD EXPO",
+          "Intel XMP"
+        ],
+        "ecc_support": "non-ECC only",
+        "vrm_design": "12+2+2 phases digital VRM",
+        "power_stage_rating_a": 60,
+        "eps_connectors": "1x8-pin + 1x4-pin",
+        "primary_pcie_generation": 4,
+        "primary_pcie_lanes": 16,
+        "pcie_x16_physical_slots": 1,
+        "m2_slots": 3,
+        "pcie5_m2_slots": 1,
+        "sata_ports": 4,
+        "lane_sharing_severity": "low",
+        "lan_speed_gbps": 2.5,
+        "lan_controller": "Realtek 2.5Gb Ethernet",
+        "wifi_generation": "Wi-Fi 6E",
+        "wifi_controller": "Realtek RTL8852CE",
+        "bluetooth_version": "5.3",
+        "audio_codec": "Realtek Audio CODEC",
+        "rear_usb_total_count": 12,
+        "rear_usb_type_a_count": 11,
+        "rear_usb_type_c_count": 1,
+        "rear_usb_fastest_gbps": 10,
+        "rear_usb4_type_c_count": 0,
+        "rear_usb_official_summary": "USB 3.2 Gen 2 Type-C x1 / Type-A x2\nUSB 3.2 Gen 1 Type-A x5\nUSB 2.0 Type-A x4",
+        "front_usb_c_header_count": 1,
+        "front_usb_c_max_speed_gbps": 20,
+        "bios_flashback": true,
+        "clear_cmos_button": false,
+        "dual_bios": false,
+        "fan_headers_total": 6,
+        "pump_capable_headers": 2,
+        "pcb_layers": 6,
+        "slots": [
+          {
+            "id": "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-10-pciex16",
+            "name": "PCIEX16",
+            "type": "pcie_expansion",
+            "interface_generation": 4,
+            "lane_width": 16,
+            "connected_to": "CPU",
+            "availability_condition": "CPUによりx16/x8/x4"
+          },
+          {
+            "id": "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-10-pciex1-1",
+            "name": "PCIEX1_1",
+            "type": "pcie_expansion",
+            "interface_generation": 3,
+            "lane_width": 1,
+            "connected_to": "Chipset"
+          },
+          {
+            "id": "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-10-pciex1-2",
+            "name": "PCIEX1_2",
+            "type": "pcie_expansion",
+            "interface_generation": 3,
+            "lane_width": 1,
+            "connected_to": "Chipset"
+          },
+          {
+            "id": "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-10-m2a-cpu",
+            "name": "M2A_CPU",
+            "type": "m2_storage",
+            "interface_generation": 5,
+            "lane_width": 4,
+            "connected_to": "CPU",
+            "supported_sizes": [
+              "2280",
+              "22110",
+              "2580",
+              "25110"
+            ],
+            "availability_condition": "CPU構成で世代・レーン幅が変化"
+          },
+          {
+            "id": "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-10-m2b-cpu",
+            "name": "M2B_CPU",
+            "type": "m2_storage",
+            "interface_generation": 4,
+            "lane_width": 4,
+            "connected_to": "CPU",
+            "supported_sizes": [
+              "2280",
+              "22110",
+              "2580",
+              "25110"
+            ],
+            "availability_condition": "CPU構成でレーン幅が変化"
+          },
+          {
+            "id": "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-10-m2c-sb",
+            "name": "M2C_SB",
+            "type": "m2_storage",
+            "interface_generation": 4,
+            "lane_width": 4,
+            "connected_to": "Chipset",
+            "supported_sizes": [
+              "2280",
+              "22110",
+              "2580",
+              "25110"
+            ]
+          }
+        ],
+        "usb_ports": [
+          {
+            "id": "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-10-usb-01",
+            "location": "rear",
+            "official_standard": "USB 3.2 Gen 2",
+            "connector_type": "Type-C",
+            "usb_max_speed_gbps": 10,
+            "port_count": 1
+          },
+          {
+            "id": "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-10-usb-02",
+            "location": "rear",
+            "official_standard": "USB 3.2 Gen 2",
+            "connector_type": "Type-A",
+            "usb_max_speed_gbps": 10,
+            "port_count": 2
+          },
+          {
+            "id": "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-10-usb-03",
+            "location": "rear",
+            "official_standard": "USB 3.2 Gen 1",
+            "connector_type": "Type-A",
+            "usb_max_speed_gbps": 5,
+            "port_count": 5
+          },
+          {
+            "id": "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-10-usb-04",
+            "location": "rear",
+            "official_standard": "USB 2.0",
+            "connector_type": "Type-A",
+            "usb_max_speed_gbps": 0.48,
+            "port_count": 4
+          },
+          {
+            "id": "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-10-usb-05",
+            "location": "front_header",
+            "official_standard": "USB 3.2 Gen 2x2",
+            "connector_type": "Type-C",
+            "usb_max_speed_gbps": 20,
+            "port_count": 1
+          }
+        ]
+      }
+    },
+    {
+      "category": "motherboard",
+      "id": "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-11",
+      "brand": "GIGABYTE",
+      "model": "B650 AORUS ELITE AX V2 (rev. 1.1)",
+      "display_name": "GIGABYTE B650 AORUS ELITE AX V2 rev. 1.1",
+      "identifiers": {
+        "part_numbers": [
+          "B650 AORUS ELITE AX V2 (rev. 1.1)"
+        ]
+      },
+      "aliases": [
+        "B650 AORUS ELITE AX V2 (rev. 1.1)"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "summary": "メーカー公式仕様を構造化。独立検証前のため品質Tierは未評価。",
+        "weaknesses": [
+          "独立レビューによるVRM温度・メモリ互換性は未確認",
+          "国内代理店・国内保証条件は未確認",
+          "BIOSバージョン別のCPU対応状況は購入前確認が必要"
+        ],
+        "risk_summary": "rev. 1.0とrev. 1.1で無線LANコントローラーが異なる。販売ページで基板rev.確認が必要",
+        "strengths": [],
+        "risk_flags": [
+          "revision_ambiguity"
+        ],
+        "reviewed_at": null,
+        "evidence": [
+          {
+            "id": "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-11-official-specs",
+            "kind": "manufacturer",
+            "title": "GIGABYTE B650 AORUS ELITE AX V2 公式仕様（rev. 1.1）",
+            "url": "https://www.gigabyte.com/pr/Motherboard/B650-AORUS-ELITE-AX-V2/sp",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "brand",
+              "model",
+              "display_name",
+              "identifiers.part_numbers",
+              "specs.release_date_precision",
+              "specs.board_revision",
+              "specs.socket",
+              "specs.chipset",
+              "specs.memory_type",
+              "specs.form_factor",
+              "specs.cpu_support_scope",
+              "specs.memory_slots",
+              "specs.max_memory_gb",
+              "specs.jedec_max_mt_s",
+              "specs.memory_oc_max_mt_s",
+              "specs.memory_profile_support",
+              "specs.ecc_support",
+              "specs.vrm_design",
+              "specs.power_stage_rating_a",
+              "specs.eps_connectors",
+              "specs.primary_pcie_generation",
+              "specs.primary_pcie_lanes",
+              "specs.pcie_x16_physical_slots",
+              "specs.m2_slots",
+              "specs.pcie5_m2_slots",
+              "specs.sata_ports",
+              "specs.lane_sharing_severity",
+              "specs.lan_speed_gbps",
+              "specs.lan_controller",
+              "specs.wifi_generation",
+              "specs.wifi_controller",
+              "specs.bluetooth_version",
+              "specs.audio_codec",
+              "specs.rear_usb_total_count",
+              "specs.rear_usb_type_a_count",
+              "specs.rear_usb_type_c_count",
+              "specs.rear_usb_fastest_gbps",
+              "specs.rear_usb4_type_c_count",
+              "specs.rear_usb_official_summary",
+              "specs.front_usb_c_header_count",
+              "specs.front_usb_c_max_speed_gbps",
+              "specs.bios_flashback",
+              "specs.clear_cmos_button",
+              "specs.dual_bios",
+              "specs.fan_headers_total",
+              "specs.pump_capable_headers",
+              "specs.pcb_layers"
+            ],
+            "reviewer": "Codex",
+            "notes": "CPU・メモリ・拡張・ネットワーク・背面I/Oのメーカー公称仕様を確認。国内保証と独立実測は含まない。"
+          },
+          {
+            "id": "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-11-official-layout",
+            "kind": "manufacturer",
+            "title": "GIGABYTE B650 AORUS ELITE AX V2 rev. 1.1 公式製品ページ／マニュアル",
+            "url": "https://www.gigabyte.com/us/Motherboard/B650-AORUS-ELITE-AX-V2",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "specs.slots",
+              "specs.usb_ports"
+            ],
+            "reviewer": "Codex",
+            "notes": "物理スロット、M.2接続、レーン共有、USB端子構成を構造化するために参照。"
+          }
+        ],
+        "risks": [
+          {
+            "id": "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-11-revision",
+            "flag": "revision_ambiguity",
+            "severity": "medium",
+            "status": "open",
+            "summary": "rev. 1.0とrev. 1.1で無線LANコントローラーが異なる。",
+            "workaround": "外箱または基板印字でrev. 1.1を確認する。",
+            "evidence_id": "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-11-official-layout",
+            "first_checked_at": "2026-07-16",
+            "last_checked_at": "2026-07-16"
+          }
+        ]
+      },
+      "notes": [
+        "メーカー公式仕様を初期登録。ASIN・JAN・価格.com ID、国内保証は未確認です。購入監視へ採用する前に販売ページの完全型番、基板リビジョン、付属品、状態、保証を照合してください。"
+      ],
+      "specs": {
+        "release_date_precision": "unknown",
+        "board_revision": "1.1",
+        "socket": "AM5",
+        "chipset": "B650",
+        "memory_type": "DDR5",
+        "form_factor": "ATX",
+        "cpu_support_scope": [
+          "AMD Ryzen 9000",
+          "AMD Ryzen 8000",
+          "AMD Ryzen 7000"
+        ],
+        "memory_slots": 4,
+        "max_memory_gb": 256,
+        "jedec_max_mt_s": 5200,
+        "memory_oc_max_mt_s": 8000,
+        "memory_profile_support": [
+          "AMD EXPO",
+          "Intel XMP"
+        ],
+        "ecc_support": "non-ECC only",
+        "vrm_design": "12+2+2 phases digital VRM",
+        "power_stage_rating_a": 60,
+        "eps_connectors": "1x8-pin + 1x4-pin",
+        "primary_pcie_generation": 4,
+        "primary_pcie_lanes": 16,
+        "pcie_x16_physical_slots": 1,
+        "m2_slots": 3,
+        "pcie5_m2_slots": 1,
+        "sata_ports": 4,
+        "lane_sharing_severity": "low",
+        "lan_speed_gbps": 2.5,
+        "lan_controller": "Realtek 2.5Gb Ethernet",
+        "wifi_generation": "Wi-Fi 6E",
+        "wifi_controller": "Intel AX210",
+        "bluetooth_version": "5.3",
+        "audio_codec": "Realtek Audio CODEC",
+        "rear_usb_total_count": 12,
+        "rear_usb_type_a_count": 11,
+        "rear_usb_type_c_count": 1,
+        "rear_usb_fastest_gbps": 10,
+        "rear_usb4_type_c_count": 0,
+        "rear_usb_official_summary": "USB 3.2 Gen 2 Type-C x1 / Type-A x2\nUSB 3.2 Gen 1 Type-A x5\nUSB 2.0 Type-A x4",
+        "front_usb_c_header_count": 1,
+        "front_usb_c_max_speed_gbps": 20,
+        "bios_flashback": true,
+        "clear_cmos_button": false,
+        "dual_bios": false,
+        "fan_headers_total": 6,
+        "pump_capable_headers": 2,
+        "pcb_layers": 6,
+        "slots": [
+          {
+            "id": "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-11-pciex16",
+            "name": "PCIEX16",
+            "type": "pcie_expansion",
+            "interface_generation": 4,
+            "lane_width": 16,
+            "connected_to": "CPU",
+            "availability_condition": "CPUによりx16/x8/x4"
+          },
+          {
+            "id": "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-11-pciex1-1",
+            "name": "PCIEX1_1",
+            "type": "pcie_expansion",
+            "interface_generation": 3,
+            "lane_width": 1,
+            "connected_to": "Chipset"
+          },
+          {
+            "id": "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-11-pciex1-2",
+            "name": "PCIEX1_2",
+            "type": "pcie_expansion",
+            "interface_generation": 3,
+            "lane_width": 1,
+            "connected_to": "Chipset"
+          },
+          {
+            "id": "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-11-m2a-cpu",
+            "name": "M2A_CPU",
+            "type": "m2_storage",
+            "interface_generation": 5,
+            "lane_width": 4,
+            "connected_to": "CPU",
+            "supported_sizes": [
+              "2280",
+              "22110",
+              "2580",
+              "25110"
+            ],
+            "availability_condition": "CPU構成で世代・レーン幅が変化"
+          },
+          {
+            "id": "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-11-m2b-cpu",
+            "name": "M2B_CPU",
+            "type": "m2_storage",
+            "interface_generation": 4,
+            "lane_width": 4,
+            "connected_to": "CPU",
+            "supported_sizes": [
+              "2280",
+              "22110",
+              "2580",
+              "25110"
+            ],
+            "availability_condition": "CPU構成でレーン幅が変化"
+          },
+          {
+            "id": "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-11-m2c-sb",
+            "name": "M2C_SB",
+            "type": "m2_storage",
+            "interface_generation": 4,
+            "lane_width": 4,
+            "connected_to": "Chipset",
+            "supported_sizes": [
+              "2280",
+              "22110",
+              "2580",
+              "25110"
+            ]
+          }
+        ],
+        "usb_ports": [
+          {
+            "id": "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-11-usb-01",
+            "location": "rear",
+            "official_standard": "USB 3.2 Gen 2",
+            "connector_type": "Type-C",
+            "usb_max_speed_gbps": 10,
+            "port_count": 1
+          },
+          {
+            "id": "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-11-usb-02",
+            "location": "rear",
+            "official_standard": "USB 3.2 Gen 2",
+            "connector_type": "Type-A",
+            "usb_max_speed_gbps": 10,
+            "port_count": 2
+          },
+          {
+            "id": "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-11-usb-03",
+            "location": "rear",
+            "official_standard": "USB 3.2 Gen 1",
+            "connector_type": "Type-A",
+            "usb_max_speed_gbps": 5,
+            "port_count": 5
+          },
+          {
+            "id": "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-11-usb-04",
+            "location": "rear",
+            "official_standard": "USB 2.0",
+            "connector_type": "Type-A",
+            "usb_max_speed_gbps": 0.48,
+            "port_count": 4
+          },
+          {
+            "id": "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-11-usb-05",
+            "location": "front_header",
+            "official_standard": "USB 3.2 Gen 2x2",
+            "connector_type": "Type-C",
+            "usb_max_speed_gbps": 20,
+            "port_count": 1
+          }
+        ]
+      }
+    },
+    {
+      "category": "motherboard",
+      "id": "motherboard-asrock-b650m-pro-rs-wifi",
+      "brand": "ASRock",
+      "model": "B650M Pro RS WiFi",
+      "display_name": "ASRock B650M Pro RS WiFi",
+      "identifiers": {
+        "part_numbers": [
+          "B650M Pro RS WiFi"
+        ]
+      },
+      "aliases": [
+        "B650M Pro RS WiFi"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "summary": "メーカー公式仕様を構造化。独立検証前のため品質Tierは未評価。",
+        "weaknesses": [
+          "独立レビューによるVRM温度・メモリ互換性は未確認",
+          "国内代理店・国内保証条件は未確認",
+          "BIOSバージョン別のCPU対応状況は購入前確認が必要"
+        ],
+        "risk_summary": "一部PCIe/M.2の利用可否と速度がCPU構成で変化するためCPU別確認が必要",
+        "strengths": [],
+        "risk_flags": [
+          "cpu_dependent_slots"
+        ],
+        "reviewed_at": null,
+        "evidence": [
+          {
+            "id": "motherboard-asrock-b650m-pro-rs-wifi-official-specs",
+            "kind": "manufacturer",
+            "title": "ASRock B650M Pro RS WiFi 公式仕様",
+            "url": "https://www.asrock.com/mb/AMD/B650M%20Pro%20RS%20WiFi/",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "brand",
+              "model",
+              "display_name",
+              "identifiers.part_numbers",
+              "specs.release_date_precision",
+              "specs.socket",
+              "specs.chipset",
+              "specs.memory_type",
+              "specs.form_factor",
+              "specs.cpu_support_scope",
+              "specs.memory_slots",
+              "specs.max_memory_gb",
+              "specs.memory_oc_max_mt_s",
+              "specs.memory_profile_support",
+              "specs.ecc_support",
+              "specs.vrm_design",
+              "specs.power_stage_rating_a",
+              "specs.eps_connectors",
+              "specs.primary_pcie_generation",
+              "specs.primary_pcie_lanes",
+              "specs.pcie_x16_physical_slots",
+              "specs.m2_slots",
+              "specs.pcie5_m2_slots",
+              "specs.sata_ports",
+              "specs.lane_sharing_severity",
+              "specs.lan_speed_gbps",
+              "specs.lan_controller",
+              "specs.wifi_generation",
+              "specs.wifi_controller",
+              "specs.bluetooth_version",
+              "specs.audio_codec",
+              "specs.rear_usb_total_count",
+              "specs.rear_usb_type_a_count",
+              "specs.rear_usb_type_c_count",
+              "specs.rear_usb_fastest_gbps",
+              "specs.rear_usb4_type_c_count",
+              "specs.rear_usb_official_summary",
+              "specs.front_usb_c_header_count",
+              "specs.front_usb_c_max_speed_gbps",
+              "specs.bios_flashback",
+              "specs.clear_cmos_button",
+              "specs.dual_bios",
+              "specs.debug_features",
+              "specs.fan_headers_total",
+              "specs.pump_capable_headers",
+              "specs.pcb_layers"
+            ],
+            "reviewer": "Codex",
+            "notes": "CPU・メモリ・拡張・ネットワーク・背面I/Oのメーカー公称仕様を確認。国内保証と独立実測は含まない。"
+          },
+          {
+            "id": "motherboard-asrock-b650m-pro-rs-wifi-official-layout",
+            "kind": "manufacturer",
+            "title": "ASRock B650M Pro RS WiFi 公式製品ページ／マニュアル",
+            "url": "https://download.asrock.com/Manual/B650M%20Pro%20RS%20WiFi.pdf",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "specs.slots",
+              "specs.usb_ports"
+            ],
+            "reviewer": "Codex",
+            "notes": "物理スロット、M.2接続、レーン共有、USB端子構成を構造化するために参照。"
+          }
+        ],
+        "risks": [
+          {
+            "id": "motherboard-asrock-b650m-pro-rs-wifi-cpu-slot-availability",
+            "flag": "cpu_dependent_slots",
+            "severity": "low",
+            "status": "open",
+            "summary": "CPU構成により一部PCIe/M.2の速度または利用可否が変わる。",
+            "workaround": "採用CPUと公式マニュアルのレーン構成を照合する。",
+            "evidence_id": "motherboard-asrock-b650m-pro-rs-wifi-official-layout",
+            "first_checked_at": "2026-07-16",
+            "last_checked_at": "2026-07-16"
+          }
+        ]
+      },
+      "notes": [
+        "メーカー公式仕様を初期登録。ASIN・JAN・価格.com ID、国内保証は未確認です。購入監視へ採用する前に販売ページの完全型番、基板リビジョン、付属品、状態、保証を照合してください。"
+      ],
+      "specs": {
+        "release_date_precision": "unknown",
+        "socket": "AM5",
+        "chipset": "B650",
+        "memory_type": "DDR5",
+        "form_factor": "Micro-ATX",
+        "cpu_support_scope": [
+          "AMD Ryzen 9000",
+          "AMD Ryzen 8000",
+          "AMD Ryzen 7000"
+        ],
+        "memory_slots": 4,
+        "max_memory_gb": 256,
+        "memory_oc_max_mt_s": 7200,
+        "memory_profile_support": [
+          "AMD EXPO",
+          "Intel XMP"
+        ],
+        "ecc_support": "ECC mode",
+        "vrm_design": "8+2+1 phase power design",
+        "power_stage_rating_a": 50,
+        "eps_connectors": "1x8-pin",
+        "primary_pcie_generation": 4,
+        "primary_pcie_lanes": 16,
+        "pcie_x16_physical_slots": 2,
+        "m2_slots": 3,
+        "pcie5_m2_slots": 1,
+        "sata_ports": 4,
+        "lane_sharing_severity": "low",
+        "lan_speed_gbps": 2.5,
+        "lan_controller": "Realtek RTL8125BG",
+        "wifi_generation": "Wi-Fi 6E",
+        "wifi_controller": "802.11ax Wi-Fi 6E module",
+        "bluetooth_version": "5.2",
+        "audio_codec": "Realtek ALC897",
+        "rear_usb_total_count": 8,
+        "rear_usb_type_a_count": 7,
+        "rear_usb_type_c_count": 1,
+        "rear_usb_fastest_gbps": 10,
+        "rear_usb4_type_c_count": 0,
+        "rear_usb_official_summary": "USB 3.2 Gen 2 Type-C x1 / Type-A x1\nUSB 3.2 Gen 1 Type-A x2\nUSB 2.0 Type-A x4",
+        "front_usb_c_header_count": 1,
+        "front_usb_c_max_speed_gbps": 5,
+        "bios_flashback": true,
+        "clear_cmos_button": false,
+        "dual_bios": false,
+        "debug_features": [
+          "Post Status Checker (PSC)"
+        ],
+        "fan_headers_total": 5,
+        "pump_capable_headers": 4,
+        "pcb_layers": 6,
+        "slots": [
+          {
+            "id": "motherboard-asrock-b650m-pro-rs-wifi-pcie1",
+            "name": "PCIE1",
+            "type": "pcie_expansion",
+            "interface_generation": 4,
+            "lane_width": 16,
+            "connected_to": "CPU"
+          },
+          {
+            "id": "motherboard-asrock-b650m-pro-rs-wifi-pcie2",
+            "name": "PCIE2",
+            "type": "pcie_expansion",
+            "interface_generation": 3,
+            "lane_width": 4,
+            "connected_to": "CPU",
+            "availability_condition": "CPU構成で利用可否を確認",
+            "notes": [
+              "物理x16スロット"
+            ]
+          },
+          {
+            "id": "motherboard-asrock-b650m-pro-rs-wifi-m2-1",
+            "name": "M2_1",
+            "type": "m2_storage",
+            "interface_generation": 5,
+            "lane_width": 4,
+            "connected_to": "CPU",
+            "supported_sizes": [
+              "2260",
+              "2280"
+            ]
+          },
+          {
+            "id": "motherboard-asrock-b650m-pro-rs-wifi-m2-2",
+            "name": "M2_2",
+            "type": "m2_storage",
+            "interface_generation": 4,
+            "lane_width": 4,
+            "connected_to": "Chipset",
+            "supported_sizes": [
+              "2260",
+              "2280"
+            ]
+          },
+          {
+            "id": "motherboard-asrock-b650m-pro-rs-wifi-m2-3",
+            "name": "M2_3",
+            "type": "m2_storage",
+            "interface_generation": 4,
+            "lane_width": 2,
+            "connected_to": "Chipset",
+            "supported_sizes": [
+              "2260",
+              "2280"
+            ]
+          }
+        ],
+        "usb_ports": [
+          {
+            "id": "motherboard-asrock-b650m-pro-rs-wifi-usb-01",
+            "location": "rear",
+            "official_standard": "USB 3.2 Gen 2",
+            "connector_type": "Type-C",
+            "usb_max_speed_gbps": 10,
+            "port_count": 1
+          },
+          {
+            "id": "motherboard-asrock-b650m-pro-rs-wifi-usb-02",
+            "location": "rear",
+            "official_standard": "USB 3.2 Gen 2",
+            "connector_type": "Type-A",
+            "usb_max_speed_gbps": 10,
+            "port_count": 1
+          },
+          {
+            "id": "motherboard-asrock-b650m-pro-rs-wifi-usb-03",
+            "location": "rear",
+            "official_standard": "USB 3.2 Gen 1",
+            "connector_type": "Type-A",
+            "usb_max_speed_gbps": 5,
+            "port_count": 2
+          },
+          {
+            "id": "motherboard-asrock-b650m-pro-rs-wifi-usb-04",
+            "location": "rear",
+            "official_standard": "USB 2.0",
+            "connector_type": "Type-A",
+            "usb_max_speed_gbps": 0.48,
+            "port_count": 4
+          },
+          {
+            "id": "motherboard-asrock-b650m-pro-rs-wifi-usb-05",
+            "location": "front_header",
+            "official_standard": "USB 3.2 Gen 1",
+            "connector_type": "Type-C",
+            "usb_max_speed_gbps": 5,
+            "port_count": 1
+          }
+        ]
+      }
+    },
+    {
+      "category": "motherboard",
+      "id": "motherboard-asus-tuf-gaming-z790-plus-wifi",
+      "brand": "ASUS",
+      "model": "TUF GAMING Z790-PLUS WIFI",
+      "display_name": "ASUS TUF GAMING Z790-PLUS WIFI",
+      "identifiers": {
+        "part_numbers": [
+          "TUF GAMING Z790-PLUS WIFI"
+        ]
+      },
+      "aliases": [
+        "TUF GAMING Z790-PLUS WIFI"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "summary": "メーカー公式仕様を構造化。独立検証前のため品質Tierは未評価。",
+        "weaknesses": [
+          "独立レビューによるVRM温度・メモリ互換性は未確認",
+          "国内代理店・国内保証条件は未確認",
+          "BIOSバージョン別のCPU対応状況は購入前確認が必要"
+        ],
+        "risk_summary": "背面BIOS FlashBackボタン非搭載。CPU世代と初期BIOSの対応確認が必要",
+        "strengths": [],
+        "risk_flags": [],
+        "reviewed_at": null,
+        "evidence": [
+          {
+            "id": "motherboard-asus-tuf-gaming-z790-plus-wifi-official-specs",
+            "kind": "manufacturer",
+            "title": "ASUS TUF GAMING Z790-PLUS WIFI 公式仕様",
+            "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-z790-plus-wifi/techspec/",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "brand",
+              "model",
+              "display_name",
+              "identifiers.part_numbers",
+              "specs.release_date_precision",
+              "specs.socket",
+              "specs.chipset",
+              "specs.memory_type",
+              "specs.form_factor",
+              "specs.cpu_support_scope",
+              "specs.memory_slots",
+              "specs.max_memory_gb",
+              "specs.jedec_max_mt_s",
+              "specs.memory_oc_max_mt_s",
+              "specs.memory_profile_support",
+              "specs.ecc_support",
+              "specs.vrm_design",
+              "specs.power_stage_rating_a",
+              "specs.eps_connectors",
+              "specs.primary_pcie_generation",
+              "specs.primary_pcie_lanes",
+              "specs.pcie_x16_physical_slots",
+              "specs.m2_slots",
+              "specs.pcie5_m2_slots",
+              "specs.sata_ports",
+              "specs.lane_sharing_severity",
+              "specs.lan_speed_gbps",
+              "specs.lan_controller",
+              "specs.wifi_generation",
+              "specs.bluetooth_version",
+              "specs.audio_codec",
+              "specs.rear_usb_total_count",
+              "specs.rear_usb_type_a_count",
+              "specs.rear_usb_type_c_count",
+              "specs.rear_usb_fastest_gbps",
+              "specs.rear_usb4_type_c_count",
+              "specs.rear_usb_official_summary",
+              "specs.front_usb_c_header_count",
+              "specs.front_usb_c_max_speed_gbps",
+              "specs.bios_flashback",
+              "specs.clear_cmos_button",
+              "specs.dual_bios",
+              "specs.debug_features",
+              "specs.fan_headers_total",
+              "specs.pump_capable_headers"
+            ],
+            "reviewer": "Codex",
+            "notes": "CPU・メモリ・拡張・ネットワーク・背面I/Oのメーカー公称仕様を確認。国内保証と独立実測は含まない。"
+          },
+          {
+            "id": "motherboard-asus-tuf-gaming-z790-plus-wifi-official-layout",
+            "kind": "manufacturer",
+            "title": "ASUS TUF GAMING Z790-PLUS WIFI 公式製品ページ／マニュアル",
+            "url": "https://www.asus.com/motherboards-components/motherboards/tuf-gaming/tuf-gaming-z790-plus-wifi/",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "specs.slots",
+              "specs.usb_ports"
+            ],
+            "reviewer": "Codex",
+            "notes": "物理スロット、M.2接続、レーン共有、USB端子構成を構造化するために参照。"
+          }
+        ]
+      },
+      "notes": [
+        "メーカー公式仕様を初期登録。ASIN・JAN・価格.com ID、国内保証は未確認です。購入監視へ採用する前に販売ページの完全型番、基板リビジョン、付属品、状態、保証を照合してください。"
+      ],
+      "specs": {
+        "release_date_precision": "unknown",
+        "socket": "LGA1700",
+        "chipset": "Z790",
+        "memory_type": "DDR5",
+        "form_factor": "ATX",
+        "cpu_support_scope": [
+          "Intel Core 14th Gen",
+          "Intel Core 13th Gen",
+          "Intel Core 12th Gen"
+        ],
+        "memory_slots": 4,
+        "max_memory_gb": 192,
+        "jedec_max_mt_s": 5600,
+        "memory_oc_max_mt_s": 7200,
+        "memory_profile_support": [
+          "Intel XMP"
+        ],
+        "ecc_support": "non-ECC only",
+        "vrm_design": "16+1+1 power stages",
+        "power_stage_rating_a": 60,
+        "eps_connectors": "2x8-pin",
+        "primary_pcie_generation": 5,
+        "primary_pcie_lanes": 16,
+        "pcie_x16_physical_slots": 2,
+        "m2_slots": 4,
+        "pcie5_m2_slots": 0,
+        "sata_ports": 4,
+        "lane_sharing_severity": "none",
+        "lan_speed_gbps": 2.5,
+        "lan_controller": "Intel 2.5Gb Ethernet",
+        "wifi_generation": "Wi-Fi 6E",
+        "bluetooth_version": "5.3",
+        "audio_codec": "Realtek S1220A",
+        "rear_usb_total_count": 8,
+        "rear_usb_type_a_count": 6,
+        "rear_usb_type_c_count": 2,
+        "rear_usb_fastest_gbps": 20,
+        "rear_usb4_type_c_count": 0,
+        "rear_usb_official_summary": "USB 3.2 Gen 2x2 Type-C x1\nUSB 3.2 Gen 2 Type-A x2 / Type-C x1\nUSB 3.2 Gen 1 Type-A x4",
+        "front_usb_c_header_count": 1,
+        "front_usb_c_max_speed_gbps": 10,
+        "bios_flashback": false,
+        "clear_cmos_button": false,
+        "dual_bios": false,
+        "debug_features": [
+          "Q-LED"
+        ],
+        "fan_headers_total": 7,
+        "pump_capable_headers": 1,
+        "slots": [
+          {
+            "id": "motherboard-asus-tuf-gaming-z790-plus-wifi-pciex16-1",
+            "name": "PCIEX16_1",
+            "type": "pcie_expansion",
+            "interface_generation": 5,
+            "lane_width": 16,
+            "connected_to": "CPU"
+          },
+          {
+            "id": "motherboard-asus-tuf-gaming-z790-plus-wifi-pciex16-2",
+            "name": "PCIEX16_2",
+            "type": "pcie_expansion",
+            "interface_generation": 4,
+            "lane_width": 4,
+            "connected_to": "Chipset",
+            "notes": [
+              "物理x16スロット"
+            ]
+          },
+          {
+            "id": "motherboard-asus-tuf-gaming-z790-plus-wifi-pciex4-1",
+            "name": "PCIEX4_1",
+            "type": "pcie_expansion",
+            "interface_generation": 4,
+            "lane_width": 4,
+            "connected_to": "Chipset"
+          },
+          {
+            "id": "motherboard-asus-tuf-gaming-z790-plus-wifi-pciex1-1",
+            "name": "PCIEX1_1",
+            "type": "pcie_expansion",
+            "interface_generation": 3,
+            "lane_width": 1,
+            "connected_to": "Chipset"
+          },
+          {
+            "id": "motherboard-asus-tuf-gaming-z790-plus-wifi-pciex1-2",
+            "name": "PCIEX1_2",
+            "type": "pcie_expansion",
+            "interface_generation": 3,
+            "lane_width": 1,
+            "connected_to": "Chipset"
+          },
+          {
+            "id": "motherboard-asus-tuf-gaming-z790-plus-wifi-m2-1",
+            "name": "M2_1",
+            "type": "m2_storage",
+            "interface_generation": 4,
+            "lane_width": 4,
+            "connected_to": "CPU",
+            "supported_sizes": [
+              "2242",
+              "2260",
+              "2280",
+              "22110"
+            ]
+          },
+          {
+            "id": "motherboard-asus-tuf-gaming-z790-plus-wifi-m2-2",
+            "name": "M2_2",
+            "type": "m2_storage",
+            "interface_generation": 4,
+            "lane_width": 4,
+            "connected_to": "Chipset",
+            "supported_sizes": [
+              "2242",
+              "2260",
+              "2280"
+            ]
+          },
+          {
+            "id": "motherboard-asus-tuf-gaming-z790-plus-wifi-m2-3",
+            "name": "M2_3",
+            "type": "m2_storage",
+            "interface_generation": 4,
+            "lane_width": 4,
+            "connected_to": "Chipset",
+            "supported_sizes": [
+              "2242",
+              "2260",
+              "2280",
+              "22110"
+            ]
+          },
+          {
+            "id": "motherboard-asus-tuf-gaming-z790-plus-wifi-m2-4",
+            "name": "M2_4",
+            "type": "m2_storage",
+            "interface_generation": 4,
+            "lane_width": 4,
+            "connected_to": "Chipset",
+            "supported_sizes": [
+              "2242",
+              "2260",
+              "2280"
+            ],
+            "notes": [
+              "SATAモード対応"
+            ]
+          }
+        ],
+        "usb_ports": [
+          {
+            "id": "motherboard-asus-tuf-gaming-z790-plus-wifi-usb-01",
+            "location": "rear",
+            "official_standard": "USB 3.2 Gen 2x2",
+            "connector_type": "Type-C",
+            "usb_max_speed_gbps": 20,
+            "port_count": 1
+          },
+          {
+            "id": "motherboard-asus-tuf-gaming-z790-plus-wifi-usb-02",
+            "location": "rear",
+            "official_standard": "USB 3.2 Gen 2",
+            "connector_type": "Type-A",
+            "usb_max_speed_gbps": 10,
+            "port_count": 2
+          },
+          {
+            "id": "motherboard-asus-tuf-gaming-z790-plus-wifi-usb-03",
+            "location": "rear",
+            "official_standard": "USB 3.2 Gen 2",
+            "connector_type": "Type-C",
+            "usb_max_speed_gbps": 10,
+            "port_count": 1
+          },
+          {
+            "id": "motherboard-asus-tuf-gaming-z790-plus-wifi-usb-04",
+            "location": "rear",
+            "official_standard": "USB 3.2 Gen 1",
+            "connector_type": "Type-A",
+            "usb_max_speed_gbps": 5,
+            "port_count": 4
+          },
+          {
+            "id": "motherboard-asus-tuf-gaming-z790-plus-wifi-usb-05",
+            "location": "front_header",
+            "official_standard": "USB 3.2 Gen 2",
+            "connector_type": "Type-C",
+            "usb_max_speed_gbps": 10,
+            "port_count": 1
+          }
+        ]
+      }
+    },
+    {
+      "category": "motherboard",
+      "id": "motherboard-msi-mag-z790-tomahawk-wifi",
+      "brand": "MSI",
+      "model": "MAG Z790 TOMAHAWK WIFI",
+      "display_name": "MSI MAG Z790 TOMAHAWK WIFI",
+      "identifiers": {
+        "part_numbers": [
+          "MAG Z790 TOMAHAWK WIFI"
+        ]
+      },
+      "aliases": [
+        "MAG Z790 TOMAHAWK WIFI"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "summary": "メーカー公式仕様を構造化。独立検証前のため品質Tierは未評価。",
+        "weaknesses": [
+          "独立レビューによるVRM温度・メモリ互換性は未確認",
+          "国内代理店・国内保証条件は未確認",
+          "BIOSバージョン別のCPU対応状況は購入前確認が必要"
+        ],
+        "risk_summary": "SATA_A1/A2はRAID非対応。ストレージ構成時は対象ポートを区別する必要がある",
+        "strengths": [],
+        "risk_flags": [
+          "sata_raid_limit"
+        ],
+        "reviewed_at": null,
+        "evidence": [
+          {
+            "id": "motherboard-msi-mag-z790-tomahawk-wifi-official-specs",
+            "kind": "manufacturer",
+            "title": "MSI MAG Z790 TOMAHAWK WIFI 公式仕様",
+            "url": "https://www.msi.com/Motherboard/MAG-Z790-TOMAHAWK-WIFI/Specification",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "brand",
+              "model",
+              "display_name",
+              "identifiers.part_numbers",
+              "specs.release_date_precision",
+              "specs.socket",
+              "specs.chipset",
+              "specs.memory_type",
+              "specs.form_factor",
+              "specs.cpu_support_scope",
+              "specs.memory_slots",
+              "specs.max_memory_gb",
+              "specs.jedec_max_mt_s",
+              "specs.memory_oc_max_mt_s",
+              "specs.memory_profile_support",
+              "specs.ecc_support",
+              "specs.vrm_design",
+              "specs.power_stage_rating_a",
+              "specs.eps_connectors",
+              "specs.primary_pcie_generation",
+              "specs.primary_pcie_lanes",
+              "specs.pcie_x16_physical_slots",
+              "specs.m2_slots",
+              "specs.pcie5_m2_slots",
+              "specs.sata_ports",
+              "specs.lane_sharing_severity",
+              "specs.lan_speed_gbps",
+              "specs.lan_controller",
+              "specs.wifi_generation",
+              "specs.wifi_controller",
+              "specs.bluetooth_version",
+              "specs.audio_codec",
+              "specs.rear_usb_total_count",
+              "specs.rear_usb_type_a_count",
+              "specs.rear_usb_type_c_count",
+              "specs.rear_usb_fastest_gbps",
+              "specs.rear_usb4_type_c_count",
+              "specs.rear_usb_official_summary",
+              "specs.front_usb_c_header_count",
+              "specs.front_usb_c_max_speed_gbps",
+              "specs.bios_flashback",
+              "specs.clear_cmos_button",
+              "specs.dual_bios",
+              "specs.debug_features",
+              "specs.fan_headers_total",
+              "specs.pump_capable_headers",
+              "specs.pcb_layers"
+            ],
+            "reviewer": "Codex",
+            "notes": "CPU・メモリ・拡張・ネットワーク・背面I/Oのメーカー公称仕様を確認。国内保証と独立実測は含まない。"
+          },
+          {
+            "id": "motherboard-msi-mag-z790-tomahawk-wifi-official-layout",
+            "kind": "manufacturer",
+            "title": "MSI MAG Z790 TOMAHAWK WIFI 公式製品ページ／マニュアル",
+            "url": "https://www.msi.com/Motherboard/MAG-Z790-TOMAHAWK-WIFI",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "specs.slots",
+              "specs.usb_ports"
+            ],
+            "reviewer": "Codex",
+            "notes": "物理スロット、M.2接続、レーン共有、USB端子構成を構造化するために参照。"
+          }
+        ],
+        "risks": [
+          {
+            "id": "motherboard-msi-mag-z790-tomahawk-wifi-sata-raid",
+            "flag": "sata_raid_limit",
+            "severity": "low",
+            "status": "open",
+            "summary": "SATA_A1/A2はRAID機能の対象外。",
+            "workaround": "RAID対象ドライブはチップセット側SATAポートへ接続する。",
+            "evidence_id": "motherboard-msi-mag-z790-tomahawk-wifi-official-layout",
+            "first_checked_at": "2026-07-16",
+            "last_checked_at": "2026-07-16"
+          }
+        ]
+      },
+      "notes": [
+        "メーカー公式仕様を初期登録。ASIN・JAN・価格.com ID、国内保証は未確認です。購入監視へ採用する前に販売ページの完全型番、基板リビジョン、付属品、状態、保証を照合してください。"
+      ],
+      "specs": {
+        "release_date_precision": "unknown",
+        "socket": "LGA1700",
+        "chipset": "Z790",
+        "memory_type": "DDR5",
+        "form_factor": "ATX",
+        "cpu_support_scope": [
+          "Intel Core 14th Gen",
+          "Intel Core 13th Gen",
+          "Intel Core 12th Gen"
+        ],
+        "memory_slots": 4,
+        "max_memory_gb": 256,
+        "jedec_max_mt_s": 5600,
+        "memory_oc_max_mt_s": 7200,
+        "memory_profile_support": [
+          "Intel XMP 3.0"
+        ],
+        "ecc_support": "non-ECC only",
+        "vrm_design": "16+1+1 Duet Rail Power System",
+        "power_stage_rating_a": 90,
+        "eps_connectors": "2x8-pin",
+        "primary_pcie_generation": 5,
+        "primary_pcie_lanes": 16,
+        "pcie_x16_physical_slots": 2,
+        "m2_slots": 4,
+        "pcie5_m2_slots": 0,
+        "sata_ports": 7,
+        "lane_sharing_severity": "none",
+        "lan_speed_gbps": 2.5,
+        "lan_controller": "Intel 2.5Gb Ethernet",
+        "wifi_generation": "Wi-Fi 6E",
+        "wifi_controller": "Intel Wi-Fi 6E module",
+        "bluetooth_version": "5.3",
+        "audio_codec": "Realtek ALC4080",
+        "rear_usb_total_count": 10,
+        "rear_usb_type_a_count": 8,
+        "rear_usb_type_c_count": 2,
+        "rear_usb_fastest_gbps": 20,
+        "rear_usb4_type_c_count": 0,
+        "rear_usb_official_summary": "USB 3.2 Gen 2x2 Type-C x1\nUSB 3.2 Gen 2 Type-A x4 / Type-C x1\nUSB 3.2 Gen 1 Type-A x4",
+        "front_usb_c_header_count": 1,
+        "front_usb_c_max_speed_gbps": 10,
+        "bios_flashback": true,
+        "clear_cmos_button": true,
+        "dual_bios": false,
+        "debug_features": [
+          "4x EZ Debug LED"
+        ],
+        "fan_headers_total": 8,
+        "pump_capable_headers": 1,
+        "pcb_layers": 6,
+        "slots": [
+          {
+            "id": "motherboard-msi-mag-z790-tomahawk-wifi-pci-e1",
+            "name": "PCI_E1",
+            "type": "pcie_expansion",
+            "interface_generation": 5,
+            "lane_width": 16,
+            "connected_to": "CPU"
+          },
+          {
+            "id": "motherboard-msi-mag-z790-tomahawk-wifi-pci-e2",
+            "name": "PCI_E2",
+            "type": "pcie_expansion",
+            "interface_generation": 3,
+            "lane_width": 1,
+            "connected_to": "Chipset"
+          },
+          {
+            "id": "motherboard-msi-mag-z790-tomahawk-wifi-pci-e3",
+            "name": "PCI_E3",
+            "type": "pcie_expansion",
+            "interface_generation": 4,
+            "lane_width": 4,
+            "connected_to": "Chipset",
+            "notes": [
+              "物理x16スロット"
+            ]
+          },
+          {
+            "id": "motherboard-msi-mag-z790-tomahawk-wifi-m2-1",
+            "name": "M2_1",
+            "type": "m2_storage",
+            "interface_generation": 4,
+            "lane_width": 4,
+            "connected_to": "CPU",
+            "supported_sizes": [
+              "2260",
+              "2280",
+              "22110"
+            ]
+          },
+          {
+            "id": "motherboard-msi-mag-z790-tomahawk-wifi-m2-2",
+            "name": "M2_2",
+            "type": "m2_storage",
+            "interface_generation": 4,
+            "lane_width": 4,
+            "connected_to": "Chipset",
+            "supported_sizes": [
+              "2260",
+              "2280"
+            ]
+          },
+          {
+            "id": "motherboard-msi-mag-z790-tomahawk-wifi-m2-3",
+            "name": "M2_3",
+            "type": "m2_storage",
+            "interface_generation": 4,
+            "lane_width": 4,
+            "connected_to": "Chipset",
+            "supported_sizes": [
+              "2242",
+              "2260",
+              "2280"
+            ],
+            "notes": [
+              "SATAモード対応"
+            ]
+          },
+          {
+            "id": "motherboard-msi-mag-z790-tomahawk-wifi-m2-4",
+            "name": "M2_4",
+            "type": "m2_storage",
+            "interface_generation": 4,
+            "lane_width": 4,
+            "connected_to": "Chipset",
+            "supported_sizes": [
+              "2242",
+              "2260",
+              "2280"
+            ]
+          }
+        ],
+        "usb_ports": [
+          {
+            "id": "motherboard-msi-mag-z790-tomahawk-wifi-usb-01",
+            "location": "rear",
+            "official_standard": "USB 3.2 Gen 2x2",
+            "connector_type": "Type-C",
+            "usb_max_speed_gbps": 20,
+            "port_count": 1
+          },
+          {
+            "id": "motherboard-msi-mag-z790-tomahawk-wifi-usb-02",
+            "location": "rear",
+            "official_standard": "USB 3.2 Gen 2",
+            "connector_type": "Type-A",
+            "usb_max_speed_gbps": 10,
+            "port_count": 4
+          },
+          {
+            "id": "motherboard-msi-mag-z790-tomahawk-wifi-usb-03",
+            "location": "rear",
+            "official_standard": "USB 3.2 Gen 2",
+            "connector_type": "Type-C",
+            "usb_max_speed_gbps": 10,
+            "port_count": 1
+          },
+          {
+            "id": "motherboard-msi-mag-z790-tomahawk-wifi-usb-04",
+            "location": "rear",
+            "official_standard": "USB 3.2 Gen 1",
+            "connector_type": "Type-A",
+            "usb_max_speed_gbps": 5,
+            "port_count": 4
+          },
+          {
+            "id": "motherboard-msi-mag-z790-tomahawk-wifi-usb-05",
+            "location": "front_header",
+            "official_standard": "USB 3.2 Gen 2",
+            "connector_type": "Type-C",
+            "usb_max_speed_gbps": 10,
+            "port_count": 1
+          }
+        ]
+      }
+    },
+    {
+      "category": "motherboard",
+      "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-10",
+      "brand": "GIGABYTE",
+      "model": "Z890 AORUS ELITE WIFI7 (rev. 1.0)",
+      "display_name": "GIGABYTE Z890 AORUS ELITE WIFI7 rev. 1.0",
+      "identifiers": {
+        "part_numbers": [
+          "Z890 AORUS ELITE WIFI7 (rev. 1.0)"
+        ]
+      },
+      "aliases": [
+        "Z890 AORUS ELITE WIFI7 (rev. 1.0)"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "summary": "メーカー公式仕様を構造化。独立検証前のため品質Tierは未評価。",
+        "weaknesses": [
+          "独立レビューによるVRM温度・メモリ互換性は未確認",
+          "国内代理店・国内保証条件は未確認",
+          "BIOSバージョン別のCPU対応状況は購入前確認が必要"
+        ],
+        "risk_summary": "rev. 1.0とrev. 1.1で無線LANコントローラーが異なる。USB4とThunderboltの速度表記も区別が必要",
+        "strengths": [],
+        "risk_flags": [
+          "revision_ambiguity"
+        ],
+        "reviewed_at": null,
+        "evidence": [
+          {
+            "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-10-official-specs",
+            "kind": "manufacturer",
+            "title": "GIGABYTE Z890 AORUS ELITE WIFI7 公式仕様（rev. 1.0）",
+            "url": "https://www.gigabyte.com/Motherboard/Z890-AORUS-ELITE-WIFI7/sp",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "brand",
+              "model",
+              "display_name",
+              "identifiers.part_numbers",
+              "specs.release_date_precision",
+              "specs.board_revision",
+              "specs.socket",
+              "specs.chipset",
+              "specs.memory_type",
+              "specs.form_factor",
+              "specs.cpu_support_scope",
+              "specs.memory_slots",
+              "specs.max_memory_gb",
+              "specs.jedec_max_mt_s",
+              "specs.memory_oc_max_mt_s",
+              "specs.memory_profile_support",
+              "specs.ecc_support",
+              "specs.vrm_design",
+              "specs.power_stage_rating_a",
+              "specs.eps_connectors",
+              "specs.primary_pcie_generation",
+              "specs.primary_pcie_lanes",
+              "specs.pcie_x16_physical_slots",
+              "specs.m2_slots",
+              "specs.pcie5_m2_slots",
+              "specs.sata_ports",
+              "specs.lane_sharing_severity",
+              "specs.lan_speed_gbps",
+              "specs.lan_controller",
+              "specs.wifi_generation",
+              "specs.wifi_controller",
+              "specs.bluetooth_version",
+              "specs.audio_codec",
+              "specs.rear_usb_total_count",
+              "specs.rear_usb_type_a_count",
+              "specs.rear_usb_type_c_count",
+              "specs.rear_usb_fastest_gbps",
+              "specs.rear_usb4_type_c_count",
+              "specs.rear_usb_official_summary",
+              "specs.front_usb_c_header_count",
+              "specs.front_usb_c_max_speed_gbps",
+              "specs.bios_flashback",
+              "specs.clear_cmos_button",
+              "specs.dual_bios",
+              "specs.debug_features",
+              "specs.fan_headers_total",
+              "specs.pump_capable_headers"
+            ],
+            "reviewer": "Codex",
+            "notes": "CPU・メモリ・拡張・ネットワーク・背面I/Oのメーカー公称仕様を確認。国内保証と独立実測は含まない。"
+          },
+          {
+            "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-10-official-layout",
+            "kind": "manufacturer",
+            "title": "GIGABYTE Z890 AORUS ELITE WIFI7 rev. 1.0 公式製品ページ／マニュアル",
+            "url": "https://www.gigabyte.com/us/Motherboard/Z890-AORUS-ELITE-WIFI7",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "specs.slots",
+              "specs.usb_ports"
+            ],
+            "reviewer": "Codex",
+            "notes": "物理スロット、M.2接続、レーン共有、USB端子構成を構造化するために参照。"
+          }
+        ],
+        "risks": [
+          {
+            "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-10-revision",
+            "flag": "revision_ambiguity",
+            "severity": "medium",
+            "status": "open",
+            "summary": "rev. 1.0とrev. 1.1でWi-Fi 7コントローラーが異なる。",
+            "workaround": "外箱または基板印字でrev. 1.0を確認する。",
+            "evidence_id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-10-official-layout",
+            "first_checked_at": "2026-07-16",
+            "last_checked_at": "2026-07-16"
+          }
+        ]
+      },
+      "notes": [
+        "メーカー公式仕様を初期登録。ASIN・JAN・価格.com ID、国内保証は未確認です。購入監視へ採用する前に販売ページの完全型番、基板リビジョン、付属品、状態、保証を照合してください。"
+      ],
+      "specs": {
+        "release_date_precision": "unknown",
+        "board_revision": "1.0",
+        "socket": "LGA1851",
+        "chipset": "Z890",
+        "memory_type": "DDR5",
+        "form_factor": "ATX",
+        "cpu_support_scope": [
+          "Intel Core Ultra Processors (Series 2)"
+        ],
+        "memory_slots": 4,
+        "max_memory_gb": 256,
+        "jedec_max_mt_s": 6400,
+        "memory_oc_max_mt_s": 9200,
+        "memory_profile_support": [
+          "Intel XMP"
+        ],
+        "ecc_support": "ECC DIMM accepted in non-ECC mode",
+        "vrm_design": "16+1+2 phases digital VRM",
+        "power_stage_rating_a": 80,
+        "eps_connectors": "2x8-pin",
+        "primary_pcie_generation": 5,
+        "primary_pcie_lanes": 16,
+        "pcie_x16_physical_slots": 3,
+        "m2_slots": 4,
+        "pcie5_m2_slots": 1,
+        "sata_ports": 4,
+        "lane_sharing_severity": "low",
+        "lan_speed_gbps": 2.5,
+        "lan_controller": "Realtek 2.5Gb Ethernet",
+        "wifi_generation": "Wi-Fi 7",
+        "wifi_controller": "MediaTek MT7925",
+        "bluetooth_version": "5.4",
+        "audio_codec": "Realtek ALC1220",
+        "rear_usb_total_count": 10,
+        "rear_usb_type_a_count": 9,
+        "rear_usb_type_c_count": 1,
+        "rear_usb_fastest_gbps": 20,
+        "rear_usb4_type_c_count": 1,
+        "rear_usb_official_summary": "Thunderbolt 4 / USB4 Type-C x1（USB4 20Gbps、Thunderbolt 40Gbps）\nUSB 3.2 Gen 2 Type-A x2\nUSB 3.2 Gen 1 Type-A x3\nUSB 2.0 Type-A x4",
+        "front_usb_c_header_count": 1,
+        "front_usb_c_max_speed_gbps": 10,
+        "bios_flashback": true,
+        "clear_cmos_button": false,
+        "dual_bios": false,
+        "debug_features": [
+          "Debug LEDs"
+        ],
+        "fan_headers_total": 6,
+        "pump_capable_headers": 2,
+        "slots": [
+          {
+            "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-10-pciex16",
+            "name": "PCIEX16",
+            "type": "pcie_expansion",
+            "interface_generation": 5,
+            "lane_width": 16,
+            "connected_to": "CPU"
+          },
+          {
+            "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-10-pciex4-1",
+            "name": "PCIEX4_1",
+            "type": "pcie_expansion",
+            "interface_generation": 4,
+            "lane_width": 4,
+            "connected_to": "Chipset",
+            "notes": [
+              "物理x16スロット"
+            ]
+          },
+          {
+            "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-10-pciex4-2",
+            "name": "PCIEX4_2",
+            "type": "pcie_expansion",
+            "interface_generation": 4,
+            "lane_width": 4,
+            "connected_to": "Chipset",
+            "notes": [
+              "物理x16スロット"
+            ]
+          },
+          {
+            "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-10-m2a-cpu",
+            "name": "M2A_CPU",
+            "type": "m2_storage",
+            "interface_generation": 5,
+            "lane_width": 4,
+            "connected_to": "CPU",
+            "supported_sizes": [
+              "2280",
+              "22110",
+              "2580",
+              "25110"
+            ]
+          },
+          {
+            "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-10-m2b-cpu",
+            "name": "M2B_CPU",
+            "type": "m2_storage",
+            "interface_generation": 4,
+            "lane_width": 4,
+            "connected_to": "CPU",
+            "supported_sizes": [
+              "2280",
+              "22110"
+            ]
+          },
+          {
+            "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-10-m2q-sb",
+            "name": "M2Q_SB",
+            "type": "m2_storage",
+            "interface_generation": 4,
+            "lane_width": 4,
+            "connected_to": "Chipset",
+            "supported_sizes": [
+              "2280",
+              "22110",
+              "2580",
+              "25110"
+            ]
+          },
+          {
+            "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-10-m2m-sb",
+            "name": "M2M_SB",
+            "type": "m2_storage",
+            "interface_generation": 4,
+            "lane_width": 4,
+            "connected_to": "Chipset",
+            "supported_sizes": [
+              "2280",
+              "22110"
+            ],
+            "notes": [
+              "SATAモード対応"
+            ]
+          }
+        ],
+        "usb_ports": [
+          {
+            "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-10-usb-01",
+            "location": "rear",
+            "official_standard": "Thunderbolt 4 / USB4",
+            "connector_type": "Type-C",
+            "usb_max_speed_gbps": 20,
+            "port_count": 1,
+            "alternate_protocols": [
+              "Thunderbolt 4: 40Gbps",
+              "DisplayPort Alt Mode"
+            ]
+          },
+          {
+            "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-10-usb-02",
+            "location": "rear",
+            "official_standard": "USB 3.2 Gen 2",
+            "connector_type": "Type-A",
+            "usb_max_speed_gbps": 10,
+            "port_count": 2
+          },
+          {
+            "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-10-usb-03",
+            "location": "rear",
+            "official_standard": "USB 3.2 Gen 1",
+            "connector_type": "Type-A",
+            "usb_max_speed_gbps": 5,
+            "port_count": 3
+          },
+          {
+            "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-10-usb-04",
+            "location": "rear",
+            "official_standard": "USB 2.0",
+            "connector_type": "Type-A",
+            "usb_max_speed_gbps": 0.48,
+            "port_count": 4
+          },
+          {
+            "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-10-usb-05",
+            "location": "front_header",
+            "official_standard": "USB 3.2 Gen 2",
+            "connector_type": "Type-C",
+            "usb_max_speed_gbps": 10,
+            "port_count": 1
+          }
+        ]
+      }
+    },
+    {
+      "category": "motherboard",
+      "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-11",
+      "brand": "GIGABYTE",
+      "model": "Z890 AORUS ELITE WIFI7 (rev. 1.1)",
+      "display_name": "GIGABYTE Z890 AORUS ELITE WIFI7 rev. 1.1",
+      "identifiers": {
+        "part_numbers": [
+          "Z890 AORUS ELITE WIFI7 (rev. 1.1)"
+        ]
+      },
+      "aliases": [
+        "Z890 AORUS ELITE WIFI7 (rev. 1.1)"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "summary": "メーカー公式仕様を構造化。独立検証前のため品質Tierは未評価。",
+        "weaknesses": [
+          "独立レビューによるVRM温度・メモリ互換性は未確認",
+          "国内代理店・国内保証条件は未確認",
+          "BIOSバージョン別のCPU対応状況は購入前確認が必要"
+        ],
+        "risk_summary": "rev. 1.0とrev. 1.1で無線LANコントローラーが異なる。USB4とThunderboltの速度表記も区別が必要",
+        "strengths": [],
+        "risk_flags": [
+          "revision_ambiguity"
+        ],
+        "reviewed_at": null,
+        "evidence": [
+          {
+            "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-11-official-specs",
+            "kind": "manufacturer",
+            "title": "GIGABYTE Z890 AORUS ELITE WIFI7 公式仕様（rev. 1.1）",
+            "url": "https://www.gigabyte.com/Motherboard/Z890-AORUS-ELITE-WIFI7/sp",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "brand",
+              "model",
+              "display_name",
+              "identifiers.part_numbers",
+              "specs.release_date_precision",
+              "specs.board_revision",
+              "specs.socket",
+              "specs.chipset",
+              "specs.memory_type",
+              "specs.form_factor",
+              "specs.cpu_support_scope",
+              "specs.memory_slots",
+              "specs.max_memory_gb",
+              "specs.jedec_max_mt_s",
+              "specs.memory_oc_max_mt_s",
+              "specs.memory_profile_support",
+              "specs.ecc_support",
+              "specs.vrm_design",
+              "specs.power_stage_rating_a",
+              "specs.eps_connectors",
+              "specs.primary_pcie_generation",
+              "specs.primary_pcie_lanes",
+              "specs.pcie_x16_physical_slots",
+              "specs.m2_slots",
+              "specs.pcie5_m2_slots",
+              "specs.sata_ports",
+              "specs.lane_sharing_severity",
+              "specs.lan_speed_gbps",
+              "specs.lan_controller",
+              "specs.wifi_generation",
+              "specs.wifi_controller",
+              "specs.bluetooth_version",
+              "specs.audio_codec",
+              "specs.rear_usb_total_count",
+              "specs.rear_usb_type_a_count",
+              "specs.rear_usb_type_c_count",
+              "specs.rear_usb_fastest_gbps",
+              "specs.rear_usb4_type_c_count",
+              "specs.rear_usb_official_summary",
+              "specs.front_usb_c_header_count",
+              "specs.front_usb_c_max_speed_gbps",
+              "specs.bios_flashback",
+              "specs.clear_cmos_button",
+              "specs.dual_bios",
+              "specs.debug_features",
+              "specs.fan_headers_total",
+              "specs.pump_capable_headers"
+            ],
+            "reviewer": "Codex",
+            "notes": "CPU・メモリ・拡張・ネットワーク・背面I/Oのメーカー公称仕様を確認。国内保証と独立実測は含まない。"
+          },
+          {
+            "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-11-official-layout",
+            "kind": "manufacturer",
+            "title": "GIGABYTE Z890 AORUS ELITE WIFI7 rev. 1.1 公式製品ページ／マニュアル",
+            "url": "https://www.gigabyte.com/us/Motherboard/Z890-AORUS-ELITE-WIFI7",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "specs.slots",
+              "specs.usb_ports"
+            ],
+            "reviewer": "Codex",
+            "notes": "物理スロット、M.2接続、レーン共有、USB端子構成を構造化するために参照。"
+          }
+        ],
+        "risks": [
+          {
+            "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-11-revision",
+            "flag": "revision_ambiguity",
+            "severity": "medium",
+            "status": "open",
+            "summary": "rev. 1.0とrev. 1.1でWi-Fi 7コントローラーが異なる。",
+            "workaround": "外箱または基板印字でrev. 1.1を確認する。",
+            "evidence_id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-11-official-layout",
+            "first_checked_at": "2026-07-16",
+            "last_checked_at": "2026-07-16"
+          }
+        ]
+      },
+      "notes": [
+        "メーカー公式仕様を初期登録。ASIN・JAN・価格.com ID、国内保証は未確認です。購入監視へ採用する前に販売ページの完全型番、基板リビジョン、付属品、状態、保証を照合してください。"
+      ],
+      "specs": {
+        "release_date_precision": "unknown",
+        "board_revision": "1.1",
+        "socket": "LGA1851",
+        "chipset": "Z890",
+        "memory_type": "DDR5",
+        "form_factor": "ATX",
+        "cpu_support_scope": [
+          "Intel Core Ultra Processors (Series 2)"
+        ],
+        "memory_slots": 4,
+        "max_memory_gb": 256,
+        "jedec_max_mt_s": 6400,
+        "memory_oc_max_mt_s": 9200,
+        "memory_profile_support": [
+          "Intel XMP"
+        ],
+        "ecc_support": "ECC DIMM accepted in non-ECC mode",
+        "vrm_design": "16+1+2 phases digital VRM",
+        "power_stage_rating_a": 80,
+        "eps_connectors": "2x8-pin",
+        "primary_pcie_generation": 5,
+        "primary_pcie_lanes": 16,
+        "pcie_x16_physical_slots": 3,
+        "m2_slots": 4,
+        "pcie5_m2_slots": 1,
+        "sata_ports": 4,
+        "lane_sharing_severity": "low",
+        "lan_speed_gbps": 2.5,
+        "lan_controller": "Realtek 2.5Gb Ethernet",
+        "wifi_generation": "Wi-Fi 7",
+        "wifi_controller": "Realtek RTL8922AE",
+        "bluetooth_version": "5.4",
+        "audio_codec": "Realtek ALC1220",
+        "rear_usb_total_count": 10,
+        "rear_usb_type_a_count": 9,
+        "rear_usb_type_c_count": 1,
+        "rear_usb_fastest_gbps": 20,
+        "rear_usb4_type_c_count": 1,
+        "rear_usb_official_summary": "Thunderbolt 4 / USB4 Type-C x1（USB4 20Gbps、Thunderbolt 40Gbps）\nUSB 3.2 Gen 2 Type-A x2\nUSB 3.2 Gen 1 Type-A x3\nUSB 2.0 Type-A x4",
+        "front_usb_c_header_count": 1,
+        "front_usb_c_max_speed_gbps": 10,
+        "bios_flashback": true,
+        "clear_cmos_button": false,
+        "dual_bios": false,
+        "debug_features": [
+          "Debug LEDs"
+        ],
+        "fan_headers_total": 6,
+        "pump_capable_headers": 2,
+        "slots": [
+          {
+            "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-11-pciex16",
+            "name": "PCIEX16",
+            "type": "pcie_expansion",
+            "interface_generation": 5,
+            "lane_width": 16,
+            "connected_to": "CPU"
+          },
+          {
+            "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-11-pciex4-1",
+            "name": "PCIEX4_1",
+            "type": "pcie_expansion",
+            "interface_generation": 4,
+            "lane_width": 4,
+            "connected_to": "Chipset",
+            "notes": [
+              "物理x16スロット"
+            ]
+          },
+          {
+            "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-11-pciex4-2",
+            "name": "PCIEX4_2",
+            "type": "pcie_expansion",
+            "interface_generation": 4,
+            "lane_width": 4,
+            "connected_to": "Chipset",
+            "notes": [
+              "物理x16スロット"
+            ]
+          },
+          {
+            "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-11-m2a-cpu",
+            "name": "M2A_CPU",
+            "type": "m2_storage",
+            "interface_generation": 5,
+            "lane_width": 4,
+            "connected_to": "CPU",
+            "supported_sizes": [
+              "2280",
+              "22110",
+              "2580",
+              "25110"
+            ]
+          },
+          {
+            "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-11-m2b-cpu",
+            "name": "M2B_CPU",
+            "type": "m2_storage",
+            "interface_generation": 4,
+            "lane_width": 4,
+            "connected_to": "CPU",
+            "supported_sizes": [
+              "2280",
+              "22110"
+            ]
+          },
+          {
+            "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-11-m2q-sb",
+            "name": "M2Q_SB",
+            "type": "m2_storage",
+            "interface_generation": 4,
+            "lane_width": 4,
+            "connected_to": "Chipset",
+            "supported_sizes": [
+              "2280",
+              "22110",
+              "2580",
+              "25110"
+            ]
+          },
+          {
+            "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-11-m2m-sb",
+            "name": "M2M_SB",
+            "type": "m2_storage",
+            "interface_generation": 4,
+            "lane_width": 4,
+            "connected_to": "Chipset",
+            "supported_sizes": [
+              "2280",
+              "22110"
+            ],
+            "notes": [
+              "SATAモード対応"
+            ]
+          }
+        ],
+        "usb_ports": [
+          {
+            "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-11-usb-01",
+            "location": "rear",
+            "official_standard": "Thunderbolt 4 / USB4",
+            "connector_type": "Type-C",
+            "usb_max_speed_gbps": 20,
+            "port_count": 1,
+            "alternate_protocols": [
+              "Thunderbolt 4: 40Gbps",
+              "DisplayPort Alt Mode"
+            ]
+          },
+          {
+            "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-11-usb-02",
+            "location": "rear",
+            "official_standard": "USB 3.2 Gen 2",
+            "connector_type": "Type-A",
+            "usb_max_speed_gbps": 10,
+            "port_count": 2
+          },
+          {
+            "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-11-usb-03",
+            "location": "rear",
+            "official_standard": "USB 3.2 Gen 1",
+            "connector_type": "Type-A",
+            "usb_max_speed_gbps": 5,
+            "port_count": 3
+          },
+          {
+            "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-11-usb-04",
+            "location": "rear",
+            "official_standard": "USB 2.0",
+            "connector_type": "Type-A",
+            "usb_max_speed_gbps": 0.48,
+            "port_count": 4
+          },
+          {
+            "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-11-usb-05",
+            "location": "front_header",
+            "official_standard": "USB 3.2 Gen 2",
+            "connector_type": "Type-C",
+            "usb_max_speed_gbps": 10,
+            "port_count": 1
+          }
+        ]
+      }
+    },
+    {
+      "category": "motherboard",
+      "id": "motherboard-asrock-z890-steel-legend-wifi",
+      "brand": "ASRock",
+      "model": "Z890 Steel Legend WiFi",
+      "display_name": "ASRock Z890 Steel Legend WiFi",
+      "identifiers": {
+        "part_numbers": [
+          "Z890 Steel Legend WiFi"
+        ]
+      },
+      "aliases": [
+        "Z890 Steel Legend WiFi"
+      ],
+      "quality": {
+        "status": "research_required",
+        "tier": "unrated",
+        "summary": "メーカー公式仕様を構造化。独立検証前のため品質Tierは未評価。",
+        "weaknesses": [
+          "独立レビューによるVRM温度・メモリ互換性は未確認",
+          "国内代理店・国内保証条件は未確認",
+          "BIOSバージョン別のCPU対応状況は購入前確認が必要"
+        ],
+        "risk_summary": "Thunderbolt映像出力にはCPU内蔵GPUなど構成条件がある。Windows 11でのWi-Fi 7要件も確認が必要",
+        "strengths": [],
+        "risk_flags": [
+          "display_output_condition"
+        ],
+        "reviewed_at": null,
+        "evidence": [
+          {
+            "id": "motherboard-asrock-z890-steel-legend-wifi-official-specs",
+            "kind": "manufacturer",
+            "title": "ASRock Z890 Steel Legend WiFi 公式仕様",
+            "url": "https://www.asrock.com/mb/Intel/Z890%20Steel%20Legend%20WiFi/",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "brand",
+              "model",
+              "display_name",
+              "identifiers.part_numbers",
+              "specs.release_date_precision",
+              "specs.socket",
+              "specs.chipset",
+              "specs.memory_type",
+              "specs.form_factor",
+              "specs.cpu_support_scope",
+              "specs.memory_slots",
+              "specs.max_memory_gb",
+              "specs.jedec_max_mt_s",
+              "specs.memory_oc_max_mt_s",
+              "specs.memory_profile_support",
+              "specs.ecc_support",
+              "specs.vrm_design",
+              "specs.power_stage_rating_a",
+              "specs.eps_connectors",
+              "specs.primary_pcie_generation",
+              "specs.primary_pcie_lanes",
+              "specs.pcie_x16_physical_slots",
+              "specs.m2_slots",
+              "specs.pcie5_m2_slots",
+              "specs.sata_ports",
+              "specs.lane_sharing_severity",
+              "specs.lan_speed_gbps",
+              "specs.lan_controller",
+              "specs.wifi_generation",
+              "specs.wifi_controller",
+              "specs.bluetooth_version",
+              "specs.audio_codec",
+              "specs.rear_usb_total_count",
+              "specs.rear_usb_type_a_count",
+              "specs.rear_usb_type_c_count",
+              "specs.rear_usb_fastest_gbps",
+              "specs.rear_usb4_type_c_count",
+              "specs.rear_usb_official_summary",
+              "specs.front_usb_c_header_count",
+              "specs.front_usb_c_max_speed_gbps",
+              "specs.bios_flashback",
+              "specs.clear_cmos_button",
+              "specs.dual_bios",
+              "specs.debug_features",
+              "specs.fan_headers_total",
+              "specs.pump_capable_headers"
+            ],
+            "reviewer": "Codex",
+            "notes": "CPU・メモリ・拡張・ネットワーク・背面I/Oのメーカー公称仕様を確認。国内保証と独立実測は含まない。"
+          },
+          {
+            "id": "motherboard-asrock-z890-steel-legend-wifi-official-layout",
+            "kind": "manufacturer",
+            "title": "ASRock Z890 Steel Legend WiFi 公式製品ページ／マニュアル",
+            "url": "https://download.asrock.com/Manual/Z890%20Steel%20Legend%20WiFi.pdf",
+            "checked_at": "2026-07-16",
+            "supports": [
+              "specs.slots",
+              "specs.usb_ports"
+            ],
+            "reviewer": "Codex",
+            "notes": "物理スロット、M.2接続、レーン共有、USB端子構成を構造化するために参照。"
+          }
+        ],
+        "risks": [
+          {
+            "id": "motherboard-asrock-z890-steel-legend-wifi-thunderbolt-display",
+            "flag": "display_output_condition",
+            "severity": "low",
+            "status": "open",
+            "summary": "Thunderbolt映像出力はCPU内蔵GPUなど構成条件に依存する。",
+            "workaround": "映像出力目的ではCPUの内蔵GPU有無と配線条件を確認する。",
+            "evidence_id": "motherboard-asrock-z890-steel-legend-wifi-official-layout",
+            "first_checked_at": "2026-07-16",
+            "last_checked_at": "2026-07-16"
+          }
+        ]
+      },
+      "notes": [
+        "メーカー公式仕様を初期登録。ASIN・JAN・価格.com ID、国内保証は未確認です。購入監視へ採用する前に販売ページの完全型番、基板リビジョン、付属品、状態、保証を照合してください。"
+      ],
+      "specs": {
+        "release_date_precision": "unknown",
+        "socket": "LGA1851",
+        "chipset": "Z890",
+        "memory_type": "DDR5",
+        "form_factor": "ATX",
+        "cpu_support_scope": [
+          "Intel Core Ultra Processors (Series 2)"
+        ],
+        "memory_slots": 4,
+        "max_memory_gb": 256,
+        "jedec_max_mt_s": 5600,
+        "memory_oc_max_mt_s": 9466,
+        "memory_profile_support": [
+          "Intel XMP 3.0"
+        ],
+        "ecc_support": "non-ECC only",
+        "vrm_design": "18+1+1+1+1 phase power design",
+        "power_stage_rating_a": 80,
+        "eps_connectors": "2x8-pin",
+        "primary_pcie_generation": 5,
+        "primary_pcie_lanes": 16,
+        "pcie_x16_physical_slots": 2,
+        "m2_slots": 4,
+        "pcie5_m2_slots": 1,
+        "sata_ports": 4,
+        "lane_sharing_severity": "none",
+        "lan_speed_gbps": 2.5,
+        "lan_controller": "Realtek RTL8125BG",
+        "wifi_generation": "Wi-Fi 7",
+        "wifi_controller": "Intel Wi-Fi 7 module",
+        "bluetooth_version": "5.4",
+        "audio_codec": "Realtek ALC1220",
+        "rear_usb_total_count": 10,
+        "rear_usb_type_a_count": 8,
+        "rear_usb_type_c_count": 2,
+        "rear_usb_fastest_gbps": 40,
+        "rear_usb4_type_c_count": 2,
+        "rear_usb_official_summary": "Thunderbolt 4 / USB4 Type-C x2（40Gbps）\nUSB 3.2 Gen 2 Type-A x2\nUSB 3.2 Gen 1 Type-A x4\nUSB 2.0 Type-A x2",
+        "front_usb_c_header_count": 1,
+        "front_usb_c_max_speed_gbps": 20,
+        "bios_flashback": true,
+        "clear_cmos_button": false,
+        "dual_bios": false,
+        "debug_features": [
+          "Post Status Checker (PSC)"
+        ],
+        "fan_headers_total": 8,
+        "pump_capable_headers": 1,
+        "slots": [
+          {
+            "id": "motherboard-asrock-z890-steel-legend-wifi-pcie1",
+            "name": "PCIE1",
+            "type": "pcie_expansion",
+            "interface_generation": 5,
+            "lane_width": 16,
+            "connected_to": "CPU"
+          },
+          {
+            "id": "motherboard-asrock-z890-steel-legend-wifi-pcie2",
+            "name": "PCIE2",
+            "type": "pcie_expansion",
+            "interface_generation": 4,
+            "lane_width": 4,
+            "connected_to": "Chipset",
+            "notes": [
+              "物理x16スロット"
+            ]
+          },
+          {
+            "id": "motherboard-asrock-z890-steel-legend-wifi-pcie3",
+            "name": "PCIE3",
+            "type": "pcie_expansion",
+            "interface_generation": 4,
+            "lane_width": 4,
+            "connected_to": "Chipset"
+          },
+          {
+            "id": "motherboard-asrock-z890-steel-legend-wifi-m2-1",
+            "name": "M2_1",
+            "type": "m2_storage",
+            "interface_generation": 5,
+            "lane_width": 4,
+            "connected_to": "CPU",
+            "supported_sizes": [
+              "2280"
+            ]
+          },
+          {
+            "id": "motherboard-asrock-z890-steel-legend-wifi-m2-2",
+            "name": "M2_2",
+            "type": "m2_storage",
+            "interface_generation": 4,
+            "lane_width": 4,
+            "connected_to": "CPU",
+            "supported_sizes": [
+              "2280"
+            ]
+          },
+          {
+            "id": "motherboard-asrock-z890-steel-legend-wifi-m2-3",
+            "name": "M2_3",
+            "type": "m2_storage",
+            "interface_generation": 4,
+            "lane_width": 4,
+            "connected_to": "Chipset",
+            "supported_sizes": [
+              "2280"
+            ],
+            "notes": [
+              "SATAモード対応"
+            ]
+          },
+          {
+            "id": "motherboard-asrock-z890-steel-legend-wifi-m2-4",
+            "name": "M2_4",
+            "type": "m2_storage",
+            "interface_generation": 4,
+            "lane_width": 4,
+            "connected_to": "Chipset",
+            "supported_sizes": [
+              "2230",
+              "2242",
+              "2260",
+              "2280"
+            ]
+          }
+        ],
+        "usb_ports": [
+          {
+            "id": "motherboard-asrock-z890-steel-legend-wifi-usb-01",
+            "location": "rear",
+            "official_standard": "Thunderbolt 4 / USB4",
+            "connector_type": "Type-C",
+            "usb_max_speed_gbps": 40,
+            "port_count": 2,
+            "alternate_protocols": [
+              "Thunderbolt 4: 40Gbps",
+              "DisplayPort Alt Mode"
+            ]
+          },
+          {
+            "id": "motherboard-asrock-z890-steel-legend-wifi-usb-02",
+            "location": "rear",
+            "official_standard": "USB 3.2 Gen 2",
+            "connector_type": "Type-A",
+            "usb_max_speed_gbps": 10,
+            "port_count": 2
+          },
+          {
+            "id": "motherboard-asrock-z890-steel-legend-wifi-usb-03",
+            "location": "rear",
+            "official_standard": "USB 3.2 Gen 1",
+            "connector_type": "Type-A",
+            "usb_max_speed_gbps": 5,
+            "port_count": 4
+          },
+          {
+            "id": "motherboard-asrock-z890-steel-legend-wifi-usb-04",
+            "location": "rear",
+            "official_standard": "USB 2.0",
+            "connector_type": "Type-A",
+            "usb_max_speed_gbps": 0.48,
+            "port_count": 2
+          },
+          {
+            "id": "motherboard-asrock-z890-steel-legend-wifi-usb-05",
+            "location": "front_header",
+            "official_standard": "USB 3.2 Gen 2x2",
+            "connector_type": "Type-C",
+            "usb_max_speed_gbps": 20,
+            "port_count": 1
+          }
+        ]
+      }
     }
   ]
 }

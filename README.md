@@ -153,7 +153,7 @@ python3 catalog_excel.py check
 
 `validate` はExcelの列定義、型、必須値、参照関係と生成予定JSONを検証します。`build` は検証成功後だけ `catalog/quality_catalog.json` を更新し、`check` はExcelと既存JSONの同期状態を確認します。JSONを直接編集せず、Excelから一方向に生成してください。生成後のJSON自体は従来どおり `python3 quality_catalog.py validate` でも検証できます。
 
-Excelはカテゴリ別に `CPU`、`GPU`、`GPUChips`、`Memory`、`SSD`、`PSU`、`Motherboard`、`Monitor` シートを持ちます。`GPUChips` は見失わないよう `GPU` の直後へ配置し、GPUチップの性能・VRAMを管理します。`GPU` はボードメーカー別の完全SKUと品質を管理します。主要ASIN・JAN・価格.com ID・部品番号と、人間向けの品質要約は販売製品側のカテゴリシートへまとめています。追加識別子、根拠資料、既知の問題はそれぞれ `Identifiers`、`Evidence`、`Risks` に1件1行で登録します。
+Excelはカテゴリ別に `CPU`、`GPU`、`GPUChips`、`Memory`、`SSD`、`PSU`、`Motherboard`、`Monitor` シートを持ちます。`GPUChips` は見失わないよう `GPU` の直後へ配置し、GPUチップの性能・VRAMを管理します。`GPU` はボードメーカー別の完全SKUと品質を管理します。`Motherboard` の直後には、可変長のPCIe/M.2接続を管理する `MotherboardSlots` と、USB規格・端子形状・本数を管理する `MotherboardUSB` を配置しています。主要ASIN・JAN・価格.com ID・部品番号と、人間向けの品質要約は販売製品側のカテゴリシートへまとめています。追加識別子、根拠資料、既知の問題はそれぞれ `Identifiers`、`Evidence`、`Risks` に1件1行で登録します。
 
 `CPU` シートには、デスクトップ向けRyzen 5000シリーズ以降とIntel Core第12世代以降（Core Ultra 200Sを含む）の主要製品を初期登録しています。公式の発売日または発売時期、コア構成、アーキテクチャに加え、PassMarkの `CPU Mark` と `Single Thread Rating` を確認日付きで保持します。PassMark値は継続的に変動する参考指標なので、根拠行のURLと `passmark_checked_at` をセットで更新してください。日単位の発売日を公式資料で確定できない製品は `release_date` を空欄にし、`launch_period` と `release_date_precision` に四半期または月の精度を記録します。
 
@@ -169,6 +169,10 @@ CPUの初期行はすべて `research_required` / `unrated` です。性能値�
 
 `Memory` シートには、Corsair、G.SKILL、Kingston、CrucialのDDR5-6000およびDDR4-3200〜3600の32GB/64GBデュアルチャネルキットを完全型番単位で初期登録しています。容量、枚数、XMP/EXPOなどのOCプロファイル適用時の公称速度、未適用時の標準SPD/JEDEC速度、CASレイテンシ、EXPO対応、確認できた高さ、定格電圧、保証区分を保持します。初期行はすべて `research_required` / `unrated` で、ASIN・JAN・国内流通保証、独立レビュー、使用予定マザーボードのQVLを確認するまでは自動監視の承認対象になりません。DRAM IC、ランク、基板リビジョンは同一型番でも変更される場合があるため、公式資料でリビジョンまで特定できた情報だけを記録し、推測値は入力しません。
 
+`Motherboard` シートには、AM5のB650、LGA1700のZ790、LGA1851のZ890から10製品を正式モデル・基板リビジョン単位で初期登録しています。CPU対応範囲、JEDEC/OCメモリ速度、VRM公称構成、PCIe/M.2/SATA集計、LAN・Wi-Fi・Bluetooth・オーディオ、BIOS更新機能、背面USB集計を検索できます。GIGABYTEのように同名でも基板リビジョンで無線LANコントローラーが変わる製品は別の `product_id` とし、販売ページの型番だけで統合しません。初期値はメーカー公式仕様のみを構造化した `research_required` / `unrated` で、VRM温度、メモリ互換性、国内代理店・保証は独立に確認するまで空欄または未評価のままです。
+
+PCIe拡張スロットとM.2は `MotherboardSlots` へ1スロット1行で登録します。`connected_to`、`shared_with`、`sharing_effect`、`availability_condition` により、CPU世代で変わるレーン幅、M.2装着時の排他、物理スロットと実レーン数の違いを保持します。USBは `MotherboardUSB` へ公式仕様の同一グループごとに1行で登録し、`location`、`official_standard`、`usb_max_speed_gbps`、`connector_type`、`port_count` を分離します。Thunderboltの40GbpsとUSB4としての最大速度が異なる場合、USB速度は `usb_max_speed_gbps`、ThunderboltやDisplayPortは `alternate_protocols` に記録します。JSON生成時には両子シートを親製品の `specs.slots` / `specs.usb_ports` へ結合し、背面USBの総数、Type-A/C数、USB4 Type-C数、最速値が親シートの集計と一致しなければ検証エラーになります。
+
 仕様項目は後から追加できます。
 
 1. カテゴリシートのExcelテーブル内へ新しい列を追加する
@@ -176,7 +180,7 @@ CPUの初期行はすべて `research_required` / `unrated` です。性能値�
 3. `json_path` を `specs.追加項目名`、`data_type` を適切な型にする
 4. `python3 catalog_excel.py validate` と `build` を実行する
 
-`FieldDefinitions` が列名からJSONパスと型を解決するため、`specs` 配下の項目追加ではPythonコードやJSON Schemaの変更は不要です。未定義列や定義だけ存在する列は検証エラーになり、入力の取りこぼしを防ぎます。カテゴリ自体を増やす場合は `SheetDefinitions` にも1行追加します。
+`FieldDefinitions` が列名からJSONパスと型を解決するため、カテゴリ親シートの `specs` 配下の項目追加ではPythonコードやJSON Schemaの変更は不要です。未定義列や定義だけ存在する列は検証エラーになり、入力の取りこぼしを防ぎます。カテゴリ自体を増やす場合は `SheetDefinitions` にも1行追加します。`MotherboardSlots` と `MotherboardUSB` は可変長の子テーブルとして専用変換されるため、行の追加はExcelだけで可能ですが、子テーブル自体へ列を追加する場合は `catalog_excel.py` の必須列・変換定義と検証も更新してください。
 
 JSON Schemaは `catalog/quality_catalog.schema.json` にあります。製品レコードの記入例は `catalog/example_product.json` です。記入例は実在製品ではないため、そのままカタログへ登録しないでください。
 

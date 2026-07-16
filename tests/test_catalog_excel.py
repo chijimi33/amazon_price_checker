@@ -410,6 +410,124 @@ class CatalogExcelTest(unittest.TestCase):
                 )
             )
 
+    def test_motherboard_catalog_contains_normalized_slots_and_usb(self):
+        result = build_catalog_from_workbook(WORKBOOK)
+        self.assertEqual(result.errors, [])
+        products = {
+            product["id"]: product
+            for product in result.catalog["products"]
+            if product["category"] == "motherboard"
+        }
+        self.assertEqual(len(products), 10)
+
+        asus_b650 = products["motherboard-asus-tuf-gaming-b650-plus-wifi"]
+        self.assertEqual(asus_b650["specs"]["m2_slots"], 3)
+        self.assertEqual(asus_b650["specs"]["rear_usb_total_count"], 8)
+        self.assertEqual(len(asus_b650["specs"]["slots"]), 7)
+        self.assertEqual(len(asus_b650["specs"]["usb_ports"]), 5)
+        self.assertIn("lane_sharing", asus_b650["quality"]["risk_flags"])
+        self.assertGreaterEqual(len(asus_b650["quality"]["evidence"]), 2)
+
+        gigabyte_10 = products[
+            "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-10"
+        ]
+        gigabyte_11 = products[
+            "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-11"
+        ]
+        self.assertEqual(gigabyte_10["specs"]["wifi_controller"], "MediaTek MT7925")
+        self.assertEqual(gigabyte_11["specs"]["wifi_controller"], "Realtek RTL8922AE")
+        gigabyte_usb4 = next(
+            port
+            for port in gigabyte_10["specs"]["usb_ports"]
+            if port["location"] == "rear" and "USB4" in port["official_standard"]
+        )
+        self.assertEqual(gigabyte_usb4["usb_max_speed_gbps"], 20)
+        self.assertIn("Thunderbolt 4: 40Gbps", gigabyte_usb4["alternate_protocols"])
+
+        asrock_z890 = products["motherboard-asrock-z890-steel-legend-wifi"]
+        self.assertEqual(asrock_z890["specs"]["rear_usb_fastest_gbps"], 40)
+        self.assertEqual(asrock_z890["specs"]["rear_usb4_type_c_count"], 2)
+
+    def test_motherboard_child_sheets_are_visible_and_adjacent(self):
+        workbook = load_workbook(WORKBOOK, data_only=False, read_only=False)
+        names = workbook.sheetnames
+        motherboard_index = names.index("Motherboard")
+        self.assertEqual(names[motherboard_index + 1], "MotherboardSlots")
+        self.assertEqual(names[motherboard_index + 2], "MotherboardUSB")
+        self.assertEqual(workbook["MotherboardSlots"].sheet_state, "visible")
+        self.assertEqual(workbook["MotherboardUSB"].sheet_state, "visible")
+        self.assertEqual(
+            workbook["MotherboardSlots"].tables["MotherboardSlotsCatalog"].ref,
+            "A4:M111",
+        )
+        self.assertEqual(
+            workbook["MotherboardUSB"].tables["MotherboardUSBCatalog"].ref,
+            "A4:J104",
+        )
+
+    def test_motherboard_usb_parent_aggregate_mismatch_is_rejected(self):
+        temporary, path = self.copy_workbook()
+        try:
+            workbook = load_workbook(path)
+            sheet = workbook["Motherboard"]
+            _, (min_col, min_row, max_col, _) = table_geometry(
+                sheet,
+                "MotherboardCatalog",
+            )
+            headers = {
+                str(sheet.cell(min_row, column).value): column
+                for column in range(min_col, max_col + 1)
+            }
+            total_column = headers["rear_usb_total_count"]
+            sheet.cell(min_row + 1, total_column).value += 1
+            workbook.save(path)
+
+            result = build_catalog_from_workbook(path)
+            self.assertTrue(
+                any(
+                    "MotherboardUSB集計" in error
+                    and "rear_usb_total_count" in error
+                    for error in result.errors
+                )
+            )
+        finally:
+            temporary.cleanup()
+
+    def test_motherboard_child_enums_are_rejected_when_unknown(self):
+        temporary, path = self.copy_workbook()
+        try:
+            workbook = load_workbook(path)
+            slots = workbook["MotherboardSlots"]
+            _, (slot_min_col, slot_header_row, slot_max_col, _) = table_geometry(
+                slots,
+                "MotherboardSlotsCatalog",
+            )
+            slot_headers = {
+                str(slots.cell(slot_header_row, column).value): column
+                for column in range(slot_min_col, slot_max_col + 1)
+            }
+            slots.cell(slot_header_row + 1, slot_headers["slot_type"]).value = "unknown"
+
+            usb = workbook["MotherboardUSB"]
+            _, (usb_min_col, usb_header_row, usb_max_col, _) = table_geometry(
+                usb,
+                "MotherboardUSBCatalog",
+            )
+            usb_headers = {
+                str(usb.cell(usb_header_row, column).value): column
+                for column in range(usb_min_col, usb_max_col + 1)
+            }
+            usb.cell(usb_header_row + 1, usb_headers["connector_type"]).value = "Type-X"
+            workbook.save(path)
+
+            result = build_catalog_from_workbook(path)
+            self.assertTrue(any("slot_type: 未対応値" in error for error in result.errors))
+            self.assertTrue(
+                any("connector_type: 未対応値" in error for error in result.errors)
+            )
+        finally:
+            temporary.cleanup()
+
     def test_new_spec_column_is_mapped_without_converter_change(self):
         temporary, path = self.copy_workbook()
         try:

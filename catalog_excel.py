@@ -43,6 +43,10 @@ SUPPORTED_DATA_TYPES = {
     "json",
 }
 PATH_PATTERN = re.compile(r"^[A-Za-z][A-Za-z0-9_]*(?:\.[A-Za-z][A-Za-z0-9_]*)*$")
+MOTHERBOARD_SLOT_TYPES = {"pcie_expansion", "m2_storage"}
+MOTHERBOARD_SLOT_CONNECTIONS = {"CPU", "Chipset", "CPU/Chipset"}
+MOTHERBOARD_USB_LOCATIONS = {"rear", "front_header"}
+MOTHERBOARD_USB_CONNECTORS = {"Type-A", "Type-C"}
 
 
 class ExcelCatalogError(ValueError):
@@ -212,6 +216,261 @@ def product_defaults(product: dict[str, Any]) -> None:
     quality.setdefault("risk_flags", [])
     quality.setdefault("reviewed_at", None)
     quality.setdefault("evidence", [])
+
+
+def attach_motherboard_children(
+    workbook: Any,
+    products_by_id: dict[str, dict[str, Any]],
+    errors: list[str],
+) -> None:
+    """Attach normalized motherboard slot and USB rows to their parent products."""
+    slot_headers, slot_rows = table_records(
+        workbook, "MotherboardSlots", "MotherboardSlotsCatalog"
+    )
+    require_columns(
+        "MotherboardSlots",
+        slot_headers,
+        [
+            "slot_record_id",
+            "product_id",
+            "slot_name",
+            "slot_type",
+            "interface_generation",
+            "lane_width",
+            "connected_to",
+            "supported_sizes",
+            "heatsink",
+            "shared_with",
+            "sharing_effect",
+            "availability_condition",
+            "notes",
+        ],
+    )
+    slot_ids: set[str] = set()
+    for row in slot_rows:
+        location = row_label("MotherboardSlots", row)
+        slot_id = clean_string(row.get("slot_record_id"))
+        product_id = clean_string(row.get("product_id"))
+        slot_name = clean_string(row.get("slot_name"))
+        slot_type = clean_string(row.get("slot_type"))
+        if not slot_id or not product_id or not slot_name or not slot_type:
+            errors.append(
+                f"{location}: slot_record_id・product_id・slot_name・slot_typeは必須です"
+            )
+            continue
+        if slot_type not in MOTHERBOARD_SLOT_TYPES:
+            errors.append(
+                f"{location}.slot_type: 未対応値です: {slot_type} "
+                f"({', '.join(sorted(MOTHERBOARD_SLOT_TYPES))})"
+            )
+            continue
+        if slot_id in slot_ids:
+            errors.append(f"Motherboard slot IDが重複しています: {slot_id}")
+            continue
+        slot_ids.add(slot_id)
+        product = products_by_id.get(product_id)
+        if product is None:
+            errors.append(f"{location}: 未登録のproduct_idです: {product_id}")
+            continue
+        if product.get("category") != "motherboard":
+            errors.append(f"{location}: motherboardカテゴリのproduct_idではありません")
+            continue
+        slot: dict[str, Any] = {
+            "id": slot_id,
+            "name": slot_name,
+            "type": slot_type,
+        }
+        for source, target, data_type in (
+            ("interface_generation", "interface_generation", "integer"),
+            ("lane_width", "lane_width", "integer"),
+            ("connected_to", "connected_to", "string"),
+            ("supported_sizes", "supported_sizes", "string_list"),
+            ("heatsink", "heatsink", "boolean"),
+            ("shared_with", "shared_with", "string_list"),
+            ("sharing_effect", "sharing_effect", "string"),
+            ("availability_condition", "availability_condition", "string"),
+            ("notes", "notes", "string_list"),
+        ):
+            if is_blank(row.get(source)):
+                continue
+            try:
+                value = convert_value(row[source], data_type)
+            except (TypeError, ValueError) as exc:
+                errors.append(f"{location}.{source}: {exc}")
+                continue
+            if target in {"interface_generation", "lane_width"} and value <= 0:
+                errors.append(f"{location}.{source}: 1以上の整数を入力してください")
+                continue
+            if target == "connected_to" and value not in MOTHERBOARD_SLOT_CONNECTIONS:
+                errors.append(
+                    f"{location}.{source}: 未対応値です: {value} "
+                    f"({', '.join(sorted(MOTHERBOARD_SLOT_CONNECTIONS))})"
+                )
+                continue
+            slot[target] = value
+        product["specs"].setdefault("slots", []).append(slot)
+
+    usb_headers, usb_rows = table_records(
+        workbook, "MotherboardUSB", "MotherboardUSBCatalog"
+    )
+    require_columns(
+        "MotherboardUSB",
+        usb_headers,
+        [
+            "usb_record_id",
+            "product_id",
+            "location",
+            "official_standard",
+            "usb_max_speed_gbps",
+            "connector_type",
+            "port_count",
+            "alternate_protocols",
+            "features",
+            "notes",
+        ],
+    )
+    usb_ids: set[str] = set()
+    for row in usb_rows:
+        location = row_label("MotherboardUSB", row)
+        usb_id = clean_string(row.get("usb_record_id"))
+        product_id = clean_string(row.get("product_id"))
+        port_location = clean_string(row.get("location"))
+        standard = clean_string(row.get("official_standard"))
+        connector_type = clean_string(row.get("connector_type"))
+        if (
+            not usb_id
+            or not product_id
+            or not port_location
+            or not standard
+            or not connector_type
+        ):
+            errors.append(
+                f"{location}: usb_record_id・product_id・location・official_standard・"
+                "connector_typeは必須です"
+            )
+            continue
+        if port_location not in MOTHERBOARD_USB_LOCATIONS:
+            errors.append(
+                f"{location}.location: 未対応値です: {port_location} "
+                f"({', '.join(sorted(MOTHERBOARD_USB_LOCATIONS))})"
+            )
+            continue
+        if connector_type not in MOTHERBOARD_USB_CONNECTORS:
+            errors.append(
+                f"{location}.connector_type: 未対応値です: {connector_type} "
+                f"({', '.join(sorted(MOTHERBOARD_USB_CONNECTORS))})"
+            )
+            continue
+        if usb_id in usb_ids:
+            errors.append(f"Motherboard USB IDが重複しています: {usb_id}")
+            continue
+        usb_ids.add(usb_id)
+        product = products_by_id.get(product_id)
+        if product is None:
+            errors.append(f"{location}: 未登録のproduct_idです: {product_id}")
+            continue
+        if product.get("category") != "motherboard":
+            errors.append(f"{location}: motherboardカテゴリのproduct_idではありません")
+            continue
+        usb: dict[str, Any] = {
+            "id": usb_id,
+            "location": port_location,
+            "official_standard": standard,
+            "connector_type": connector_type,
+        }
+        for source, target, data_type in (
+            ("usb_max_speed_gbps", "usb_max_speed_gbps", "number"),
+            ("port_count", "port_count", "integer"),
+            ("alternate_protocols", "alternate_protocols", "string_list"),
+            ("features", "features", "string_list"),
+            ("notes", "notes", "string_list"),
+        ):
+            if is_blank(row.get(source)):
+                if source == "port_count":
+                    errors.append(f"{location}.port_count は必須です")
+                continue
+            try:
+                value = convert_value(row[source], data_type)
+            except (TypeError, ValueError) as exc:
+                errors.append(f"{location}.{source}: {exc}")
+                continue
+            if target == "port_count" and value <= 0:
+                errors.append(f"{location}.port_count: 1以上の整数を入力してください")
+                continue
+            if target == "usb_max_speed_gbps" and value <= 0:
+                errors.append(
+                    f"{location}.usb_max_speed_gbps: 0より大きい数値を入力してください"
+                )
+                continue
+            usb[target] = value
+        product["specs"].setdefault("usb_ports", []).append(usb)
+
+
+def validate_motherboard_usb_aggregates(
+    products: list[dict[str, Any]], errors: list[str]
+) -> None:
+    """Verify parent-sheet USB totals against normalized rear-I/O rows."""
+    for product in products:
+        if product.get("category") != "motherboard":
+            continue
+        specs = product.get("specs") or {}
+        rear = [
+            row
+            for row in specs.get("usb_ports") or []
+            if clean_string(row.get("location")).casefold() == "rear"
+        ]
+        if not rear:
+            continue
+        bad_connectors = sorted(
+            {
+                clean_string(row.get("connector_type"))
+                for row in rear
+                if clean_string(row.get("connector_type")) not in {"Type-A", "Type-C"}
+            }
+        )
+        if bad_connectors:
+            errors.append(
+                f"{product['id']}.specs.usb_ports: 背面USBのconnector_typeはType-A/Type-Cのみです: "
+                + ", ".join(bad_connectors)
+            )
+            continue
+        if any(not isinstance(row.get("port_count"), int) for row in rear):
+            errors.append(f"{product['id']}.specs.usb_ports: 背面USBのport_countが未入力です")
+            continue
+        expected = {
+            "rear_usb_total_count": sum(row["port_count"] for row in rear),
+            "rear_usb_type_a_count": sum(
+                row["port_count"] for row in rear if row["connector_type"] == "Type-A"
+            ),
+            "rear_usb_type_c_count": sum(
+                row["port_count"] for row in rear if row["connector_type"] == "Type-C"
+            ),
+            "rear_usb4_type_c_count": sum(
+                row["port_count"]
+                for row in rear
+                if row["connector_type"] == "Type-C"
+                and "usb4" in clean_string(row.get("official_standard")).casefold()
+            ),
+        }
+        speeds = [
+            row.get("usb_max_speed_gbps")
+            for row in rear
+            if isinstance(row.get("usb_max_speed_gbps"), (int, float))
+            and not isinstance(row.get("usb_max_speed_gbps"), bool)
+        ]
+        if len(speeds) != len(rear):
+            errors.append(
+                f"{product['id']}.specs.usb_ports: 背面USBのusb_max_speed_gbpsが未入力です"
+            )
+        else:
+            expected["rear_usb_fastest_gbps"] = max(speeds)
+        for key, expected_value in expected.items():
+            actual = specs.get(key)
+            if actual != expected_value:
+                errors.append(
+                    f"{product['id']}.specs.{key}: MotherboardUSB集計は"
+                    f"{expected_value}ですがMotherboard値は{actual!r}です"
+                )
 
 
 def build_catalog_from_workbook(path: Path) -> BuildResult:
@@ -398,6 +657,9 @@ def build_catalog_from_workbook(path: Path) -> BuildResult:
             }
         )
         specs["gpu_chip"] = chip_snapshot
+
+    attach_motherboard_children(workbook, products_by_id, errors)
+    validate_motherboard_usb_aggregates(products, errors)
 
     identifier_headers, identifier_rows = table_records(
         workbook, "Identifiers", "IdentifiersCatalog"
