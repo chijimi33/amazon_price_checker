@@ -139,13 +139,72 @@ class CatalogExcelTest(unittest.TestCase):
             for validation in workbook["GPU"].data_validations.dataValidation
         }
 
-        self.assertIn(("W5:X24", '"true,false"'), validations)
-        self.assertIn(("AA5:AA24", "'Lists'!$P$5:$P$8"), validations)
-        self.assertIn(("AD5:AD24", "'Lists'!$R$5:$R$9"), validations)
-        self.assertIn(("AE5:AE24", "'Lists'!$Q$5:$Q$9"), validations)
-        self.assertNotIn(("V5:V24", "'Lists'!$P$5:$P$8"), validations)
-        self.assertNotIn(("X5:X24", "'Lists'!$R$5:$R$9"), validations)
-        self.assertNotIn(("Y5:Y24", "'Lists'!$Q$5:$Q$9"), validations)
+        self.assertIn(("W5:X104", '"true,false"'), validations)
+        self.assertIn(("AA5:AA104", "'Lists'!$P$5:$P$8"), validations)
+        self.assertIn(("AD5:AD104", "'Lists'!$R$5:$R$9"), validations)
+        self.assertIn(("AE5:AE104", "'Lists'!$Q$5:$Q$9"), validations)
+        self.assertNotIn(("V5:V104", "'Lists'!$P$5:$P$8"), validations)
+        self.assertNotIn(("X5:X104", "'Lists'!$R$5:$R$9"), validations)
+        self.assertNotIn(("Y5:Y104", "'Lists'!$Q$5:$Q$9"), validations)
+
+    def test_gpu_board_catalog_contains_initial_exact_skus(self):
+        result = build_catalog_from_workbook(WORKBOOK)
+        self.assertEqual(result.errors, [])
+        products = {
+            product["id"]: product
+            for product in result.catalog["products"]
+            if product["category"] == "gpu"
+        }
+        self.assertGreaterEqual(len(products), 20)
+        self.assertTrue(
+            {"ASUS", "MSI", "GIGABYTE", "SAPPHIRE", "PowerColor", "ASRock"}
+            .issubset({product["brand"] for product in products.values()})
+        )
+
+        generations = {
+            product["specs"]["gpu_chip"]["generation"]
+            for product in products.values()
+        }
+        self.assertTrue(
+            {
+                "GeForce RTX 20 Series",
+                "GeForce RTX 30 Series",
+                "GeForce RTX 40 Series",
+                "GeForce RTX 50 Series",
+                "Radeon RX 6000 Series",
+                "Radeon RX 7000 Series",
+                "Radeon RX 9000 Series",
+            }.issubset(generations)
+        )
+
+        asus = products["gpu-asus-dual-rtx3060-o12g-v2"]
+        self.assertEqual(
+            asus["identifiers"]["part_numbers"],
+            ["DUAL-RTX3060-O12G-V2"],
+        )
+        self.assertEqual(asus["specs"]["revision"], "V2")
+        self.assertEqual(asus["specs"]["length_mm"], 200)
+
+        sapphire = products["gpu-sapphire-11348-03-20g"]
+        self.assertEqual(sapphire["specs"]["fan_count"], 3)
+        self.assertEqual(sapphire["specs"]["slot_width"], 3)
+        self.assertEqual(sapphire["specs"]["power_connector_standard"], "2x8pin")
+        self.assertEqual(sapphire["specs"]["tdp_w"], 304)
+
+        msi = products["gpu-msi-g5070-12gtc"]
+        self.assertEqual(msi["identifiers"]["part_numbers"], ["G5070-12GTC"])
+        self.assertEqual(msi["specs"]["gpu_chip"]["vram_gb"], 12)
+        self.assertEqual(msi["specs"]["power_connector_standard"], "12V-2x6")
+
+        for product in products.values():
+            self.assertEqual(product["quality"]["status"], "research_required")
+            self.assertEqual(product["quality"]["tier"], "unrated")
+            self.assertTrue(
+                any(
+                    evidence["kind"] == "manufacturer"
+                    for evidence in product["quality"]["evidence"]
+                )
+            )
 
     def test_gpu_board_resolves_normalized_chip_specs(self):
         temporary, path = self.copy_workbook()
