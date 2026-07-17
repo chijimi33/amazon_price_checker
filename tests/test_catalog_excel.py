@@ -422,11 +422,36 @@ class CatalogExcelTest(unittest.TestCase):
 
         asus_b650 = products["motherboard-asus-tuf-gaming-b650-plus-wifi"]
         self.assertEqual(asus_b650["specs"]["m2_slots"], 3)
+        self.assertEqual(asus_b650["specs"]["m2_heatsink_slots"], 3)
         self.assertEqual(asus_b650["specs"]["rear_usb_total_count"], 8)
         self.assertEqual(len(asus_b650["specs"]["slots"]), 7)
         self.assertEqual(len(asus_b650["specs"]["usb_ports"]), 5)
+        self.assertTrue(
+            all(
+                slot["heatsink"]
+                for slot in asus_b650["specs"]["slots"]
+                if slot["type"] == "m2_storage"
+            )
+        )
         self.assertIn("lane_sharing", asus_b650["quality"]["risk_flags"])
         self.assertGreaterEqual(len(asus_b650["quality"]["evidence"]), 2)
+
+        gigabyte_b650 = products[
+            "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-10"
+        ]
+        self.assertEqual(gigabyte_b650["specs"]["pcie_x16_physical_slots"], 3)
+        physical_x16_electrical_x1 = [
+            slot
+            for slot in gigabyte_b650["specs"]["slots"]
+            if slot["name"] in {"PCIEX1_1", "PCIEX1_2"}
+        ]
+        self.assertEqual(len(physical_x16_electrical_x1), 2)
+        self.assertTrue(
+            all(
+                "物理x16長スロット（電気x1）" in slot["notes"]
+                for slot in physical_x16_electrical_x1
+            )
+        )
 
         gigabyte_10 = products[
             "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-10"
@@ -447,6 +472,25 @@ class CatalogExcelTest(unittest.TestCase):
         asrock_z890 = products["motherboard-asrock-z890-steel-legend-wifi"]
         self.assertEqual(asrock_z890["specs"]["rear_usb_fastest_gbps"], 40)
         self.assertEqual(asrock_z890["specs"]["rear_usb4_type_c_count"], 2)
+        self.assertEqual(asrock_z890["specs"]["pump_capable_headers"], 7)
+        self.assertEqual(asrock_z890["specs"]["m2_heatsink_slots"], 3)
+
+        for product in products.values():
+            m2_slots = [
+                slot
+                for slot in product["specs"]["slots"]
+                if slot["type"] == "m2_storage"
+            ]
+            self.assertEqual(product["specs"]["m2_slots"], len(m2_slots))
+            self.assertEqual(
+                product["specs"]["pcie5_m2_slots"],
+                sum(slot["interface_generation"] == 5 for slot in m2_slots),
+            )
+            self.assertTrue(all(isinstance(slot.get("heatsink"), bool) for slot in m2_slots))
+            self.assertEqual(
+                product["specs"]["m2_heatsink_slots"],
+                sum(slot["heatsink"] for slot in m2_slots),
+            )
 
     def test_motherboard_child_sheets_are_visible_and_adjacent(self):
         workbook = load_workbook(WORKBOOK, data_only=False, read_only=False)
@@ -490,6 +534,73 @@ class CatalogExcelTest(unittest.TestCase):
                     for error in result.errors
                 )
             )
+        finally:
+            temporary.cleanup()
+
+    def test_motherboard_front_usb_parent_aggregate_mismatch_is_rejected(self):
+        temporary, path = self.copy_workbook()
+        try:
+            workbook = load_workbook(path)
+            sheet = workbook["MotherboardUSB"]
+            _, (min_col, min_row, max_col, max_row) = table_geometry(
+                sheet,
+                "MotherboardUSBCatalog",
+            )
+            headers = {
+                str(sheet.cell(min_row, column).value): column
+                for column in range(min_col, max_col + 1)
+            }
+            for row in range(min_row + 1, max_row + 1):
+                if (
+                    sheet.cell(row, headers["product_id"]).value
+                    == "motherboard-asus-tuf-gaming-b650-plus-wifi"
+                    and sheet.cell(row, headers["location"]).value == "front_header"
+                    and sheet.cell(row, headers["connector_type"]).value == "Type-C"
+                ):
+                    sheet.cell(row, headers["usb_max_speed_gbps"]).value = 10
+                    break
+            else:
+                self.fail("ASUS B650のフロントUSB Type-C行が見つかりません")
+            workbook.save(path)
+
+            result = build_catalog_from_workbook(path)
+            self.assertTrue(
+                any(
+                    "MotherboardUSB集計" in error
+                    and "front_usb_c_max_speed_gbps" in error
+                    for error in result.errors
+                )
+            )
+        finally:
+            temporary.cleanup()
+
+    def test_motherboard_m2_parent_aggregate_mismatches_are_rejected(self):
+        temporary, path = self.copy_workbook()
+        try:
+            workbook = load_workbook(path)
+            sheet = workbook["Motherboard"]
+            _, (min_col, min_row, max_col, _) = table_geometry(
+                sheet,
+                "MotherboardCatalog",
+            )
+            headers = {
+                str(sheet.cell(min_row, column).value): column
+                for column in range(min_col, max_col + 1)
+            }
+            for key in ("m2_slots", "pcie5_m2_slots", "m2_heatsink_slots"):
+                cell = sheet.cell(min_row + 1, headers[key])
+                cell.value += 1
+            workbook.save(path)
+
+            result = build_catalog_from_workbook(path)
+            for key in ("m2_slots", "pcie5_m2_slots", "m2_heatsink_slots"):
+                with self.subTest(key=key):
+                    self.assertTrue(
+                        any(
+                            "MotherboardSlots集計" in error and key in error
+                            for error in result.errors
+                        )
+                    )
         finally:
             temporary.cleanup()
 

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-07-16",
+  "updated_at": "2026-07-17",
   "settings": {
     "quality_tier_order": [
       "unrated",
@@ -19500,6 +19500,7 @@
         "m2_slots": 3,
         "pcie5_m2_slots": 1,
         "sata_ports": 4,
+        "m2_heatsink_slots": 3,
         "lane_sharing_severity": "medium",
         "lan_speed_gbps": 2.5,
         "lan_controller": "Realtek 2.5Gb Ethernet",
@@ -19572,6 +19573,7 @@
               "2260",
               "2280"
             ],
+            "heatsink": true,
             "availability_condition": "CPU構成で接続世代・利用可否を確認"
           },
           {
@@ -19587,6 +19589,7 @@
               "2280",
               "22110"
             ],
+            "heatsink": true,
             "availability_condition": "Ryzen 8000系ではx4またはx2。22110対応条件は公式仕様参照"
           },
           {
@@ -19601,6 +19604,7 @@
               "2260",
               "2280"
             ],
+            "heatsink": true,
             "shared_with": [
               "PCIEX16_2"
             ],
@@ -19809,6 +19813,7 @@
         "m2_slots": 3,
         "pcie5_m2_slots": 0,
         "sata_ports": 6,
+        "m2_heatsink_slots": 2,
         "lane_sharing_severity": "medium",
         "lan_speed_gbps": 2.5,
         "lan_controller": "Realtek RTL8125BG",
@@ -19872,7 +19877,8 @@
             "supported_sizes": [
               "2280",
               "22110"
-            ]
+            ],
+            "heatsink": true
           },
           {
             "id": "motherboard-msi-mag-b650-tomahawk-wifi-m2-2",
@@ -19885,6 +19891,7 @@
               "2260",
               "2280"
             ],
+            "heatsink": false,
             "availability_condition": "Ryzen 8500/8300系では使用不可"
           },
           {
@@ -19898,6 +19905,7 @@
               "2260",
               "2280"
             ],
+            "heatsink": true,
             "shared_with": [
               "PCI_E2"
             ],
@@ -20093,10 +20101,11 @@
         "eps_connectors": "1x8-pin + 1x4-pin",
         "primary_pcie_generation": 4,
         "primary_pcie_lanes": 16,
-        "pcie_x16_physical_slots": 1,
+        "pcie_x16_physical_slots": 3,
         "m2_slots": 3,
         "pcie5_m2_slots": 1,
         "sata_ports": 4,
+        "m2_heatsink_slots": 3,
         "lane_sharing_severity": "low",
         "lan_speed_gbps": 2.5,
         "lan_controller": "Realtek 2.5Gb Ethernet",
@@ -20134,7 +20143,10 @@
             "type": "pcie_expansion",
             "interface_generation": 3,
             "lane_width": 1,
-            "connected_to": "Chipset"
+            "connected_to": "Chipset",
+            "notes": [
+              "物理x16長スロット（電気x1）"
+            ]
           },
           {
             "id": "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-10-pciex1-2",
@@ -20142,7 +20154,10 @@
             "type": "pcie_expansion",
             "interface_generation": 3,
             "lane_width": 1,
-            "connected_to": "Chipset"
+            "connected_to": "Chipset",
+            "notes": [
+              "物理x16長スロット（電気x1）"
+            ]
           },
           {
             "id": "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-10-m2a-cpu",
@@ -20157,6 +20172,7 @@
               "2580",
               "25110"
             ],
+            "heatsink": true,
             "availability_condition": "CPU構成で世代・レーン幅が変化"
           },
           {
@@ -20172,6 +20188,7 @@
               "2580",
               "25110"
             ],
+            "heatsink": true,
             "availability_condition": "CPU構成でレーン幅が変化"
           },
           {
@@ -20186,7 +20203,8 @@
               "22110",
               "2580",
               "25110"
-            ]
+            ],
+            "heatsink": true
           }
         ],
         "usb_ports": [
@@ -20378,10 +20396,11 @@
         "eps_connectors": "1x8-pin + 1x4-pin",
         "primary_pcie_generation": 4,
         "primary_pcie_lanes": 16,
-        "pcie_x16_physical_slots": 1,
+        "pcie_x16_physical_slots": 3,
         "m2_slots": 3,
         "pcie5_m2_slots": 1,
         "sata_ports": 4,
+        "m2_heatsink_slots": 3,
         "lane_sharing_severity": "low",
         "lan_speed_gbps": 2.5,
         "lan_controller": "Realtek 2.5Gb Ethernet",
@@ -20419,7 +20438,10 @@
             "type": "pcie_expansion",
             "interface_generation": 3,
             "lane_width": 1,
-            "connected_to": "Chipset"
+            "connected_to": "Chipset",
+            "notes": [
+              "物理x16長スロット（電気x1）"
+            ]
           },
           {
             "id": "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-11-pciex1-2",
@@ -20427,7 +20449,10 @@
             "type": "pcie_expansion",
             "interface_generation": 3,
             "lane_width": 1,
-            "connected_to": "Chipset"
+            "connected_to": "Chipset",
+            "notes": [
+              "物理x16長スロット（電気x1）"
+            ]
           },
           {
             "id": "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-11-m2a-cpu",
@@ -20442,6 +20467,7 @@
               "2580",
               "25110"
             ],
+            "heatsink": true,
             "availability_condition": "CPU構成で世代・レーン幅が変化"
           },
           {
@@ -20457,6 +20483,7 @@
               "2580",
               "25110"
             ],
+            "heatsink": true,
             "availability_condition": "CPU構成でレーン幅が変化"
           },
           {
@@ -20471,7 +20498,8 @@
               "22110",
               "2580",
               "25110"
-            ]
+            ],
+            "heatsink": true
           }
         ],
         "usb_ports": [
@@ -20664,6 +20692,7 @@
         "m2_slots": 3,
         "pcie5_m2_slots": 1,
         "sata_ports": 4,
+        "m2_heatsink_slots": 1,
         "lane_sharing_severity": "low",
         "lan_speed_gbps": 2.5,
         "lan_controller": "Realtek RTL8125BG",
@@ -20719,7 +20748,8 @@
             "supported_sizes": [
               "2260",
               "2280"
-            ]
+            ],
+            "heatsink": true
           },
           {
             "id": "motherboard-asrock-b650m-pro-rs-wifi-m2-2",
@@ -20731,7 +20761,8 @@
             "supported_sizes": [
               "2260",
               "2280"
-            ]
+            ],
+            "heatsink": false
           },
           {
             "id": "motherboard-asrock-b650m-pro-rs-wifi-m2-3",
@@ -20743,7 +20774,8 @@
             "supported_sizes": [
               "2260",
               "2280"
-            ]
+            ],
+            "heatsink": false
           }
         ],
         "usb_ports": [
@@ -20920,6 +20952,7 @@
         "m2_slots": 4,
         "pcie5_m2_slots": 0,
         "sata_ports": 4,
+        "m2_heatsink_slots": 3,
         "lane_sharing_severity": "none",
         "lan_speed_gbps": 2.5,
         "lan_controller": "Intel 2.5Gb Ethernet",
@@ -20998,7 +21031,8 @@
               "2260",
               "2280",
               "22110"
-            ]
+            ],
+            "heatsink": true
           },
           {
             "id": "motherboard-asus-tuf-gaming-z790-plus-wifi-m2-2",
@@ -21011,7 +21045,8 @@
               "2242",
               "2260",
               "2280"
-            ]
+            ],
+            "heatsink": false
           },
           {
             "id": "motherboard-asus-tuf-gaming-z790-plus-wifi-m2-3",
@@ -21025,7 +21060,8 @@
               "2260",
               "2280",
               "22110"
-            ]
+            ],
+            "heatsink": true
           },
           {
             "id": "motherboard-asus-tuf-gaming-z790-plus-wifi-m2-4",
@@ -21039,6 +21075,7 @@
               "2260",
               "2280"
             ],
+            "heatsink": true,
             "notes": [
               "SATAモード対応"
             ]
@@ -21235,6 +21272,7 @@
         "m2_slots": 4,
         "pcie5_m2_slots": 0,
         "sata_ports": 7,
+        "m2_heatsink_slots": 4,
         "lane_sharing_severity": "none",
         "lan_speed_gbps": 2.5,
         "lan_controller": "Intel 2.5Gb Ethernet",
@@ -21298,7 +21336,8 @@
               "2260",
               "2280",
               "22110"
-            ]
+            ],
+            "heatsink": true
           },
           {
             "id": "motherboard-msi-mag-z790-tomahawk-wifi-m2-2",
@@ -21310,7 +21349,8 @@
             "supported_sizes": [
               "2260",
               "2280"
-            ]
+            ],
+            "heatsink": true
           },
           {
             "id": "motherboard-msi-mag-z790-tomahawk-wifi-m2-3",
@@ -21324,6 +21364,7 @@
               "2260",
               "2280"
             ],
+            "heatsink": true,
             "notes": [
               "SATAモード対応"
             ]
@@ -21339,7 +21380,8 @@
               "2242",
               "2260",
               "2280"
-            ]
+            ],
+            "heatsink": true
           }
         ],
         "usb_ports": [
@@ -21532,6 +21574,7 @@
         "m2_slots": 4,
         "pcie5_m2_slots": 1,
         "sata_ports": 4,
+        "m2_heatsink_slots": 4,
         "lane_sharing_severity": "low",
         "lan_speed_gbps": 2.5,
         "lan_controller": "Realtek 2.5Gb Ethernet",
@@ -21598,7 +21641,8 @@
               "22110",
               "2580",
               "25110"
-            ]
+            ],
+            "heatsink": true
           },
           {
             "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-10-m2b-cpu",
@@ -21610,7 +21654,8 @@
             "supported_sizes": [
               "2280",
               "22110"
-            ]
+            ],
+            "heatsink": true
           },
           {
             "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-10-m2q-sb",
@@ -21624,7 +21669,8 @@
               "22110",
               "2580",
               "25110"
-            ]
+            ],
+            "heatsink": true
           },
           {
             "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-10-m2m-sb",
@@ -21637,6 +21683,7 @@
               "2280",
               "22110"
             ],
+            "heatsink": true,
             "notes": [
               "SATAモード対応"
             ]
@@ -21836,6 +21883,7 @@
         "m2_slots": 4,
         "pcie5_m2_slots": 1,
         "sata_ports": 4,
+        "m2_heatsink_slots": 4,
         "lane_sharing_severity": "low",
         "lan_speed_gbps": 2.5,
         "lan_controller": "Realtek 2.5Gb Ethernet",
@@ -21902,7 +21950,8 @@
               "22110",
               "2580",
               "25110"
-            ]
+            ],
+            "heatsink": true
           },
           {
             "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-11-m2b-cpu",
@@ -21914,7 +21963,8 @@
             "supported_sizes": [
               "2280",
               "22110"
-            ]
+            ],
+            "heatsink": true
           },
           {
             "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-11-m2q-sb",
@@ -21928,7 +21978,8 @@
               "22110",
               "2580",
               "25110"
-            ]
+            ],
+            "heatsink": true
           },
           {
             "id": "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-11-m2m-sb",
@@ -21941,6 +21992,7 @@
               "2280",
               "22110"
             ],
+            "heatsink": true,
             "notes": [
               "SATAモード対応"
             ]
@@ -22138,6 +22190,7 @@
         "m2_slots": 4,
         "pcie5_m2_slots": 1,
         "sata_ports": 4,
+        "m2_heatsink_slots": 3,
         "lane_sharing_severity": "none",
         "lan_speed_gbps": 2.5,
         "lan_controller": "Realtek RTL8125BG",
@@ -22160,7 +22213,7 @@
           "Post Status Checker (PSC)"
         ],
         "fan_headers_total": 8,
-        "pump_capable_headers": 1,
+        "pump_capable_headers": 7,
         "slots": [
           {
             "id": "motherboard-asrock-z890-steel-legend-wifi-pcie1",
@@ -22198,7 +22251,8 @@
             "connected_to": "CPU",
             "supported_sizes": [
               "2280"
-            ]
+            ],
+            "heatsink": true
           },
           {
             "id": "motherboard-asrock-z890-steel-legend-wifi-m2-2",
@@ -22209,7 +22263,8 @@
             "connected_to": "CPU",
             "supported_sizes": [
               "2280"
-            ]
+            ],
+            "heatsink": false
           },
           {
             "id": "motherboard-asrock-z890-steel-legend-wifi-m2-3",
@@ -22221,6 +22276,7 @@
             "supported_sizes": [
               "2280"
             ],
+            "heatsink": true,
             "notes": [
               "SATAモード対応"
             ]
@@ -22237,7 +22293,8 @@
               "2242",
               "2260",
               "2280"
-            ]
+            ],
+            "heatsink": true
           }
         ],
         "usb_ports": [

@@ -1,5 +1,6 @@
 import copy
 import datetime as dt
+import json
 import unittest
 from pathlib import Path
 
@@ -148,10 +149,37 @@ class QualityCatalogTest(unittest.TestCase):
         self.assertEqual(warnings, [])
 
         repository_catalog = Path(__file__).parents[1] / "catalog" / "quality_catalog.json"
-        import json
-
         errors, _ = validate_catalog(json.loads(repository_catalog.read_text(encoding="utf-8")))
         self.assertEqual(errors, [])
+
+    def test_runtime_validation_rejects_motherboard_front_usb_aggregate_mismatch(self):
+        repository_catalog = Path(__file__).parents[1] / "catalog" / "quality_catalog.json"
+        catalog = json.loads(repository_catalog.read_text(encoding="utf-8"))
+        motherboard = next(
+            product for product in catalog["products"] if product["category"] == "motherboard"
+        )
+        motherboard["specs"]["front_usb_c_max_speed_gbps"] += 5
+
+        errors, _ = validate_catalog(catalog)
+        self.assertTrue(
+            any("front_usb_c_max_speed_gbps" in error and "usb_ports集計値" in error for error in errors)
+        )
+
+    def test_runtime_validation_rejects_motherboard_m2_aggregate_mismatches(self):
+        repository_catalog = Path(__file__).parents[1] / "catalog" / "quality_catalog.json"
+        catalog = json.loads(repository_catalog.read_text(encoding="utf-8"))
+        motherboard = next(
+            product for product in catalog["products"] if product["category"] == "motherboard"
+        )
+        for key in ("m2_slots", "pcie5_m2_slots", "m2_heatsink_slots"):
+            motherboard["specs"][key] += 1
+
+        errors, _ = validate_catalog(catalog)
+        for key in ("m2_slots", "pcie5_m2_slots", "m2_heatsink_slots"):
+            with self.subTest(key=key):
+                self.assertTrue(
+                    any(key in error and "slots集計値" in error for error in errors)
+                )
 
     def test_profile_evaluation_is_explainable(self):
         catalog = sample_catalog()

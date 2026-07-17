@@ -171,7 +171,7 @@ CPUの初期行はすべて `research_required` / `unrated` です。性能値�
 
 `Motherboard` シートには、AM5のB650、LGA1700のZ790、LGA1851のZ890から10製品を正式モデル・基板リビジョン単位で初期登録しています。CPU対応範囲、JEDEC/OCメモリ速度、VRM公称構成、PCIe/M.2/SATA集計、LAN・Wi-Fi・Bluetooth・オーディオ、BIOS更新機能、背面USB集計を検索できます。GIGABYTEのように同名でも基板リビジョンで無線LANコントローラーが変わる製品は別の `product_id` とし、販売ページの型番だけで統合しません。初期値はメーカー公式仕様のみを構造化した `research_required` / `unrated` で、VRM温度、メモリ互換性、国内代理店・保証は独立に確認するまで空欄または未評価のままです。
 
-PCIe拡張スロットとM.2は `MotherboardSlots` へ1スロット1行で登録します。`connected_to`、`shared_with`、`sharing_effect`、`availability_condition` により、CPU世代で変わるレーン幅、M.2装着時の排他、物理スロットと実レーン数の違いを保持します。USBは `MotherboardUSB` へ公式仕様の同一グループごとに1行で登録し、`location`、`official_standard`、`usb_max_speed_gbps`、`connector_type`、`port_count` を分離します。Thunderboltの40GbpsとUSB4としての最大速度が異なる場合、USB速度は `usb_max_speed_gbps`、ThunderboltやDisplayPortは `alternate_protocols` に記録します。JSON生成時には両子シートを親製品の `specs.slots` / `specs.usb_ports` へ結合し、背面USBの総数、Type-A/C数、USB4 Type-C数、最速値が親シートの集計と一致しなければ検証エラーになります。
+PCIe拡張スロットとM.2は `MotherboardSlots` へ1スロット1行で登録します。`connected_to`、`shared_with`、`sharing_effect`、`availability_condition` により、CPU世代で変わるレーン幅、M.2装着時の排他、物理スロットと実レーン数の違いを保持します。M.2の総数、PCIe 5.0対応数、ヒートシンク搭載数は親シートと子シートで相互検証します。USBは `MotherboardUSB` へ公式仕様の同一グループごとに1行で登録し、`location`、`official_standard`、`usb_max_speed_gbps`、`connector_type`、`port_count` を分離します。Thunderboltの40GbpsとUSB4としての最大速度が異なる場合、USB速度は `usb_max_speed_gbps`、ThunderboltやDisplayPortは `alternate_protocols` に記録します。JSON生成時には両子シートを親製品の `specs.slots` / `specs.usb_ports` へ結合し、背面USBの総数、Type-A/C数、USB4 Type-C数、最速値と、フロントUSB Type-Cヘッダー数・最大速度が親シートの集計と一致しなければ検証エラーになります。
 
 仕様項目は後から追加できます。
 

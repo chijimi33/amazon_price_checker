@@ -137,9 +137,10 @@ def validate_quality_gate(
 
 
 def validate_motherboard_specs(specs: dict[str, Any], location: str) -> list[str]:
-    """Validate normalized slot/USB children and rear-I/O aggregate fields."""
+    """Validate normalized children and their parent aggregate fields."""
     errors: list[str] = []
     slots = specs.get("slots")
+    m2_rows: list[dict[str, Any]] = []
     if slots is not None:
         if not isinstance(slots, list):
             errors.append(f"{location}.slots は配列である必要があります")
@@ -158,6 +159,8 @@ def validate_motherboard_specs(specs: dict[str, Any], location: str) -> list[str
                     errors.append(
                         f"{slot_location}.type は未対応です: {slot_type}"
                     )
+                elif slot_type == "m2_storage":
+                    m2_rows.append(slot)
                 connected_to = slot.get("connected_to")
                 if (
                     connected_to is not None
@@ -185,6 +188,37 @@ def validate_motherboard_specs(specs: dict[str, Any], location: str) -> list[str
                 if "heatsink" in slot and not isinstance(slot["heatsink"], bool):
                     errors.append(f"{slot_location}.heatsink は真偽値にしてください")
 
+    if m2_rows:
+        expected_slots: dict[str, int] = {"m2_slots": len(m2_rows)}
+        generations = [
+            slot.get("interface_generation")
+            for slot in m2_rows
+            if isinstance(slot.get("interface_generation"), int)
+            and not isinstance(slot.get("interface_generation"), bool)
+            and slot.get("interface_generation") > 0
+        ]
+        if len(generations) == len(m2_rows):
+            expected_slots["pcie5_m2_slots"] = sum(
+                generation == 5 for generation in generations
+            )
+        heatsinks = [
+            slot.get("heatsink")
+            for slot in m2_rows
+            if isinstance(slot.get("heatsink"), bool)
+        ]
+        if len(heatsinks) == len(m2_rows):
+            expected_slots["m2_heatsink_slots"] = sum(heatsinks)
+        elif specs.get("m2_heatsink_slots") is not None:
+            errors.append(
+                f"{location}.m2_heatsink_slots はslotsの全M.2 heatsinkを"
+                "真偽値で入力してから設定してください"
+            )
+        for key, expected_value in expected_slots.items():
+            if specs.get(key) != expected_value:
+                errors.append(
+                    f"{location}.{key} はslots集計値 {expected_value} と一致させてください"
+                )
+
     usb_ports = specs.get("usb_ports")
     if usb_ports is None:
         return errors
@@ -193,6 +227,7 @@ def validate_motherboard_specs(specs: dict[str, Any], location: str) -> list[str
         return errors
     usb_ids: set[str] = set()
     rear: list[dict[str, Any]] = []
+    front_type_c: list[dict[str, Any]] = []
     for index, port in enumerate(usb_ports):
         port_location = f"{location}.usb_ports[{index}]"
         if not isinstance(port, dict):
@@ -227,46 +262,82 @@ def validate_motherboard_specs(specs: dict[str, Any], location: str) -> list[str
                 errors.extend(validate_string_list(port[key], f"{port_location}.{key}"))
         if str(port.get("location") or "").strip().casefold() == "rear":
             rear.append(port)
+        elif (
+            str(port.get("location") or "").strip().casefold() == "front_header"
+            and str(port.get("connector_type") or "").strip() == "Type-C"
+        ):
+            front_type_c.append(port)
 
-    if not rear:
-        return errors
-    if any(
-        port.get("connector_type") not in MOTHERBOARD_USB_CONNECTORS
-        for port in rear
-    ):
-        errors.append(f"{location}.usb_ports の背面端子はType-A/Type-Cで入力してください")
-        return errors
-    if any(
+    if rear:
+        if any(
+            port.get("connector_type") not in MOTHERBOARD_USB_CONNECTORS
+            for port in rear
+        ):
+            errors.append(
+                f"{location}.usb_ports の背面端子はType-A/Type-Cで入力してください"
+            )
+        elif not any(
+            not isinstance(port.get("port_count"), int)
+            or isinstance(port.get("port_count"), bool)
+            or port.get("port_count") <= 0
+            or not isinstance(port.get("usb_max_speed_gbps"), (int, float))
+            or isinstance(port.get("usb_max_speed_gbps"), bool)
+            or port.get("usb_max_speed_gbps") <= 0
+            for port in rear
+        ):
+            expected_rear = {
+                "rear_usb_total_count": sum(port["port_count"] for port in rear),
+                "rear_usb_type_a_count": sum(
+                    port["port_count"]
+                    for port in rear
+                    if port["connector_type"] == "Type-A"
+                ),
+                "rear_usb_type_c_count": sum(
+                    port["port_count"]
+                    for port in rear
+                    if port["connector_type"] == "Type-C"
+                ),
+                "rear_usb_fastest_gbps": max(
+                    port["usb_max_speed_gbps"] for port in rear
+                ),
+                "rear_usb4_type_c_count": sum(
+                    port["port_count"]
+                    for port in rear
+                    if port["connector_type"] == "Type-C"
+                    and "usb4"
+                    in str(port.get("official_standard") or "").casefold()
+                ),
+            }
+            for key, expected_value in expected_rear.items():
+                if specs.get(key) != expected_value:
+                    errors.append(
+                        f"{location}.{key} はusb_ports集計値 "
+                        f"{expected_value} と一致させてください"
+                    )
+
+    if front_type_c and not any(
         not isinstance(port.get("port_count"), int)
         or isinstance(port.get("port_count"), bool)
         or port.get("port_count") <= 0
         or not isinstance(port.get("usb_max_speed_gbps"), (int, float))
         or isinstance(port.get("usb_max_speed_gbps"), bool)
         or port.get("usb_max_speed_gbps") <= 0
-        for port in rear
+        for port in front_type_c
     ):
-        return errors
-    expected = {
-        "rear_usb_total_count": sum(port["port_count"] for port in rear),
-        "rear_usb_type_a_count": sum(
-            port["port_count"] for port in rear if port["connector_type"] == "Type-A"
-        ),
-        "rear_usb_type_c_count": sum(
-            port["port_count"] for port in rear if port["connector_type"] == "Type-C"
-        ),
-        "rear_usb_fastest_gbps": max(port["usb_max_speed_gbps"] for port in rear),
-        "rear_usb4_type_c_count": sum(
-            port["port_count"]
-            for port in rear
-            if port["connector_type"] == "Type-C"
-            and "usb4" in str(port.get("official_standard") or "").casefold()
-        ),
-    }
-    for key, expected_value in expected.items():
-        if specs.get(key) != expected_value:
-            errors.append(
-                f"{location}.{key} はusb_ports集計値 {expected_value} と一致させてください"
-            )
+        expected_front = {
+            "front_usb_c_header_count": sum(
+                port["port_count"] for port in front_type_c
+            ),
+            "front_usb_c_max_speed_gbps": max(
+                port["usb_max_speed_gbps"] for port in front_type_c
+            ),
+        }
+        for key, expected_value in expected_front.items():
+            if specs.get(key) != expected_value:
+                errors.append(
+                    f"{location}.{key} はusb_ports集計値 "
+                    f"{expected_value} と一致させてください"
+                )
     return errors
 
 

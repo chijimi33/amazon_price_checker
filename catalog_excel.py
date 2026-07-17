@@ -406,69 +406,163 @@ def attach_motherboard_children(
         product["specs"].setdefault("usb_ports", []).append(usb)
 
 
-def validate_motherboard_usb_aggregates(
+def validate_motherboard_child_aggregates(
     products: list[dict[str, Any]], errors: list[str]
 ) -> None:
-    """Verify parent-sheet USB totals against normalized rear-I/O rows."""
+    """Verify motherboard parent totals against normalized slot/USB rows."""
     for product in products:
         if product.get("category") != "motherboard":
             continue
         specs = product.get("specs") or {}
+        product_id = product["id"]
+
+        m2_rows = [
+            row
+            for row in specs.get("slots") or []
+            if clean_string(row.get("type")) == "m2_storage"
+        ]
+        if m2_rows:
+            expected_slots: dict[str, int] = {"m2_slots": len(m2_rows)}
+            generations = [
+                row.get("interface_generation")
+                for row in m2_rows
+                if isinstance(row.get("interface_generation"), int)
+                and not isinstance(row.get("interface_generation"), bool)
+            ]
+            if len(generations) == len(m2_rows):
+                expected_slots["pcie5_m2_slots"] = sum(
+                    generation == 5 for generation in generations
+                )
+            heatsinks = [
+                row.get("heatsink")
+                for row in m2_rows
+                if isinstance(row.get("heatsink"), bool)
+            ]
+            if len(heatsinks) == len(m2_rows):
+                expected_slots["m2_heatsink_slots"] = sum(heatsinks)
+            elif specs.get("m2_heatsink_slots") is not None:
+                errors.append(
+                    f"{product_id}.specs.m2_heatsink_slots: MotherboardSlotsの"
+                    "M.2 heatsinkを全スロットTRUE/FALSEで入力してください"
+                )
+            for key, expected_value in expected_slots.items():
+                actual = specs.get(key)
+                if actual != expected_value:
+                    errors.append(
+                        f"{product_id}.specs.{key}: MotherboardSlots集計は"
+                        f"{expected_value}ですがMotherboard値は{actual!r}です"
+                    )
+
         rear = [
             row
             for row in specs.get("usb_ports") or []
             if clean_string(row.get("location")).casefold() == "rear"
         ]
-        if not rear:
-            continue
-        bad_connectors = sorted(
-            {
-                clean_string(row.get("connector_type"))
+        if rear:
+            bad_connectors = sorted(
+                {
+                    clean_string(row.get("connector_type"))
+                    for row in rear
+                    if clean_string(row.get("connector_type"))
+                    not in {"Type-A", "Type-C"}
+                }
+            )
+            if bad_connectors:
+                errors.append(
+                    f"{product_id}.specs.usb_ports: 背面USBのconnector_typeは"
+                    "Type-A/Type-Cのみです: " + ", ".join(bad_connectors)
+                )
+            elif any(
+                not isinstance(row.get("port_count"), int)
+                or isinstance(row.get("port_count"), bool)
                 for row in rear
-                if clean_string(row.get("connector_type")) not in {"Type-A", "Type-C"}
-            }
-        )
-        if bad_connectors:
+            ):
+                errors.append(
+                    f"{product_id}.specs.usb_ports: 背面USBのport_countが未入力です"
+                )
+            else:
+                expected_usb = {
+                    "rear_usb_total_count": sum(row["port_count"] for row in rear),
+                    "rear_usb_type_a_count": sum(
+                        row["port_count"]
+                        for row in rear
+                        if row["connector_type"] == "Type-A"
+                    ),
+                    "rear_usb_type_c_count": sum(
+                        row["port_count"]
+                        for row in rear
+                        if row["connector_type"] == "Type-C"
+                    ),
+                    "rear_usb4_type_c_count": sum(
+                        row["port_count"]
+                        for row in rear
+                        if row["connector_type"] == "Type-C"
+                        and "usb4"
+                        in clean_string(row.get("official_standard")).casefold()
+                    ),
+                }
+                speeds = [
+                    row.get("usb_max_speed_gbps")
+                    for row in rear
+                    if isinstance(row.get("usb_max_speed_gbps"), (int, float))
+                    and not isinstance(row.get("usb_max_speed_gbps"), bool)
+                ]
+                if len(speeds) != len(rear):
+                    errors.append(
+                        f"{product_id}.specs.usb_ports: 背面USBの"
+                        "usb_max_speed_gbpsが未入力です"
+                    )
+                else:
+                    expected_usb["rear_usb_fastest_gbps"] = max(speeds)
+                for key, expected_value in expected_usb.items():
+                    actual = specs.get(key)
+                    if actual != expected_value:
+                        errors.append(
+                            f"{product_id}.specs.{key}: MotherboardUSB集計は"
+                            f"{expected_value}ですがMotherboard値は{actual!r}です"
+                        )
+
+        front_type_c = [
+            row
+            for row in specs.get("usb_ports") or []
+            if clean_string(row.get("location")).casefold() == "front_header"
+            and clean_string(row.get("connector_type")) == "Type-C"
+        ]
+        if not front_type_c:
+            continue
+        if any(
+            not isinstance(row.get("port_count"), int)
+            or isinstance(row.get("port_count"), bool)
+            for row in front_type_c
+        ):
             errors.append(
-                f"{product['id']}.specs.usb_ports: 背面USBのconnector_typeはType-A/Type-Cのみです: "
-                + ", ".join(bad_connectors)
+                f"{product_id}.specs.usb_ports: フロントUSB Type-Cの"
+                "port_countが未入力です"
             )
             continue
-        if any(not isinstance(row.get("port_count"), int) for row in rear):
-            errors.append(f"{product['id']}.specs.usb_ports: 背面USBのport_countが未入力です")
-            continue
-        expected = {
-            "rear_usb_total_count": sum(row["port_count"] for row in rear),
-            "rear_usb_type_a_count": sum(
-                row["port_count"] for row in rear if row["connector_type"] == "Type-A"
-            ),
-            "rear_usb_type_c_count": sum(
-                row["port_count"] for row in rear if row["connector_type"] == "Type-C"
-            ),
-            "rear_usb4_type_c_count": sum(
-                row["port_count"]
-                for row in rear
-                if row["connector_type"] == "Type-C"
-                and "usb4" in clean_string(row.get("official_standard")).casefold()
-            ),
-        }
-        speeds = [
+        front_speeds = [
             row.get("usb_max_speed_gbps")
-            for row in rear
+            for row in front_type_c
             if isinstance(row.get("usb_max_speed_gbps"), (int, float))
             and not isinstance(row.get("usb_max_speed_gbps"), bool)
         ]
-        if len(speeds) != len(rear):
+        if len(front_speeds) != len(front_type_c):
             errors.append(
-                f"{product['id']}.specs.usb_ports: 背面USBのusb_max_speed_gbpsが未入力です"
+                f"{product_id}.specs.usb_ports: フロントUSB Type-Cの"
+                "usb_max_speed_gbpsが未入力です"
             )
-        else:
-            expected["rear_usb_fastest_gbps"] = max(speeds)
-        for key, expected_value in expected.items():
+            continue
+        expected_front = {
+            "front_usb_c_header_count": sum(
+                row["port_count"] for row in front_type_c
+            ),
+            "front_usb_c_max_speed_gbps": max(front_speeds),
+        }
+        for key, expected_value in expected_front.items():
             actual = specs.get(key)
             if actual != expected_value:
                 errors.append(
-                    f"{product['id']}.specs.{key}: MotherboardUSB集計は"
+                    f"{product_id}.specs.{key}: MotherboardUSB集計は"
                     f"{expected_value}ですがMotherboard値は{actual!r}です"
                 )
 
@@ -659,7 +753,7 @@ def build_catalog_from_workbook(path: Path) -> BuildResult:
         specs["gpu_chip"] = chip_snapshot
 
     attach_motherboard_children(workbook, products_by_id, errors)
-    validate_motherboard_usb_aggregates(products, errors)
+    validate_motherboard_child_aggregates(products, errors)
 
     identifier_headers, identifier_rows = table_records(
         workbook, "Identifiers", "IdentifiersCatalog"
