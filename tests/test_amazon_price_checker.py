@@ -4,14 +4,17 @@ import unittest
 from pathlib import Path
 
 from amazon_price_checker import (
+    DEFAULT_QUALITY_CATALOG,
     add_year_low,
     append_history,
     attach_quality_catalog_to_result,
+    build_arg_parser,
     build_chimolog_result,
     build_confirmation_result,
     build_result,
     extract_asin,
     load_config,
+    main,
     normalize_confirmations,
     select_primary_offer,
 )
@@ -320,6 +323,66 @@ class AmazonPriceCheckerTest(unittest.TestCase):
         self.assertEqual(product["payment"]["effective_price_yen"], 17500)
         self.assertEqual(product["quality_catalog"]["catalog_product_id"], "good-ssd")
         self.assertTrue(product["quality_catalog"]["automation_eligible"])
+
+    def test_quality_catalog_is_enabled_by_default_and_can_be_disabled(self):
+        default_args = build_arg_parser().parse_args([])
+        self.assertEqual(default_args.quality_catalog, DEFAULT_QUALITY_CATALOG)
+        self.assertFalse(default_args.no_quality_catalog)
+
+        disabled_args = build_arg_parser().parse_args(["--no-quality-catalog"])
+        self.assertTrue(disabled_args.no_quality_catalog)
+
+    def test_confirmation_only_main_attaches_default_quality_catalog(self):
+        with tempfile.TemporaryDirectory() as directory:
+            confirmation_path = Path(directory) / "confirmations.json"
+            output_path = Path(directory) / "output.json"
+            confirmation_path.write_text(
+                json.dumps({"items": [complete_confirmation()]}),
+                encoding="utf-8",
+            )
+            return_code = main(
+                [
+                    "--confirmation-only",
+                    "--confirmation-file",
+                    str(confirmation_path),
+                    "--no-history-write",
+                    "--output",
+                    str(output_path),
+                ]
+            )
+            self.assertEqual(return_code, 0)
+            result = json.loads(output_path.read_text(encoding="utf-8"))
+            self.assertTrue(result["quality_catalog"]["enabled"])
+            self.assertTrue(result["quality_catalog"]["loaded_by_default"])
+            self.assertEqual(
+                result["quality_catalog"]["catalog_path"],
+                str(DEFAULT_QUALITY_CATALOG),
+            )
+            self.assertIn("quality_catalog", result["products"][0])
+
+    def test_confirmation_only_main_records_explicit_catalog_opt_out(self):
+        with tempfile.TemporaryDirectory() as directory:
+            confirmation_path = Path(directory) / "confirmations.json"
+            output_path = Path(directory) / "output.json"
+            confirmation_path.write_text(
+                json.dumps({"items": [complete_confirmation()]}),
+                encoding="utf-8",
+            )
+            return_code = main(
+                [
+                    "--confirmation-only",
+                    "--confirmation-file",
+                    str(confirmation_path),
+                    "--no-quality-catalog",
+                    "--no-history-write",
+                    "--output",
+                    str(output_path),
+                ]
+            )
+            self.assertEqual(return_code, 0)
+            result = json.loads(output_path.read_text(encoding="utf-8"))
+            self.assertFalse(result["quality_catalog"]["enabled"])
+            self.assertNotIn("quality_catalog", result["products"][0])
 
     def test_chimolog_price_is_reference_only_until_product_page_confirmation(self):
         raw = {

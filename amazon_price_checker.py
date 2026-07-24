@@ -20,6 +20,7 @@ from pathlib import Path
 from typing import Any, Iterable
 
 from quality_catalog import (
+    DEFAULT_CATALOG as DEFAULT_QUALITY_CATALOG,
     attach_catalog_evaluation,
     load_catalog as load_quality_catalog,
     profile_by_id as quality_profile_by_id,
@@ -1109,6 +1110,7 @@ def attach_quality_catalog_to_result(
         matched += evaluation.get("match_status") == "matched"
         eligible += evaluation.get("automation_eligible") is True
     result["quality_catalog"] = {
+        "enabled": True,
         "schema_version": catalog.get("schema_version"),
         "catalog_updated_at": catalog.get("updated_at"),
         "selected_profile_ids": profile_ids or [],
@@ -1140,7 +1142,21 @@ def build_arg_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument("--confirmation-file", type=Path, help="Amazon公式商品ページの確認JSON")
     parser.add_argument("--history-file", type=Path, help="年内価格履歴JSONL（実行後に追記）")
-    parser.add_argument("--quality-catalog", type=Path, help="製品探索と監視で共有する品質カタログJSON")
+    quality_group = parser.add_mutually_exclusive_group()
+    quality_group.add_argument(
+        "--quality-catalog",
+        type=Path,
+        default=DEFAULT_QUALITY_CATALOG,
+        help=(
+            "製品探索と監視で共有する品質カタログJSON"
+            f"（既定: {DEFAULT_QUALITY_CATALOG}）"
+        ),
+    )
+    quality_group.add_argument(
+        "--no-quality-catalog",
+        action="store_true",
+        help="品質カタログの照合を明示的に無効化する",
+    )
     parser.add_argument(
         "--quality-profile",
         action="append",
@@ -1244,7 +1260,7 @@ def main(argv: list[str] | None = None) -> int:
                 confirmations=confirmations,
                 history=history,
             )
-        if args.quality_catalog:
+        if not args.no_quality_catalog:
             quality_as_of = None
             if args.quality_as_of:
                 try:
@@ -1257,6 +1273,16 @@ def main(argv: list[str] | None = None) -> int:
                 profile_ids=args.quality_profile,
                 as_of=quality_as_of,
             )
+            result["quality_catalog"]["catalog_path"] = str(args.quality_catalog)
+            result["quality_catalog"]["loaded_by_default"] = (
+                args.quality_catalog == DEFAULT_QUALITY_CATALOG
+            )
+        else:
+            result["quality_catalog"] = {
+                "enabled": False,
+                "disabled_reason": "--no-quality-catalog",
+                "rule": "品質カタログ照合は利用者が明示的に無効化",
+            }
         if args.history_file and not args.no_history_write:
             result["history_appended_count"] = append_history(args.history_file, result["products"])
     except (CheckerError, OSError, ValueError, TypeError, json.JSONDecodeError) as exc:
