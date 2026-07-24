@@ -113,6 +113,16 @@
       ],
       "additionalProperties": false
     },
+    "evidenceKind": {
+      "enum": [
+        "manufacturer",
+        "independent_review",
+        "technical_database",
+        "price_com",
+        "retailer",
+        "user_report"
+      ]
+    },
     "qualityGate": {
       "type": "object",
       "properties": {
@@ -138,7 +148,7 @@
         "required_evidence_kinds": {
           "type": "array",
           "items": {
-            "type": "string"
+            "$ref": "#/$defs/evidenceKind"
           }
         },
         "max_review_age_days": {
@@ -207,7 +217,7 @@
       ],
       "properties": {
         "kind": {
-          "type": "string"
+          "$ref": "#/$defs/evidenceKind"
         },
         "title": {
           "type": "string"

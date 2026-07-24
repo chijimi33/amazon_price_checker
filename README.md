@@ -169,9 +169,13 @@ CPUの初期行はすべて `research_required` / `unrated` です。性能値�
 
 `Memory` シートには、Corsair、G.SKILL、Kingston、CrucialのDDR5-6000およびDDR4-3200〜3600の32GB/64GBデュアルチャネルキットを完全型番単位で初期登録しています。容量、枚数、XMP/EXPOなどのOCプロファイル適用時の公称速度、未適用時の標準SPD/JEDEC速度、CASレイテンシ、EXPO対応、確認できた高さ、定格電圧、保証区分を保持します。初期行はすべて `research_required` / `unrated` で、ASIN・JAN・国内流通保証、独立レビュー、使用予定マザーボードのQVLを確認するまでは自動監視の承認対象になりません。DRAM IC、ランク、基板リビジョンは同一型番でも変更される場合があるため、公式資料でリビジョンまで特定できた情報だけを記録し、推測値は入力しません。
 
-`Motherboard` シートには、AM5のB650、LGA1700のZ790、LGA1851のZ890から10製品を正式モデル・基板リビジョン単位で初期登録しています。CPU対応範囲、JEDEC/OCメモリ速度、VRM公称構成、PCIe/M.2/SATA集計、LAN・Wi-Fi・Bluetooth・オーディオ、BIOS更新機能、背面USB集計を検索できます。GIGABYTEのように同名でも基板リビジョンで無線LANコントローラーが変わる製品は別の `product_id` とし、販売ページの型番だけで統合しません。初期値はメーカー公式仕様のみを構造化した `research_required` / `unrated` で、VRM温度、メモリ互換性、国内代理店・保証は独立に確認するまで空欄または未評価のままです。
+`SSD` シートには、2026-07-24時点で価格.comに販売価格が表示された内蔵SSDのうち、選定済みブランドの677製品を登録しています。外付けSSDと、Hanye、WINTEN、SPD、AGI、KOWIN、addlink、JNH、HI-DISC、Verbatimなど厳格な製品別確認が必要な候補は除外しています。容量、フォームファクター、PCIe世代、NAND種別、TBW、連続読込・書込速度など価格.com一覧で確認できた項目だけを初期入力し、DRAM、コントローラー、保証、部品一貫性、温度特性は推測しません。全行を `research_required` / `unrated` とし、メーカー公式仕様と独立検証を照合してから品質評価へ進めます。
 
-PCIe拡張スロットとM.2は `MotherboardSlots` へ1スロット1行で登録します。`connected_to`、`shared_with`、`sharing_effect`、`availability_condition` により、CPU世代で変わるレーン幅、M.2装着時の排他、物理スロットと実レーン数の違いを保持します。M.2の総数、PCIe 5.0対応数、ヒートシンク搭載数は親シートと子シートで相互検証します。USBは `MotherboardUSB` へ公式仕様の同一グループごとに1行で登録し、`location`、`official_standard`、`usb_max_speed_gbps`、`connector_type`、`port_count` を分離します。Thunderboltの40GbpsとUSB4としての最大速度が異なる場合、USB速度は `usb_max_speed_gbps`、ThunderboltやDisplayPortは `alternate_protocols` に記録します。JSON生成時には両子シートを親製品の `specs.slots` / `specs.usb_ports` へ結合し、背面USBの総数、Type-A/C数、USB4 Type-C数、最速値と、フロントUSB Type-Cヘッダー数・最大速度が親シートの集計と一致しなければ検証エラーになります。
+`PSU` シートには、2026-07-24時点で価格.comに販売価格が表示された選定ブランドの461製品を登録しています。ADATA、Lian Li、In Win、Enhanceを除外し、条件付き候補からはドスパラセレクトだけを採用しています。容量、ATX規格、12V-2x6、保護回路、寸法、価格.comに表示された80PLUS／Cybenetics情報を候補情報として保持しますが、80PLUS認証は230V効率Tierと混同しません。OEM、内部プラットフォーム、保証、電気性能、静音性は未確認のため、SSDと同様に全行を `research_required` / `unrated` としています。
+
+`Motherboard` シートは、2026-07-20時点で価格.comに掲載されているASRock、ASUS、GIGABYTE、MSIの516製品を母集団とし、対象ソケットをAM4、AM5、LGA1700、LGA1851へ限定した463製品を登録しています。内訳はASRock 143、ASUS 105、GIGABYTE 112、MSI 103、ソケット別ではAM4 46、AM5 220、LGA1700 86、LGA1851 111です。価格.com IDと掲載確認日を全製品に持たせ、技術仕様はメーカー公式ページを優先し、取得または構造化できない項目だけ価格.com仕様で補います。既存の高詳細データを含め、メーカー公式根拠を持つ製品は351件、価格.com仕様のみを補助採用した製品は112件です。全行を `research_required` / `unrated` とし、VRM温度、メモリ互換性、国内代理店・保証、販売ページの完全型番は独立に確認するまで未評価のままです。
+
+PCIe拡張スロットとM.2は `MotherboardSlots` へ1スロット1行、USBは `MotherboardUSB` へ公式仕様の同一グループごとに1行で登録します。463製品中453製品は両子シートまで構造化済みで、残る10製品は確認できる詳細仕様がないため推測せず空欄にしています。`connected_to`、`shared_with`、`sharing_effect`、`availability_condition` により、CPU世代で変わるレーン幅、M.2装着時の排他、物理スロットと実レーン数の違いを保持します。`location`、`official_standard`、`usb_max_speed_gbps`、`connector_type`、`port_count` は分離し、ThunderboltやDisplayPortは `alternate_protocols` に記録します。JSON生成時には両子シートを親製品の `specs.slots` / `specs.usb_ports` へ結合し、M.2集計、背面USBの総数・Type-A/C数・USB4 Type-C数・最速値、フロントUSB Type-Cヘッダー数・最大速度が親シートと一致しなければ検証エラーになります。
 
 仕様項目は後から追加できます。
 

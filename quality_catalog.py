@@ -41,6 +41,14 @@ QUALITY_STATUSES = {
     "rejected",
     "discontinued",
 }
+EVIDENCE_KINDS = {
+    "manufacturer",
+    "independent_review",
+    "technical_database",
+    "price_com",
+    "retailer",
+    "user_report",
+}
 MOTHERBOARD_SLOT_TYPES = {"pcie_expansion", "m2_storage"}
 MOTHERBOARD_SLOT_CONNECTIONS = {"CPU", "Chipset", "CPU/Chipset"}
 MOTHERBOARD_USB_LOCATIONS = {"rear", "front_header"}
@@ -122,6 +130,18 @@ def validate_quality_gate(
         )
         if unknown:
             errors.append(f"{location}.allowed_statuses に未対応値があります: {', '.join(unknown)}")
+    evidence_kinds = gate.get("required_evidence_kinds")
+    if isinstance(evidence_kinds, list):
+        unknown = sorted(
+            value
+            for value in evidence_kinds
+            if isinstance(value, str) and value not in EVIDENCE_KINDS
+        )
+        if unknown:
+            errors.append(
+                f"{location}.required_evidence_kinds に未対応値があります: "
+                f"{', '.join(unknown)}"
+            )
     minimum_tier = gate.get("minimum_tier")
     if minimum_tier is not None and (
         not isinstance(minimum_tier, str) or minimum_tier not in tier_order
@@ -508,6 +528,11 @@ def validate_catalog(catalog: dict[str, Any]) -> tuple[list[str], list[str]]:
             for key in ("kind", "title", "url", "checked_at"):
                 if not str(evidence.get(key) or "").strip():
                     errors.append(f"{evidence_location}.{key} は必須です")
+            evidence_kind = str(evidence.get("kind") or "").strip()
+            if evidence_kind and evidence_kind not in EVIDENCE_KINDS:
+                errors.append(
+                    f"{evidence_location}.kind は未対応です: {evidence_kind}"
+                )
             if evidence.get("checked_at") and parse_date(evidence.get("checked_at")) is None:
                 errors.append(f"{evidence_location}.checked_at はYYYY-MM-DD形式にしてください")
             parsed_url = urlparse(str(evidence.get("url") or ""))

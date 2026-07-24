@@ -35,7 +35,7 @@ def write_first_empty_row(sheet, table_name, values):
 
 
 def fill_minimum_ssd(workbook):
-    write_first_empty_row(
+    return write_first_empty_row(
         workbook["SSD"],
         "SSDCatalog",
         {
@@ -148,6 +148,108 @@ class CatalogExcelTest(unittest.TestCase):
         self.assertNotIn(("V5:V104", "'Lists'!$P$5:$P$8"), validations)
         self.assertNotIn(("X5:X104", "'Lists'!$R$5:$R$13"), validations)
         self.assertNotIn(("Y5:Y104", "'Lists'!$Q$5:$Q$9"), validations)
+
+    def test_expanded_tables_keep_input_rules_and_status_formatting(self):
+        workbook = load_workbook(WORKBOOK, data_only=False)
+        expected_validations = {
+            "CPU": {
+                ("J5:J136", "'Lists'!$A$5:$A$9", False),
+                ("K5:K136", "'Lists'!$B$5:$B$9", False),
+                ("R5:R136", "'Lists'!$N$5:$N$8", False),
+                ("X5:Z136", "'Lists'!$C$5:$C$6", False),
+                ("AA5:AA136", "'Lists'!$O$5:$O$8", False),
+                ("AF5:AF136", "'Lists'!$AM$5:$AM$8", False),
+            },
+            "SSD": {
+                ("J5:J701", "'Lists'!$A$5:$A$9", False),
+                ("K5:K701", "'Lists'!$B$5:$B$9", False),
+                ("S5:S701", "'Lists'!$U$5:$U$10", False),
+                ("U5:U701", "'Lists'!$V$5:$V$9", False),
+                ("V5:V701", "'Lists'!$C$5:$C$6", False),
+                ("W5:W701", "'Lists'!$W$5:$W$9", False),
+                ("Z5:Z701", "'Lists'!$X$5:$X$8", False),
+                ("AD5:AD701", "'Lists'!$C$5:$C$6", False),
+            },
+            "PSU": {
+                ("J5:J485", "'Lists'!$A$5:$A$9", False),
+                ("K5:K485", "'Lists'!$B$5:$B$9", False),
+                ("S5:S485", "'Lists'!$Y$5:$Y$8", False),
+                ("T5:T485", "'Lists'!$C$5:$C$6", False),
+                ("V5:V485", "'Lists'!$C$5:$C$6", False),
+                ("W5:W485", "'Lists'!$Z$5:$Z$9", False),
+                ("X5:X485", "'Lists'!$AA$5:$AA$10", False),
+                ("Y5:Y485", "'Lists'!$AB$5:$AB$9", False),
+                ("Z5:Z485", "'Lists'!$AC$5:$AC$7", False),
+                ("AB5:AB485", "'Lists'!$AD$5:$AD$7", False),
+            },
+            "Motherboard": {
+                ("J5:J487", "'Lists'!$A$5:$A$9", False),
+                ("K5:K487", "'Lists'!$B$5:$B$9", False),
+                ("T5:T487", "'Lists'!$AM$5:$AM$8", True),
+                ("V5:V487", "'Lists'!$N$5:$N$8", True),
+                ("X5:X487", "'Lists'!$S$5:$S$6", True),
+                ("Y5:Y487", "'Lists'!$AE$5:$AE$8", True),
+                ("AF5:AF487", "'Lists'!$AS$5:$AS$7", True),
+                ("AR5:AR487", "'Lists'!$AG$5:$AG$9", True),
+                ("AU5:AU487", "'Lists'!$AR$5:$AR$7", True),
+                ("BG5:BI487", "'Lists'!$C$5:$C$6", True),
+            },
+            "MotherboardSlots": {
+                ("B5:B2678", "'Motherboard'!$A$5:$A$487", False),
+                ("D5:D2678", "'Lists'!$AN$5:$AN$6", False),
+                ("G5:G2678", "'Lists'!$AO$5:$AO$7", True),
+                ("I5:I2678", "'Lists'!$C$5:$C$6", True),
+            },
+            "MotherboardUSB": {
+                ("B5:B1979", "'Motherboard'!$A$5:$A$487", False),
+                ("C5:C1979", "'Lists'!$AP$5:$AP$6", False),
+                ("F5:F1979", "'Lists'!$AQ$5:$AQ$6", False),
+            },
+            "Evidence": {
+                ("C5:C2391", "'Lists'!$D$5:$D$10", False),
+            },
+            "FieldDefinitions": {
+                ("D5:D317", "'Lists'!$G$5:$G$11", False),
+                ("E5:E317", "'Lists'!$C$5:$C$6", False),
+                ("I5:I317", "'Lists'!$C$5:$C$6", False),
+            },
+        }
+
+        for sheet_name, expected in expected_validations.items():
+            with self.subTest(sheet=sheet_name):
+                actual = {
+                    (
+                        str(validation.sqref),
+                        validation.formula1,
+                        bool(validation.allow_blank),
+                    )
+                    for validation in workbook[
+                        sheet_name
+                    ].data_validations.dataValidation
+                }
+                self.assertEqual(actual, expected)
+
+        expected_status_ranges = {
+            "CPU": "J5:J136",
+            "GPU": "J5:J104",
+            "GPUChips": "F5:F87",
+            "Memory": "J5:J24",
+            "SSD": "J5:J701",
+            "PSU": "J5:J485",
+            "Motherboard": "J5:J487",
+            "Monitor": "J5:J24",
+        }
+        for sheet_name, expected_range in expected_status_ranges.items():
+            with self.subTest(status_sheet=sheet_name):
+                ranges = {
+                    str(item.sqref)
+                    for item in workbook[sheet_name].conditional_formatting
+                }
+                self.assertIn(expected_range, ranges)
+                if expected_range not in {"J5:J24", "F5:F24"}:
+                    self.assertNotIn("J5:J24", ranges)
+
+        self.assertEqual(workbook["Lists"]["D10"].value, "price_com")
 
     def test_gpu_chip_sheet_is_visible_and_adjacent_to_gpu(self):
         workbook = load_workbook(WORKBOOK, data_only=False)
@@ -410,6 +512,68 @@ class CatalogExcelTest(unittest.TestCase):
                 )
             )
 
+    def test_ssd_and_psu_candidates_follow_selected_scope(self):
+        result = build_catalog_from_workbook(WORKBOOK)
+        self.assertEqual(result.errors, [])
+        ssd = [
+            product
+            for product in result.catalog["products"]
+            if product["category"] == "ssd"
+        ]
+        psu = [
+            product
+            for product in result.catalog["products"]
+            if product["category"] == "psu"
+        ]
+        self.assertEqual(len(ssd), 677)
+        self.assertEqual(len(psu), 461)
+
+        strict_ssd_brands = {
+            "Hanye",
+            "WINTEN",
+            "SPD",
+            "AGI",
+            "KOWIN",
+            "addlink",
+            "JNH",
+            "HI-DISC",
+            "Verbatim",
+            "IODATA",
+            "エレコム",
+            "ロジテック",
+        }
+        excluded_psu_brands = {
+            "ADATA",
+            "Lian Li",
+            "IN WIN",
+            "In Win",
+            "Enhance",
+            "Segotep",
+            "PCCOOLER",
+            "ZALMAN",
+            "Sharkoon",
+            "darkFlash",
+        }
+        self.assertFalse({product["brand"] for product in ssd} & strict_ssd_brands)
+        self.assertFalse({product["brand"] for product in psu} & excluded_psu_brands)
+        self.assertIn("ドスパラセレクト", {product["brand"] for product in psu})
+
+        for product in ssd + psu:
+            self.assertEqual(product["quality"]["status"], "research_required")
+            self.assertEqual(product["quality"]["tier"], "unrated")
+            self.assertTrue(product["identifiers"].get("kakaku_ids"))
+            self.assertTrue(
+                any(
+                    item["kind"] == "technical_database"
+                    and item["url"].startswith("https://kakaku.com/item/")
+                    for item in product["quality"]["evidence"]
+                )
+            )
+
+        workbook = load_workbook(WORKBOOK, data_only=False, read_only=False)
+        self.assertEqual(workbook["Search"]["B9"].value, "=COUNTA('SSD'!$A$5:$A$5000)")
+        self.assertEqual(workbook["Search"]["B10"].value, "=COUNTA('PSU'!$A$5:$A$5000)")
+
     def test_motherboard_catalog_contains_normalized_slots_and_usb(self):
         result = build_catalog_from_workbook(WORKBOOK)
         self.assertEqual(result.errors, [])
@@ -418,56 +582,51 @@ class CatalogExcelTest(unittest.TestCase):
             for product in result.catalog["products"]
             if product["category"] == "motherboard"
         }
-        self.assertEqual(len(products), 10)
-
-        asus_b650 = products["motherboard-asus-tuf-gaming-b650-plus-wifi"]
-        self.assertEqual(asus_b650["specs"]["m2_slots"], 3)
-        self.assertEqual(asus_b650["specs"]["m2_heatsink_slots"], 3)
-        self.assertEqual(asus_b650["specs"]["rear_usb_total_count"], 8)
-        self.assertEqual(len(asus_b650["specs"]["slots"]), 7)
-        self.assertEqual(len(asus_b650["specs"]["usb_ports"]), 5)
+        self.assertEqual(len(products), 463)
+        self.assertEqual(
+            {
+                brand: sum(product["brand"] == brand for product in products.values())
+                for brand in ("ASRock", "ASUS", "GIGABYTE", "MSI")
+            },
+            {"ASRock": 143, "ASUS": 105, "GIGABYTE": 112, "MSI": 103},
+        )
+        self.assertEqual(
+            {
+                socket: sum(
+                    product["specs"]["socket"] == socket
+                    for product in products.values()
+                )
+                for socket in ("AM4", "AM5", "LGA1700", "LGA1851")
+            },
+            {"AM4": 46, "AM5": 220, "LGA1700": 86, "LGA1851": 111},
+        )
+        self.assertTrue(
+            all(product["identifiers"].get("kakaku_ids") for product in products.values())
+        )
         self.assertTrue(
             all(
-                slot["heatsink"]
-                for slot in asus_b650["specs"]["slots"]
-                if slot["type"] == "m2_storage"
+                any(item["kind"] == "price_com" for item in product["quality"]["evidence"])
+                for product in products.values()
             )
         )
-        self.assertIn("lane_sharing", asus_b650["quality"]["risk_flags"])
-        self.assertGreaterEqual(len(asus_b650["quality"]["evidence"]), 2)
-
-        gigabyte_b650 = products[
-            "motherboard-gigabyte-b650-aorus-elite-ax-v2-rev-10"
-        ]
-        self.assertEqual(gigabyte_b650["specs"]["pcie_x16_physical_slots"], 3)
-        physical_x16_electrical_x1 = [
-            slot
-            for slot in gigabyte_b650["specs"]["slots"]
-            if slot["name"] in {"PCIEX1_1", "PCIEX1_2"}
-        ]
-        self.assertEqual(len(physical_x16_electrical_x1), 2)
-        self.assertTrue(
-            all(
-                "物理x16長スロット（電気x1）" in slot["notes"]
-                for slot in physical_x16_electrical_x1
-            )
+        self.assertEqual(
+            sum(
+                any(
+                    item["kind"] == "manufacturer"
+                    for item in product["quality"]["evidence"]
+                )
+                for product in products.values()
+            ),
+            351,
         )
 
-        gigabyte_10 = products[
-            "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-10"
-        ]
-        gigabyte_11 = products[
-            "motherboard-gigabyte-z890-aorus-elite-wifi7-rev-11"
-        ]
-        self.assertEqual(gigabyte_10["specs"]["wifi_controller"], "MediaTek MT7925")
-        self.assertEqual(gigabyte_11["specs"]["wifi_controller"], "Realtek RTL8922AE")
-        gigabyte_usb4 = next(
-            port
-            for port in gigabyte_10["specs"]["usb_ports"]
-            if port["location"] == "rear" and "USB4" in port["official_standard"]
-        )
-        self.assertEqual(gigabyte_usb4["usb_max_speed_gbps"], 20)
-        self.assertIn("Thunderbolt 4: 40Gbps", gigabyte_usb4["alternate_protocols"])
+        msi_b650 = products["motherboard-msi-mag-b650-tomahawk-wifi"]
+        self.assertEqual(msi_b650["specs"]["m2_slots"], 3)
+        self.assertEqual(msi_b650["specs"]["m2_heatsink_slots"], 2)
+        self.assertEqual(msi_b650["specs"]["rear_usb_total_count"], 10)
+        self.assertEqual(len(msi_b650["specs"]["slots"]), 6)
+        self.assertEqual(len(msi_b650["specs"]["usb_ports"]), 5)
+        self.assertIn("lane_sharing", msi_b650["quality"]["risk_flags"])
 
         asrock_z890 = products["motherboard-asrock-z890-steel-legend-wifi"]
         self.assertEqual(asrock_z890["specs"]["rear_usb_fastest_gbps"], 40)
@@ -475,22 +634,45 @@ class CatalogExcelTest(unittest.TestCase):
         self.assertEqual(asrock_z890["specs"]["pump_capable_headers"], 7)
         self.assertEqual(asrock_z890["specs"]["m2_heatsink_slots"], 3)
 
+        self.assertEqual(
+            sum(bool(product["specs"].get("slots")) for product in products.values()),
+            453,
+        )
+        self.assertEqual(
+            sum(bool(product["specs"].get("usb_ports")) for product in products.values()),
+            453,
+        )
+        self.assertEqual(
+            sum(len(product["specs"].get("slots", [])) for product in products.values()),
+            2634,
+        )
+        self.assertEqual(
+            sum(
+                len(product["specs"].get("usb_ports", []))
+                for product in products.values()
+            ),
+            1925,
+        )
+
         for product in products.values():
             m2_slots = [
                 slot
-                for slot in product["specs"]["slots"]
+                for slot in product["specs"].get("slots", [])
                 if slot["type"] == "m2_storage"
             ]
+            if not m2_slots:
+                continue
             self.assertEqual(product["specs"]["m2_slots"], len(m2_slots))
-            self.assertEqual(
-                product["specs"]["pcie5_m2_slots"],
-                sum(slot["interface_generation"] == 5 for slot in m2_slots),
-            )
-            self.assertTrue(all(isinstance(slot.get("heatsink"), bool) for slot in m2_slots))
-            self.assertEqual(
-                product["specs"]["m2_heatsink_slots"],
-                sum(slot["heatsink"] for slot in m2_slots),
-            )
+            if all(isinstance(slot.get("interface_generation"), int) for slot in m2_slots):
+                self.assertEqual(
+                    product["specs"]["pcie5_m2_slots"],
+                    sum(slot["interface_generation"] == 5 for slot in m2_slots),
+                )
+            if all(isinstance(slot.get("heatsink"), bool) for slot in m2_slots):
+                self.assertEqual(
+                    product["specs"]["m2_heatsink_slots"],
+                    sum(slot["heatsink"] for slot in m2_slots),
+                )
 
     def test_motherboard_child_sheets_are_visible_and_adjacent(self):
         workbook = load_workbook(WORKBOOK, data_only=False, read_only=False)
@@ -500,14 +682,33 @@ class CatalogExcelTest(unittest.TestCase):
         self.assertEqual(names[motherboard_index + 2], "MotherboardUSB")
         self.assertEqual(workbook["MotherboardSlots"].sheet_state, "visible")
         self.assertEqual(workbook["MotherboardUSB"].sheet_state, "visible")
-        self.assertEqual(
-            workbook["MotherboardSlots"].tables["MotherboardSlotsCatalog"].ref,
-            "A4:M111",
+        _, slot_geometry = table_geometry(
+            workbook["MotherboardSlots"], "MotherboardSlotsCatalog"
         )
         self.assertEqual(
-            workbook["MotherboardUSB"].tables["MotherboardUSBCatalog"].ref,
-            "A4:J104",
+            slot_geometry[:3],
+            (1, 4, 13),
         )
+        slot_rows = sum(
+            workbook["MotherboardSlots"].cell(row, 1).value not in (None, "")
+            for row in range(slot_geometry[1] + 1, slot_geometry[3] + 1)
+        )
+        self.assertEqual(slot_rows, 2634)
+        self.assertGreaterEqual(slot_geometry[3] - slot_geometry[1], slot_rows + 40)
+
+        _, usb_geometry = table_geometry(
+            workbook["MotherboardUSB"], "MotherboardUSBCatalog"
+        )
+        self.assertEqual(
+            usb_geometry[:3],
+            (1, 4, 10),
+        )
+        usb_rows = sum(
+            workbook["MotherboardUSB"].cell(row, 1).value not in (None, "")
+            for row in range(usb_geometry[1] + 1, usb_geometry[3] + 1)
+        )
+        self.assertEqual(usb_rows, 1925)
+        self.assertGreaterEqual(usb_geometry[3] - usb_geometry[1], usb_rows + 50)
 
     def test_motherboard_usb_parent_aggregate_mismatch_is_rejected(self):
         temporary, path = self.copy_workbook()
@@ -553,14 +754,14 @@ class CatalogExcelTest(unittest.TestCase):
             for row in range(min_row + 1, max_row + 1):
                 if (
                     sheet.cell(row, headers["product_id"]).value
-                    == "motherboard-asus-tuf-gaming-b650-plus-wifi"
+                    == "motherboard-msi-mag-b650-tomahawk-wifi"
                     and sheet.cell(row, headers["location"]).value == "front_header"
                     and sheet.cell(row, headers["connector_type"]).value == "Type-C"
                 ):
-                    sheet.cell(row, headers["usb_max_speed_gbps"]).value = 10
+                    sheet.cell(row, headers["usb_max_speed_gbps"]).value = 20
                     break
             else:
-                self.fail("ASUS B650のフロントUSB Type-C行が見つかりません")
+                self.fail("MSI B650のフロントUSB Type-C行が見つかりません")
             workbook.save(path)
 
             result = build_catalog_from_workbook(path)
@@ -587,8 +788,15 @@ class CatalogExcelTest(unittest.TestCase):
                 str(sheet.cell(min_row, column).value): column
                 for column in range(min_col, max_col + 1)
             }
+            product_id_column = headers["product_id"]
+            target_row = next(
+                row
+                for row in range(min_row + 1, sheet.max_row + 1)
+                if sheet.cell(row, product_id_column).value
+                == "motherboard-asrock-z890-steel-legend-wifi"
+            )
             for key in ("m2_slots", "pcie5_m2_slots", "m2_heatsink_slots"):
-                cell = sheet.cell(min_row + 1, headers[key])
+                cell = sheet.cell(target_row, headers[key])
                 cell.value += 1
             workbook.save(path)
 
@@ -643,12 +851,12 @@ class CatalogExcelTest(unittest.TestCase):
         temporary, path = self.copy_workbook()
         try:
             workbook = load_workbook(path)
-            fill_minimum_ssd(workbook)
+            target_row = fill_minimum_ssd(workbook)
             sheet = workbook["SSD"]
             table, (min_col, min_row, max_col, max_row) = table_geometry(sheet, "SSDCatalog")
             new_column = max_col + 1
             sheet.cell(min_row, new_column).value = "test_metric"
-            sheet.cell(min_row + 1, new_column).value = 12.5
+            sheet.cell(target_row, new_column).value = 12.5
             table.ref = (
                 f"{get_column_letter(min_col)}{min_row}:"
                 f"{get_column_letter(new_column)}{max_row}"
@@ -770,6 +978,23 @@ class CatalogExcelTest(unittest.TestCase):
                 product["quality"]["risk_flags"], ["component_swap_unverified"]
             )
             self.assertEqual(product["quality"]["risks"][0]["id"], "risk-test-1")
+        finally:
+            temporary.cleanup()
+
+    def test_unknown_evidence_kind_is_rejected(self):
+        temporary, path = self.copy_workbook()
+        try:
+            workbook = load_workbook(path)
+            workbook["Evidence"]["C5"] = "price_blog"
+            workbook.save(path)
+
+            result = build_catalog_from_workbook(path)
+            self.assertTrue(
+                any(
+                    "未対応の根拠種別" in error and "price_blog" in error
+                    for error in result.errors
+                )
+            )
         finally:
             temporary.cleanup()
 

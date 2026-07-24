@@ -156,7 +156,10 @@ class QualityCatalogTest(unittest.TestCase):
         repository_catalog = Path(__file__).parents[1] / "catalog" / "quality_catalog.json"
         catalog = json.loads(repository_catalog.read_text(encoding="utf-8"))
         motherboard = next(
-            product for product in catalog["products"] if product["category"] == "motherboard"
+            product
+            for product in catalog["products"]
+            if product["category"] == "motherboard"
+            and "front_usb_c_max_speed_gbps" in product["specs"]
         )
         motherboard["specs"]["front_usb_c_max_speed_gbps"] += 5
 
@@ -168,14 +171,18 @@ class QualityCatalogTest(unittest.TestCase):
     def test_runtime_validation_rejects_motherboard_m2_aggregate_mismatches(self):
         repository_catalog = Path(__file__).parents[1] / "catalog" / "quality_catalog.json"
         catalog = json.loads(repository_catalog.read_text(encoding="utf-8"))
+        aggregate_keys = ("m2_slots", "pcie5_m2_slots", "m2_heatsink_slots")
         motherboard = next(
-            product for product in catalog["products"] if product["category"] == "motherboard"
+            product
+            for product in catalog["products"]
+            if product["category"] == "motherboard"
+            and all(key in product["specs"] for key in aggregate_keys)
         )
-        for key in ("m2_slots", "pcie5_m2_slots", "m2_heatsink_slots"):
+        for key in aggregate_keys:
             motherboard["specs"][key] += 1
 
         errors, _ = validate_catalog(catalog)
-        for key in ("m2_slots", "pcie5_m2_slots", "m2_heatsink_slots"):
+        for key in aggregate_keys:
             with self.subTest(key=key):
                 self.assertTrue(
                     any(key in error and "slots集計値" in error for error in errors)
@@ -279,6 +286,29 @@ class QualityCatalogTest(unittest.TestCase):
         self.assertTrue(
             any(
                 "存在しない製品項目" in error and "specs.release_date" in error
+                for error in errors
+            )
+        )
+
+    def test_runtime_validation_enforces_evidence_kinds(self):
+        accepted = copy.deepcopy(sample_catalog())
+        accepted["products"][0]["quality"]["evidence"][0]["kind"] = "price_com"
+        errors, _ = validate_catalog(accepted)
+        self.assertEqual(errors, [])
+
+        rejected = copy.deepcopy(sample_catalog())
+        rejected["products"][0]["quality"]["evidence"][0]["kind"] = "price_blog"
+        rejected["settings"]["default_quality_gate"]["required_evidence_kinds"] = [
+            "price_blog"
+        ]
+        errors, _ = validate_catalog(rejected)
+        self.assertTrue(
+            any(".kind は未対応" in error and "price_blog" in error for error in errors)
+        )
+        self.assertTrue(
+            any(
+                "required_evidence_kinds に未対応値" in error
+                and "price_blog" in error
                 for error in errors
             )
         )

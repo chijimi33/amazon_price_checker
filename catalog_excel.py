@@ -28,7 +28,7 @@ except ImportError as exc:  # pragma: no cover - exercised only before setup
         "openpyxl がありません。python3 -m pip install -r requirements.txt を実行してください。"
     ) from exc
 
-from quality_catalog import validate_catalog
+from quality_catalog import EVIDENCE_KINDS, validate_catalog
 
 
 DEFAULT_WORKBOOK = Path(__file__).with_name("catalog") / "quality_catalog.xlsx"
@@ -807,6 +807,8 @@ def build_catalog_from_workbook(path: Path) -> BuildResult:
         if any(not value for value in required.values()) or is_blank(row.get("checked_at")):
             errors.append(f"{location}: evidence_id・product_id・kind・title・url・checked_atは必須です")
             continue
+        if required["kind"] not in EVIDENCE_KINDS:
+            errors.append(f"{location}.kind: 未対応の根拠種別です: {required['kind']}")
         evidence_id = required["evidence_id"]
         if evidence_id in evidence_owners:
             errors.append(f"Evidence IDが重複しています: {evidence_id}")
