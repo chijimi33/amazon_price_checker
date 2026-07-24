@@ -57,7 +57,6 @@ python3 amazon_browser.py \
 python3 amazon_price_checker.py B0XXXXXXXXX \
   --confirmation-file amazon_page_confirmations.json \
   --confirmation-only \
-  --quality-catalog catalog/quality_catalog.json \
   --history-file data/amazon_history.jsonl \
   --output output/amazon_products.json
 ```
@@ -107,7 +106,6 @@ python3 chimolog_source.py --strict-sources --output data/chimolog_candidates.js
 python3 amazon_price_checker.py \
   --chimolog-file data/chimolog_candidates.json \
   --confirmation-file amazon_page_confirmations.json \
-  --quality-catalog catalog/quality_catalog.json \
   --history-file data/amazon_history.jsonl \
   --output output/amazon_products.json
 ```
@@ -177,6 +175,8 @@ CPUの初期行はすべて `research_required` / `unrated` です。性能値�
 
 PCIe拡張スロットとM.2は `MotherboardSlots` へ1スロット1行、USBは `MotherboardUSB` へ公式仕様の同一グループごとに1行で登録します。463製品中453製品は両子シートまで構造化済みで、残る10製品は確認できる詳細仕様がないため推測せず空欄にしています。`connected_to`、`shared_with`、`sharing_effect`、`availability_condition` により、CPU世代で変わるレーン幅、M.2装着時の排他、物理スロットと実レーン数の違いを保持します。`location`、`official_standard`、`usb_max_speed_gbps`、`connector_type`、`port_count` は分離し、ThunderboltやDisplayPortは `alternate_protocols` に記録します。JSON生成時には両子シートを親製品の `specs.slots` / `specs.usb_ports` へ結合し、M.2集計、背面USBの総数・Type-A/C数・USB4 Type-C数・最速値、フロントUSB Type-Cヘッダー数・最大速度が親シートと一致しなければ検証エラーになります。
 
+`Monitor` シートには、2026-07-24時点のちもろぐ「レビュー評価【特におすすめ】」「レビュー評価【おすすめ】」に掲載された重複除外後75製品を登録しています。評価区分は `S` / `A` のtierへ対応させ、個別レビュー記事から画面サイズ、解像度、リフレッシュレート、VRR、実測応答、オーバーシュート、輝度、スタンド、保証、パネル、色域、入力端子を確認できた範囲で構造化しています。記事本文で対象型番の販売終了を確認した製品は履歴参照用の `discontinued` とし、自動監視の承認対象から除外します。記事に記載がない項目や、メーカー公式仕様と独立照合できていない識別子・保証条件は推測で埋めません。
+
 仕様項目は後から追加できます。
 
 1. カテゴリシートのExcelテーブル内へ新しい列を追加する
@@ -242,11 +242,12 @@ python3 quality_catalog.py evaluate PRODUCT_ID \
 
 ```bash
 python3 amazon_price_checker.py B0XXXXXXXXX \
-  --quality-catalog catalog/quality_catalog.json \
   --quality-profile ssd-pcie4-balanced-2tb \
   --history-file data/amazon_history.jsonl \
   --output output/amazon_products.json
 ```
+
+`catalog/quality_catalog.json` は既定で自動読込されるため、通常は `--quality-catalog` の指定は不要です。別のカタログを使う場合だけ `--quality-catalog PATH` で上書きし、品質照合を意図的に止める場合だけ `--no-quality-catalog` を指定します。既定カタログが欠落・破損している場合は、品質判定を黙って省略せずエラーとして出力します。
 
 ASIN、部品番号、完全なモデル名の順でカタログと照合します。短い型番の部分一致だけでは自動承認しません。
 

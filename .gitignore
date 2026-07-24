@@ -6,6 +6,8 @@ config.json
 amazon_page_confirmations.json
 data/amazon_history.jsonl
 output/
+outputs/
+*.inspect.ndjson
 .playwright-cli/
 node_modules/
 .DS_Store

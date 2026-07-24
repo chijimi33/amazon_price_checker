@@ -206,7 +206,17 @@ class CatalogExcelTest(unittest.TestCase):
                 ("F5:F1979", "'Lists'!$AQ$5:$AQ$6", False),
             },
             "Evidence": {
-                ("C5:C2391", "'Lists'!$D$5:$D$10", False),
+                ("C5:C2541", "'Lists'!$D$5:$D$10", False),
+            },
+            "Monitor": {
+                ("J5:J99", "'Lists'!$A$5:$A$9", False),
+                ("K5:K99", "'Lists'!$B$5:$B$9", False),
+                ("S5:S99", "'Lists'!$AH$5:$AH$8", False),
+                ("U5:U99", "'Lists'!$C$5:$C$6", False),
+                ("V5:V99", "'Lists'!$C$5:$C$6", False),
+                ("X5:X99", "'Lists'!$AI$5:$AI$9", False),
+                ("Z5:Z99", "'Lists'!$C$5:$C$6", False),
+                ("AB5:AB99", "'Lists'!$AJ$5:$AJ$12", False),
             },
             "FieldDefinitions": {
                 ("D5:D317", "'Lists'!$G$5:$G$11", False),
@@ -237,7 +247,7 @@ class CatalogExcelTest(unittest.TestCase):
             "SSD": "J5:J701",
             "PSU": "J5:J485",
             "Motherboard": "J5:J487",
-            "Monitor": "J5:J24",
+            "Monitor": "J5:J99",
         }
         for sheet_name, expected_range in expected_status_ranges.items():
             with self.subTest(status_sheet=sheet_name):
@@ -511,6 +521,38 @@ class CatalogExcelTest(unittest.TestCase):
                     for item in product["quality"]["evidence"]
                 )
             )
+
+    def test_monitor_catalog_contains_chimolog_a_or_better_products(self):
+        result = build_catalog_from_workbook(WORKBOOK)
+        self.assertEqual(result.errors, [])
+        monitors = [
+            product
+            for product in result.catalog["products"]
+            if product["category"] == "monitor"
+        ]
+        self.assertEqual(len(monitors), 75)
+        self.assertEqual(sum(product["quality"]["tier"] == "S" for product in monitors), 9)
+        self.assertEqual(sum(product["quality"]["tier"] == "A" for product in monitors), 66)
+        self.assertEqual(
+            sum(product["quality"]["status"] == "discontinued" for product in monitors),
+            4,
+        )
+        self.assertTrue(
+            all(len(product["quality"]["evidence"]) >= 2 for product in monitors)
+        )
+
+        products = {product["id"]: product for product in monitors}
+        p275ms_plus = products["titan-army-p275ms-plus"]
+        self.assertEqual(p275ms_plus["specs"]["resolution"], "2560x1440")
+        self.assertEqual(p275ms_plus["specs"]["max_refresh_hz"], 320)
+        self.assertTrue(p275ms_plus["specs"]["measured_response_reviewed"])
+
+        model_conflict = products["msi-g274qpx"]
+        self.assertEqual(
+            model_conflict["quality"]["status"],
+            "research_required",
+        )
+        self.assertIn("型番が不一致", model_conflict["quality"]["risk_summary"])
 
     def test_ssd_and_psu_candidates_follow_selected_scope(self):
         result = build_catalog_from_workbook(WORKBOOK)
